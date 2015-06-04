@@ -8,7 +8,6 @@
       <Unit0>
         <Filename Value="emisPanel.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="emisPanel"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
@@ -19,10 +18,11 @@
         <Filename Value="upanel.pp"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPanel"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uPanel"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="65"/>
+        <TopLine Value="52"/>
         <CursorPos X="54" Y="82"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>

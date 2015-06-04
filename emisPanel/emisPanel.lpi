@@ -20,7 +20,7 @@
       <MajorVersionNr Value="5"/>
       <MinorVersionNr Value="1"/>
       <RevisionNr Value="3"/>
-      <BuildNr Value="1"/>
+      <BuildNr Value="2"/>
       <StringTable Comments="App by Morar Zivica" CompanyName="Morar Zivica personal" FileDescription="Medical software" InternalName="Emis" LegalCopyright="Morar Zivica(exdatis) personal" LegalTrademarks="exdatis@users.sourceforge.net" OriginalFilename="emis" ProductName="Emis" ProductVersion="5.1"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -43,12 +43,12 @@
       <Unit0>
         <Filename Value="emisPanel.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="emisPanel"/>
       </Unit0>
       <Unit1>
         <Filename Value="upanel.pp"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmPanel"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uPanel"/>
       </Unit1>

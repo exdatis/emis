@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="3">
+      <Unit0>
+        <Filename Value="emisGeneral.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="22"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="ugeneral.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmGeneral"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uGeneral"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="4"/>
+        <CursorPos X="41" Y="55"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="udmodule.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dModule"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="uDModule"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit2>
+    </Units>
+    <JumpHistory Count="21" HistoryIndex="20">
+      <Position1>
+        <Filename Value="ugeneral.pp"/>
+      </Position1>
+      <Position2>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="35" Column="14" TopLine="3"/>
+      </Position2>
+      <Position3>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="36" Column="14" TopLine="3"/>
+      </Position3>
+      <Position4>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="37" Column="14" TopLine="3"/>
+      </Position4>
+      <Position5>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="39" Column="14" TopLine="5"/>
+      </Position5>
+      <Position6>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="46" Column="24" TopLine="14"/>
+      </Position6>
+      <Position7>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="48" Column="24" TopLine="15"/>
+      </Position7>
+      <Position8>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="49" Column="24" TopLine="15"/>
+      </Position8>
+      <Position9>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="50" Column="24" TopLine="16"/>
+      </Position9>
+      <Position10>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="51" Column="24" TopLine="17"/>
+      </Position10>
+      <Position11>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="52" Column="24" TopLine="18"/>
+      </Position11>
+      <Position12>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="53" Column="24" TopLine="19"/>
+      </Position12>
+      <Position13>
+        <Filename Value="udmodule.pp"/>
+      </Position13>
+      <Position14>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="54" Column="24" TopLine="20"/>
+      </Position14>
+      <Position15>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="55" Column="24" TopLine="21"/>
+      </Position15>
+      <Position16>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="56" Column="24" TopLine="22"/>
+      </Position16>
+      <Position17>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="57" Column="24" TopLine="23"/>
+      </Position17>
+      <Position18>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="58" Column="24" TopLine="24"/>
+      </Position18>
+      <Position19>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="43" Column="71" TopLine="31"/>
+      </Position19>
+      <Position20>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="69" Column="37" TopLine="38"/>
+      </Position20>
+      <Position21>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="81" Column="36" TopLine="47"/>
+      </Position21>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
