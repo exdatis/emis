@@ -4,17 +4,42 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="3">
+    <Units Count="8">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="22"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="4"/>
+        <CursorPos X="5" Y="22"/>
+        <UsageCount Value="26"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
+        <Filename Value="udmodule.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dModule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="uDModule"/>
+        <EditorIndex Value="2"/>
+        <UsageCount Value="26"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="baseDbForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uBaseDbForm"/>
+        <TopLine Value="49"/>
+        <CursorPos X="15" Y="68"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit2>
+      <Unit3>
         <Filename Value="ugeneral.pp"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmGeneral"/>
@@ -22,107 +47,174 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uGeneral"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="4"/>
-        <CursorPos X="41" Y="55"/>
-        <UsageCount Value="22"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="88"/>
+        <CursorPos X="49" Y="92"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit1>
-      <Unit2>
-        <Filename Value="udmodule.pp"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\dialogs\uconfirm.pp"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="dModule"/>
-        <ResourceBaseClass Value="DataModule"/>
-        <UnitName Value="uDModule"/>
+        <ComponentName Value="dlgConfirm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uConfirm"/>
         <EditorIndex Value="1"/>
-        <UsageCount Value="22"/>
+        <CursorPos X="33" Y="14"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit2>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\common\ubasemoduleform.pp"/>
+        <ComponentName Value="baseModuleForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="41"/>
+        <CursorPos X="25" Y="56"/>
+        <UsageCount Value="22"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZDataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="110"/>
+        <CursorPos X="47" Y="119"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZDatasetUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="19"/>
+        <CursorPos X="43" Y="28"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit7>
     </Units>
-    <JumpHistory Count="21" HistoryIndex="20">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="ugeneral.pp"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="61" Column="46" TopLine="43"/>
       </Position1>
       <Position2>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="35" Column="14" TopLine="3"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="60" Column="46" TopLine="43"/>
       </Position2>
       <Position3>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="36" Column="14" TopLine="3"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="59" Column="46" TopLine="42"/>
       </Position3>
       <Position4>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="37" Column="14" TopLine="3"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="58" Column="46" TopLine="41"/>
       </Position4>
       <Position5>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="39" Column="14" TopLine="5"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="57" Column="46" TopLine="40"/>
       </Position5>
       <Position6>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="46" Column="24" TopLine="14"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="58" Column="46" TopLine="41"/>
       </Position6>
       <Position7>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="48" Column="24" TopLine="15"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="59" Column="46" TopLine="42"/>
       </Position7>
       <Position8>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="49" Column="24" TopLine="15"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="60" Column="46" TopLine="43"/>
       </Position8>
       <Position9>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="50" Column="24" TopLine="16"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="62" Column="46" TopLine="44"/>
       </Position9>
       <Position10>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="51" Column="24" TopLine="17"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="85" Column="14" TopLine="69"/>
       </Position10>
       <Position11>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="52" Column="24" TopLine="18"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="96" Column="14" TopLine="76"/>
       </Position11>
       <Position12>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="53" Column="24" TopLine="19"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="97" Column="13" TopLine="81"/>
       </Position12>
       <Position13>
-        <Filename Value="udmodule.pp"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="98" Column="13" TopLine="87"/>
       </Position13>
       <Position14>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="54" Column="24" TopLine="20"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="99" Column="15" TopLine="97"/>
       </Position14>
       <Position15>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="55" Column="24" TopLine="21"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="95" Column="15" TopLine="93"/>
       </Position15>
       <Position16>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="56" Column="24" TopLine="22"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="101" Column="13" TopLine="99"/>
       </Position16>
       <Position17>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="57" Column="24" TopLine="23"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="132" Column="13" TopLine="116"/>
       </Position17>
       <Position18>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="58" Column="24" TopLine="24"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="72" Column="36" TopLine="55"/>
       </Position18>
       <Position19>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="43" Column="71" TopLine="31"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="59" Column="41" TopLine="52"/>
       </Position19>
       <Position20>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="69" Column="37" TopLine="38"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="15" Column="74" TopLine="6"/>
       </Position20>
       <Position21>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="81" Column="36" TopLine="47"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="59" Column="50" TopLine="51"/>
       </Position21>
+      <Position22>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="95" Column="19" TopLine="91"/>
+      </Position22>
+      <Position23>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="61" Column="33" TopLine="51"/>
+      </Position23>
+      <Position24>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="62" Column="32" TopLine="51"/>
+      </Position24>
+      <Position25>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="116" Column="41" TopLine="104"/>
+      </Position25>
+      <Position26>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="62" Column="62" TopLine="52"/>
+      </Position26>
+      <Position27>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="160" Column="45" TopLine="140"/>
+      </Position27>
+      <Position28>
+        <Filename Value="..\dialogs\uconfirm.pp"/>
+        <Caret Line="6" Column="88"/>
+      </Position28>
+      <Position29>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="94" Column="12" TopLine="89"/>
+      </Position29>
+      <Position30>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="42" Column="31" TopLine="34"/>
+      </Position30>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>
