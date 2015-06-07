@@ -2,11 +2,11 @@ object dlgConfirm: TdlgConfirm
   Left = 408
   Height = 110
   Top = 172
-  Width = 415
+  Width = 336
   BorderStyle = bsDialog
   Caption = 'Potvrda akcije'
   ClientHeight = 110
-  ClientWidth = 415
+  ClientWidth = 336
   Icon.Data = {
     BE2500000000010001003030000001002000A825000016000000280000003000
     0000600000000100200000000000002400006400000064000000000000000000
@@ -318,14 +318,14 @@ object dlgConfirm: TdlgConfirm
     Left = 0
     Height = 47
     Top = 63
-    Width = 415
+    Width = 336
     Align = alBottom
     ClientHeight = 27
-    ClientWidth = 411
+    ClientWidth = 332
     TabOrder = 0
     object btnOk: TButton
       Cursor = crHandPoint
-      Left = 240
+      Left = 168
       Height = 25
       Hint = 'Prihvatam'
       Top = -1
@@ -337,7 +337,7 @@ object dlgConfirm: TdlgConfirm
     end
     object btnCancel: TButton
       Cursor = crHandPoint
-      Left = 320
+      Left = 248
       Height = 25
       Hint = 'Obustavi'
       Top = -1
@@ -350,7 +350,7 @@ object dlgConfirm: TdlgConfirm
   object Image1: TImage
     Left = 14
     Height = 52
-    Top = 9
+    Top = 10
     Width = 52
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963480D000089504E47
@@ -466,8 +466,8 @@ object dlgConfirm: TdlgConfirm
   object memoMsg: TMemo
     Left = 77
     Height = 60
-    Top = 2
-    Width = 333
+    Top = 5
+    Width = 253
     Color = clBtnFace
     TabOrder = 1
   end

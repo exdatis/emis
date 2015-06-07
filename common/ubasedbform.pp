@@ -43,6 +43,7 @@ type
     groupBoxBtns: TGroupBox;
     lblBaseDbTitle: TLabel;
     procedure actCancelExecute(Sender: TObject);
+    procedure actCloseFormExecute(Sender: TObject);
     procedure actDeleteExecute(Sender: TObject);
     procedure actEditExecute(Sender: TObject);
     procedure actFirstExecute(Sender: TObject);
@@ -67,14 +68,11 @@ type
     procedure doEditRec(var dataSet : TZAbstractDataset);
     procedure doSaveRec(var dataSet : TZAbstractDataset);
     procedure doCancelRec(var dataSet : TZAbstractDataset);
-    {actions after open(dataSet) and onScroll(dataSet)}
+    {actions after open(dataSet)}
     procedure doAfterOpenDataSet(var dataSet : TZAbstractDataset);
-    procedure doOnScrollDataSet(var dataSet : TZAbstractDataset);
     {enable-disable btns}
     procedure disableScrollBtns;
     procedure enableScrollBtns;
-  published
-    {published declarations}
     {abstract procedure onDbEvent}
     procedure onActFirst; virtual; abstract;
     procedure onActPrior; virtual; abstract;
@@ -85,8 +83,6 @@ type
     procedure onActEdit; virtual; abstract;
     procedure onActSave; virtual; abstract;
     procedure onActCancel; virtual; abstract;
-    {virtual procedure closeForm}
-    procedure onActCloseForm; virtual;
   end;
 
 var
@@ -109,7 +105,7 @@ end;
 procedure TbaseDbForm.doFirstRec(var dataSet: TZAbstractDataset);
 begin
   {jump to first rec if not bof}
-  if(TZAbstractDataset(dataSet).RecordCount > 0) then
+  if(not TZAbstractDataset(dataSet).IsEmpty) then
     begin
       if(not TZAbstractDataset(dataSet).BOF) then
         begin
@@ -138,7 +134,7 @@ end;
 procedure TbaseDbForm.doPriorRec(var dataSet: TZAbstractDataset);
 begin
   {jump to prior rec if not bof}
-  if(TZAbstractDataset(dataSet).RecordCount > 0) then
+  if(not TZAbstractDataset(dataSet).IsEmpty) then
     begin
       if(not TZAbstractDataset(dataSet).BOF) then
         begin
@@ -167,7 +163,7 @@ end;
 procedure TbaseDbForm.doNextRec(var dataSet: TZAbstractDataset);
 begin
   {jump to next rec if not eof}
-  if(TZAbstractDataset(dataSet).RecordCount > 0) then
+  if(not TZAbstractDataset(dataSet).IsEmpty) then
     begin
       if(not TZAbstractDataset(dataSet).EOF) then
         begin
@@ -196,7 +192,7 @@ end;
 procedure TbaseDbForm.doLastRec(var dataSet: TZAbstractDataset);
 begin
   {jump to last rec if not eof}
-  if(TZAbstractDataset(dataSet).RecordCount > 0) then
+  if(not TZAbstractDataset(dataSet).IsEmpty) then
     begin
       if(not TZAbstractDataset(dataSet).EOF) then
         begin
@@ -260,7 +256,7 @@ begin
     begin
       TZAbstractDataset(dataSet).Delete;
       {check dataSet}
-      if(TZAbstractDataset(dataSet).RecordCount > 0) then
+      if(not TZAbstractDataset(dataSet).IsEmpty) then
         begin
           {enable user to scroll}
           enableScrollBtns;
@@ -294,9 +290,10 @@ end;
 procedure TbaseDbForm.doEditRec(var dataSet: TZAbstractDataset);
 begin
   {check dataSet}
-  if(TZAbstractDataset(dataSet).RecordCount > 0) then
+  if(not TZAbstractDataset(dataSet).IsEmpty) then
     if(TZAbstractDataset(dataSet).State in [dsBrowse]) then
       begin
+        TZAbstractDataset(dataSet).Edit;
         {disable user to scroll}
         disableScrollBtns;
         {disable edit, insert or delete}
@@ -316,6 +313,7 @@ begin
     begin
       {save changes}
       TZAbstractDataset(dataSet).Post;
+      TZAbstractDataset(dataSet).RefreshCurrentRow(True);
       {enable user to scroll}
       enableScrollBtns;
       {enable edit, insert or delete}
@@ -336,7 +334,7 @@ if(TZAbstractDataset(dataSet).State in [dsInsert, dsEdit]) then
     {save changes}
     TZAbstractDataset(dataSet).Cancel;
     {count records}
-    if(TZAbstractDataset(dataSet).RecordCount > 0) then
+    if(not TZAbstractDataset(dataSet).IsEmpty) then
       begin
         {enable user to scroll}
         enableScrollBtns;
@@ -366,7 +364,7 @@ end;
 procedure TbaseDbForm.doAfterOpenDataSet(var dataSet: TZAbstractDataset);
 begin
   {count records}
-  if(TZAbstractDataset(dataSet).RecordCount > 0) then
+  if(not TZAbstractDataset(dataSet).IsEmpty) then
     begin
       {enable scrollBtns}
       enableScrollBtns;
@@ -392,28 +390,6 @@ begin
     end;
 end;
 
-procedure TbaseDbForm.doOnScrollDataSet(var dataSet: TZAbstractDataset);
-var
-  newDlg : TdlgConfirm;
-  confirmMsg : String = 'Postoje izmene u zapisima!';
-begin
-  {check state}
-  if(TZAbstractDataset(dataSet).State in [dsBrowse]) then
-    Exit;
-  {update confirmMsg}
-  confirmMsg:= confirmMsg + #13#10;
-  confirmMsg:= confirmMsg + 'Želite da sačuvamo promene?';
-  {ask user to confirm}
-  newDlg:= TdlgConfirm.Create(nil);
-  newDlg.memoMsg.Lines.Text:= confirmMsg;
-  if(newDlg.ShowModal = mrOK) then
-    doSaveRec(TZAbstractDataset(dataSet))
-  else
-    doCancelRec(TZAbstractDataset(dataSet));
-  {finallu free dialog}
-  newDlg.Free;
-end;
-
 procedure TbaseDbForm.disableScrollBtns;
 begin
   {disable scroll actions}
@@ -432,12 +408,6 @@ begin
   actLast.Enabled:= True;
 end;
 
-procedure TbaseDbForm.onActCloseForm;
-begin
-  {virtual- override procedure (check data sets before)}
-  self.Close;
-end;
-
 procedure TbaseDbForm.actFirstExecute(Sender: TObject);
 begin
   {virtual-abstract override procedure}
@@ -454,6 +424,12 @@ procedure TbaseDbForm.actCancelExecute(Sender: TObject);
 begin
   {virtual-abstract override procedure}
   onActCancel;
+end;
+
+procedure TbaseDbForm.actCloseFormExecute(Sender: TObject);
+begin
+  {close form}
+  self.Close;
 end;
 
 procedure TbaseDbForm.actEditExecute(Sender: TObject);

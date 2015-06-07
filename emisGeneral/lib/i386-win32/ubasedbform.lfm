@@ -198,6 +198,7 @@ object baseDbForm: TbaseDbForm
       Caption = 'Sačuvaj'
       Hint = 'Sačuvaj izmene'
       OnExecute = actSaveExecute
+      ShortCut = 16467
     end
     object actCancel: TAction
       Caption = 'Odustani'
@@ -208,6 +209,7 @@ object baseDbForm: TbaseDbForm
     object actCloseForm: TAction
       Caption = 'Zatvori'
       Hint = 'Zatvori formular'
+      OnExecute = actCloseFormExecute
       ShortCut = 16499
     end
   end
