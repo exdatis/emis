@@ -1,0 +1,216 @@
+object baseDbForm: TbaseDbForm
+  Left = 342
+  Height = 516
+  Top = 153
+  Width = 803
+  BorderStyle = bsNone
+  Caption = 'baseDbForm'
+  ClientHeight = 516
+  ClientWidth = 803
+  OnClose = FormClose
+  LCLVersion = '1.4.0.4'
+  object lblBaseDbTitle: TLabel
+    Left = 0
+    Height = 15
+    Top = 0
+    Width = 803
+    Align = alTop
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'lblBaseDbTitle'
+    Color = clMaroon
+    Font.Color = clInfoBk
+    Font.Height = 16
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+    OptimalFill = True
+  end
+  object groupBoxBtns: TGroupBox
+    Left = 0
+    Height = 44
+    Top = 472
+    Width = 803
+    Align = alBottom
+    ClientHeight = 24
+    ClientWidth = 799
+    TabOrder = 0
+    object btnInsert: TButton
+      Cursor = crHandPoint
+      Left = 263
+      Height = 25
+      Top = -3
+      Width = 75
+      Action = actInsert
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+    end
+    object btnDelete: TButton
+      Cursor = crHandPoint
+      Left = 340
+      Height = 25
+      Top = -3
+      Width = 75
+      Action = actDelete
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+    end
+    object btnEdit: TButton
+      Cursor = crHandPoint
+      Left = 417
+      Height = 25
+      Top = -3
+      Width = 75
+      Action = actEdit
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+    end
+    object btnSave: TButton
+      Cursor = crHandPoint
+      Left = 494
+      Height = 25
+      Top = -3
+      Width = 75
+      Action = actSave
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+    end
+    object btnCancel: TButton
+      Cursor = crHandPoint
+      Left = 571
+      Height = 25
+      Top = -3
+      Width = 75
+      Action = actCancel
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 4
+    end
+    object btnCloseForm: TButton
+      Cursor = crHandPoint
+      Left = 719
+      Height = 25
+      Top = -3
+      Width = 75
+      Action = actCloseForm
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 5
+    end
+    object btnFirst: TButton
+      Cursor = crHandPoint
+      Left = 3
+      Height = 25
+      Top = -3
+      Width = 43
+      Action = actFirst
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 6
+    end
+    object btnPrior: TButton
+      Cursor = crHandPoint
+      Left = 48
+      Height = 25
+      Top = -3
+      Width = 43
+      Action = actPrior
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 7
+    end
+    object btnNext: TButton
+      Cursor = crHandPoint
+      Left = 93
+      Height = 25
+      Top = -3
+      Width = 43
+      Action = actNext
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 8
+    end
+    object btnLast: TButton
+      Cursor = crHandPoint
+      Left = 138
+      Height = 25
+      Top = -3
+      Width = 43
+      Action = actLast
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 9
+    end
+  end
+  object actDb: TActionList
+    left = 270
+    top = 277
+    object actFirst: TAction
+      Caption = '<<'
+      Hint = 'Prvi slog'
+      OnExecute = actFirstExecute
+      ShortCut = 49222
+    end
+    object actPrior: TAction
+      Caption = '<'
+      Hint = 'Prethodni slog'
+      OnExecute = actPriorExecute
+      ShortCut = 49232
+    end
+    object actNext: TAction
+      Caption = '>'
+      Hint = 'Naredni slog'
+      OnExecute = actNextExecute
+      ShortCut = 49230
+    end
+    object actLast: TAction
+      Caption = '>>'
+      Hint = 'Poslednji slog'
+      OnExecute = actLastExecute
+      ShortCut = 49228
+    end
+    object actInsert: TAction
+      Caption = 'Dodaj'
+      Hint = 'Novi slog'
+      OnExecute = actInsertExecute
+      ShortCut = 16457
+    end
+    object actDelete: TAction
+      Caption = 'Obriši'
+      Hint = 'Trajno brisanje'
+      OnExecute = actDeleteExecute
+    end
+    object actEdit: TAction
+      Caption = 'Izmeni'
+      Hint = 'Izmena postojećeg'
+      OnExecute = actEditExecute
+      ShortCut = 16453
+    end
+    object actSave: TAction
+      Caption = 'Sačuvaj'
+      Hint = 'Sačuvaj izmene'
+      OnExecute = actSaveExecute
+      ShortCut = 16467
+    end
+    object actCancel: TAction
+      Caption = 'Odustani'
+      Hint = 'Odbaci izmene'
+      OnExecute = actCancelExecute
+      ShortCut = 16474
+    end
+    object actCloseForm: TAction
+      Caption = 'Zatvori'
+      Hint = 'Zatvori formular'
+      OnExecute = actCloseFormExecute
+      ShortCut = 16499
+    end
+  end
+end

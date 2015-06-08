@@ -4,125 +4,217 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="3">
+    <Units Count="12">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="22"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="4"/>
+        <CursorPos X="5" Y="23"/>
+        <UsageCount Value="30"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
+        <Filename Value="udmodule.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dModule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="uDModule"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="24" Y="13"/>
+        <UsageCount Value="30"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="baseDbForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uBaseDbForm"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="69"/>
+        <CursorPos X="38" Y="89"/>
+        <UsageCount Value="28"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit2>
+      <Unit3>
         <Filename Value="ugeneral.pp"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmGeneral"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uGeneral"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="4"/>
-        <CursorPos X="41" Y="55"/>
-        <UsageCount Value="22"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="47"/>
+        <CursorPos X="12" Y="59"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit1>
-      <Unit2>
-        <Filename Value="udmodule.pp"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\dialogs\uconfirm.pp"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="dModule"/>
-        <ResourceBaseClass Value="DataModule"/>
-        <UnitName Value="uDModule"/>
-        <EditorIndex Value="1"/>
+        <ComponentName Value="dlgConfirm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uConfirm"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="27" Y="12"/>
+        <UsageCount Value="25"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="locations\ulocations.pp"/>
+        <ComponentName Value="frmLocations"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uLocations"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="283"/>
+        <CursorPos X="35" Y="300"/>
+        <UsageCount Value="24"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\common\ubasemoduleform.pp"/>
+        <ComponentName Value="baseModuleForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="41"/>
+        <CursorPos X="25" Y="56"/>
         <UsageCount Value="22"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZDataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="110"/>
+        <CursorPos X="47" Y="119"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZDatasetUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="19"/>
+        <CursorPos X="43" Y="28"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\dbc\ZDbcInterbase6Utils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="823"/>
+        <CursorPos Y="832"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZAbstractConnection.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="940"/>
+        <CursorPos X="52" Y="952"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="locations\ulocation.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmLocation"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uLocation"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="149"/>
+        <CursorPos X="40" Y="154"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit2>
+      </Unit11>
     </Units>
-    <JumpHistory Count="21" HistoryIndex="20">
+    <JumpHistory Count="20" HistoryIndex="19">
       <Position1>
-        <Filename Value="ugeneral.pp"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="415" Column="14" TopLine="411"/>
       </Position1>
       <Position2>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="35" Column="14" TopLine="3"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="32" Column="31" TopLine="12"/>
       </Position2>
       <Position3>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="36" Column="14" TopLine="3"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="38" Column="40" TopLine="31"/>
       </Position3>
       <Position4>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="37" Column="14" TopLine="3"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="61" Column="40" TopLine="54"/>
       </Position4>
       <Position5>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="39" Column="14" TopLine="5"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="92" Column="40" TopLine="72"/>
       </Position5>
       <Position6>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="46" Column="24" TopLine="14"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="91" Column="41" TopLine="78"/>
       </Position6>
       <Position7>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="48" Column="24" TopLine="15"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="89" Column="43" TopLine="86"/>
       </Position7>
       <Position8>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="49" Column="24" TopLine="15"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="96" Column="50" TopLine="93"/>
       </Position8>
       <Position9>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="50" Column="24" TopLine="16"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="192" Column="41" TopLine="185"/>
       </Position9>
       <Position10>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="51" Column="24" TopLine="17"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="94" Column="20" TopLine="89"/>
       </Position10>
       <Position11>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="52" Column="24" TopLine="18"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="101" Column="39" TopLine="98"/>
       </Position11>
       <Position12>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="53" Column="24" TopLine="19"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="113" Column="40" TopLine="107"/>
       </Position12>
       <Position13>
-        <Filename Value="udmodule.pp"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="125" Column="36" TopLine="121"/>
       </Position13>
       <Position14>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="54" Column="24" TopLine="20"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="141" Column="41" TopLine="129"/>
       </Position14>
       <Position15>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="55" Column="24" TopLine="21"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="142" Column="35" TopLine="138"/>
       </Position15>
       <Position16>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="56" Column="24" TopLine="22"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="157" Column="40" TopLine="146"/>
       </Position16>
       <Position17>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="57" Column="24" TopLine="23"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="303" Column="46" TopLine="285"/>
       </Position17>
       <Position18>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="58" Column="24" TopLine="24"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="449" Column="36" TopLine="437"/>
       </Position18>
       <Position19>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="43" Column="71" TopLine="31"/>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret Line="438" Column="14" TopLine="437"/>
       </Position19>
       <Position20>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="69" Column="37" TopLine="38"/>
+        <Filename Value="locations\ulocation.pp"/>
+        <Caret Line="163" Column="9" TopLine="155"/>
       </Position20>
-      <Position21>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="81" Column="36" TopLine="47"/>
-      </Position21>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

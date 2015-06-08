@@ -7,7 +7,8 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, uGeneral, uDModule, lazcontrols, zcomponent
+  Forms, uDModule, uGeneral, lazcontrols, zcomponent, uBaseDbForm, uConfirm,
+  uLocation
   { you can add units after this };
 
 {$R *.res}
@@ -18,6 +19,9 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmGeneral, frmGeneral);
   Application.CreateForm(TdModule, dModule);
+  Application.CreateForm(TdlgConfirm, dlgConfirm);
+  //Application.CreateForm(TfrmLocation, frmLocation);
+  //Application.CreateForm(TbaseDbForm, baseDbForm);
   Application.Run;
 end.
 
