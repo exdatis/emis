@@ -37,7 +37,7 @@ object baseDbForm: TbaseDbForm
     TabOrder = 0
     object btnInsert: TButton
       Cursor = crHandPoint
-      Left = 263
+      Left = 329
       Height = 25
       Top = -3
       Width = 75
@@ -48,7 +48,7 @@ object baseDbForm: TbaseDbForm
     end
     object btnDelete: TButton
       Cursor = crHandPoint
-      Left = 340
+      Left = 406
       Height = 25
       Top = -3
       Width = 75
@@ -59,7 +59,7 @@ object baseDbForm: TbaseDbForm
     end
     object btnEdit: TButton
       Cursor = crHandPoint
-      Left = 417
+      Left = 483
       Height = 25
       Top = -3
       Width = 75
@@ -70,7 +70,7 @@ object baseDbForm: TbaseDbForm
     end
     object btnSave: TButton
       Cursor = crHandPoint
-      Left = 494
+      Left = 560
       Height = 25
       Top = -3
       Width = 75
@@ -81,7 +81,7 @@ object baseDbForm: TbaseDbForm
     end
     object btnCancel: TButton
       Cursor = crHandPoint
-      Left = 571
+      Left = 637
       Height = 25
       Top = -3
       Width = 75
@@ -127,7 +127,7 @@ object baseDbForm: TbaseDbForm
     end
     object btnNext: TButton
       Cursor = crHandPoint
-      Left = 93
+      Left = 234
       Height = 25
       Top = -3
       Width = 43
@@ -139,7 +139,7 @@ object baseDbForm: TbaseDbForm
     end
     object btnLast: TButton
       Cursor = crHandPoint
-      Left = 138
+      Left = 279
       Height = 25
       Top = -3
       Width = 43
@@ -148,6 +148,19 @@ object baseDbForm: TbaseDbForm
       ParentShowHint = False
       ShowHint = True
       TabOrder = 9
+    end
+    object edtRecNo: TEdit
+      Cursor = crHandPoint
+      Left = 93
+      Height = 23
+      Top = -2
+      Width = 139
+      Alignment = taCenter
+      Color = clSilver
+      ParentShowHint = False
+      ReadOnly = True
+      ShowHint = True
+      TabOrder = 10
     end
   end
   object actDb: TActionList

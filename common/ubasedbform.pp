@@ -40,6 +40,7 @@ type
     btnSave: TButton;
     btnInsert: TButton;
     btnFirst: TButton;
+    edtRecNo: TEdit;
     groupBoxBtns: TGroupBox;
     lblBaseDbTitle: TLabel;
     procedure actCancelExecute(Sender: TObject);

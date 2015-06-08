@@ -56,6 +56,8 @@ inherited frmLocation: TfrmLocation
         'Z'
         'Ž'
       )
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 0
       Text = 'Mesta na slovo ...'
     end
@@ -73,6 +75,7 @@ inherited frmLocation: TfrmLocation
       Cursor = crHandPoint
       Left = 311
       Height = 23
+      Hint = 'Polje za pretragu'
       Top = 6
       Width = 164
       AutoComplete = True
@@ -86,6 +89,8 @@ inherited frmLocation: TfrmLocation
         'Poštanski broj'
       )
       OnChange = cmbFieldArgChange
+      ParentShowHint = False
+      ShowHint = True
       Style = csDropDownList
       TabOrder = 1
       Text = 'Pretraga polja ...'
@@ -213,6 +218,7 @@ inherited frmLocation: TfrmLocation
     Connection = dModule.zdbh
     SortedFields = 'L_NAME'
     AfterOpen = zqLocationAfterOpen
+    AfterScroll = zqLocationAfterScroll
     UpdateObject = zupdLocation
     AfterPost = zqLocationAfterPost
     AfterDelete = zqLocationAfterDelete
