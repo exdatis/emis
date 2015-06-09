@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ActnList, ExtCtrls, Buttons, DbCtrls, DBGrids, uBaseDbForm, db,
+  ActnList, ExtCtrls, Buttons, DbCtrls, DBGrids, PopupNotifier, uBaseDbForm, db,
   ZAbstractDataset, ZDataset, ZSequence, ZSqlUpdate, ZAbstractRODataset;
 
 type
@@ -30,6 +30,7 @@ type
     Label1: TLabel;
     Label2: TLabel;
     panelParams: TPanel;
+    pupNotiferLocation: TPopupNotifier;
     zqLocation: TZQuery;
     zqLocationL_CODE: TStringField;
     zqLocationL_ID: TLongintField;
@@ -48,6 +49,7 @@ type
       );
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure zqLocationAfterDelete(DataSet: TDataSet);
     procedure zqLocationAfterOpen(DataSet: TDataSet);
     procedure zqLocationAfterPost(DataSet: TDataSet);
@@ -95,6 +97,27 @@ begin
   {default args}
   charArg:= 'A%';
   fieldArg:= FIELD_NAME; {locate using field_name}
+end;
+
+procedure TfrmLocation.FormShow(Sender: TObject);
+var
+  helpMsg : String = 'Izaberite početna slova';
+  x, y : Longint;
+begin
+  {show help for search loctions}
+  helpMsg:= helpMsg + #13#10;
+  helpMsg:= helpMsg + 'grada kao filter.';
+  helpMsg:= helpMsg + #13#10;
+  helpMsg:= helpMsg + 'Prikazana su mesta na slovo: A';
+  pupNotiferLocation.Text:= helpMsg;
+  {* cmbCharFilter position *}
+  x:= Screen.ActiveControl.Left + 247;
+  y:= Screen.ActiveControl.Top + 120;
+  { show at position }
+  pupNotiferLocation.ShowAtPos(x, y);
+  {this is not ok}
+  {* Sleep(2500);
+  pupNotiferLocation.Hide; *}
 end;
 
 procedure TfrmLocation.actCharFilterExecute(Sender: TObject);
@@ -235,6 +258,8 @@ var
 begin
   {upply updates}
   TZAbstractDataset(DataSet).ApplyUpdates;
+  {rtefresh current row}
+  TZAbstractDataset(DataSet).RefreshCurrentRow(True);
   {find currText}
   currText:= TZAbstractDataset(DataSet).FieldByName(FIELD_NAME).AsString;
   {first char to firstChar-var}

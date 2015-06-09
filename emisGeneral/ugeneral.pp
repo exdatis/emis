@@ -14,6 +14,7 @@ type
 
   TfrmGeneral = class(TForm)
     actGeneral: TActionList;
+    actDocWIn: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
     divExDatis: TDividerBevel;
@@ -21,6 +22,9 @@ type
     lblModuleTitle: TLabel;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
     panelForms: TBCPanel;
     imgGeneral: TImageList;
     MenuItem1: TMenuItem;
@@ -32,6 +36,7 @@ type
     statusBarGeneral: TStatusBar;
     toolBarGeneral: TToolBar;
     ToolButton1: TToolButton;
+    procedure actDocWInExecute(Sender: TObject);
     procedure actLocationFrmExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
     procedure divExDatisClick(Sender: TObject);
@@ -56,7 +61,7 @@ const
 
 implementation
 uses
-  uLocation;
+  uLocation, uDocWarehouseIn;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -121,6 +126,32 @@ begin
     newForm.Top:= 0;
     {open dataSets}
     newForm.applyCharFilter; {with default char}
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDocWInExecute(Sender: TObject);
+var
+  newForm : TfrmDocWarehouseIn;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDocWarehouseIn.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
     {show form}
     newForm.Show;
     {set focus to enable shortcuts}

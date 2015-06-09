@@ -20,7 +20,7 @@
       <MajorVersionNr Value="5"/>
       <MinorVersionNr Value="3"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="18"/>
+      <BuildNr Value="23"/>
       <StringTable Comments="App by Morar" CompanyName="Morar Zivica personal" FileDescription="Medical software" InternalName="Emis" LegalCopyright="Morar Zivica personal(Exdatis)" LegalTrademarks="exdatis@users.sourceforge.net" OriginalFilename="emisGeneral" ProductName="Emis" ProductVersion="5.3"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="6">
+    <Units Count="7">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -95,6 +95,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uLocation"/>
       </Unit5>
+      <Unit6>
+        <Filename Value="docs\udocwarehousein.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocWarehouseIn"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocWarehouseIn"/>
+      </Unit6>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -105,7 +113,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="..\common;..\dialogs;locations"/>
+      <OtherUnitFiles Value="..\common;..\dialogs;locations;docs"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

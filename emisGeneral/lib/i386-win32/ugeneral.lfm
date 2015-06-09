@@ -498,6 +498,11 @@ object frmGeneral: TfrmGeneral
       Hint = 'Gradovi i mesta'
       OnExecute = actLocationFrmExecute
     end
+    object actDocWIn: TAction
+      Caption = 'Magacin ulaz'
+      Hint = 'Magacin ulaz'
+      OnExecute = actDocWInExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -687,6 +692,15 @@ object frmGeneral: TfrmGeneral
       Caption = 'Lokacije'
       object MenuItem5: TMenuItem
         Action = actLocationFrm
+      end
+    end
+    object MenuItem6: TMenuItem
+      Caption = 'Imenovanje dokumenata'
+      object MenuItem7: TMenuItem
+        Caption = 'Magacinski dokumenti'
+        object MenuItem8: TMenuItem
+          Action = actDocWIn
+        end
       end
     end
   end

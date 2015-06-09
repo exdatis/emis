@@ -314,7 +314,6 @@ begin
     begin
       {save changes}
       TZAbstractDataset(dataSet).Post;
-      TZAbstractDataset(dataSet).RefreshCurrentRow(True);
       {enable user to scroll}
       enableScrollBtns;
       {enable edit, insert or delete}

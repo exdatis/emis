@@ -156,7 +156,8 @@ object baseDbForm: TbaseDbForm
       Top = -2
       Width = 139
       Alignment = taCenter
-      Color = clSilver
+      Color = clWhite
+      Enabled = False
       ParentShowHint = False
       ReadOnly = True
       ShowHint = True
