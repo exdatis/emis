@@ -104,6 +104,8 @@ var
   helpMsg : String = 'Izaberite početna slova';
   x, y : Longint;
 begin
+  {gubi poziciju nije ispravno}
+  {********************************************************
   {show help for search loctions}
   helpMsg:= helpMsg + #13#10;
   helpMsg:= helpMsg + 'grada kao filter.';
@@ -118,6 +120,7 @@ begin
   {this is not ok}
   {* Sleep(2500);
   pupNotiferLocation.Hide; *}
+  **********************************************************}
 end;
 
 procedure TfrmLocation.actCharFilterExecute(Sender: TObject);
