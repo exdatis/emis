@@ -15,16 +15,21 @@ type
   TfrmGeneral = class(TForm)
     actGeneral: TActionList;
     actDocWIn: TAction;
+    actDocWOut: TAction;
+    actDocSOInput: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
     divExDatis: TDividerBevel;
     Image1: TImage;
     lblModuleTitle: TLabel;
+    MenuItem10: TMenuItem;
+    MenuItem11: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
     panelForms: TBCPanel;
     imgGeneral: TImageList;
     MenuItem1: TMenuItem;
@@ -36,7 +41,16 @@ type
     statusBarGeneral: TStatusBar;
     toolBarGeneral: TToolBar;
     ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
+    ToolButton6: TToolButton;
+    ToolButton7: TToolButton;
+    ToolButton8: TToolButton;
+    procedure actDocSOInputExecute(Sender: TObject);
     procedure actDocWInExecute(Sender: TObject);
+    procedure actDocWOutExecute(Sender: TObject);
     procedure actLocationFrmExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
     procedure divExDatisClick(Sender: TObject);
@@ -61,7 +75,7 @@ const
 
 implementation
 uses
-  uLocation, uDocWarehouseIn;
+  uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -145,6 +159,58 @@ begin
   closePriorForm;
   try
     newForm:= TfrmDocWarehouseIn.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDocSOInputExecute(Sender: TObject);
+var
+  newForm : TfrmDocSOInput;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDocSOInput.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDocWOutExecute(Sender: TObject);
+var
+  newForm : TfrmDocWarehouseOut;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDocWarehouseOut.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}
