@@ -12,7 +12,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="20"/>
+        <UsageCount Value="21"/>
       </Unit0>
       <Unit1>
         <Filename Value="upanel.pp"/>
@@ -22,14 +22,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uPanel"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="52"/>
-        <CursorPos X="54" Y="82"/>
-        <UsageCount Value="20"/>
+        <TopLine Value="95"/>
+        <CursorPos X="26" Y="99"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
     </Units>
-    <JumpHistory Count="10" HistoryIndex="9">
+    <JumpHistory Count="20" HistoryIndex="19">
       <Position1>
         <Filename Value="upanel.pp"/>
       </Position1>
@@ -69,6 +69,46 @@
         <Filename Value="upanel.pp"/>
         <Caret Line="63" Column="30" TopLine="54"/>
       </Position10>
+      <Position11>
+        <Filename Value="upanel.pp"/>
+        <Caret Line="9" Column="55" TopLine="55"/>
+      </Position11>
+      <Position12>
+        <Filename Value="upanel.pp"/>
+        <Caret Line="61" Column="20" TopLine="59"/>
+      </Position12>
+      <Position13>
+        <Filename Value="upanel.pp"/>
+        <Caret Line="81" Column="12" TopLine="50"/>
+      </Position13>
+      <Position14>
+        <Filename Value="upanel.pp"/>
+        <Caret Line="83" Column="12" TopLine="52"/>
+      </Position14>
+      <Position15>
+        <Filename Value="upanel.pp"/>
+        <Caret Line="92" Column="41" TopLine="89"/>
+      </Position15>
+      <Position16>
+        <Filename Value="upanel.pp"/>
+        <Caret Line="104" Column="41" TopLine="101"/>
+      </Position16>
+      <Position17>
+        <Filename Value="upanel.pp"/>
+        <Caret Line="89" Column="27" TopLine="66"/>
+      </Position17>
+      <Position18>
+        <Filename Value="upanel.pp"/>
+        <Caret Line="91" Column="27" TopLine="68"/>
+      </Position18>
+      <Position19>
+        <Filename Value="upanel.pp"/>
+        <Caret Line="97" Column="26" TopLine="93"/>
+      </Position19>
+      <Position20>
+        <Filename Value="upanel.pp"/>
+        <Caret Line="98" Column="26" TopLine="94"/>
+      </Position20>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

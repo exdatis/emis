@@ -18,8 +18,8 @@ object baseDbForm: TbaseDbForm
     Alignment = taCenter
     AutoSize = False
     Caption = 'lblBaseDbTitle'
-    Color = clMaroon
-    Font.Color = clInfoBk
+    Color = clGray
+    Font.Color = clCream
     Font.Height = 16
     ParentColor = False
     ParentFont = False

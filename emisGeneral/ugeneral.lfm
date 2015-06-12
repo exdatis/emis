@@ -532,7 +532,7 @@ object frmGeneral: TfrmGeneral
       Top = 22
       Width = 193
       Caption = 'Emis software - module general data'
-      Font.Color = clMoneyGreen
+      Font.Color = clCream
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
