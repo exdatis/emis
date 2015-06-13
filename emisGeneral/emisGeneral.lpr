@@ -9,7 +9,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, uDModule, uGeneral, lazcontrols, zcomponent, uBaseDbForm, uConfirm,
   uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
-  uDocBuying, uDocSell;
+  uDocBuying, uDocSell, uDocContract, uMeasure;
 
 {$R *.res}
 
@@ -26,6 +26,8 @@ begin
   //Application.CreateForm(TdlgConfirm, dlgConfirm);
   //Application.CreateForm(TfrmLocation, frmLocation);
   Application.CreateForm(TbaseDbForm, baseDbForm);
+  //Application.CreateForm(TfrmMeasure, frmMeasure);
+  //Application.CreateForm(TfrmDocContract, frmDocContract);
   //Application.CreateForm(TfrmDocSell, frmDocSell);
   //Application.CreateForm(TfrmDocBuying, frmDocBuying);
   Application.Run;

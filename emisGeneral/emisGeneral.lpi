@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="12">
+    <Units Count="14">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -130,7 +130,6 @@
         <ComponentName Value="frmDocBuying"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uDocBuying"/>
       </Unit10>
       <Unit11>
         <Filename Value="docs\udocsell.pp"/>
@@ -140,6 +139,22 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uDocSell"/>
       </Unit11>
+      <Unit12>
+        <Filename Value="docs\udoccontract.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocContract"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocContract"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="measure\umeasure.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMeasure"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uMeasure"/>
+      </Unit13>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -150,7 +165,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="..\common;..\dialogs;locations;docs"/>
+      <OtherUnitFiles Value="..\common;..\dialogs;locations;docs;measure"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

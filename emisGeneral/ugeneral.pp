@@ -20,6 +20,8 @@ type
     actDocSOOutput: TAction;
     actDocBuying: TAction;
     actDocSell: TAction;
+    actDocContract: TAction;
+    actMeasure: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
     divExDatis: TDividerBevel;
@@ -31,6 +33,9 @@ type
     MenuItem13: TMenuItem;
     MenuItem14: TMenuItem;
     MenuItem15: TMenuItem;
+    MenuItem16: TMenuItem;
+    MenuItem17: TMenuItem;
+    MenuItem18: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
@@ -51,6 +56,10 @@ type
     ToolButton10: TToolButton;
     ToolButton11: TToolButton;
     ToolButton12: TToolButton;
+    ToolButton13: TToolButton;
+    ToolButton14: TToolButton;
+    ToolButton15: TToolButton;
+    ToolButton16: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
@@ -60,12 +69,14 @@ type
     ToolButton8: TToolButton;
     ToolButton9: TToolButton;
     procedure actDocBuyingExecute(Sender: TObject);
+    procedure actDocContractExecute(Sender: TObject);
     procedure actDocSellExecute(Sender: TObject);
     procedure actDocSOInputExecute(Sender: TObject);
     procedure actDocSOOutputExecute(Sender: TObject);
     procedure actDocWInExecute(Sender: TObject);
     procedure actDocWOutExecute(Sender: TObject);
     procedure actLocationFrmExecute(Sender: TObject);
+    procedure actMeasureExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
     procedure divExDatisClick(Sender: TObject);
     procedure divExDatisMouseEnter(Sender: TObject);
@@ -90,7 +101,7 @@ const
 implementation
 uses
   uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
-  uDocBuying, uDocSell;
+  uDocBuying, uDocSell, uDocContract, uMeasure;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -164,6 +175,32 @@ begin
   end;
 end;
 
+procedure TfrmGeneral.actMeasureExecute(Sender: TObject);
+var
+  newForm : TfrmMeasure;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmMeasure.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
 procedure TfrmGeneral.actDocWInExecute(Sender: TObject);
 var
   newForm : TfrmDocWarehouseIn;
@@ -226,6 +263,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmDocBuying.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDocContractExecute(Sender: TObject);
+var
+  newForm : TfrmDocContract;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDocContract.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}
