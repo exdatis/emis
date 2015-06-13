@@ -4,13 +4,15 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="17">
+    <Units Count="19">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="4"/>
-        <CursorPos X="5" Y="22"/>
-        <UsageCount Value="36"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="10"/>
+        <CursorPos X="5" Y="33"/>
+        <UsageCount Value="38"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -21,7 +23,7 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="uDModule"/>
         <CursorPos X="24" Y="13"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="38"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -31,10 +33,13 @@
         <ComponentName Value="baseDbForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <UnitName Value="uBaseDbForm"/>
+        <EditorIndex Value="7"/>
         <TopLine Value="308"/>
         <CursorPos X="48" Y="322"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="36"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="ugeneral.pp"/>
@@ -44,9 +49,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uGeneral"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="208"/>
-        <CursorPos X="27" Y="225"/>
-        <UsageCount Value="33"/>
+        <TopLine Value="245"/>
+        <CursorPos X="26" Y="251"/>
+        <UsageCount Value="35"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -58,7 +63,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="27" Y="12"/>
-        <UsageCount Value="31"/>
+        <UsageCount Value="33"/>
       </Unit4>
       <Unit5>
         <Filename Value="locations\ulocation.pp"/>
@@ -70,7 +75,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="131"/>
         <CursorPos X="44" Y="140"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -80,11 +85,10 @@
         <ComponentName Value="frmDocWarehouseIn"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uDocWarehouseIn"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="52"/>
         <CursorPos X="22" Y="59"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="26"/>
       </Unit6>
       <Unit7>
         <Filename Value="docs\udocwarehouseout.pp"/>
@@ -92,11 +96,10 @@
         <ComponentName Value="frmDocWarehouseOut"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uDocWarehouseOut"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="47"/>
         <CursorPos X="40" Y="49"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="25"/>
       </Unit7>
       <Unit8>
         <Filename Value="docs\udocsoinput.pp"/>
@@ -104,11 +107,10 @@
         <ComponentName Value="frmDocSOInput"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uDocSOInput"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="51"/>
         <CursorPos X="38" Y="303"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="24"/>
       </Unit8>
       <Unit9>
         <Filename Value="docs\udocsooutput.pp"/>
@@ -117,11 +119,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uDocSOOutput"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="297"/>
-        <CursorPos X="38" Y="320"/>
-        <UsageCount Value="21"/>
+        <TopLine Value="296"/>
+        <CursorPos X="42" Y="301"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit9>
@@ -185,100 +186,155 @@
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit16>
+      <Unit17>
+        <Filename Value="docs\udocbuying.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocBuying"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocBuying"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="297"/>
+        <CursorPos X="13" Y="316"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="docs\udocsell.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocSell"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocSell"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="296"/>
+        <CursorPos X="34" Y="319"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit18>
     </Units>
-    <JumpHistory Count="23" HistoryIndex="22">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="73" Column="60" TopLine="66"/>
+        <Filename Value="docs\udocbuying.pp"/>
+        <Caret Line="71" Column="36" TopLine="57"/>
       </Position1>
       <Position2>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="75" Column="60" TopLine="68"/>
+        <Filename Value="docs\udocbuying.pp"/>
+        <Caret Line="69" Column="15" TopLine="65"/>
       </Position2>
       <Position3>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="184" Column="29" TopLine="175"/>
+        <Filename Value="docs\udocbuying.pp"/>
+        <Caret Line="82" Column="32" TopLine="73"/>
       </Position3>
       <Position4>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="185" Column="29" TopLine="176"/>
+        <Filename Value="docs\udocbuying.pp"/>
+        <Caret Line="105" Column="38" TopLine="91"/>
       </Position4>
       <Position5>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="186" Column="29" TopLine="177"/>
+        <Filename Value="docs\udocbuying.pp"/>
+        <Caret Line="118" Column="26" TopLine="100"/>
       </Position5>
       <Position6>
-        <Filename Value="docs\udocsooutput.pp"/>
-        <Caret Line="9" Column="72"/>
+        <Filename Value="docs\udocbuying.pp"/>
+        <Caret Line="133" Column="35" TopLine="122"/>
       </Position6>
       <Position7>
-        <Filename Value="docs\udocsooutput.pp"/>
-        <Caret Line="10" Column="12"/>
+        <Filename Value="docs\udocbuying.pp"/>
+        <Caret Line="170" Column="28" TopLine="156"/>
       </Position7>
       <Position8>
-        <Filename Value="docs\udocsooutput.pp"/>
-        <Caret Line="6" Column="43"/>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="231" Column="19" TopLine="213"/>
       </Position8>
       <Position9>
-        <Filename Value="docs\udocsooutput.pp"/>
-        <Caret Line="45" Column="28" TopLine="26"/>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="83" Column="13" TopLine="68"/>
       </Position9>
       <Position10>
-        <Filename Value="docs\udocsooutput.pp"/>
-        <Caret Line="59" Column="3" TopLine="56"/>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="85" Column="13" TopLine="70"/>
       </Position10>
       <Position11>
-        <Filename Value="docs\udocsooutput.pp"/>
-        <Caret Line="54" Column="45" TopLine="43"/>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="220" Column="28" TopLine="211"/>
       </Position11>
       <Position12>
-        <Filename Value="docs\udocsooutput.pp"/>
-        <Caret Line="69" Column="17" TopLine="65"/>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="221" Column="28" TopLine="212"/>
       </Position12>
       <Position13>
-        <Filename Value="docs\udocsooutput.pp"/>
-        <Caret Line="82" Column="43" TopLine="73"/>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="222" Column="28" TopLine="213"/>
       </Position13>
       <Position14>
-        <Filename Value="docs\udocsooutput.pp"/>
-        <Caret Line="105" Column="44" TopLine="91"/>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="223" Column="28" TopLine="214"/>
       </Position14>
       <Position15>
-        <Filename Value="docs\udocsooutput.pp"/>
-        <Caret Line="118" Column="26" TopLine="100"/>
+        <Filename Value="docs\udocbuying.pp"/>
+        <Caret Line="313" Column="36" TopLine="293"/>
       </Position15>
       <Position16>
-        <Filename Value="docs\udocsooutput.pp"/>
-        <Caret Line="135" Column="28" TopLine="135"/>
+        <Filename Value="docs\udocsell.pp"/>
       </Position16>
       <Position17>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="78" Column="74" TopLine="67"/>
+        <Filename Value="docs\udocsell.pp"/>
+        <Caret Line="4" Column="45"/>
       </Position17>
       <Position18>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="80" Column="74" TopLine="69"/>
+        <Filename Value="docs\udocsell.pp"/>
+        <Caret Line="3" Column="41"/>
       </Position18>
       <Position19>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="223" Column="27" TopLine="206"/>
+        <Filename Value="docs\udocsell.pp"/>
+        <Caret Line="52" Column="42" TopLine="39"/>
       </Position19>
       <Position20>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="224" Column="27" TopLine="207"/>
+        <Filename Value="docs\udocsell.pp"/>
+        <Caret Line="69" Column="13" TopLine="65"/>
       </Position20>
       <Position21>
-        <Filename Value="locations\ulocation.pp"/>
-        <Caret Line="207" Column="36" TopLine="184"/>
+        <Filename Value="docs\udocsell.pp"/>
+        <Caret Line="77" Column="41" TopLine="73"/>
       </Position21>
       <Position22>
-        <Filename Value="locations\ulocation.pp"/>
-        <Caret Line="432" Column="7" TopLine="421"/>
+        <Filename Value="docs\udocsell.pp"/>
+        <Caret Line="94" Column="20" TopLine="91"/>
       </Position22>
       <Position23>
-        <Filename Value="locations\ulocation.pp"/>
-        <Caret Line="117" Column="25" TopLine="94"/>
+        <Filename Value="docs\udocsell.pp"/>
+        <Caret Line="117" Column="27" TopLine="99"/>
       </Position23>
+      <Position24>
+        <Filename Value="docs\udocsell.pp"/>
+        <Caret Line="131" Column="40" TopLine="121"/>
+      </Position24>
+      <Position25>
+        <Filename Value="docs\udocsell.pp"/>
+        <Caret Line="156" Column="41" TopLine="147"/>
+      </Position25>
+      <Position26>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="239" Column="21" TopLine="220"/>
+      </Position26>
+      <Position27>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="89" Column="23" TopLine="74"/>
+      </Position27>
+      <Position28>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="91" Column="23" TopLine="76"/>
+      </Position28>
+      <Position29>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="252" Column="26" TopLine="243"/>
+      </Position29>
+      <Position30>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="250" Column="26" TopLine="244"/>
+      </Position30>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

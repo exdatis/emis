@@ -8,8 +8,8 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, uDModule, uGeneral, lazcontrols, zcomponent, uBaseDbForm, uConfirm,
-  uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput
-  { you can add units after this };
+  uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
+  uDocBuying, uDocSell;
 
 {$R *.res}
 
@@ -25,7 +25,9 @@ begin
   //Application.CreateForm(TfrmDocWarehouseIn, frmDocWarehouseIn);
   //Application.CreateForm(TdlgConfirm, dlgConfirm);
   //Application.CreateForm(TfrmLocation, frmLocation);
-  //Application.CreateForm(TbaseDbForm, baseDbForm);
+  Application.CreateForm(TbaseDbForm, baseDbForm);
+  //Application.CreateForm(TfrmDocSell, frmDocSell);
+  //Application.CreateForm(TfrmDocBuying, frmDocBuying);
   Application.Run;
 end.
 
