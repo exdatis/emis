@@ -20,7 +20,7 @@
       <MajorVersionNr Value="5"/>
       <MinorVersionNr Value="3"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="29"/>
+      <BuildNr Value="30"/>
       <StringTable Comments="App by Morar" CompanyName="Morar Zivica personal" FileDescription="Medical software" InternalName="Emis" LegalCopyright="Morar Zivica personal(Exdatis)" LegalTrademarks="exdatis@users.sourceforge.net" OriginalFilename="emisGeneral" ProductName="Emis" ProductVersion="5.3"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="9">
+    <Units Count="10">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -70,7 +70,6 @@
         <ComponentName Value="baseDbForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uBaseDbForm"/>
       </Unit2>
       <Unit3>
         <Filename Value="ugeneral.pp"/>
@@ -109,6 +108,7 @@
         <ComponentName Value="frmDocWarehouseOut"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocWarehouseOut"/>
       </Unit7>
       <Unit8>
         <Filename Value="docs\udocsoinput.pp"/>
@@ -118,6 +118,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uDocSOInput"/>
       </Unit8>
+      <Unit9>
+        <Filename Value="docs\udocsooutput.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocSOOutput"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocSOOutput"/>
+      </Unit9>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

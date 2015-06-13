@@ -56,7 +56,7 @@ type
 var
   frmDocSOInput: TfrmDocSOInput;
 const
-  {fields of tbl location}
+  {fields of tbl DocStorageOrderInput}
   FIELD_ID : String = 'DSI_ID';
   FIELD_CODE : String = 'DSI_CODE';
   FIELD_NAME : String = 'DSI_NAME';

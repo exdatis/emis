@@ -56,7 +56,7 @@ type
 var
   frmDocWarehouseOut: TfrmDocWarehouseOut;
 const
-  {fields of tbl location}
+  {fields of tbl docWareHouseOut}
   FIELD_ID : String = 'DWO_ID';
   FIELD_CODE : String = 'DWO_CODE';
   FIELD_NAME : String = 'DWO_NAME';

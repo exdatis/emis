@@ -136,6 +136,8 @@ begin
   {set char-argument}
   charArg:= '%'; {show all}
   applyCharFilter;
+  {set cmbCharFilter index}
+  cmbCharFilter.Text:= 'Mesta na slovo ...'; {message like text}
 end;
 
 procedure TfrmLocation.cmbFieldArgChange(Sender: TObject);
@@ -429,7 +431,7 @@ begin
     TZAbstractDataset(zqLocation).Open;
     TZAbstractDataset(zqLocation).EnableControls;
     {show arg in cmbChar}
-    cmbCharFilter.ItemIndex:= cmbCharFilter.Items.IndexOf(LeftStr(charArg, 1)); {without '%'}
+    //cmbCharFilter.ItemIndex:= cmbCharFilter.Items.IndexOf(LeftStr(charArg, 1)); {without '%'}
   except
     on e : Exception do
     begin

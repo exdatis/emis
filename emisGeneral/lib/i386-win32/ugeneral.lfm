@@ -108,6 +108,16 @@ object frmGeneral: TfrmGeneral
       ParentShowHint = False
       ShowHint = True
     end
+    object ToolButton9: TToolButton
+      Cursor = crHandPoint
+      Left = 131
+      Top = 2
+      Action = actDocSOOutput
+      ImageIndex = 8
+      ParentShowHint = False
+      ShowCaption = False
+      ShowHint = True
+    end
   end
   object panelMnu: TPanel
     Left = 0
@@ -573,6 +583,11 @@ object frmGeneral: TfrmGeneral
       Hint = 'Nalozi ulaza'
       OnExecute = actDocSOInputExecute
     end
+    object actDocSOOutput: TAction
+      Caption = 'Nalozi izlaza robe'
+      Hint = 'Nalozi izlaza'
+      OnExecute = actDocSOOutputExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -939,6 +954,9 @@ object frmGeneral: TfrmGeneral
         Caption = 'Magacinski nalozi'
         object MenuItem11: TMenuItem
           Action = actDocSOInput
+        end
+        object MenuItem12: TMenuItem
+          Action = actDocSOOutput
         end
       end
     end
