@@ -1,0 +1,319 @@
+unit uDrugForms;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  ActnList, DbCtrls, DBGrids, uBaseDbForm, db, ZDataset, ZSequence,
+  ZAbstractDataset, ZAbstractRODataset;
+
+type
+
+  { TfrmDrugForms }
+
+  TfrmDrugForms = class(TbaseDbForm)
+    dbCode: TDBEdit;
+    dbgDrugForms: TDBGrid;
+    dbName: TDBEdit;
+    dsDrugForms: TDataSource;
+    groupBoxEdit: TGroupBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    zseqDrugForms: TZSequence;
+    ztDrugForms: TZTable;
+    ztDrugFormsDF_CODE: TStringField;
+    ztDrugFormsDF_ID: TLongintField;
+    ztDrugFormsDF_NAME: TStringField;
+    procedure dbgDrugFormsMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure dbgDrugFormsTitleClick(Column: TColumn);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure ztDrugFormsAfterDelete(DataSet: TDataSet);
+    procedure ztDrugFormsAfterOpen(DataSet: TDataSet);
+    procedure ztDrugFormsAfterPost(DataSet: TDataSet);
+    procedure ztDrugFormsAfterScroll(DataSet: TDataSet);
+  private
+    { private declarations }
+    procedure saveBeforeClose;
+    procedure sortDbGrid(var dataSet : TZAbstractDataset; Column : TColumn);
+  public
+    { public declarations }
+    procedure onActFirst; override;
+    procedure onActPrior; override;
+    procedure onActNext; override;
+    procedure onActLast; override;
+    procedure onActInsert; override;
+    procedure onActDelete; override;
+    procedure onActEdit; override;
+    procedure onActSave; override;
+    procedure onActCancel; override;
+    {open dataSet}
+    procedure openDataSet;
+  end;
+
+var
+  frmDrugForms: TfrmDrugForms;
+  {fields of tbl DrugForms}
+  FIELD_ID : String = 'DF_ID';
+  FIELD_CODE : String = 'DF_CODE';
+  FIELD_NAME : String = 'DF_NAME';
+implementation
+uses
+  uDModule, uConfirm;
+{$R *.lfm}
+
+{ TfrmDrugForms }
+
+procedure TfrmDrugForms.dbgDrugFormsMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  {set cursor again}
+  dbgDrugForms.Cursor:= crHandPoint;
+end;
+
+procedure TfrmDrugForms.dbgDrugFormsTitleClick(Column: TColumn);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0'; {find again recNo}
+begin
+  {sort}
+  sortDbGrid(TZAbstractDataset(ztDrugForms), Column);
+  {refresh after sort}
+  dbgDrugForms.Refresh;
+  { find recNo}
+  recCount:= IntToStr(TZAbstractDataset(ztDrugForms).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(ztDrugForms).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmDrugForms.FormClose(Sender: TObject; var CloseAction: TCloseAction
+  );
+begin
+  {check for unsaved changes}
+  saveBeforeClose;
+  inherited;
+end;
+
+procedure TfrmDrugForms.ztDrugFormsAfterDelete(DataSet: TDataSet);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {upply updates}
+  TZAbstractDataset(DataSet).ApplyUpdates;
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmDrugForms.ztDrugFormsAfterOpen(DataSet: TDataSet);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {set btns cheking recCount}
+  doAfterOpenDataSet(TZAbstractDataset(DataSet));
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmDrugForms.ztDrugFormsAfterPost(DataSet: TDataSet);
+var
+  {calc records(recNo and countRec)}
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+  currId : Longint = 0; {to find after refresh}
+begin
+  {upply updates}
+  TZAbstractDataset(DataSet).ApplyUpdates;
+  {rtefresh current row}
+  currId:= TZAbstractDataset(DataSet).FieldByName(FIELD_ID).AsInteger;
+  TZAbstractDataset(DataSet).DisableControls;
+  TZAbstractDataset(DataSet).Refresh;
+  TZAbstractDataset(DataSet).Locate(FIELD_ID, currId, []);
+  TZAbstractDataset(DataSet).EnableControls;
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then {*** never ***}
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmDrugForms.ztDrugFormsAfterScroll(DataSet: TDataSet);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {set btns cheking recCount}
+  if(TZAbstractDataset(DataSet).State in [dsEdit, dsInsert]) then
+    Exit;
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmDrugForms.saveBeforeClose;
+var
+  newDlg : TdlgConfirm;
+  confirmMsg : String = 'Postoje izmene koje nisu sačuvane!';
+  saveAll : Boolean = False;
+begin
+  {set confirm msg}
+  confirmMsg:= confirmMsg + #13#10;
+  confirmMsg:= confirmMsg + 'Želite da sačuvamo izmene?';
+  if(TZAbstractDataset(ztDrugForms).State in [dsEdit, dsInsert]) then
+    begin
+      {ask user to confirm}
+      newDlg:= TdlgConfirm.Create(nil);
+      newDlg.memoMsg.Lines.Text:= confirmMsg;
+      if(newDlg.ShowModal = mrOK) then
+        saveAll:= True;
+      {free dialog}
+      newDlg.Free;
+    end;
+  {check all}
+  if saveAll then
+    doSaveRec(TZAbstractDataset(ztDrugForms)); {in this case just one dataSet}
+end;
+
+procedure TfrmDrugForms.sortDbGrid(var dataSet: TZAbstractDataset;
+  Column: TColumn);
+var
+  currField : String;
+  currSortType : TSortType;
+begin
+  {check current sortField and type}
+  if( not dataSet.IsEmpty) then
+    begin
+      currField:= dataSet.SortedFields;
+      currSortType:= dataSet.SortType;
+      if(currField = Column.FieldName) then
+        begin
+          if currSortType = stAscending then
+            dataSet.SortType:= stDescending
+          else
+            dataSet.SortType:= stAscending;
+        end
+      else
+        begin
+          dataSet.SortedFields:= Column.FieldName;
+          dataSet.SortType:= stAscending;
+        end;
+    end;
+    {just refresh}
+end;
+
+procedure TfrmDrugForms.onActFirst;
+begin
+  {jump to first rec}
+  doFirstRec(TZAbstractDataset(ztDrugForms));
+end;
+
+procedure TfrmDrugForms.onActPrior;
+begin
+  {jump to prior rec}
+  doPriorRec(TZAbstractDataset(ztDrugForms));
+end;
+
+procedure TfrmDrugForms.onActNext;
+begin
+  {jump to next rec}
+  doNextRec(TZAbstractDataset(ztDrugForms));
+end;
+
+procedure TfrmDrugForms.onActLast;
+begin
+  {jump to last rec}
+  doLastRec(TZAbstractDataset(ztDrugForms));
+end;
+
+procedure TfrmDrugForms.onActInsert;
+begin
+  {set focus and insert new rec}
+  dbCode.SetFocus;
+  doInsertRec(TZAbstractDataset(ztDrugForms));
+end;
+
+procedure TfrmDrugForms.onActDelete;
+begin
+  {delete rec}
+  doDeleteRec(TZAbstractDataset(ztDrugForms));
+end;
+
+procedure TfrmDrugForms.onActEdit;
+begin
+  {set focus and edit rec}
+  dbCode.SetFocus;
+  doEditRec(TZAbstractDataset(ztDrugForms));
+end;
+
+procedure TfrmDrugForms.onActSave;
+begin
+  {save rec}
+  doSaveRec(TZAbstractDataset(ztDrugForms));
+end;
+
+procedure TfrmDrugForms.onActCancel;
+begin
+  {cancel rec}
+  doCancelRec(TZAbstractDataset(ztDrugForms));
+end;
+
+procedure TfrmDrugForms.openDataSet;
+begin
+  TZAbstractDataset(ztDrugForms).DisableControls;
+  TZAbstractDataset(ztDrugForms).Close;
+  try
+    TZAbstractDataset(ztDrugForms).Open;
+    TZAbstractDataset(ztDrugForms).EnableControls;
+  except
+    on e : Exception do
+    begin
+      dModule.zdbh.Rollback;
+      TZAbstractDataset(ztDrugForms).EnableControls;
+      ShowMessage(e.Message);
+    end;
+  end;
+end;
+
+end.
+

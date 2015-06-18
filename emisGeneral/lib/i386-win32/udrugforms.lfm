@@ -1,0 +1,140 @@
+inherited frmDrugForms: TfrmDrugForms
+  OnClose = FormClose
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Farmakološki oblici'
+  end
+  object groupBoxEdit: TGroupBox[2]
+    Left = 0
+    Height = 76
+    Hint = 'Polja označena zvezdicom su obavezna'
+    Top = 15
+    Width = 803
+    Align = alTop
+    Caption = ' Obrada podataka '
+    ClientHeight = 56
+    ClientWidth = 799
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 11
+      Height = 15
+      Top = 5
+      Width = 82
+      Caption = 'Oznaka oblika *'
+      ParentColor = False
+    end
+    object dbCode: TDBEdit
+      Left = 133
+      Height = 23
+      Top = 0
+      Width = 155
+      DataField = 'DF_CODE'
+      DataSource = dsDrugForms
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object Label2: TLabel
+      Left = 11
+      Height = 15
+      Top = 31
+      Width = 72
+      Caption = 'Naziv oblika *'
+      ParentColor = False
+    end
+    object dbName: TDBEdit
+      Left = 133
+      Height = 23
+      Top = 26
+      Width = 307
+      DataField = 'DF_NAME'
+      DataSource = dsDrugForms
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+  end
+  object dbgDrugForms: TDBGrid[3]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 381
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 91
+    Width = 803
+    Align = alClient
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsDrugForms
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 2
+    OnMouseMove = dbgDrugFormsMouseMove
+    OnTitleClick = dbgDrugFormsTitleClick
+  end
+  inherited actDb: TActionList[4]
+  end
+  object ztDrugForms: TZTable[5]
+    Connection = dModule.zdbh
+    SortedFields = 'DF_NAME'
+    AfterOpen = ztDrugFormsAfterOpen
+    AfterScroll = ztDrugFormsAfterScroll
+    AfterPost = ztDrugFormsAfterPost
+    AfterDelete = ztDrugFormsAfterDelete
+    TableName = 'DRUG_FORMS'
+    IndexFieldNames = 'DF_NAME Asc'
+    Sequence = zseqDrugForms
+    SequenceField = 'DF_ID'
+    left = 489
+    top = 304
+    object ztDrugFormsDF_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'DF_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ztDrugFormsDF_CODE: TStringField
+      DisplayLabel = 'Oznaka'
+      DisplayWidth = 9
+      FieldKind = fkData
+      FieldName = 'DF_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 60
+    end
+    object ztDrugFormsDF_NAME: TStringField
+      DisplayLabel = 'Naziv oblika'
+      DisplayWidth = 35
+      FieldKind = fkData
+      FieldName = 'DF_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+  end
+  object zseqDrugForms: TZSequence[6]
+    Connection = dModule.zdbh
+    SequenceName = 'DRUG_FORMS_SEQ'
+    left = 490
+    top = 353
+  end
+  object dsDrugForms: TDataSource[7]
+    DataSet = ztDrugForms
+    left = 571
+    top = 325
+  end
+end

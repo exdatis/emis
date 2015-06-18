@@ -21,6 +21,7 @@ type
     actDocBuying: TAction;
     actDocSell: TAction;
     actDocContract: TAction;
+    actDrugForms: TAction;
     actMeasure: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
@@ -36,6 +37,8 @@ type
     MenuItem16: TMenuItem;
     MenuItem17: TMenuItem;
     MenuItem18: TMenuItem;
+    MenuItem19: TMenuItem;
+    MenuItem20: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
@@ -60,6 +63,8 @@ type
     ToolButton14: TToolButton;
     ToolButton15: TToolButton;
     ToolButton16: TToolButton;
+    ToolButton17: TToolButton;
+    ToolButton18: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
@@ -75,6 +80,7 @@ type
     procedure actDocSOOutputExecute(Sender: TObject);
     procedure actDocWInExecute(Sender: TObject);
     procedure actDocWOutExecute(Sender: TObject);
+    procedure actDrugFormsExecute(Sender: TObject);
     procedure actLocationFrmExecute(Sender: TObject);
     procedure actMeasureExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
@@ -101,7 +107,7 @@ const
 implementation
 uses
   uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
-  uDocBuying, uDocSell, uDocContract, uMeasure;
+  uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -367,6 +373,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmDocWarehouseOut.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDrugFormsExecute(Sender: TObject);
+var
+  newForm : TfrmDrugForms;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDrugForms.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}
