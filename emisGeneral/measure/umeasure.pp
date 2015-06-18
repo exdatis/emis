@@ -55,6 +55,7 @@ type
 
 var
   frmMeasure: TfrmMeasure;
+const
   {fields of tbl Measure}
   FIELD_ID : String = 'M_ID';
   FIELD_CODE : String = 'M_CODE';

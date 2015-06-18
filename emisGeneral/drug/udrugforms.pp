@@ -55,6 +55,7 @@ type
 
 var
   frmDrugForms: TfrmDrugForms;
+const
   {fields of tbl DrugForms}
   FIELD_ID : String = 'DF_ID';
   FIELD_CODE : String = 'DF_CODE';
