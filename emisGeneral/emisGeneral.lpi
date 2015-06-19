@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="16">
+    <Units Count="17">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -136,7 +136,6 @@
         <ComponentName Value="frmDocSell"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uDocSell"/>
       </Unit11>
       <Unit12>
         <Filename Value="docs\udoccontract.pp"/>
@@ -169,6 +168,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uDocMedicalInput"/>
       </Unit15>
+      <Unit16>
+        <Filename Value="docs\udocmedicaloutput.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocMedicalOutput"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocMedicalOutput"/>
+      </Unit16>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

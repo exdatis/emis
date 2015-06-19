@@ -56,7 +56,7 @@ type
 var
   frmDocMedicalInput: TfrmDocMedicalInput;
 const
-  {fields of tbl Measure}
+  {fields of tbl DocMedicalInput}
   FIELD_ID : String = 'DMI_ID';
   FIELD_CODE : String = 'DMI_CODE';
   FIELD_NAME : String = 'DMI_NAME';

@@ -23,6 +23,7 @@ type
     actDocContract: TAction;
     actDrugForms: TAction;
     actDocMedicalInput: TAction;
+    actDocMedicalOutput: TAction;
     actMeasure: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
@@ -42,6 +43,7 @@ type
     MenuItem20: TMenuItem;
     MenuItem21: TMenuItem;
     MenuItem22: TMenuItem;
+    MenuItem23: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
@@ -71,6 +73,7 @@ type
     ToolButton19: TToolButton;
     ToolButton2: TToolButton;
     ToolButton20: TToolButton;
+    ToolButton21: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
@@ -81,6 +84,7 @@ type
     procedure actDocBuyingExecute(Sender: TObject);
     procedure actDocContractExecute(Sender: TObject);
     procedure actDocMedicalInputExecute(Sender: TObject);
+    procedure actDocMedicalOutputExecute(Sender: TObject);
     procedure actDocSellExecute(Sender: TObject);
     procedure actDocSOInputExecute(Sender: TObject);
     procedure actDocSOOutputExecute(Sender: TObject);
@@ -113,7 +117,8 @@ const
 implementation
 uses
   uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
-  uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput;
+  uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
+  uDocMedicalOutput;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -327,6 +332,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmDocMedicalInput.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDocMedicalOutputExecute(Sender: TObject);
+var
+  newForm : TfrmDocMedicalOutput;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDocMedicalOutput.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}
