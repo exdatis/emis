@@ -5,6 +5,13 @@ unit uBaseDbForm;
   Ver. 3. 2015-06(y-m)
  *******************************************************************************
 *}
+{*
+ *******************************************************************************
+ Morar: Revision(1) added procedure doSortDbGrid(var TzAbstractDataSet and TColumn)
+ not used in module GeneralData
+ date: 2015-06-20
+ *******************************************************************************
+*}
 
 {$mode objfpc}{$H+}
 
@@ -12,7 +19,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
-  Dialogs, StdCtrls, ActnList, Buttons, ExtCtrls, ZAbstractDataset, db;
+  Dialogs, StdCtrls, ActnList, Buttons, ExtCtrls, ZAbstractDataset, db, DBGrids,
+  ZAbstractRODataset;
 
 type
 
@@ -71,6 +79,8 @@ type
     procedure doCancelRec(var dataSet : TZAbstractDataset);
     {actions after open(dataSet)}
     procedure doAfterOpenDataSet(var dataSet : TZAbstractDataset);
+    {sort grid}
+    procedure doSortDbGrid(var dataSet : TZAbstractDataset; Column : TColumn);
     {enable-disable btns}
     procedure disableScrollBtns;
     procedure enableScrollBtns;
@@ -388,6 +398,33 @@ begin
       actDelete.Enabled:= False;
       actEdit.Enabled:= False;
     end;
+end;
+
+procedure TbaseDbForm.doSortDbGrid(var dataSet: TZAbstractDataset;
+  Column: TColumn);
+var
+  currField : String;
+  currSortType : TSortType;
+begin
+  {check current sortField and type}
+  if( not dataSet.IsEmpty) then
+    begin
+      currField:= dataSet.SortedFields;
+      currSortType:= dataSet.SortType;
+      if(currField = Column.FieldName) then
+        begin
+          if currSortType = stAscending then
+            dataSet.SortType:= stDescending
+          else
+            dataSet.SortType:= stAscending;
+        end
+      else
+        begin
+          dataSet.SortedFields:= Column.FieldName;
+          dataSet.SortType:= stAscending;
+        end;
+    end;
+    {just refresh}
 end;
 
 procedure TbaseDbForm.disableScrollBtns;

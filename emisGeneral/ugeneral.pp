@@ -24,6 +24,8 @@ type
     actDrugForms: TAction;
     actDocMedicalInput: TAction;
     actDocMedicalOutput: TAction;
+    actDocMedicalOrders: TAction;
+    actDocLab: TAction;
     actMeasure: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
@@ -44,6 +46,8 @@ type
     MenuItem21: TMenuItem;
     MenuItem22: TMenuItem;
     MenuItem23: TMenuItem;
+    MenuItem24: TMenuItem;
+    MenuItem25: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
@@ -74,6 +78,9 @@ type
     ToolButton2: TToolButton;
     ToolButton20: TToolButton;
     ToolButton21: TToolButton;
+    ToolButton22: TToolButton;
+    ToolButton23: TToolButton;
+    ToolButton24: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
@@ -83,7 +90,9 @@ type
     ToolButton9: TToolButton;
     procedure actDocBuyingExecute(Sender: TObject);
     procedure actDocContractExecute(Sender: TObject);
+    procedure actDocLabExecute(Sender: TObject);
     procedure actDocMedicalInputExecute(Sender: TObject);
+    procedure actDocMedicalOrdersExecute(Sender: TObject);
     procedure actDocMedicalOutputExecute(Sender: TObject);
     procedure actDocSellExecute(Sender: TObject);
     procedure actDocSOInputExecute(Sender: TObject);
@@ -118,7 +127,7 @@ implementation
 uses
   uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
   uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
-  uDocMedicalOutput;
+  uDocMedicalOutput, uDocMedicalOrders, uDocLab;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -322,6 +331,32 @@ begin
   end;
 end;
 
+procedure TfrmGeneral.actDocLabExecute(Sender: TObject);
+var
+  newForm : TfrmDocLab;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDocLab.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
 procedure TfrmGeneral.actDocMedicalInputExecute(Sender: TObject);
 var
   newForm : TfrmDocMedicalInput;
@@ -332,6 +367,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmDocMedicalInput.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDocMedicalOrdersExecute(Sender: TObject);
+var
+  newForm : TfrmDocMedicalOrders;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDocMedicalOrders.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}
