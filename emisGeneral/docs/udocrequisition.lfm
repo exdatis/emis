@@ -1,0 +1,140 @@
+inherited frmDocRequisition: TfrmDocRequisition
+  OnClose = FormClose
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Magacinski dokumenti - trebovanja'
+  end
+  object groupBoxEdit: TGroupBox[2]
+    Left = 0
+    Height = 78
+    Hint = 'Polja označena zvezdicom su obavezna'
+    Top = 15
+    Width = 803
+    Align = alTop
+    Caption = ' Obrada podataka '
+    ClientHeight = 58
+    ClientWidth = 799
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 11
+      Height = 15
+      Top = 6
+      Width = 87
+      Caption = 'Šifra dokumenta'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 11
+      Height = 15
+      Top = 34
+      Width = 101
+      Caption = 'Naziv dokumenta *'
+      ParentColor = False
+    end
+    object dbCode: TDBEdit
+      Left = 142
+      Height = 23
+      Top = 2
+      Width = 194
+      DataField = 'DR_CODE'
+      DataSource = dsDocRequisition
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object dbName: TDBEdit
+      Left = 142
+      Height = 23
+      Top = 28
+      Width = 386
+      DataField = 'DR_NAME'
+      DataSource = dsDocRequisition
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+  end
+  object dbgDocRequisition: TDBGrid[3]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 379
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 93
+    Width = 803
+    Align = alClient
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsDocRequisition
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 2
+    OnMouseMove = dbgDocRequisitionMouseMove
+    OnTitleClick = dbgDocRequisitionTitleClick
+  end
+  inherited actDb: TActionList[4]
+  end
+  object ztDocRequisition: TZTable[5]
+    Connection = dModule.zdbh
+    SortedFields = 'DR_NAME'
+    AfterOpen = ztDocRequisitionAfterOpen
+    AfterScroll = ztDocRequisitionAfterScroll
+    AfterPost = ztDocRequisitionAfterPost
+    AfterDelete = ztDocRequisitionAfterDelete
+    TableName = 'DOC_REQUISITION'
+    IndexFieldNames = 'DR_NAME Asc'
+    Sequence = zseqDocRequisition
+    SequenceField = 'DR_ID'
+    left = 481
+    top = 293
+    object ztDocRequisitionDR_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'DR_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ztDocRequisitionDR_CODE: TStringField
+      DisplayLabel = 'Šifra'
+      DisplayWidth = 9
+      FieldKind = fkData
+      FieldName = 'DR_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object ztDocRequisitionDR_NAME: TStringField
+      DisplayLabel = 'Naziv dokumenta'
+      DisplayWidth = 35
+      FieldKind = fkData
+      FieldName = 'DR_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+  end
+  object zseqDocRequisition: TZSequence[6]
+    Connection = dModule.zdbh
+    SequenceName = 'DOC_SEQ'
+    left = 501
+    top = 369
+  end
+  object dsDocRequisition: TDataSource[7]
+    DataSet = ztDocRequisition
+    left = 547
+    top = 350
+  end
+end

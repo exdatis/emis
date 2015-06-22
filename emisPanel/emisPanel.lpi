@@ -20,7 +20,7 @@
       <MajorVersionNr Value="5"/>
       <MinorVersionNr Value="1"/>
       <RevisionNr Value="3"/>
-      <BuildNr Value="3"/>
+      <BuildNr Value="4"/>
       <StringTable Comments="App by Morar Zivica" CompanyName="Morar Zivica personal" FileDescription="Medical software" InternalName="Emis" LegalCopyright="Morar Zivica(exdatis) personal" LegalTrademarks="exdatis@users.sourceforge.net" OriginalFilename="emis" ProductName="Emis" ProductVersion="5.1"/>
     </VersionInfo>
     <BuildModes Count="1">

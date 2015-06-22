@@ -20,7 +20,7 @@
       <MajorVersionNr Value="5"/>
       <MinorVersionNr Value="3"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="37"/>
+      <BuildNr Value="38"/>
       <StringTable Comments="App by Morar" CompanyName="Morar Zivica personal" FileDescription="Medical software" InternalName="Emis" LegalCopyright="Morar Zivica personal(Exdatis)" LegalTrademarks="exdatis@users.sourceforge.net" OriginalFilename="emisGeneral" ProductName="Emis" ProductVersion="5.3"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="22">
+    <Units Count="24">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -193,7 +193,6 @@
         <ComponentName Value="frmDocPayment"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uDocPayment"/>
       </Unit19>
       <Unit20>
         <Filename Value="docs\udocoutgoings.pp"/>
@@ -201,7 +200,6 @@
         <ComponentName Value="frmDocOutgoings"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uDocOutgoings"/>
       </Unit20>
       <Unit21>
         <Filename Value="docs\udocfinance.pp"/>
@@ -211,6 +209,22 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uDocFinance"/>
       </Unit21>
+      <Unit22>
+        <Filename Value="docs\udocrequisition.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocRequisition"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocRequisition"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="docs\udocreservation.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocReservation"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocReservation"/>
+      </Unit23>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

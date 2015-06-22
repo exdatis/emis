@@ -29,6 +29,8 @@ type
     actDocPayment: TAction;
     actDocOutgoings: TAction;
     actDocFinance: TAction;
+    actDocRequisition: TAction;
+    actDocReservation: TAction;
     actMeasure: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
@@ -55,6 +57,12 @@ type
     MenuItem27: TMenuItem;
     MenuItem28: TMenuItem;
     MenuItem29: TMenuItem;
+    MenuItem30: TMenuItem;
+    MenuItem31: TMenuItem;
+    MenuItem32: TMenuItem;
+    MenuItem33: TMenuItem;
+    MenuItem34: TMenuItem;
+    MenuItem35: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
@@ -92,7 +100,10 @@ type
     ToolButton26: TToolButton;
     ToolButton27: TToolButton;
     ToolButton28: TToolButton;
+    ToolButton29: TToolButton;
     ToolButton3: TToolButton;
+    ToolButton30: TToolButton;
+    ToolButton31: TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
     ToolButton6: TToolButton;
@@ -108,6 +119,8 @@ type
     procedure actDocMedicalOutputExecute(Sender: TObject);
     procedure actDocOutgoingsExecute(Sender: TObject);
     procedure actDocPaymentExecute(Sender: TObject);
+    procedure actDocRequisitionExecute(Sender: TObject);
+    procedure actDocReservationExecute(Sender: TObject);
     procedure actDocSellExecute(Sender: TObject);
     procedure actDocSOInputExecute(Sender: TObject);
     procedure actDocSOOutputExecute(Sender: TObject);
@@ -142,7 +155,7 @@ uses
   uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
   uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
-  uDocFinance;
+  uDocFinance, uDocRequisition, uDocReservation;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -512,6 +525,58 @@ begin
   closePriorForm;
   try
     newForm:= TfrmDocPayment.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDocRequisitionExecute(Sender: TObject);
+var
+  newForm : TfrmDocRequisition;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDocRequisition.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDocReservationExecute(Sender: TObject);
+var
+  newForm : TfrmDocReservation;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDocReservation.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}

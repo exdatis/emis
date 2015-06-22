@@ -29,7 +29,7 @@
         <LoadedDesigner Value="True"/>
       </Unit1>
     </Units>
-    <JumpHistory Count="20" HistoryIndex="19">
+    <JumpHistory Count="19" HistoryIndex="18">
       <Position1>
         <Filename Value="upanel.pp"/>
       </Position1>
@@ -71,44 +71,40 @@
       </Position10>
       <Position11>
         <Filename Value="upanel.pp"/>
-        <Caret Line="9" Column="55" TopLine="55"/>
+        <Caret Line="61" Column="20" TopLine="59"/>
       </Position11>
       <Position12>
         <Filename Value="upanel.pp"/>
-        <Caret Line="61" Column="20" TopLine="59"/>
+        <Caret Line="81" Column="12" TopLine="50"/>
       </Position12>
       <Position13>
         <Filename Value="upanel.pp"/>
-        <Caret Line="81" Column="12" TopLine="50"/>
+        <Caret Line="83" Column="12" TopLine="52"/>
       </Position13>
       <Position14>
         <Filename Value="upanel.pp"/>
-        <Caret Line="83" Column="12" TopLine="52"/>
+        <Caret Line="92" Column="41" TopLine="89"/>
       </Position14>
       <Position15>
         <Filename Value="upanel.pp"/>
-        <Caret Line="92" Column="41" TopLine="89"/>
+        <Caret Line="104" Column="41" TopLine="101"/>
       </Position15>
       <Position16>
         <Filename Value="upanel.pp"/>
-        <Caret Line="104" Column="41" TopLine="101"/>
+        <Caret Line="89" Column="27" TopLine="66"/>
       </Position16>
       <Position17>
         <Filename Value="upanel.pp"/>
-        <Caret Line="89" Column="27" TopLine="66"/>
+        <Caret Line="91" Column="27" TopLine="68"/>
       </Position17>
       <Position18>
         <Filename Value="upanel.pp"/>
-        <Caret Line="91" Column="27" TopLine="68"/>
+        <Caret Line="97" Column="26" TopLine="93"/>
       </Position18>
       <Position19>
         <Filename Value="upanel.pp"/>
-        <Caret Line="97" Column="26" TopLine="93"/>
-      </Position19>
-      <Position20>
-        <Filename Value="upanel.pp"/>
         <Caret Line="98" Column="26" TopLine="94"/>
-      </Position20>
+      </Position19>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>
