@@ -26,6 +26,9 @@ type
     actDocMedicalOutput: TAction;
     actDocMedicalOrders: TAction;
     actDocLab: TAction;
+    actDocPayment: TAction;
+    actDocOutgoings: TAction;
+    actDocFinance: TAction;
     actMeasure: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
@@ -48,6 +51,10 @@ type
     MenuItem23: TMenuItem;
     MenuItem24: TMenuItem;
     MenuItem25: TMenuItem;
+    MenuItem26: TMenuItem;
+    MenuItem27: TMenuItem;
+    MenuItem28: TMenuItem;
+    MenuItem29: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
@@ -81,6 +88,10 @@ type
     ToolButton22: TToolButton;
     ToolButton23: TToolButton;
     ToolButton24: TToolButton;
+    ToolButton25: TToolButton;
+    ToolButton26: TToolButton;
+    ToolButton27: TToolButton;
+    ToolButton28: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
@@ -90,10 +101,13 @@ type
     ToolButton9: TToolButton;
     procedure actDocBuyingExecute(Sender: TObject);
     procedure actDocContractExecute(Sender: TObject);
+    procedure actDocFinanceExecute(Sender: TObject);
     procedure actDocLabExecute(Sender: TObject);
     procedure actDocMedicalInputExecute(Sender: TObject);
     procedure actDocMedicalOrdersExecute(Sender: TObject);
     procedure actDocMedicalOutputExecute(Sender: TObject);
+    procedure actDocOutgoingsExecute(Sender: TObject);
+    procedure actDocPaymentExecute(Sender: TObject);
     procedure actDocSellExecute(Sender: TObject);
     procedure actDocSOInputExecute(Sender: TObject);
     procedure actDocSOOutputExecute(Sender: TObject);
@@ -127,7 +141,8 @@ implementation
 uses
   uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
   uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
-  uDocMedicalOutput, uDocMedicalOrders, uDocLab;
+  uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
+  uDocFinance;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -331,6 +346,32 @@ begin
   end;
 end;
 
+procedure TfrmGeneral.actDocFinanceExecute(Sender: TObject);
+var
+  newForm : TfrmDocFinance;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDocFinance.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
 procedure TfrmGeneral.actDocLabExecute(Sender: TObject);
 var
   newForm : TfrmDocLab;
@@ -419,6 +460,58 @@ begin
   closePriorForm;
   try
     newForm:= TfrmDocMedicalOutput.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDocOutgoingsExecute(Sender: TObject);
+var
+  newForm : TfrmDocOutgoings;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDocOutgoings.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDocPaymentExecute(Sender: TObject);
+var
+  newForm : TfrmDocPayment;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDocPayment.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}

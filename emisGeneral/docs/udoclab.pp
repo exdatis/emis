@@ -55,7 +55,7 @@ type
 var
   frmDocLab: TfrmDocLab;
 const
-  {fields of tbl DocMedicalOrders}
+  {fields of tbl DocLab}
   FIELD_ID : String = 'DL_ID';
   FIELD_CODE : String = 'DL_CODE';
   FIELD_NAME : String = 'DL_NAME';

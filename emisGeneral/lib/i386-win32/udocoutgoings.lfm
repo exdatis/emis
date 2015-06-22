@@ -1,0 +1,140 @@
+inherited frmDocOutgoings: TfrmDocOutgoings
+  OnClose = FormClose
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Finansijski dokumenti - isplate'
+  end
+  object groupBoxEdit: TGroupBox[2]
+    Left = 0
+    Height = 78
+    Hint = 'Polja označena zvezdicom su obavezna'
+    Top = 15
+    Width = 803
+    Align = alTop
+    Caption = ' Obrada podataka '
+    ClientHeight = 58
+    ClientWidth = 799
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 11
+      Height = 15
+      Top = 6
+      Width = 87
+      Caption = 'Šifra dokumenta'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 11
+      Height = 15
+      Top = 34
+      Width = 101
+      Caption = 'Naziv dokumenta *'
+      ParentColor = False
+    end
+    object dbCode: TDBEdit
+      Left = 142
+      Height = 23
+      Top = 2
+      Width = 194
+      DataField = 'DO_CODE'
+      DataSource = dsDocOutgoings
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object dbName: TDBEdit
+      Left = 142
+      Height = 23
+      Top = 28
+      Width = 386
+      DataField = 'DO_NAME'
+      DataSource = dsDocOutgoings
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+  end
+  object dbgDocOutgoings: TDBGrid[3]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 379
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 93
+    Width = 803
+    Align = alClient
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsDocOutgoings
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 2
+    OnMouseMove = dbgDocOutgoingsMouseMove
+    OnTitleClick = dbgDocOutgoingsTitleClick
+  end
+  inherited actDb: TActionList[4]
+  end
+  object ztDocOutgoings: TZTable[5]
+    Connection = dModule.zdbh
+    SortedFields = 'DO_NAME'
+    AfterOpen = ztDocOutgoingsAfterOpen
+    AfterScroll = ztDocOutgoingsAfterScroll
+    AfterPost = ztDocOutgoingsAfterPost
+    AfterDelete = ztDocOutgoingsAfterDelete
+    TableName = 'DOC_OUTGOINGS'
+    IndexFieldNames = 'DO_NAME Asc'
+    Sequence = zseqDocOutgoings
+    SequenceField = 'DO_ID'
+    left = 482
+    top = 278
+    object ztDocOutgoingsDO_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'DO_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ztDocOutgoingsDO_CODE: TStringField
+      DisplayLabel = 'Šifra'
+      DisplayWidth = 9
+      FieldKind = fkData
+      FieldName = 'DO_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object ztDocOutgoingsDO_NAME: TStringField
+      DisplayLabel = 'Naziv dokumenta'
+      DisplayWidth = 35
+      FieldKind = fkData
+      FieldName = 'DO_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+  end
+  object zseqDocOutgoings: TZSequence[6]
+    Connection = dModule.zdbh
+    SequenceName = 'DOC_SEQ'
+    left = 573
+    top = 299
+  end
+  object dsDocOutgoings: TDataSource[7]
+    DataSet = ztDocOutgoings
+    left = 485
+    top = 334
+  end
+end

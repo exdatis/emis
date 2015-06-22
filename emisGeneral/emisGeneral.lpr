@@ -10,7 +10,8 @@ uses
   Forms, uDModule, uGeneral, lazcontrols, zcomponent, uBaseDbForm, uConfirm,
   uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
   uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
-  uDocMedicalOutput, uDocMedicalOrders, uDocLab;
+  uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
+  uDocFinance;
 
 {$R *.res}
 
@@ -27,6 +28,9 @@ begin
   //Application.CreateForm(TdlgConfirm, dlgConfirm);
   //Application.CreateForm(TfrmLocation, frmLocation);
   Application.CreateForm(TbaseDbForm, baseDbForm);
+  //Application.CreateForm(TfrmDocFinance, frmDocFinance);
+  //Application.CreateForm(TfrmDocOutgoings, frmDocOutgoings);
+  //Application.CreateForm(TfrmDocPayment, frmDocPayment);
   //Application.CreateForm(TfrmDocLab, frmDocLab);
   //Application.CreateForm(TfrmDocMedicalOrders, frmDocMedicalOrders);
   //Application.CreateForm(TfrmDocMedicalOutput, frmDocMedicalOutput);

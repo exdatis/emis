@@ -1,0 +1,140 @@
+inherited frmDocFinance: TfrmDocFinance
+  OnClose = FormClose
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Finansijski nalozi'
+  end
+  object groupBoxEdit: TGroupBox[2]
+    Left = 0
+    Height = 78
+    Hint = 'Polja označena zvezdicom su obavezna'
+    Top = 15
+    Width = 803
+    Align = alTop
+    Caption = ' Obrada podataka '
+    ClientHeight = 58
+    ClientWidth = 799
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 11
+      Height = 15
+      Top = 6
+      Width = 87
+      Caption = 'Šifra dokumenta'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 11
+      Height = 15
+      Top = 34
+      Width = 101
+      Caption = 'Naziv dokumenta *'
+      ParentColor = False
+    end
+    object dbCode: TDBEdit
+      Left = 142
+      Height = 23
+      Top = 2
+      Width = 194
+      DataField = 'DF_CODE'
+      DataSource = dsDocFinance
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object dbName: TDBEdit
+      Left = 142
+      Height = 23
+      Top = 28
+      Width = 386
+      DataField = 'DF_NAME'
+      DataSource = dsDocFinance
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+  end
+  object dbgDocFinance: TDBGrid[3]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 379
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 93
+    Width = 803
+    Align = alClient
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsDocFinance
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 2
+    OnMouseMove = dbgDocFinanceMouseMove
+    OnTitleClick = dbgDocFinanceTitleClick
+  end
+  inherited actDb: TActionList[4]
+  end
+  object ztDocFinance: TZTable[5]
+    Connection = dModule.zdbh
+    SortedFields = 'DF_NAME'
+    AfterOpen = ztDocFinanceAfterOpen
+    AfterScroll = ztDocFinanceAfterScroll
+    AfterPost = ztDocFinanceAfterPost
+    AfterDelete = ztDocFinanceAfterDelete
+    TableName = 'DOC_FINANCE'
+    IndexFieldNames = 'DF_NAME Asc'
+    Sequence = zseqDocFinance
+    SequenceField = 'DF_ID'
+    left = 456
+    top = 290
+    object ztDocFinanceDF_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'DF_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ztDocFinanceDF_CODE: TStringField
+      DisplayLabel = 'Šifra'
+      DisplayWidth = 9
+      FieldKind = fkData
+      FieldName = 'DF_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object ztDocFinanceDF_NAME: TStringField
+      DisplayLabel = 'Naziv dokumenta'
+      DisplayWidth = 35
+      FieldKind = fkData
+      FieldName = 'DF_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+  end
+  object zseqDocFinance: TZSequence[6]
+    Connection = dModule.zdbh
+    SequenceName = 'DOC_SEQ'
+    left = 531
+    top = 329
+  end
+  object dsDocFinance: TDataSource[7]
+    DataSet = ztDocFinance
+    left = 444
+    top = 352
+  end
+end

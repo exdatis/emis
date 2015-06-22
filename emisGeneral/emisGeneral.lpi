@@ -20,7 +20,7 @@
       <MajorVersionNr Value="5"/>
       <MinorVersionNr Value="3"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="36"/>
+      <BuildNr Value="37"/>
       <StringTable Comments="App by Morar" CompanyName="Morar Zivica personal" FileDescription="Medical software" InternalName="Emis" LegalCopyright="Morar Zivica personal(Exdatis)" LegalTrademarks="exdatis@users.sourceforge.net" OriginalFilename="emisGeneral" ProductName="Emis" ProductVersion="5.3"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="19">
+    <Units Count="22">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -150,7 +150,6 @@
         <ComponentName Value="frmMeasure"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uMeasure"/>
       </Unit13>
       <Unit14>
         <Filename Value="drug\udrugforms.pp"/>
@@ -158,7 +157,6 @@
         <ComponentName Value="frmDrugForms"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uDrugForms"/>
       </Unit14>
       <Unit15>
         <Filename Value="docs\udocmedicalinput.pp"/>
@@ -166,7 +164,6 @@
         <ComponentName Value="frmDocMedicalInput"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uDocMedicalInput"/>
       </Unit15>
       <Unit16>
         <Filename Value="docs\udocmedicaloutput.pp"/>
@@ -174,7 +171,6 @@
         <ComponentName Value="frmDocMedicalOutput"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uDocMedicalOutput"/>
       </Unit16>
       <Unit17>
         <Filename Value="docs\udocmedicalorders.pp"/>
@@ -182,7 +178,6 @@
         <ComponentName Value="frmDocMedicalOrders"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uDocMedicalOrders"/>
       </Unit17>
       <Unit18>
         <Filename Value="docs\udoclab.pp"/>
@@ -192,6 +187,30 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uDocLab"/>
       </Unit18>
+      <Unit19>
+        <Filename Value="docs\udocpayment.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocPayment"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocPayment"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="docs\udocoutgoings.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocOutgoings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocOutgoings"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="docs\udocfinance.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocFinance"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocFinance"/>
+      </Unit21>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
