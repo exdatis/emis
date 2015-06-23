@@ -31,11 +31,19 @@ type
     actDocFinance: TAction;
     actDocRequisition: TAction;
     actDocReservation: TAction;
+    actHlpAboutModulePdf: TAction;
+    actHlpAboutModuleDoc: TAction;
     actMeasure: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
     divExDatis: TDividerBevel;
     Image1: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
+    lblAboutFormsPdf: TLabel;
+    lblAboutFormsDoc: TLabel;
+    lblAboutModule: TLabel;
+    lblAboutModuleDoc: TLabel;
     lblModuleTitle: TLabel;
     MenuItem10: TMenuItem;
     MenuItem11: TMenuItem;
@@ -127,6 +135,8 @@ type
     procedure actDocWInExecute(Sender: TObject);
     procedure actDocWOutExecute(Sender: TObject);
     procedure actDrugFormsExecute(Sender: TObject);
+    procedure actHlpAboutModuleDocExecute(Sender: TObject);
+    procedure actHlpAboutModulePdfExecute(Sender: TObject);
     procedure actLocationFrmExecute(Sender: TObject);
     procedure actMeasureExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
@@ -134,6 +144,17 @@ type
     procedure divExDatisMouseEnter(Sender: TObject);
     procedure divExDatisMouseLeave(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure lblAboutFormsDocMouseEnter(Sender: TObject);
+    procedure lblAboutFormsDocMouseLeave(Sender: TObject);
+    procedure lblAboutFormsPdfMouseEnter(Sender: TObject);
+    procedure lblAboutFormsPdfMouseLeave(Sender: TObject);
+    procedure lblAboutModuleClick(Sender: TObject);
+    procedure lblAboutModuleDocClick(Sender: TObject);
+    procedure lblAboutModuleDocMouseEnter(Sender: TObject);
+    procedure lblAboutModuleDocMouseLeave(Sender: TObject);
+    procedure lblAboutModuleMouseEnter(Sender: TObject);
+    procedure lblAboutModuleMouseLeave(Sender: TObject);
     procedure lblModuleTitleClick(Sender: TObject);
     procedure lblModuleTitleMouseEnter(Sender: TObject);
     procedure lblModuleTitleMouseLeave(Sender: TObject);
@@ -142,6 +163,7 @@ type
     procedure closePriorForm;
   public
     { public declarations }
+    HELP_PATH : String;
   end;
 
 var
@@ -165,6 +187,94 @@ begin
   { free and nil }
   CloseAction:= caFree;
   self:= nil;
+end;
+
+procedure TfrmGeneral.FormCreate(Sender: TObject);
+begin
+  HELP_PATH:= '-';
+  {$IfDef WINDOWS}
+    HELP_PATH:= 'c:\exdatis\hlp\';
+  {$EndIf}
+  {$IfDef Linux}
+    HELP_PATH:= '/usr/share/exdatis';  //privremeno resenje
+  {$EndIf}
+  //ShowMessage(HELP_PATH);
+end;
+
+procedure TfrmGeneral.lblAboutFormsDocMouseEnter(Sender: TObject);
+begin
+  {pseudo-link, underline}
+  lblAboutFormsDoc.Font.Underline:= True;
+  {set color}
+  lblAboutFormsDoc.Color:= clMaroon;
+end;
+
+procedure TfrmGeneral.lblAboutFormsDocMouseLeave(Sender: TObject);
+begin
+  {reset pseudo-link, underline = False}
+  lblAboutFormsDoc.Font.Underline:= False;
+  {set color}
+  lblAboutFormsDoc.Color:= clGray;
+end;
+
+procedure TfrmGeneral.lblAboutFormsPdfMouseEnter(Sender: TObject);
+begin
+  {pseudo-link, underline}
+  lblAboutFormsPdf.Font.Underline:= True;
+  {set color}
+  lblAboutFormsPdf.Color:= clMaroon;
+end;
+
+procedure TfrmGeneral.lblAboutFormsPdfMouseLeave(Sender: TObject);
+begin
+  {reset pseudo-link, underline = False}
+  lblAboutFormsPdf.Font.Underline:= False;
+  {set color}
+  lblAboutFormsPdf.Color:= clGray;
+end;
+
+procedure TfrmGeneral.lblAboutModuleClick(Sender: TObject);
+begin
+  {open doc}
+  actHlpAboutModulePdf.Execute;
+end;
+
+procedure TfrmGeneral.lblAboutModuleDocClick(Sender: TObject);
+begin
+  {open help_doc}
+  actHlpAboutModuleDoc.Execute;
+end;
+
+procedure TfrmGeneral.lblAboutModuleDocMouseEnter(Sender: TObject);
+begin
+  {pseudo-link, underline}
+  lblAboutModuleDoc.Font.Underline:= True;
+  {set color}
+  lblAboutModuleDoc.Color:= clMaroon;
+end;
+
+procedure TfrmGeneral.lblAboutModuleDocMouseLeave(Sender: TObject);
+begin
+  {reset pseudo-link, underline = False}
+  lblAboutModuleDoc.Font.Underline:= False;
+  {set color}
+  lblAboutModuleDoc.Color:= clGray;
+end;
+
+procedure TfrmGeneral.lblAboutModuleMouseEnter(Sender: TObject);
+begin
+  {pseudo-link, underline}
+  lblAboutModule.Font.Underline:= True;
+  {set color}
+  lblAboutModule.Color:= clMaroon;
+end;
+
+procedure TfrmGeneral.lblAboutModuleMouseLeave(Sender: TObject);
+begin
+  {reset pseud-link}
+  lblAboutModule.Font.Underline:= False;
+  {set color}
+  lblAboutModule.Color:= clGray;
 end;
 
 procedure TfrmGeneral.lblModuleTitleClick(Sender: TObject);
@@ -692,6 +802,36 @@ begin
     newForm.Show;
     {set focus to enable shortcuts}
     newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actHlpAboutModuleDocExecute(Sender: TObject);
+var
+  full_path : String;
+begin
+  {help file path(pdf file)}
+  full_path:= HELP_PATH + 'generalTbls.doc';
+  {open doc}
+  Screen.Cursor:= crHourGlass;
+  try
+    OpenDocument(full_path);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actHlpAboutModulePdfExecute(Sender: TObject);
+var
+  full_path : String;
+begin
+  {help file path(pdf file)}
+  full_path:= HELP_PATH + 'generalTbls.pdf';
+  {open doc}
+  Screen.Cursor:= crHourGlass;
+  try
+    OpenDocument(full_path);
   finally
     Screen.Cursor:= crDefault;
   end;

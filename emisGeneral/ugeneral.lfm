@@ -8,6 +8,7 @@ object frmGeneral: TfrmGeneral
   ClientWidth = 1035
   Menu = mnuGeneral
   OnClose = FormClose
+  OnCreate = FormCreate
   Position = poDesktopCenter
   LCLVersion = '1.4.0.4'
   object statusBarGeneral: TStatusBar
@@ -324,7 +325,113 @@ object frmGeneral: TfrmGeneral
     Top = 26
     Width = 224
     Align = alLeft
+    ClientHeight = 516
+    ClientWidth = 224
     TabOrder = 2
+    object Label1: TLabel
+      Left = 0
+      Height = 15
+      Top = 1
+      Width = 226
+      AutoSize = False
+      Caption = ' Uputstva'
+      Color = clBlack
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object lblAboutModule: TLabel
+      Cursor = crHandPoint
+      Left = 0
+      Height = 15
+      Hint = 'Napomene o modulu'
+      Top = 18
+      Width = 226
+      AutoSize = False
+      Caption = ' Napomene o modulu (pdf)'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+      OnClick = lblAboutModuleClick
+      OnMouseEnter = lblAboutModuleMouseEnter
+      OnMouseLeave = lblAboutModuleMouseLeave
+    end
+    object lblAboutModuleDoc: TLabel
+      Cursor = crHandPoint
+      Left = 0
+      Height = 15
+      Hint = 'Napomene o modulu'
+      Top = 35
+      Width = 226
+      AutoSize = False
+      Caption = ' Napomene o modulu (doc)'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+      OnClick = lblAboutModuleDocClick
+      OnMouseEnter = lblAboutModuleDocMouseEnter
+      OnMouseLeave = lblAboutModuleDocMouseLeave
+    end
+    object lblAboutFormsPdf: TLabel
+      Cursor = crHandPoint
+      Left = 1
+      Height = 15
+      Hint = 'O formularima'
+      Top = 52
+      Width = 225
+      AutoSize = False
+      Caption = ' O formularima (pdf)'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+      OnMouseEnter = lblAboutFormsPdfMouseEnter
+      OnMouseLeave = lblAboutFormsPdfMouseLeave
+    end
+    object lblAboutFormsDoc: TLabel
+      Cursor = crHandPoint
+      Left = 0
+      Height = 15
+      Hint = 'O formularima'
+      Top = 69
+      Width = 225
+      AutoSize = False
+      Caption = ' O formularima (doc)'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+      OnMouseEnter = lblAboutFormsDocMouseEnter
+      OnMouseLeave = lblAboutFormsDocMouseLeave
+    end
+    object Label2: TLabel
+      Left = 0
+      Height = 15
+      Top = 86
+      Width = 226
+      AutoSize = False
+      Caption = ' Arhiviranje podataka(backup)'
+      Color = clBlack
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
   end
   object panelForms: TBCPanel
     Left = 232
@@ -856,6 +963,16 @@ object frmGeneral: TfrmGeneral
       Caption = 'Rezervacije'
       Hint = 'Rezervacije'
       OnExecute = actDocReservationExecute
+    end
+    object actHlpAboutModulePdf: TAction
+      Caption = 'O modulu(pdf)'
+      Hint = 'Opis modula'
+      OnExecute = actHlpAboutModulePdfExecute
+    end
+    object actHlpAboutModuleDoc: TAction
+      Caption = 'O modulu (doc)'
+      Hint = 'Opis modula'
+      OnExecute = actHlpAboutModuleDocExecute
     end
   end
   object imgGeneral: TImageList
