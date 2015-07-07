@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, BCPanel, DividerBevel, Forms, Controls, Graphics,
-  Dialogs, ActnList, Menus, ComCtrls, ExtCtrls, LCLIntf, StdCtrls;
+  Dialogs, ActnList, Menus, ComCtrls, ExtCtrls, LCLIntf, StdCtrls, process;
 
 type
 
@@ -33,6 +33,9 @@ type
     actDocReservation: TAction;
     actHlpAboutModulePdf: TAction;
     actHlpAboutModuleDoc: TAction;
+    actHlpAboutFormsPdf: TAction;
+    actHlpAboutFormsDoc: TAction;
+    actBcpDb: TAction;
     actMeasure: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
@@ -40,6 +43,7 @@ type
     Image1: TImage;
     Label1: TLabel;
     Label2: TLabel;
+    lblBackup: TLabel;
     lblAboutFormsPdf: TLabel;
     lblAboutFormsDoc: TLabel;
     lblAboutModule: TLabel;
@@ -71,7 +75,12 @@ type
     MenuItem33: TMenuItem;
     MenuItem34: TMenuItem;
     MenuItem35: TMenuItem;
+    MenuItem36: TMenuItem;
+    MenuItem37: TMenuItem;
+    MenuItem38: TMenuItem;
+    MenuItem39: TMenuItem;
     MenuItem4: TMenuItem;
+    MenuItem40: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
@@ -84,6 +93,7 @@ type
     MenuItem3: TMenuItem;
     mnuGeneral: TMainMenu;
     panelMnu: TPanel;
+    saveFbk: TSaveDialog;
     shapeLogo: TShape;
     statusBarGeneral: TStatusBar;
     toolBarGeneral: TToolBar;
@@ -118,6 +128,7 @@ type
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
     ToolButton9: TToolButton;
+    procedure actBcpDbExecute(Sender: TObject);
     procedure actDocBuyingExecute(Sender: TObject);
     procedure actDocContractExecute(Sender: TObject);
     procedure actDocFinanceExecute(Sender: TObject);
@@ -135,6 +146,8 @@ type
     procedure actDocWInExecute(Sender: TObject);
     procedure actDocWOutExecute(Sender: TObject);
     procedure actDrugFormsExecute(Sender: TObject);
+    procedure actHlpAboutFormsDocExecute(Sender: TObject);
+    procedure actHlpAboutFormsPdfExecute(Sender: TObject);
     procedure actHlpAboutModuleDocExecute(Sender: TObject);
     procedure actHlpAboutModulePdfExecute(Sender: TObject);
     procedure actLocationFrmExecute(Sender: TObject);
@@ -145,8 +158,10 @@ type
     procedure divExDatisMouseLeave(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure lblAboutFormsDocClick(Sender: TObject);
     procedure lblAboutFormsDocMouseEnter(Sender: TObject);
     procedure lblAboutFormsDocMouseLeave(Sender: TObject);
+    procedure lblAboutFormsPdfClick(Sender: TObject);
     procedure lblAboutFormsPdfMouseEnter(Sender: TObject);
     procedure lblAboutFormsPdfMouseLeave(Sender: TObject);
     procedure lblAboutModuleClick(Sender: TObject);
@@ -155,12 +170,16 @@ type
     procedure lblAboutModuleDocMouseLeave(Sender: TObject);
     procedure lblAboutModuleMouseEnter(Sender: TObject);
     procedure lblAboutModuleMouseLeave(Sender: TObject);
+    procedure lblBackupClick(Sender: TObject);
+    procedure lblBackupMouseEnter(Sender: TObject);
+    procedure lblBackupMouseLeave(Sender: TObject);
     procedure lblModuleTitleClick(Sender: TObject);
     procedure lblModuleTitleMouseEnter(Sender: TObject);
     procedure lblModuleTitleMouseLeave(Sender: TObject);
   private
     { private declarations }
     procedure closePriorForm;
+    procedure backupDb(const fbkPath : String);
   public
     { public declarations }
     HELP_PATH : String;
@@ -174,7 +193,7 @@ const
 
 implementation
 uses
-  uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
+  uDModule, uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
   uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
   uDocFinance, uDocRequisition, uDocReservation;
@@ -201,6 +220,11 @@ begin
   //ShowMessage(HELP_PATH);
 end;
 
+procedure TfrmGeneral.lblAboutFormsDocClick(Sender: TObject);
+begin
+  actHlpAboutFormsDoc.Execute;
+end;
+
 procedure TfrmGeneral.lblAboutFormsDocMouseEnter(Sender: TObject);
 begin
   {pseudo-link, underline}
@@ -215,6 +239,11 @@ begin
   lblAboutFormsDoc.Font.Underline:= False;
   {set color}
   lblAboutFormsDoc.Color:= clGray;
+end;
+
+procedure TfrmGeneral.lblAboutFormsPdfClick(Sender: TObject);
+begin
+  actHlpAboutFormsPdf.Execute;
 end;
 
 procedure TfrmGeneral.lblAboutFormsPdfMouseEnter(Sender: TObject);
@@ -277,6 +306,28 @@ begin
   lblAboutModule.Color:= clGray;
 end;
 
+procedure TfrmGeneral.lblBackupClick(Sender: TObject);
+begin
+  {backup db}
+  actBcpDb.Execute;
+end;
+
+procedure TfrmGeneral.lblBackupMouseEnter(Sender: TObject);
+begin
+  {pseudo-link, underline}
+  lblBackup.Font.Underline:= True;
+  {set color}
+  lblBackup.Color:= clMaroon;
+end;
+
+procedure TfrmGeneral.lblBackupMouseLeave(Sender: TObject);
+begin
+  {reset pseud-link}
+  lblBackup.Font.Underline:= False;
+  {set color}
+  lblBackup.Color:= clGray;
+end;
+
 procedure TfrmGeneral.lblModuleTitleClick(Sender: TObject);
 begin
   {open project home-page}
@@ -304,6 +355,96 @@ procedure TfrmGeneral.closePriorForm;
 begin
   if(panelForms.ControlCount > MAX_CTRLS) then
     TForm(panelForms.Controls[MAX_CTRLS]).Close;
+end;
+
+procedure TfrmGeneral.backupDb(const fbkPath: String);
+const
+  winHeader : String = '@echo off ' ;
+  linHeader : String = '#!/bin/sh ';
+  successMsg : String = 'Arhiviranje je uspešno završeno. ';
+var
+  bcpProc : TProcess;
+  thisDb : String;
+  withUser, withPassword : String;
+  cmdStrings : TStringList;
+  fullCmd : String;
+  cmdFile : String; {path of sh or bat}
+begin
+  {find db for backup}
+  thisDb:= ' ' + dModule.zdbh.HostName + ':';
+  thisDb:= thisDb + dModule.zdbh.Database + '  ';
+  {user and password}
+  withUser:= ' -user ' + dModule.zdbh.User;
+  withPassword:= ' -password ' + dModule.zdbh.Password;
+  {creeate process}
+  bcpProc:= TProcess.Create(nil);
+  {concat full cmd}
+  fullCmd:= 'gbak' + ' -b -g -v ';
+  {add database(source) and destination}
+
+  fullCmd:= fullCmd + thisDb ;
+  fullCmd:= fullCmd + fbkPath;
+
+  {add user and password}
+  fullCmd:= fullCmd + withUser;
+  fullCmd:= fullCmd + withPassword;
+  {debug msg}
+  //ShowMessage(fullCmd);
+
+  cmdStrings:= TStringList.Create;
+  {$IfDef windows}
+    cmdStrings.Append(winHeader);
+  {$EndIf}
+  {$IfDef linux}
+    cmdStrings.Append(linHeader);
+  {$EndIf}
+
+  cmdStrings.Append('echo --ExDatis database backup --');
+  {debug test}
+  cmdStrings.Append('sleep 1');
+  {add cmd}
+  cmdStrings.Append(fullCmd);
+
+  {$IfDef windows}
+    cmdStrings.Append('PAUSE');
+  {$EndIf}
+  {$IfDef linux}
+    cmdStrings.Append('sleep 3');
+  {$EndIf}
+
+  {save file}
+  {$IfDef windows}
+    cmdFile:= 'C:\exdatis\bcp.bat';
+    cmdStrings.SaveToFile(cmdFile);
+  {$EndIf}
+  {$IfDef linux}
+    cmdFile:= GetUserDir + 'exdatis/bcp.sh';
+    cmdStrings.SaveToFile(cmdFile);
+  {$EndIf}
+
+  {prepare process}
+  {$IfDef WINDOWS}
+    bcpProc.CommandLine:= cmdFile;
+  {$EndIf}
+  {$IfDef Linux}
+    bcpProc.CommandLine:= 'sh ' + cmdFile;
+  {$EndIf}
+
+  {execute options}
+  bcpProc.Options:= bcpProc.Options + [poWaitOnExit, poNewConsole];
+  {execute}
+  bcpProc.Execute;
+  {free}
+  bcpProc.Free;
+  {clear shell cmd}
+  cmdStrings.Clear;
+  cmdStrings.Append(' -- END --');
+  cmdStrings.Append(FormatDateTime('dd.MM.yyyy hh:nn', Now));
+  cmdStrings.SaveToFile(cmdFile);
+  {free string_list}
+  cmdStrings.Free;
+  {success msg}
+  ShowMessage(successMsg);
 end;
 
 procedure TfrmGeneral.actQuitAppExecute(Sender: TObject);
@@ -441,6 +582,42 @@ begin
   finally
     Screen.Cursor:= crDefault;
   end;
+end;
+
+procedure TfrmGeneral.actBcpDbExecute(Sender: TObject);
+var
+  defaultPath : String;
+  fbkFile : String;
+  currDate : String;
+  fbkName : String;
+  currMonth : String;
+begin
+  {find initial folder}
+  {$IfDef windows}
+    defaultPath:= 'C:\exdatis\bcp\';
+  {$EndIf}
+  {$IfDef linux}
+    defaultPath:= GetUserDir + 'exdatis/bcp/';
+  {$EndIf}
+  saveFbk.InitialDir:= defaultPath;
+  {set default name of fbk}
+  currDate:= FormatDateTime('dd.MM.yyyy', Now);
+  fbkName:= ExtractFileNameOnly(dModule.zdbh.Database);
+
+  fbkName:= fbkName + LeftStr(currDate, 2);
+  currMonth:= Copy(currDate, 4, 2);
+  fbkName:= fbkName + currMonth;
+  fbkName:= fbkName + RightStr(currDate, 4);
+  {add extension}
+  fbkName:= fbkName + '.fbk';
+  saveFbk.FileName:= fbkName;
+  {run dialog}
+  if saveFbk.Execute then
+    if(Length(saveFbk.FileName) > 5) then
+      begin
+        fbkFile:= saveFbk.FileName;
+        backupDb(fbkFile);
+      end;
 end;
 
 procedure TfrmGeneral.actDocContractExecute(Sender: TObject);
@@ -802,6 +979,36 @@ begin
     newForm.Show;
     {set focus to enable shortcuts}
     newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actHlpAboutFormsDocExecute(Sender: TObject);
+var
+  full_path : String;
+begin
+  {help file path(pdf file)}
+  full_path:= HELP_PATH + 'forms.doc';
+  {open doc}
+  Screen.Cursor:= crHourGlass;
+  try
+    OpenDocument(full_path);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actHlpAboutFormsPdfExecute(Sender: TObject);
+var
+  full_path : String;
+begin
+  {help file path(pdf file)}
+  full_path:= HELP_PATH + 'forms.pdf';
+  {open doc}
+  Screen.Cursor:= crHourGlass;
+  try
+    OpenDocument(full_path);
   finally
     Screen.Cursor:= crDefault;
   end;

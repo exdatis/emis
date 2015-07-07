@@ -397,6 +397,7 @@ object frmGeneral: TfrmGeneral
       ParentShowHint = False
       ShowHint = True
       Transparent = False
+      OnClick = lblAboutFormsPdfClick
       OnMouseEnter = lblAboutFormsPdfMouseEnter
       OnMouseLeave = lblAboutFormsPdfMouseLeave
     end
@@ -416,6 +417,7 @@ object frmGeneral: TfrmGeneral
       ParentShowHint = False
       ShowHint = True
       Transparent = False
+      OnClick = lblAboutFormsDocClick
       OnMouseEnter = lblAboutFormsDocMouseEnter
       OnMouseLeave = lblAboutFormsDocMouseLeave
     end
@@ -431,6 +433,26 @@ object frmGeneral: TfrmGeneral
       ParentColor = False
       ParentFont = False
       Transparent = False
+    end
+    object lblBackup: TLabel
+      Cursor = crHandPoint
+      Left = 0
+      Height = 15
+      Hint = 'Arhiviranje baze podataka'
+      Top = 103
+      Width = 225
+      AutoSize = False
+      Caption = 'Arhiviranje baze podataka'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+      OnClick = lblBackupClick
+      OnMouseEnter = lblBackupMouseEnter
+      OnMouseLeave = lblBackupMouseLeave
     end
   end
   object panelForms: TBCPanel
@@ -973,6 +995,21 @@ object frmGeneral: TfrmGeneral
       Caption = 'O modulu (doc)'
       Hint = 'Opis modula'
       OnExecute = actHlpAboutModuleDocExecute
+    end
+    object actHlpAboutFormsPdf: TAction
+      Caption = 'Opis formulara(pdf)'
+      Hint = 'Opis formulara'
+      OnExecute = actHlpAboutFormsPdfExecute
+    end
+    object actHlpAboutFormsDoc: TAction
+      Caption = 'Opis formulara(doc)'
+      Hint = 'Opis formulara'
+      OnExecute = actHlpAboutFormsDocExecute
+    end
+    object actBcpDb: TAction
+      Caption = 'Arhiviranje podataka'
+      Hint = 'Arhiviranje podataka'
+      OnExecute = actBcpDbExecute
     end
   end
   object imgGeneral: TImageList
@@ -1724,6 +1761,21 @@ object frmGeneral: TfrmGeneral
     top = 173
     object MenuItem1: TMenuItem
       Caption = 'Emis software'
+      object MenuItem36: TMenuItem
+        Action = actHlpAboutModulePdf
+      end
+      object MenuItem37: TMenuItem
+        Action = actHlpAboutModuleDoc
+      end
+      object MenuItem38: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem39: TMenuItem
+        Action = actHlpAboutFormsPdf
+      end
+      object MenuItem40: TMenuItem
+        Action = actHlpAboutFormsDoc
+      end
       object MenuItem2: TMenuItem
         Caption = '-'
       end
@@ -1863,5 +1915,12 @@ object frmGeneral: TfrmGeneral
         Action = actDrugForms
       end
     end
+  end
+  object saveFbk: TSaveDialog
+    DefaultExt = '.*.fbk'
+    Filter = 'Backup|*.fbk;*.FBK'
+    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    left = 388
+    top = 216
   end
 end
