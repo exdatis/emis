@@ -9,6 +9,7 @@ object frmGeneral: TfrmGeneral
   Menu = mnuGeneral
   OnClose = FormClose
   OnCreate = FormCreate
+  OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '1.4.0.4'
   object statusBarGeneral: TStatusBar
@@ -424,7 +425,7 @@ object frmGeneral: TfrmGeneral
     object Label2: TLabel
       Left = 0
       Height = 15
-      Top = 86
+      Top = 121
       Width = 226
       AutoSize = False
       Caption = ' Arhiviranje podataka(backup)'
@@ -439,7 +440,7 @@ object frmGeneral: TfrmGeneral
       Left = 0
       Height = 15
       Hint = 'Arhiviranje baze podataka'
-      Top = 103
+      Top = 138
       Width = 225
       AutoSize = False
       Caption = 'Arhiviranje baze podataka'
@@ -453,6 +454,53 @@ object frmGeneral: TfrmGeneral
       OnClick = lblBackupClick
       OnMouseEnter = lblBackupMouseEnter
       OnMouseLeave = lblBackupMouseLeave
+    end
+    object lblEditDataDoc: TLabel
+      Cursor = crHandPoint
+      Left = 0
+      Height = 15
+      Hint = 'Obrada podataka'
+      Top = 86
+      Width = 225
+      AutoSize = False
+      Caption = 'Obrada podataka (doc)'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+      OnClick = lblEditDataDocClick
+      OnMouseEnter = lblEditDataDocMouseEnter
+      OnMouseLeave = lblEditDataDocMouseLeave
+    end
+    object lblEditDataPdf: TLabel
+      Cursor = crHandPoint
+      Left = 0
+      Height = 15
+      Hint = 'Obrada podataka'
+      Top = 103
+      Width = 225
+      AutoSize = False
+      Caption = 'Obrada podataka (pdf)'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+      OnClick = lblEditDataPdfClick
+      OnMouseEnter = lblEditDataPdfMouseEnter
+      OnMouseLeave = lblEditDataPdfMouseLeave
+    end
+    object DTAnalogClock1: TDTAnalogClock
+      Left = 47
+      Height = 128
+      Top = 253
+      Width = 128
+      Enabled = False
     end
   end
   object panelForms: TBCPanel
@@ -1010,6 +1058,16 @@ object frmGeneral: TfrmGeneral
       Caption = 'Arhiviranje podataka'
       Hint = 'Arhiviranje podataka'
       OnExecute = actBcpDbExecute
+    end
+    object actHlpEditDataDoc: TAction
+      Caption = 'Obrada podataka (doc)'
+      Hint = 'Obrada podataka'
+      OnExecute = actHlpEditDataDocExecute
+    end
+    object actEditDataPdf: TAction
+      Caption = 'Obrada podataka (pdf)'
+      Hint = 'Obrada podataka'
+      OnExecute = actEditDataPdfExecute
     end
   end
   object imgGeneral: TImageList
@@ -1775,6 +1833,15 @@ object frmGeneral: TfrmGeneral
       end
       object MenuItem40: TMenuItem
         Action = actHlpAboutFormsDoc
+      end
+      object MenuItem41: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem42: TMenuItem
+        Action = actEditDataPdf
+      end
+      object MenuItem43: TMenuItem
+        Action = actHlpEditDataDoc
       end
       object MenuItem2: TMenuItem
         Caption = '-'

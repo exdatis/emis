@@ -5,8 +5,9 @@ unit uGeneral;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, BCPanel, DividerBevel, Forms, Controls, Graphics,
-  Dialogs, ActnList, Menus, ComCtrls, ExtCtrls, LCLIntf, StdCtrls, process;
+  Classes, SysUtils, FileUtil, BCPanel, DTAnalogClock, DividerBevel, Forms,
+  Controls, Graphics, Dialogs, ActnList, Menus, ComCtrls, ExtCtrls, LCLIntf,
+  StdCtrls, process;
 
 type
 
@@ -36,13 +37,18 @@ type
     actHlpAboutFormsPdf: TAction;
     actHlpAboutFormsDoc: TAction;
     actBcpDb: TAction;
+    actHlpEditDataDoc: TAction;
+    actEditDataPdf: TAction;
     actMeasure: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
     divExDatis: TDividerBevel;
+    DTAnalogClock1: TDTAnalogClock;
     Image1: TImage;
     Label1: TLabel;
     Label2: TLabel;
+    lblEditDataDoc: TLabel;
+    lblEditDataPdf: TLabel;
     lblBackup: TLabel;
     lblAboutFormsPdf: TLabel;
     lblAboutFormsDoc: TLabel;
@@ -81,6 +87,9 @@ type
     MenuItem39: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem40: TMenuItem;
+    MenuItem41: TMenuItem;
+    MenuItem42: TMenuItem;
+    MenuItem43: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
@@ -146,10 +155,12 @@ type
     procedure actDocWInExecute(Sender: TObject);
     procedure actDocWOutExecute(Sender: TObject);
     procedure actDrugFormsExecute(Sender: TObject);
+    procedure actEditDataPdfExecute(Sender: TObject);
     procedure actHlpAboutFormsDocExecute(Sender: TObject);
     procedure actHlpAboutFormsPdfExecute(Sender: TObject);
     procedure actHlpAboutModuleDocExecute(Sender: TObject);
     procedure actHlpAboutModulePdfExecute(Sender: TObject);
+    procedure actHlpEditDataDocExecute(Sender: TObject);
     procedure actLocationFrmExecute(Sender: TObject);
     procedure actMeasureExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
@@ -158,6 +169,7 @@ type
     procedure divExDatisMouseLeave(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure lblAboutFormsDocClick(Sender: TObject);
     procedure lblAboutFormsDocMouseEnter(Sender: TObject);
     procedure lblAboutFormsDocMouseLeave(Sender: TObject);
@@ -173,6 +185,12 @@ type
     procedure lblBackupClick(Sender: TObject);
     procedure lblBackupMouseEnter(Sender: TObject);
     procedure lblBackupMouseLeave(Sender: TObject);
+    procedure lblEditDataDocClick(Sender: TObject);
+    procedure lblEditDataDocMouseEnter(Sender: TObject);
+    procedure lblEditDataDocMouseLeave(Sender: TObject);
+    procedure lblEditDataPdfClick(Sender: TObject);
+    procedure lblEditDataPdfMouseEnter(Sender: TObject);
+    procedure lblEditDataPdfMouseLeave(Sender: TObject);
     procedure lblModuleTitleClick(Sender: TObject);
     procedure lblModuleTitleMouseEnter(Sender: TObject);
     procedure lblModuleTitleMouseLeave(Sender: TObject);
@@ -218,6 +236,12 @@ begin
     HELP_PATH:= '/usr/share/exdatis';  //privremeno resenje
   {$EndIf}
   //ShowMessage(HELP_PATH);
+end;
+
+procedure TfrmGeneral.FormShow(Sender: TObject);
+begin
+  {enable the clock}
+  DTAnalogClock1.Enabled:= True;
 end;
 
 procedure TfrmGeneral.lblAboutFormsDocClick(Sender: TObject);
@@ -326,6 +350,50 @@ begin
   lblBackup.Font.Underline:= False;
   {set color}
   lblBackup.Color:= clGray;
+end;
+
+procedure TfrmGeneral.lblEditDataDocClick(Sender: TObject);
+begin
+  {open doc}
+  actHlpEditDataDoc.Execute;
+end;
+
+procedure TfrmGeneral.lblEditDataDocMouseEnter(Sender: TObject);
+begin
+  {pseudo-link, underline}
+  lblEditDataDoc.Font.Underline:= True;
+  {set color}
+  lblEditDataDoc.Color:= clMaroon;
+end;
+
+procedure TfrmGeneral.lblEditDataDocMouseLeave(Sender: TObject);
+begin
+  {reset pseudo-link, underline = False}
+  lblEditDataDoc.Font.Underline:= False;
+  {set color}
+  lblEditDataDoc.Color:= clGray;
+end;
+
+procedure TfrmGeneral.lblEditDataPdfClick(Sender: TObject);
+begin
+  {open doc}
+  actEditDataPdf.Execute;
+end;
+
+procedure TfrmGeneral.lblEditDataPdfMouseEnter(Sender: TObject);
+begin
+  {pseudo-link, underline}
+  lblEditDataPdf.Font.Underline:= True;
+  {set color}
+  lblEditDataPdf.Color:= clMaroon;
+end;
+
+procedure TfrmGeneral.lblEditDataPdfMouseLeave(Sender: TObject);
+begin
+  {reset pseudo-link, underline = False}
+  lblEditDataPdf.Font.Underline:= False;
+  {set color}
+  lblEditDataPdf.Color:= clGray;
 end;
 
 procedure TfrmGeneral.lblModuleTitleClick(Sender: TObject);
@@ -984,6 +1052,21 @@ begin
   end;
 end;
 
+procedure TfrmGeneral.actEditDataPdfExecute(Sender: TObject);
+var
+  full_path : String;
+begin
+  {help file path(pdf file)}
+  full_path:= HELP_PATH + 'editData.pdf';
+  {open doc}
+  Screen.Cursor:= crHourGlass;
+  try
+    OpenDocument(full_path);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
 procedure TfrmGeneral.actHlpAboutFormsDocExecute(Sender: TObject);
 var
   full_path : String;
@@ -1035,6 +1118,21 @@ var
 begin
   {help file path(pdf file)}
   full_path:= HELP_PATH + 'generalTbls.pdf';
+  {open doc}
+  Screen.Cursor:= crHourGlass;
+  try
+    OpenDocument(full_path);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actHlpEditDataDocExecute(Sender: TObject);
+var
+  full_path : String;
+begin
+  {help file path(pdf file)}
+  full_path:= HELP_PATH + 'editData.doc';
   {open doc}
   Screen.Cursor:= crHourGlass;
   try
