@@ -1,4 +1,4 @@
-unit uBaseModuleForm;
+unit uorg;
 
 {$mode objfpc}{$H+}
 
@@ -6,29 +6,27 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, BCPanel, DividerBevel, Forms, Controls, Graphics,
-  Dialogs, ActnList, Menus, ComCtrls, ExtCtrls, LCLIntf, StdCtrls;
+  Dialogs, ExtCtrls, StdCtrls, Menus, ActnList, LCLIntf, ComCtrls;
 
 type
 
-  { TbaseModuleForm }
+  { TfrmOrg }
 
-  TbaseModuleForm = class(TForm)
+  TfrmOrg = class(TForm)
     actGeneral: TActionList;
     actQuitApp: TAction;
     divExDatis: TDividerBevel;
     Image1: TImage;
-    lblModuleTitle: TLabel;
-    panelForms: TBCPanel;
     imgGeneral: TImageList;
+    lblModuleTitle: TLabel;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     mnuGeneral: TMainMenu;
+    panelForms: TBCPanel;
     panelMnu: TPanel;
     shapeLogo: TShape;
     statusBarGeneral: TStatusBar;
-    toolBarGeneral: TToolBar;
-    ToolButton1: TToolButton;
     procedure actQuitAppExecute(Sender: TObject);
     procedure divExDatisClick(Sender: TObject);
     procedure divExDatisMouseEnter(Sender: TObject);
@@ -44,24 +42,23 @@ type
   end;
 
 var
-  baseModuleForm: TbaseModuleForm;
+  frmOrg: TfrmOrg;
 const
   PRJ_HOME : String = 'http://sourceforge.net/projects/emissoftware/';
-
 implementation
 
 {$R *.lfm}
 
-{ TbaseModuleForm }
+{ TfrmOrg }
 
-procedure TbaseModuleForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+procedure TfrmOrg.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   { free and nil }
   CloseAction:= caFree;
   self:= nil;
 end;
 
-procedure TbaseModuleForm.lblModuleTitleClick(Sender: TObject);
+procedure TfrmOrg.divExDatisClick(Sender: TObject);
 begin
   {open project home-page}
   Screen.Cursor:= crHourGlass;
@@ -72,26 +69,26 @@ begin
   end;
 end;
 
-procedure TbaseModuleForm.lblModuleTitleMouseEnter(Sender: TObject);
-begin
-  {underline}
-  lblModuleTitle.Font.Underline:= True;
-end;
-
-procedure TbaseModuleForm.lblModuleTitleMouseLeave(Sender: TObject);
-begin
-  {reset - underline = False}
-  lblModuleTitle.Font.Underline:= False;
-end;
-
-procedure TbaseModuleForm.actQuitAppExecute(Sender: TObject);
+procedure TfrmOrg.actQuitAppExecute(Sender: TObject);
 begin
   {close main form and terminate app}
   self.Close;
   Application.Terminate;
 end;
 
-procedure TbaseModuleForm.divExDatisClick(Sender: TObject);
+procedure TfrmOrg.divExDatisMouseEnter(Sender: TObject);
+begin
+  {underline}
+  divExDatis.Font.Underline:= True;
+end;
+
+procedure TfrmOrg.divExDatisMouseLeave(Sender: TObject);
+begin
+  {reset underline}
+  divExDatis.Font.Underline:= False;
+end;
+
+procedure TfrmOrg.lblModuleTitleClick(Sender: TObject);
 begin
   {open project home-page}
   Screen.Cursor:= crHourGlass;
@@ -102,16 +99,16 @@ begin
   end;
 end;
 
-procedure TbaseModuleForm.divExDatisMouseEnter(Sender: TObject);
+procedure TfrmOrg.lblModuleTitleMouseEnter(Sender: TObject);
 begin
   {underline}
-  divExDatis.Font.Underline:= True;
+  lblModuleTitle.Font.Underline:= True;
 end;
 
-procedure TbaseModuleForm.divExDatisMouseLeave(Sender: TObject);
+procedure TfrmOrg.lblModuleTitleMouseLeave(Sender: TObject);
 begin
-  {reset underline}
-  divExDatis.Font.Underline:= False;
+  {reset - underline = False}
+  lblModuleTitle.Font.Underline:= False;
 end;
 
 end.

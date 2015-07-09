@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="4">
+      <Unit0>
+        <Filename Value="org.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="org"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="20"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="uorg.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmOrg"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uorg"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="79"/>
+        <CursorPos X="36" Y="88"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\emisGeneral\ugeneral.pp"/>
+        <ComponentName Value="frmGeneral"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uGeneral"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\common\ubasemoduleform.pp"/>
+        <ComponentName Value="baseModuleForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uBaseModuleForm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="84"/>
+        <CursorPos X="33" Y="80"/>
+        <UsageCount Value="10"/>
+      </Unit3>
+    </Units>
+    <JumpHistory Count="12" HistoryIndex="11">
+      <Position1>
+        <Filename Value="uorg.pp"/>
+      </Position1>
+      <Position2>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="39" Column="71" TopLine="9"/>
+      </Position2>
+      <Position3>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="51" Column="15" TopLine="18"/>
+      </Position3>
+      <Position4>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="63" Column="41" TopLine="29"/>
+      </Position4>
+      <Position5>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="64" Column="39" TopLine="34"/>
+      </Position5>
+      <Position6>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="70" Column="13" TopLine="41"/>
+      </Position6>
+      <Position7>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="66" Column="10" TopLine="53"/>
+      </Position7>
+      <Position8>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="73" Column="36" TopLine="65"/>
+      </Position8>
+      <Position9>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="84" Column="10" TopLine="78"/>
+      </Position9>
+      <Position10>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="75" Column="27" TopLine="59"/>
+      </Position10>
+      <Position11>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="9" Column="66" TopLine="81"/>
+      </Position11>
+      <Position12>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="63" Column="3" TopLine="61"/>
+      </Position12>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
