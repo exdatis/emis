@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, uorg, lazcontrols
+  Forms, uorg, lazcontrols, uDModule, uBaseDbForm, uConfirm, zcomponent
   { you can add units after this };
 
 {$R *.res}
@@ -17,6 +17,7 @@ begin
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TfrmOrg, frmOrg);
+  Application.CreateForm(TdModule, dModule);
   Application.Run;
 end.
 

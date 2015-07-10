@@ -27,6 +27,8 @@ type
     panelMnu: TPanel;
     shapeLogo: TShape;
     statusBarGeneral: TStatusBar;
+    toolBarGeneral: TToolBar;
+    ToolButton1: TToolButton;
     procedure actQuitAppExecute(Sender: TObject);
     procedure divExDatisClick(Sender: TObject);
     procedure divExDatisMouseEnter(Sender: TObject);

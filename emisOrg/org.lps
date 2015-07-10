@@ -4,27 +4,26 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="4">
+    <Units Count="7">
       <Unit0>
         <Filename Value="org.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="org"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="20"/>
+        <UsageCount Value="25"/>
       </Unit0>
       <Unit1>
         <Filename Value="uorg.pp"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmOrg"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uorg"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="79"/>
-        <CursorPos X="36" Y="88"/>
-        <UsageCount Value="20"/>
+        <TopLine Value="81"/>
+        <CursorPos X="36" Y="90"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -33,7 +32,6 @@
         <ComponentName Value="frmGeneral"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uGeneral"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="10"/>
       </Unit2>
@@ -48,8 +46,44 @@
         <CursorPos X="33" Y="80"/>
         <UsageCount Value="10"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="udmodule.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dModule"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="uDModule"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="baseDbForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uBaseDbForm"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="207"/>
+        <CursorPos X="3" Y="104"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\dialogs\uconfirm.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dlgConfirm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uConfirm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="24"/>
+      </Unit6>
     </Units>
-    <JumpHistory Count="12" HistoryIndex="11">
+    <JumpHistory Count="14" HistoryIndex="13">
       <Position1>
         <Filename Value="uorg.pp"/>
       </Position1>
@@ -91,12 +125,19 @@
       </Position10>
       <Position11>
         <Filename Value="uorg.pp"/>
-        <Caret Line="9" Column="66" TopLine="81"/>
+        <Caret Line="63" Column="3" TopLine="61"/>
       </Position11>
       <Position12>
-        <Filename Value="uorg.pp"/>
-        <Caret Line="63" Column="3" TopLine="61"/>
+        <Filename Value="udmodule.pp"/>
       </Position12>
+      <Position13>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="88" Column="36" TopLine="79"/>
+      </Position13>
+      <Position14>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <Caret TopLine="40"/>
+      </Position14>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>
