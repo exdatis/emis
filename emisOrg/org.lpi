@@ -20,7 +20,7 @@
       <MajorVersionNr Value="3"/>
       <MinorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="2"/>
+      <BuildNr Value="3"/>
       <StringTable Comments="App by Morar" CompanyName="ExDatis" FileDescription="Emis module" InternalName="Emis org" LegalCopyright="Morar(self)" LegalTrademarks="ExDatis" OriginalFilename="org" ProductName="EmisOrg" ProductVersion="3"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -34,21 +34,24 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="4">
+    <RequiredPackages Count="5">
       <Item1>
-        <PackageName Value="zcomponent"/>
+        <PackageName Value="FCL"/>
       </Item1>
       <Item2>
-        <PackageName Value="LazControls"/>
+        <PackageName Value="zcomponent"/>
       </Item2>
       <Item3>
-        <PackageName Value="bgracontrols"/>
+        <PackageName Value="LazControls"/>
       </Item3>
       <Item4>
-        <PackageName Value="LCL"/>
+        <PackageName Value="bgracontrols"/>
       </Item4>
+      <Item5>
+        <PackageName Value="LCL"/>
+      </Item5>
     </RequiredPackages>
-    <Units Count="5">
+    <Units Count="6">
       <Unit0>
         <Filename Value="org.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -59,12 +62,12 @@
         <ComponentName Value="frmOrg"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uorg"/>
       </Unit1>
       <Unit2>
         <Filename Value="udmodule.pp"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="dModule"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="uDModule"/>
       </Unit2>
@@ -84,6 +87,13 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uConfirm"/>
       </Unit4>
+      <Unit5>
+        <Filename Value="hospital\uhospital.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmHospital"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit5>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -94,7 +104,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="..\common;..\dialogs"/>
+      <OtherUnitFiles Value="..\common;..\dialogs;hospital"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
