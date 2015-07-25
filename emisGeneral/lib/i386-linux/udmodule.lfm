@@ -1,0 +1,29 @@
+object dModule: TdModule
+  OldCreateOrder = False
+  Height = 420
+  HorizontalOffset = 492
+  VerticalOffset = 163
+  Width = 644
+  object zdbh: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = False
+    Properties.Strings = (
+      'AutoEncodeStrings='
+    )
+    Connected = True
+    HostName = 'localhost'
+    Port = 3050
+    Database = '/home/exdatis/fdb/emis25.fdb'
+    User = 'sysdba'
+    Password = 'masterkey'
+    Protocol = 'firebirdd-2.5'
+    left = 25
+    top = 26
+  end
+  object zqGeneral: TZReadOnlyQuery
+    Connection = zdbh
+    Params = <>
+    left = 29
+    top = 92
+  end
+end

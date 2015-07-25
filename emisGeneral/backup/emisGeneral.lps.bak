@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="32">
+      <Unit0>
+        <Filename Value="emisGeneral.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="13"/>
+        <CursorPos X="5" Y="31"/>
+        <UsageCount Value="64"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="udmodule.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dModule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="uDModule"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="36" Y="13"/>
+        <UsageCount Value="64"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\common\ubasedbform.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="baseDbForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uBaseDbForm"/>
+        <EditorIndex Value="6"/>
+        <CursorPos X="3" Y="14"/>
+        <UsageCount Value="62"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="ugeneral.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmGeneral"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uGeneral"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="241"/>
+        <CursorPos X="32" Y="244"/>
+        <UsageCount Value="61"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\dialogs\uconfirm.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dlgConfirm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="27" Y="12"/>
+        <UsageCount Value="59"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="locations\ulocation.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmLocation"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uLocation"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="131"/>
+        <CursorPos X="44" Y="150"/>
+        <UsageCount Value="55"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="docs\udocwarehousein.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocWarehouseIn"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="52"/>
+        <CursorPos X="22" Y="59"/>
+        <UsageCount Value="52"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="docs\udocwarehouseout.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocWarehouseOut"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="47"/>
+        <CursorPos X="40" Y="49"/>
+        <UsageCount Value="51"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="docs\udocsoinput.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocSOInput"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="51"/>
+        <CursorPos X="38" Y="303"/>
+        <UsageCount Value="50"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="docs\udocsooutput.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocSOOutput"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="296"/>
+        <CursorPos X="42" Y="301"/>
+        <UsageCount Value="49"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="docs\udocbuying.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocBuying"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="297"/>
+        <CursorPos X="13" Y="316"/>
+        <UsageCount Value="48"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="docs\udocsell.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocSell"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="285"/>
+        <CursorPos X="10" Y="315"/>
+        <UsageCount Value="47"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="docs\udoccontract.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocContract"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="51"/>
+        <CursorPos Y="63"/>
+        <UsageCount Value="46"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="measure\umeasure.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMeasure"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="285"/>
+        <CursorPos X="26" Y="315"/>
+        <UsageCount Value="45"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="drug\udrugforms.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDrugForms"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="46"/>
+        <CursorPos X="6" Y="58"/>
+        <UsageCount Value="44"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="docs\udocmedicalinput.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocMedicalInput"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="286"/>
+        <CursorPos X="19" Y="316"/>
+        <UsageCount Value="36"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="docs\udocmedicaloutput.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocMedicalOutput"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="297"/>
+        <CursorPos X="45" Y="303"/>
+        <UsageCount Value="35"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="docs\udocmedicalorders.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocMedicalOrders"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="286"/>
+        <CursorPos X="15" Y="316"/>
+        <UsageCount Value="34"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="docs\udoclab.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocLab"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocLab"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="257"/>
+        <CursorPos X="18" Y="287"/>
+        <UsageCount Value="33"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="docs\udocpayment.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocPayment"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="45"/>
+        <CursorPos X="28" Y="58"/>
+        <UsageCount Value="31"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="docs\udocoutgoings.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocOutgoings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="258"/>
+        <CursorPos X="39" Y="285"/>
+        <UsageCount Value="30"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="docs\udocfinance.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocFinance"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="45"/>
+        <CursorPos Y="62"/>
+        <UsageCount Value="29"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="docs\udocrequisition.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocRequisition"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="258"/>
+        <CursorPos X="41" Y="285"/>
+        <UsageCount Value="28"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="docs\udocreservation.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDocReservation"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDocReservation"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="258"/>
+        <CursorPos Y="292"/>
+        <UsageCount Value="28"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="locations\ulocations.pp"/>
+        <ComponentName Value="frmLocations"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="283"/>
+        <CursorPos X="35" Y="300"/>
+        <UsageCount Value="23"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="..\common\ubasemoduleform.pp"/>
+        <ComponentName Value="baseModuleForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="41"/>
+        <CursorPos X="25" Y="56"/>
+        <UsageCount Value="21"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZDataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="110"/>
+        <CursorPos X="47" Y="119"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZDatasetUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="19"/>
+        <CursorPos X="43" Y="28"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\dbc\ZDbcInterbase6Utils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="823"/>
+        <CursorPos Y="832"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZAbstractConnection.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="940"/>
+        <CursorPos X="52" Y="952"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\dbc\ZDbcGenericResolver.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="888"/>
+        <CursorPos X="46" Y="898"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZAbstractDataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="430"/>
+        <CursorPos Y="446"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit31>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="587" TopLine="568"/>
+      </Position1>
+      <Position2>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="589" TopLine="568"/>
+      </Position2>
+      <Position3>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="582" TopLine="571"/>
+      </Position3>
+      <Position4>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="374" Column="5" TopLine="317"/>
+      </Position4>
+      <Position5>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="588" TopLine="569"/>
+      </Position5>
+      <Position6>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="232" Column="37" TopLine="227"/>
+      </Position6>
+      <Position7>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="306" Column="34" TopLine="300"/>
+      </Position7>
+      <Position8>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="346" Column="94" TopLine="269"/>
+      </Position8>
+      <Position9>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="1000" Column="25" TopLine="987"/>
+      </Position9>
+      <Position10>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="1002" Column="25" TopLine="989"/>
+      </Position10>
+      <Position11>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="1054" Column="36" TopLine="1044"/>
+      </Position11>
+      <Position12>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="1053" Column="3" TopLine="1049"/>
+      </Position12>
+      <Position13>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="1060" Column="3" TopLine="1056"/>
+      </Position13>
+      <Position14>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="996" Column="40" TopLine="991"/>
+      </Position14>
+      <Position15>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="997" Column="40" TopLine="992"/>
+      </Position15>
+      <Position16>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="998" Column="40" TopLine="993"/>
+      </Position16>
+      <Position17>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="240" Column="37" TopLine="235"/>
+      </Position17>
+      <Position18>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="343" Column="17" TopLine="338"/>
+      </Position18>
+      <Position19>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="249" Column="36" TopLine="244"/>
+      </Position19>
+      <Position20>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="358" Column="17" TopLine="353"/>
+      </Position20>
+      <Position21>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="348" Column="25" TopLine="346"/>
+      </Position21>
+      <Position22>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="349" Column="13" TopLine="341"/>
+      </Position22>
+      <Position23>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="244" Column="38" TopLine="239"/>
+      </Position23>
+      <Position24>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="353" Column="17" TopLine="348"/>
+      </Position24>
+      <Position25>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="253" Column="36" TopLine="248"/>
+      </Position25>
+      <Position26>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="362" Column="17" TopLine="357"/>
+      </Position26>
+      <Position27>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="363" Column="17" TopLine="358"/>
+      </Position27>
+      <Position28>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="364" Column="17" TopLine="359"/>
+      </Position28>
+      <Position29>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="365" Column="17" TopLine="360"/>
+      </Position29>
+      <Position30>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="373" Column="17" TopLine="368"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

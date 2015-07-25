@@ -1,0 +1,140 @@
+inherited frmDocMedicalInput: TfrmDocMedicalInput
+  OnClose = FormClose
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Medicinski dokumenti-prijem'
+  end
+  object groupBoxEdit: TGroupBox[2]
+    Left = 0
+    Height = 78
+    Hint = 'Polja označena zvezdicom su obavezna'
+    Top = 15
+    Width = 803
+    Align = alTop
+    Caption = ' Obrada podataka '
+    ClientHeight = 58
+    ClientWidth = 799
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 11
+      Height = 15
+      Top = 6
+      Width = 87
+      Caption = 'Šifra dokumenta'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 11
+      Height = 15
+      Top = 34
+      Width = 101
+      Caption = 'Naziv dokumenta *'
+      ParentColor = False
+    end
+    object dbCode: TDBEdit
+      Left = 142
+      Height = 23
+      Top = 2
+      Width = 194
+      DataField = 'DMI_CODE'
+      DataSource = dsDocMedicalInput
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object dbName: TDBEdit
+      Left = 142
+      Height = 23
+      Top = 28
+      Width = 386
+      DataField = 'DMI_NAME'
+      DataSource = dsDocMedicalInput
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+  end
+  object dbgDocMedicalInput: TDBGrid[3]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 379
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 93
+    Width = 803
+    Align = alClient
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsDocMedicalInput
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 2
+    OnMouseMove = dbgDocMedicalInputMouseMove
+    OnTitleClick = dbgDocMedicalInputTitleClick
+  end
+  inherited actDb: TActionList[4]
+  end
+  object ztDocMedicalInput: TZTable[5]
+    Connection = dModule.zdbh
+    SortedFields = 'DMI_NAME'
+    AfterOpen = ztDocMedicalInputAfterOpen
+    AfterScroll = ztDocMedicalInputAfterScroll
+    AfterPost = ztDocMedicalInputAfterPost
+    AfterDelete = ztDocMedicalInputAfterDelete
+    TableName = 'DOC_MEDICAL_INPUT'
+    IndexFieldNames = 'DMI_NAME Asc'
+    Sequence = zseqDocMedicalInput
+    SequenceField = 'DMI_ID'
+    left = 504
+    top = 277
+    object ztDocMedicalInputDMI_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'DMI_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ztDocMedicalInputDMI_CODE: TStringField
+      DisplayLabel = 'Šifra'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'DMI_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object ztDocMedicalInputDMI_NAME: TStringField
+      DisplayLabel = 'Naziv dokumenta'
+      DisplayWidth = 35
+      FieldKind = fkData
+      FieldName = 'DMI_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+  end
+  object zseqDocMedicalInput: TZSequence[6]
+    Connection = dModule.zdbh
+    SequenceName = 'DOC_SEQ'
+    left = 584
+    top = 295
+  end
+  object dsDocMedicalInput: TDataSource[7]
+    DataSet = ztDocMedicalInput
+    left = 483
+    top = 336
+  end
+end

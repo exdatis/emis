@@ -1,0 +1,409 @@
+inherited frmLocation: TfrmLocation
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Gradovi i mesta u Srbiji'
+  end
+  object panelParams: TPanel[2]
+    Left = 0
+    Height = 35
+    Top = 15
+    Width = 803
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 803
+    TabOrder = 1
+    object cmbCharFilter: TComboBox
+      Left = 6
+      Height = 23
+      Hint = 'Izaberite početno slovo'
+      Top = 6
+      Width = 159
+      AutoComplete = True
+      AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+      ItemHeight = 15
+      Items.Strings = (
+        'A'
+        'B'
+        'C'
+        'Č'
+        'Ć'
+        'D'
+        'Dž'
+        'Dj'
+        'E'
+        'F'
+        'G'
+        'H'
+        'I'
+        'J'
+        'K'
+        'L'
+        'Lj'
+        'M'
+        'N'
+        'Nj'
+        'O'
+        'P'
+        'R'
+        'Q'
+        'S'
+        'Š'
+        'T'
+        'U'
+        'V'
+        'Z'
+        'Ž'
+      )
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = 'Mesta na slovo ...'
+    end
+    object btnCharFilter: TSpeedButton
+      Cursor = crHandPoint
+      Left = 171
+      Height = 23
+      Top = 6
+      Width = 135
+      Action = actCharFilter
+      ShowHint = True
+      ParentShowHint = False
+    end
+    object cmbFieldArg: TComboBox
+      Cursor = crHandPoint
+      Left = 311
+      Height = 23
+      Hint = 'Polje za pretragu'
+      Top = 6
+      Width = 164
+      AutoComplete = True
+      AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+      AutoDropDown = True
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        'Pretraga polja ...'
+        'Naziv mesta'
+        'Poštanski broj'
+      )
+      OnChange = cmbFieldArgChange
+      ParentShowHint = False
+      ShowHint = True
+      Style = csDropDownList
+      TabOrder = 1
+      Text = 'Pretraga polja ...'
+    end
+    object edtLocate: TEdit
+      Left = 480
+      Height = 23
+      Hint = 'Početak teksta'
+      Top = 6
+      Width = 132
+      Font.Color = clGray
+      OnEnter = edtLocateEnter
+      OnExit = edtLocateExit
+      OnKeyUp = edtLocateKeyUp
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+      Text = 'Pronadji ...'
+    end
+    object btnShowAll: TSpeedButton
+      Cursor = crHandPoint
+      Left = 617
+      Height = 23
+      Top = 6
+      Width = 179
+      Action = actClearFilter
+      ShowHint = True
+      ParentShowHint = False
+    end
+  end
+  object groupBoxEdit: TGroupBox[3]
+    Left = 0
+    Height = 77
+    Hint = 'Polja sa (*) su obavezna'
+    Top = 50
+    Width = 803
+    Align = alTop
+    Caption = ' Obrada podataka '
+    ClientHeight = 57
+    ClientWidth = 799
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 10
+      Height = 15
+      Top = 5
+      Width = 74
+      Caption = 'Poštanski broj'
+      ParentColor = False
+    end
+    object dbCode: TDBEdit
+      Left = 169
+      Height = 23
+      Top = 2
+      Width = 135
+      DataField = 'L_CODE'
+      DataSource = dsLocation
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object Label2: TLabel
+      Left = 10
+      Height = 15
+      Top = 31
+      Width = 72
+      Caption = 'Naziv mesta *'
+      ParentColor = False
+    end
+    object dbName: TDBEdit
+      Left = 169
+      Height = 23
+      Top = 28
+      Width = 304
+      DataField = 'L_NAME'
+      DataSource = dsLocation
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+  end
+  object dbgLocation: TDBGrid[4]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 345
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 127
+    Width = 803
+    Align = alClient
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsLocation
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 3
+    OnMouseMove = dbgLocationMouseMove
+    OnTitleClick = dbgLocationTitleClick
+  end
+  inherited actDb: TActionList[5]
+  end
+  object actLocation: TActionList[6]
+    Images = frmGeneral.imgGeneral
+    left = 183
+    top = 313
+    object actCharFilter: TAction
+      Caption = ' Filter(slovo)'
+      Hint = 'Pronadji mesta'
+      ImageIndex = 1
+      OnExecute = actCharFilterExecute
+      ShortCut = 49219
+    end
+    object actClearFilter: TAction
+      Caption = 'Ukloni filter'
+      Hint = 'Prikaži sve slogove'
+      ImageIndex = 3
+      OnExecute = actClearFilterExecute
+      ShortCut = 49217
+    end
+  end
+  object zqLocation: TZQuery[7]
+    Connection = dModule.zdbh
+    SortedFields = 'L_NAME'
+    AfterOpen = zqLocationAfterOpen
+    AfterScroll = zqLocationAfterScroll
+    UpdateObject = zupdLocation
+    AfterPost = zqLocationAfterPost
+    AfterDelete = zqLocationAfterDelete
+    SQL.Strings = (
+      'SELECT '
+      '  L_ID,'
+      '  L_CODE,'
+      '  L_NAME'
+      'FROM '
+      '  LOCATION '
+      'WHERE'
+      '  LOWER(L_NAME) LIKE LOWER(:L_NAME)'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'L_NAME'
+        ParamType = ptInput
+      end>
+    IndexFieldNames = 'L_NAME Asc'
+    Sequence = zseqLocation
+    SequenceField = 'L_ID'
+    left = 411
+    top = 298
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'L_NAME'
+        ParamType = ptInput
+      end>
+    object zqLocationL_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'L_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zqLocationL_CODE: TStringField
+      DisplayLabel = 'Poštanski broj'
+      DisplayWidth = 11
+      FieldKind = fkData
+      FieldName = 'L_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zqLocationL_NAME: TStringField
+      DisplayLabel = 'Naziv mesta'
+      DisplayWidth = 35
+      FieldKind = fkData
+      FieldName = 'L_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 280
+    end
+  end
+  object zseqLocation: TZSequence[8]
+    Connection = dModule.zdbh
+    SequenceName = 'LOCATION_SEQ'
+    left = 482
+    top = 328
+  end
+  object dsLocation: TDataSource[9]
+    DataSet = zqLocation
+    left = 475
+    top = 383
+  end
+  object zupdLocation: TZUpdateSQL[10]
+    DeleteSQL.Strings = (
+      'DELETE FROM '
+      '  LOCATION '
+      'WHERE '
+      '  L_ID = :L_ID'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO '
+      '  LOCATION'
+      '('
+      '  L_ID,'
+      '  L_CODE,'
+      '  L_NAME'
+      ') '
+      'VALUES ('
+      '  :L_ID,'
+      '  :L_CODE,'
+      '  :L_NAME'
+      ')'
+    )
+    ModifySQL.Strings = (
+      'UPDATE '
+      '  LOCATION  '
+      'SET '
+      '  L_CODE = :L_CODE,'
+      '  L_NAME = :L_NAME'
+      ' '
+      'WHERE '
+      '  L_ID = :L_ID'
+    )
+    RefreshSQL.Strings = (
+      'SELECT '
+      '  L_ID,'
+      '  L_CODE,'
+      '  L_NAME'
+      'FROM '
+      '  LOCATION '
+      'WHERE'
+      '  L_ID = :L_ID'
+    )
+    UseSequenceFieldForRefreshSQL = True
+    left = 412
+    top = 369
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'L_CODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'L_NAME'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'L_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object pupNotiferLocation: TPopupNotifier[11]
+    Color = 14483455
+    Icon.Data = {
+      1754506F727461626C654E6574776F726B477261706869639704000089504E47
+      0D0A1A0A0000000D4948445200000018000000180806000000E0773DF8000000
+      06624B474400FF00FF00FFA0BDA7930000000970485973000000480000004800
+      46C96B3E0000000976704167000000180000001800784CA5A6000003C0494441
+      5448C7ED954B685C6514C7FFE7BBF7CE9DD79DCCE4D97412D3D68AA522547061
+      D58520AD2E444212B59BD64537D28250AAB874E503052B2E44DD681B502C4D04
+      958A14056329145B1B432CA5A6A91392AA49266966E6E63EBF735C2434E661A2
+      6E44F0ECBEC3E1FFFBFEE77C0FE0FFF8B783362A78E2D9E3856AB5D29DB0CCC7
+      33D9CC7665988930087E75DDF9817436D79BCE64AE9C78B94BFE1160CF81377B
+      EA0BB957DADB8BDB6D3B09520AA494101904402627A7FC5269ECED7C7DD38B1F
+      BDFEA4FBB7007BF71F3BBC754BF18DBABABC559EF33139EBC10B19A4146CDB42
+      433E8362B30322607868F84CDAC977AD0531D6127FE4C0B17B8BAD4D279D9C93
+      18192B63E2B70A0561487BEEEBA007EFB90D574B333433E763B612509D93A4E2
+      E64DDBAE8F5E4BEE7EF4E099A1B3279769A995E2DDCFBC635AA67AB5907712A3
+      63D3989CAE82B586579DC6EE3B18FB1FBB0B69DB80680DCF0FF15369069A818E
+      8EF643F3AEBB6343071D3B1FDED9DC987F298C448D8ECF4064617EA40C5CFAFE
+      02BEFCE6074CD592D0BC90D7CC1000C5967AB3542AD5462E9DFE6A5D07107E20
+      934A5AE5D91AE92826D631586B8ABC2ABD70A8938EBFF51C0A4E82586B086B62
+      CD549E7501086533E98756CAAD02F841D0A608F0BC40586B11D6601D8B8E2361
+      1D0900B0D6C27A21CF1C8B1F84D05A8B691AADFB8EF42EEB8AB912601A46C8CC
+      8030B18E0118A20062D64B1E5913732C208314000104C2242291615ABC2E8088
+      2E07418874D202F352ADE85B002CEC7E712D4026654184E1BAEE95CFDE7B7AD9
+      A55BD522CB34CECD556AE5867C0A96B124F6070710D6E03806C71AA2359A0B29
+      04BE8F308C3FDD7006A74F1CFD6566AED26B1A245BDBEA05E0C55E6B191C1C94
+      B3E7CEC3F743E1C5D914720969CC27313E7E63C44927FA363CA600B0E3EEFB2F
+      543DDDDDDA9C6F48D9162A359F04167DF7E3347DF1ED2882984829424BA343DB
+      DA1BA856AD4537264A873F7FFFE8C5BF0418191EF06EBF73D7D7550F7B5B9B0A
+      F52D4D394AD909643259E41C070D850C75140B686DCAD1CDB94A38F6F3D5E70B
+      A9E883CB8303ABB4D67C8BBA9E3A68537C331B89BDD9A74D47EA1AB774E69C6C
+      DE4E24A00C05CD80E707F1F4D4C4C5B872EDB5AC593D0FA879240AEEA90FDF8D
+      D6057476EF530A519D226A04608BC088C46A0EC4D945CA6A238225CC6543DC21
+      5B79D7154924223111CDB3D09440B99FF47D2CEB3BE8EEB1099225A224808488
+      1844A416EB09808808036022D2004211CC0BE0F6F79D5ADFC12D48570F614154
+      094811290561021820251012400410068421C2FDFD7D7FFAF1FC77E3779FF0ED
+      BD2E1C8F8A0000002574455874646174653A63726561746500323031302D3032
+      2D31305431333A35313A34382D30363A303073AC24E500000025744558746461
+      74653A6D6F6469667900323030392D30392D30335431313A32303A34382D3035
+      3A30308760B4C80000000049454E44AE426082
+    }
+    Text = 'Text'
+    Title = 'Emis software'
+    Visible = False
+    left = 96
+    top = 192
+  end
+end

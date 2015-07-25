@@ -1,0 +1,140 @@
+inherited frmMeasure: TfrmMeasure
+  OnClose = FormClose
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Osnovne jedinice mere'
+  end
+  object groupBoxEdit: TGroupBox[2]
+    Left = 0
+    Height = 78
+    Hint = 'Polja označena zvezdicom su obavezna'
+    Top = 15
+    Width = 803
+    Align = alTop
+    Caption = ' Obrada podataka '
+    ClientHeight = 58
+    ClientWidth = 799
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 11
+      Height = 15
+      Top = 6
+      Width = 91
+      Caption = 'Oznaka jedinice *'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 11
+      Height = 15
+      Top = 34
+      Width = 111
+      Caption = 'Naziv jedinice mere *'
+      ParentColor = False
+    end
+    object dbCode: TDBEdit
+      Left = 142
+      Height = 23
+      Top = 2
+      Width = 194
+      DataField = 'M_CODE'
+      DataSource = dsMeasure
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object dbName: TDBEdit
+      Left = 142
+      Height = 23
+      Top = 28
+      Width = 386
+      DataField = 'M_NAME'
+      DataSource = dsMeasure
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+  end
+  object dbgMeasure: TDBGrid[3]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 379
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 93
+    Width = 803
+    Align = alClient
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsMeasure
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 2
+    OnMouseMove = dbgMeasureMouseMove
+    OnTitleClick = dbgMeasureTitleClick
+  end
+  inherited actDb: TActionList[4]
+  end
+  object ztMeasure: TZTable[5]
+    Connection = dModule.zdbh
+    SortedFields = 'M_NAME'
+    AfterOpen = ztMeasureAfterOpen
+    AfterScroll = ztMeasureAfterScroll
+    AfterPost = ztMeasureAfterPost
+    AfterDelete = ztMeasureAfterDelete
+    TableName = 'MEASURE'
+    IndexFieldNames = 'M_NAME Asc'
+    Sequence = zseqMeasure
+    SequenceField = 'M_ID'
+    left = 510
+    top = 311
+    object ztMeasureM_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'M_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ztMeasureM_CODE: TStringField
+      DisplayLabel = 'Oznaka'
+      DisplayWidth = 9
+      FieldKind = fkData
+      FieldName = 'M_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 60
+    end
+    object ztMeasureM_NAME: TStringField
+      DisplayLabel = 'Naziv jedinice mere'
+      DisplayWidth = 35
+      FieldKind = fkData
+      FieldName = 'M_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+  end
+  object zseqMeasure: TZSequence[6]
+    Connection = dModule.zdbh
+    SequenceName = 'MEASURE_SEQ'
+    left = 559
+    top = 333
+  end
+  object dsMeasure: TDataSource[7]
+    DataSet = ztMeasure
+    left = 619
+    top = 365
+  end
+end

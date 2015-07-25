@@ -1,0 +1,346 @@
+inherited frmHospital: TfrmHospital
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Ustanove'
+  end
+  object groupBoxEdit: TGroupBox[2]
+    Left = 0
+    Height = 145
+    Top = 15
+    Width = 803
+    Align = alTop
+    Caption = 'groupBoxEdit'
+    TabOrder = 1
+  end
+  inherited actDb: TActionList[3]
+  end
+  object zqHospital: TZQuery[4]
+    Connection = dModule.zdbh
+    SortedFields = 'H_NAME'
+    SQL.Strings = (
+      'SELECT '
+      '  a.H_ID, '
+      '  a.H_CODE, '
+      '  a.H_NAME, '
+      '  a.H_LOCATION, '
+      '  a.H_ADDRESS, '
+      '  a.H_TAX_NUMBER,'
+      '  a.H_REG_NUMBER, '
+      '  a.H_PHONE, '
+      '  a.H_FAX, '
+      '  a.H_MAIL, '
+      '  a.H_SITE, '
+      '  a.ZIP_CODE,'
+      '  a.LOCATION_NAME'
+      'FROM '
+      '  HOSPITAL_V a'
+      'ORDER BY'
+      '  a.H_NAME'
+    )
+    Params = <>
+    IndexFieldNames = 'H_NAME Asc'
+    Sequence = zseqHospital
+    SequenceField = 'H_ID'
+    left = 425
+    top = 275
+    object zqHospitalH_ID: TLongintField
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'H_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zqHospitalH_CODE: TStringField
+      DisplayLabel = 'Šifra'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'H_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zqHospitalH_NAME: TStringField
+      DisplayLabel = 'Naziv ustanove'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'H_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqHospitalH_LOCATION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'H_LOCATION'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqHospitalLOCATION_NAME: TStringField
+      DisplayLabel = 'Sedište'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'LOCATION_NAME'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqHospitalH_ADDRESS: TStringField
+      DisplayLabel = 'Adresa'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'H_ADDRESS'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqHospitalH_TAX_NUMBER: TStringField
+      DisplayLabel = 'PIB'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'H_TAX_NUMBER'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object zqHospitalH_REG_NUMBER: TStringField
+      DisplayLabel = 'Reg'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'H_REG_NUMBER'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object zqHospitalH_PHONE: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'H_PHONE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 100
+    end
+    object zqHospitalH_FAX: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'H_FAX'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 100
+    end
+    object zqHospitalH_MAIL: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'H_MAIL'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 100
+    end
+    object zqHospitalH_SITE: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'H_SITE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 200
+    end
+    object zqHospitalZIP_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'ZIP_CODE'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+  end
+  object zseqHospital: TZSequence[5]
+    Connection = dModule.zdbh
+    SequenceName = 'HOSPITAL_SEQ'
+    left = 524
+    top = 330
+  end
+  object dsHospital: TDataSource[6]
+    DataSet = zqHospital
+    left = 412
+    top = 323
+  end
+  object zupdHospital: TZUpdateSQL[7]
+    DeleteSQL.Strings = (
+      'DELETE FROM '
+      '  HOSPITAL '
+      'WHERE '
+      '  H_ID = :H_ID'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO '
+      '  HOSPITAL'
+      '('
+      '  H_ID,'
+      '  H_CODE,'
+      '  H_NAME,'
+      '  H_LOCATION,'
+      '  H_ADDRESS,'
+      '  H_TAX_NUMBER,'
+      '  H_REG_NUMBER,'
+      '  H_PHONE,'
+      '  H_FAX,'
+      '  H_MAIL,'
+      '  H_SITE'
+      ') '
+      'VALUES ('
+      '  :H_ID,'
+      '  :H_CODE,'
+      '  :H_NAME,'
+      '  :H_LOCATION,'
+      '  :H_ADDRESS,'
+      '  :H_TAX_NUMBER,'
+      '  :H_REG_NUMBER,'
+      '  :H_PHONE,'
+      '  :H_FAX,'
+      '  :H_MAIL,'
+      '  :H_SITE'
+      ')'
+    )
+    ModifySQL.Strings = (
+      'UPDATE '
+      '  HOSPITAL  '
+      'SET '
+      '  H_CODE = :H_CODE,'
+      '  H_NAME = :H_NAME,'
+      '  H_LOCATION = :H_LOCATION,'
+      '  H_ADDRESS = :H_ADDRESS,'
+      '  H_TAX_NUMBER = :H_TAX_NUMBER,'
+      '  H_REG_NUMBER = :H_REG_NUMBER,'
+      '  H_PHONE = :H_PHONE,'
+      '  H_FAX = :H_FAX,'
+      '  H_MAIL = :H_MAIL,'
+      '  H_SITE = :H_SITE'
+      ' '
+      'WHERE '
+      '  H_ID = :H_ID'
+    )
+    RefreshSQL.Strings = (
+      'SELECT '
+      '  a.H_ID, '
+      '  a.H_CODE, '
+      '  a.H_NAME, '
+      '  a.H_LOCATION, '
+      '  a.H_ADDRESS, '
+      '  a.H_TAX_NUMBER,'
+      '  a.H_REG_NUMBER, '
+      '  a.H_PHONE, '
+      '  a.H_FAX, '
+      '  a.H_MAIL, '
+      '  a.H_SITE, '
+      '  a.ZIP_CODE,'
+      '  a.LOCATION_NAME'
+      'FROM '
+      '  HOSPITAL_V a'
+      'WHERE '
+      '  A.H_ID = :H_ID'
+    )
+    UseSequenceFieldForRefreshSQL = True
+    left = 420
+    top = 379
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'H_CODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'H_NAME'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftInteger
+        Name = 'H_LOCATION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'H_ADDRESS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'H_TAX_NUMBER'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'H_REG_NUMBER'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'H_PHONE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'H_FAX'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'H_MAIL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'H_SITE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftInteger
+        Name = 'H_ID'
+        ParamType = ptUnknown
+      end>
+  end
+end

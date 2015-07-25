@@ -1,0 +1,140 @@
+inherited frmDocReservation: TfrmDocReservation
+  OnClose = FormClose
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Rezervacije'
+  end
+  object groupBoxEdit: TGroupBox[2]
+    Left = 0
+    Height = 78
+    Hint = 'Polja označena zvezdicom su obavezna'
+    Top = 15
+    Width = 803
+    Align = alTop
+    Caption = ' Obrada podataka '
+    ClientHeight = 58
+    ClientWidth = 799
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 11
+      Height = 15
+      Top = 6
+      Width = 87
+      Caption = 'Šifra dokumenta'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 11
+      Height = 15
+      Top = 34
+      Width = 101
+      Caption = 'Naziv dokumenta *'
+      ParentColor = False
+    end
+    object dbCode: TDBEdit
+      Left = 142
+      Height = 23
+      Top = 2
+      Width = 194
+      DataField = 'DR_CODE'
+      DataSource = dsDocReservation
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object dbName: TDBEdit
+      Left = 142
+      Height = 23
+      Top = 28
+      Width = 386
+      DataField = 'DR_NAME'
+      DataSource = dsDocReservation
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+  end
+  object dbgDocReservation: TDBGrid[3]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 379
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 93
+    Width = 803
+    Align = alClient
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsDocReservation
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 2
+    OnMouseMove = dbgDocReservationMouseMove
+    OnTitleClick = dbgDocReservationTitleClick
+  end
+  inherited actDb: TActionList[4]
+  end
+  object ztDocReservation: TZTable[5]
+    Connection = dModule.zdbh
+    SortedFields = 'DR_NAME'
+    AfterOpen = ztDocReservationAfterOpen
+    AfterScroll = ztDocReservationAfterScroll
+    AfterPost = ztDocReservationAfterPost
+    AfterDelete = ztDocReservationAfterDelete
+    TableName = 'DOC_RESERVATION'
+    IndexFieldNames = 'DR_NAME Asc'
+    Sequence = zseqDocReservation
+    SequenceField = 'DR_ID'
+    left = 478
+    top = 345
+    object ztDocReservationDR_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'DR_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ztDocReservationDR_CODE: TStringField
+      DisplayLabel = 'Šifra'
+      DisplayWidth = 9
+      FieldKind = fkData
+      FieldName = 'DR_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object ztDocReservationDR_NAME: TStringField
+      DisplayLabel = 'Naziv dokumenta'
+      DisplayWidth = 35
+      FieldKind = fkData
+      FieldName = 'DR_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+  end
+  object zseqDocReservation: TZSequence[6]
+    Connection = dModule.zdbh
+    SequenceName = 'DOC_SEQ'
+    left = 545
+    top = 353
+  end
+  object dsDocReservation: TDataSource[7]
+    DataSet = ztDocReservation
+    left = 484
+    top = 406
+  end
+end
