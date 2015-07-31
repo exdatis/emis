@@ -21,6 +21,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="uDModule"/>
+        <IsVisibleTab Value="True"/>
         <CursorPos X="36" Y="13"/>
         <UsageCount Value="64"/>
         <Loaded Value="True"/>
@@ -46,7 +47,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uGeneral"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="518"/>
         <CursorPos X="5" Y="522"/>
