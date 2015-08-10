@@ -1,21 +1,346 @@
 inherited frmHospital: TfrmHospital
+  OnClose = FormClose
+  OnCreate = FormCreate
   inherited lblBaseDbTitle: TLabel
     Caption = 'Ustanove'
   end
   object groupBoxEdit: TGroupBox[2]
     Left = 0
-    Height = 145
+    Height = 137
+    Hint = 'Podaci označeni * su obavezni'
     Top = 15
     Width = 803
     Align = alTop
-    Caption = 'groupBoxEdit'
+    Caption = ' Obrada podataka '
+    ClientHeight = 117
+    ClientWidth = 799
+    ParentShowHint = False
+    ShowHint = True
     TabOrder = 1
+    object Label1: TLabel
+      Left = 11
+      Height = 15
+      Top = 10
+      Width = 23
+      Caption = 'Šifra'
+      ParentColor = False
+    end
+    object dbCode: TDBEdit
+      Left = 68
+      Height = 23
+      Top = 5
+      Width = 209
+      DataField = 'H_CODE'
+      DataSource = dsHospital
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object Label2: TLabel
+      Left = 295
+      Height = 15
+      Top = 10
+      Width = 88
+      Caption = 'Naziv ustanove *'
+      ParentColor = False
+    end
+    object dbName: TDBEdit
+      Left = 392
+      Height = 23
+      Top = 5
+      Width = 400
+      DataField = 'H_NAME'
+      DataSource = dsHospital
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+    object Label3: TLabel
+      Left = 11
+      Height = 15
+      Top = 36
+      Width = 45
+      Caption = 'Sedište *'
+      ParentColor = False
+    end
+    object dbLocation: TDBEdit
+      Left = 68
+      Height = 23
+      Top = 31
+      Width = 186
+      DataField = 'LOCATION_NAME'
+      DataSource = dsHospital
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 2
+      OnKeyPress = dbLocationKeyPress
+    end
+    object btnFindLocation: TSpeedButton
+      Cursor = crHandPoint
+      Left = 257
+      Height = 23
+      Hint = 'Izbor pretrage'
+      Top = 31
+      Width = 23
+      Flat = True
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF0014A4FF6014A4FFCF14A4FFFF14A4FFFF14A4FFFF14A4FFFF14A4FFFF14A4
+        FFFF14A4FFFF14A4FFFF14A4FFCF6B7E87D79E9E9EFF7B7A7A70FFFFFF00FFFF
+        FF0014A4FFEF11A0FFFB1FABFFFF49C7FFFF5CD1FFFF53D1FFFF46D3FFFF4CD8
+        FFFF49D5FFFF2CC1FFFF3F95BDFDABACACFF7B7D7DFF83838370FFFFFF00FFFF
+        FF0014A4FFFF35B8FFFF49C7FFFF87E1FFFFA5EBFFFF8FE9FFFF73E6FFFF77E9
+        FFFF74E7FFFF5AC4E3FF8E989DFF818282FF868787CF00000000FFFFFF00FFFF
+        FF0014A4FFFF58CAFFFF46C6FFFF82DEFFFFA1EAFFFF87E5FFFF66E0FFFF68E1
+        FFFF67D8F6FF79939AFF898989FF6D8E9EFF7575751000000000FFFFFF00FFFF
+        FF0014A4FFFF73D4FFFF43C6FFFF7DD7F6FF88A6B0FF697073FF6A7073FF7788
+        8CFF70929CFF888989FF688796FF19A0F6FF0000000000000000FFFFFF00FFFF
+        FF0014A4FFFF8FDDFFFF41C0F6FF6E797DFF999897FFDCDAD9FFD0CFCEFFC4C1
+        C1FF959395FF777B7FFF1AA3F6FF14A4FFFF0000000000000000FFFFFF00FFFF
+        FF0014A4FFFFACE6FFFF648F9EFF96908AFFEAE3DCFFDDD8D1FFCFCAC4FFCEC9
+        C4FFCCC9C2FF999697FF4EA7D3FF14A4FFFF0000000000000000FFFFFF00FFFF
+        FF0014A4FFF57DD4FFFC727373FFFFF3E7FFFEF3E6FFFEF3E7FFFCF3E6FFFCF3
+        E7FFFEF3E7FFE1D7D1FF8C9CA3FF14A4FFF40000000000000000FFFFFF00FFFF
+        FF0014A4FFF4109FFFFD6D7372FFDEC4A6FFD9CAB7FFDACBBAFFDCCCBBFFE0D0
+        C0FFDCCEBDFFCEC1B2FF7A8C95FF14A4FFF50000000000000000FFFFFF00FFFF
+        FF0014A4FFFF2EB4FFFF6A7375FFFFE6CAFFFFEDD9FFFFEAD1FFFBE5CCFFFCE9
+        D1FFF7E5D0FFD9CBBDFF778F99FF15A9FFFF0000000000000000FFFFFF00FFFF
+        FF0014A4FFFF55C9FFFF648692FFCFBBA5FFFFEDD8FFFAE7D1FFF2E0CAFFF4E2
+        CCFFF2E0CBFFABA4A0FF4299C4FF15A9FFFF0000000000000000FFFFFF00FFFF
+        FF0014A4FFFF6ED1FFFF48BAEDFF727778FFD3C7BAFFF4E3D0FFEAD9C6FFE9D9
+        C6FFBDB6B0FF788F96FF1AACFFFF15A9FFFF0000000000000000FFFFFF00FFFF
+        FF0014A4FFFF8ADCFFFF3FC5FFFF77C6E3FF818F93FF868C8FFF939A9EFF8891
+        93FF6D9EADFF3DC1F6FF16A7FFFF15A9FFFF0000000000000000FFFFFF00FFFF
+        FF0014A4FFFFA7E5FFFF3AC5FFFF73DAFFFF91E2FFFF6ED9FFFF41CBFFFF40CB
+        FFFF3ECBFFFF2FC0FFFF23AFFFFF15A9FFFFFFFFFF00FFFFFF00FFFFFF00FFFF
+        FF0014A4FFEF95DDFFFBB6EBFFFFB0EBFFFFBCEFFFFFB0EBFFFF9FE6FFFF9EE6
+        FFFF9DE6FFFFABE9FFFF88DCFFFC18A7FFF0FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF0014A4FF6014A4FFCF14A4FFFF14A4FFFF14A4FFFF14A4FFFF14A4FFFF14A4
+        FFFF14A4FFFF14A4FFFF14A4FFDF14A4FF60FFFFFF00FFFFFF00
+      }
+      OnClick = btnFindLocationClick
+      ShowCaption = False
+      PopupMenu = pupFindLocation
+    end
+    object Label4: TLabel
+      Left = 295
+      Height = 15
+      Top = 36
+      Width = 44
+      Caption = 'Adresa *'
+      ParentColor = False
+    end
+    object dbAddress: TDBEdit
+      Left = 392
+      Height = 23
+      Top = 31
+      Width = 400
+      DataField = 'H_ADDRESS'
+      DataSource = dsHospital
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 3
+    end
+    object Label5: TLabel
+      Left = 11
+      Height = 15
+      Top = 63
+      Width = 25
+      Caption = 'PIB *'
+      ParentColor = False
+    end
+    object dbTaxNumber: TDBEdit
+      Left = 68
+      Height = 23
+      Top = 58
+      Width = 209
+      DataField = 'H_TAX_NUMBER'
+      DataSource = dsHospital
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 4
+    end
+    object Label6: TLabel
+      Left = 295
+      Height = 15
+      Top = 63
+      Width = 88
+      Caption = 'Registarski broj *'
+      ParentColor = False
+    end
+    object dbREgNumber: TDBEdit
+      Left = 392
+      Height = 23
+      Top = 58
+      Width = 128
+      DataField = 'H_REG_NUMBER'
+      DataSource = dsHospital
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 5
+    end
+    object Label7: TLabel
+      Left = 527
+      Height = 15
+      Top = 63
+      Width = 19
+      Caption = 'Sajt'
+      ParentColor = False
+    end
+    object dbSite: TDBEdit
+      Left = 554
+      Height = 23
+      Top = 58
+      Width = 238
+      DataField = 'H_SITE'
+      DataSource = dsHospital
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 6
+    end
+    object Label8: TLabel
+      Left = 11
+      Height = 15
+      Top = 88
+      Width = 34
+      Caption = 'E-mail'
+      ParentColor = False
+    end
+    object dbMail: TDBEdit
+      Left = 68
+      Height = 23
+      Top = 85
+      Width = 209
+      DataField = 'H_MAIL'
+      DataSource = dsHospital
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 7
+    end
+    object Label9: TLabel
+      Left = 295
+      Height = 15
+      Top = 88
+      Width = 40
+      Caption = 'Telefon'
+      ParentColor = False
+    end
+    object dbPhone: TDBEdit
+      Left = 392
+      Height = 23
+      Top = 85
+      Width = 128
+      DataField = 'H_PHONE'
+      DataSource = dsHospital
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 8
+    end
+    object Label10: TLabel
+      Left = 527
+      Height = 15
+      Top = 88
+      Width = 17
+      Caption = 'Fax'
+      ParentColor = False
+    end
+    object dbFax: TDBEdit
+      Left = 556
+      Height = 23
+      Top = 85
+      Width = 236
+      DataField = 'H_FAX'
+      DataSource = dsHospital
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 9
+    end
   end
-  inherited actDb: TActionList[3]
+  object dbgHospital: TDBGrid[3]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 320
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 152
+    Width = 803
+    Align = alClient
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsHospital
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 2
+    OnMouseMove = dbgHospitalMouseMove
+    OnTitleClick = dbgHospitalTitleClick
   end
-  object zqHospital: TZQuery[4]
+  object panelFindLocation: TPanel[4]
+    Left = 71
+    Height = 260
+    Top = 88
+    Width = 722
+    ClientHeight = 260
+    ClientWidth = 722
+    TabOrder = 3
+    Visible = False
+    object dbgLocation: TDBGrid
+      Cursor = crHandPoint
+      Left = 1
+      Height = 217
+      Hint = 'Klikni naslov polja za sortiranje'
+      Top = 1
+      Width = 720
+      Align = alTop
+      Color = clWindow
+      Columns = <>
+      DataSource = dsFindLocation
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      ReadOnly = True
+      ShowHint = True
+      TabOrder = 0
+      OnKeyPress = dbgLocationKeyPress
+      OnMouseMove = dbgLocationMouseMove
+      OnTitleClick = dbgLocationTitleClick
+    end
+    object btnLocationOk: TButton
+      Cursor = crHandPoint
+      Left = 541
+      Height = 25
+      Hint = 'Prihvati rezultat'
+      Top = 225
+      Width = 75
+      Caption = 'Prihvati'
+      OnClick = btnLocationOkClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+    end
+    object btnLocationCancel: TButton
+      Cursor = crHandPoint
+      Left = 619
+      Height = 25
+      Hint = 'Ponovi pretragu'
+      Top = 225
+      Width = 75
+      Caption = 'Odustani'
+      OnClick = btnLocationCancelClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+    end
+  end
+  inherited actDb: TActionList[5]
+  end
+  object zqHospital: TZQuery[6]
     Connection = dModule.zdbh
     SortedFields = 'H_NAME'
+    AfterOpen = zqHospitalAfterOpen
+    AfterScroll = zqHospitalAfterScroll
+    UpdateObject = zupdHospital
+    AfterPost = zqHospitalAfterPost
+    AfterDelete = zqHospitalAfterDelete
     SQL.Strings = (
       'SELECT '
       '  a.H_ID, '
@@ -197,18 +522,18 @@ inherited frmHospital: TfrmHospital
       Size = 120
     end
   end
-  object zseqHospital: TZSequence[5]
+  object zseqHospital: TZSequence[7]
     Connection = dModule.zdbh
     SequenceName = 'HOSPITAL_SEQ'
     left = 524
     top = 330
   end
-  object dsHospital: TDataSource[6]
+  object dsHospital: TDataSource[8]
     DataSet = zqHospital
     left = 412
     top = 323
   end
-  object zupdHospital: TZUpdateSQL[7]
+  object zupdHospital: TZUpdateSQL[9]
     DeleteSQL.Strings = (
       'DELETE FROM '
       '  HOSPITAL '
@@ -342,5 +667,121 @@ inherited frmHospital: TfrmHospital
         Name = 'H_ID'
         ParamType = ptUnknown
       end>
+  end
+  object zroFindLocation: TZReadOnlyQuery[10]
+    Connection = dModule.zdbh
+    SortedFields = 'L_NAME'
+    SQL.Strings = (
+      'SELECT'
+      '  A.L_ID,'
+      '  A.L_CODE,'
+      '  A.L_NAME'
+      'FROM'
+      '  LOCATION A'
+      'WHERE'
+      '  LOWER(A.L_CODE) LIKE LOWER(:L_CODE)'
+      '  AND'
+      '  LOWER(A.L_NAME) LIKE LOWER(:L_NAME)'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'L_CODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'L_NAME'
+        ParamType = ptUnknown
+      end>
+    IndexFieldNames = 'L_NAME Asc'
+    left = 77
+    top = 225
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'L_CODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'L_NAME'
+        ParamType = ptUnknown
+      end>
+    object zroFindLocationL_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'L_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zroFindLocationL_CODE: TStringField
+      DisplayLabel = 'Pošta'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'L_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zroFindLocationL_NAME: TStringField
+      DisplayLabel = 'Naziv mesta'
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'L_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+  end
+  object dsFindLocation: TDataSource[11]
+    DataSet = zroFindLocation
+    left = 64
+    top = 285
+  end
+  object actFind: TActionList[12]
+    left = 135
+    top = 372
+    object actFindLocationByCode: TAction
+      Caption = 'Pronadji poštanski broj'
+      Hint = 'Pronadji po pošti'
+      OnExecute = actFindLocationByCodeExecute
+    end
+    object actFindLocationByName: TAction
+      Caption = 'Pronadji naziv mesta'
+      Hint = 'Pronadji po nazivu'
+      OnExecute = actFindLocationByNameExecute
+    end
+    object actFindLocationHelp: TAction
+      Caption = 'Uputstvo'
+      Hint = 'Pomoć u pretrazi'
+    end
+  end
+  object pupFindLocation: TPopupMenu[13]
+    left = 213
+    top = 391
+    object MenuItem1: TMenuItem
+      Action = actFindLocationByCode
+    end
+    object MenuItem2: TMenuItem
+      Action = actFindLocationByName
+    end
+    object MenuItem3: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem4: TMenuItem
+      Action = actFindLocationHelp
+    end
   end
 end

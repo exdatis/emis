@@ -19,10 +19,10 @@ object dModule: TdModule
     Connected = True
     HostName = 'localhost'
     Port = 3050
-    Database = 'C:\exdatis\EMIS.FDB'
+    Database = 'C:\exdatis\emis25.fdb'
     User = 'sysdba'
-    Password = 'Fpc013'
-    Protocol = 'firebirdd-3.0'
+    Password = 'masterkey'
+    Protocol = 'firebird-2.5'
     left = 53
     top = 54
   end
