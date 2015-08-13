@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ActnList, DbCtrls, Buttons, DBGrids, ExtCtrls, Menus, uBaseDbForm, db,
-  ZDataset, ZSequence, ZSqlUpdate, ZAbstractDataset;
+  ZDataset, ZSequence, ZSqlUpdate, ZAbstractDataset, ZAbstractRODataset;
 
 type
 
@@ -116,7 +116,7 @@ var
   frmHospital: TfrmHospital;
 const
   EMPTY_SET = 'Prazan skup podataka.';
-  {fields of tbl location(FH -> fields hospital)}
+  {fields of tbl location(FH -> fields hospital) and view(hospital_v)}
   FH_ID : String = 'H_ID';
   FH_CODE : String = 'H_CODE';
   FH_NAME : String = 'H_NAME';
@@ -128,6 +128,9 @@ const
   FH_FAX : String = 'H_FAX';
   FH_MAIL : String = 'H_MAIL';
   FH_SITE : String = 'H_SITE';
+  //VIEW  HOSPITAL_V
+  FH_ZIP_CODE = 'ZIP_CODE';
+  FH_LOCATION_NAME = 'LOCATION_NAME';
 implementation
 uses
   uDModule, uConfirm;
@@ -137,8 +140,8 @@ uses
 
 procedure TfrmHospital.FormCreate(Sender: TObject);
 begin
-  {default arg - location}
-  locationArg:= 'L_CODE';
+  {default arg - location(NAME)}
+  locationArg:= FH_LOCATION_NAME;
 end;
 
 procedure TfrmHospital.zqHospitalAfterDelete(DataSet: TDataSet);
@@ -233,13 +236,13 @@ end;
 
 procedure TfrmHospital.actFindLocationByCodeExecute(Sender: TObject);
 begin
-  locationArg:= 'L_CODE'; //set search arg
+  locationArg:= FH_ZIP_CODE; //set search arg
   findLocation(dbLocation.Text); //set text arg
 end;
 
 procedure TfrmHospital.actFindLocationByNameExecute(Sender: TObject);
 begin
-  locationArg:= 'L_NAME'; //set search arg
+  locationArg:= FH_LOCATION_NAME; //set search arg
   findLocation(dbLocation.Text); //set text arg
 end;
 
@@ -303,7 +306,7 @@ end;
 
 procedure TfrmHospital.dbgLocationTitleClick(Column: TColumn);
 begin
-  doSortDbGrid(TZAbstractDataset(zroFindLocation), Column);
+  doSortDbGrid(TZAbstractDataset(TZAbstractRODataset(zroFindLocation)), Column);
 end;
 
 procedure TfrmHospital.dbLocationKeyPress(Sender: TObject; var Key: char);
@@ -311,7 +314,7 @@ begin
   {on pres Return}
   if(Key = #13) then
     begin
-      locationArg:= 'L_NAME';
+      locationArg:= FH_LOCATION_NAME;
       findLocation(dbLocation.Text);
     end;
 end;
@@ -352,7 +355,7 @@ var
   argCode, argName : String;
 begin
   {find argument}
-  if(locationArg = 'L_NAME') then
+  if(locationArg = FH_LOCATION_NAME) then
     begin
       argCode:= '%';
       argName:= '%' + textArg + '%';
@@ -397,8 +400,8 @@ end;
 
 procedure TfrmHospital.useThisLocation;
 begin
-  zqHospital.FieldByName(FH_LOCATION).AsInteger:= zroFindLocation.Fields[0].AsInteger;
-  zqHospitalLOCATION_NAME.AsString:= zroFindLocation.Fields[2].AsString;
+  TZAbstractDataset(zqHospital).FieldByName(FH_LOCATION).AsInteger:= zroFindLocation.Fields[0].AsInteger;
+  TZAbstractDataset(zqHospital).FieldByName(FH_LOCATION_NAME).AsString:= zroFindLocation.Fields[2].AsString;
   //hide panel
   panelFindLocation.Visible:= False;
   //set focus

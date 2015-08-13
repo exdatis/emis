@@ -337,6 +337,7 @@ inherited frmHospital: TfrmHospital
     Connection = dModule.zdbh
     SortedFields = 'H_NAME'
     AfterOpen = zqHospitalAfterOpen
+    AfterScroll = zqHospitalAfterScroll
     UpdateObject = zupdHospital
     AfterPost = zqHospitalAfterPost
     AfterDelete = zqHospitalAfterDelete
