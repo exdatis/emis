@@ -306,7 +306,7 @@ end;
 
 procedure TfrmHospital.dbgLocationTitleClick(Column: TColumn);
 begin
-  doSortDbGrid(TZAbstractDataset(TZReadOnlyQuery(zroFindLocation)), Column);
+  doSortDbGrid(TZAbstractDataset(TZAbstractRODataset(zroFindLocation)), Column);
 end;
 
 procedure TfrmHospital.dbLocationKeyPress(Sender: TObject; var Key: char);
