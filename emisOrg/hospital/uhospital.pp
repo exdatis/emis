@@ -115,8 +115,8 @@ type
 var
   frmHospital: TfrmHospital;
 const
-  EMPTY_SET = 'Prazan skup podataka.';
-  {fields of tbl location(FH -> fields hospital) and view(hospital_v)}
+  EMPTY_SET : String = 'Prazan skup podataka.';
+  {fields of tbl hospital(FH -> fields hospital) and view(hospital_v)}
   FH_ID : String = 'H_ID';
   FH_CODE : String = 'H_CODE';
   FH_NAME : String = 'H_NAME';
@@ -129,8 +129,8 @@ const
   FH_MAIL : String = 'H_MAIL';
   FH_SITE : String = 'H_SITE';
   //VIEW  HOSPITAL_V
-  FH_ZIP_CODE = 'ZIP_CODE';
-  FH_LOCATION_NAME = 'LOCATION_NAME';
+  FH_ZIP_CODE : String = 'ZIP_CODE';
+  FH_LOCATION_NAME : String = 'LOCATION_NAME';
 implementation
 uses
   uDModule, uConfirm;
