@@ -419,7 +419,7 @@ inherited frmDrugWarehouse: TfrmDrugWarehouse
       Size = 100
     end
     object zqWarehouseDW_MAIL: TStringField
-      DisplayLabel = 'E+mail'
+      DisplayLabel = 'E-mail'
       DisplayWidth = 12
       FieldKind = fkData
       FieldName = 'DW_MAIL'
