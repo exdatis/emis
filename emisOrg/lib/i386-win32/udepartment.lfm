@@ -335,6 +335,7 @@ inherited frmDepartment: TfrmDepartment
     left = 451
     top = 289
     object zqDepartmentD_ID: TLongintField
+      Alignment = taLeftJustify
       DisplayLabel = 'ID'
       DisplayWidth = 5
       FieldKind = fkData

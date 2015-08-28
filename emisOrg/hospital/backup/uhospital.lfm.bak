@@ -66,6 +66,7 @@ inherited frmHospital: TfrmHospital
     object dbLocation: TDBEdit
       Left = 68
       Height = 23
+      Hint = 'Enter za pretragu'
       Top = 31
       Width = 186
       DataField = 'LOCATION_NAME'

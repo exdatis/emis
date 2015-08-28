@@ -8,7 +8,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, uorg, lazcontrols, uDModule, uBaseDbForm, uConfirm, zcomponent, 
-uhospital, uDepartment
+uhospital, uDepartment, uDrugWarehouse
   { you can add units after this };
 
 {$R *.res}
@@ -19,8 +19,9 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmOrg, frmOrg);
   Application.CreateForm(TdModule, dModule);
-  Application.CreateForm(TfrmHospital, frmHospital);
-  Application.CreateForm(TfrmDepartment, frmDepartment);
+  //Application.CreateForm(TfrmHospital, frmHospital);
+  //Application.CreateForm(TfrmDepartment, frmDepartment);
+  //Application.CreateForm(TfrmDrugWarehouse, frmDrugWarehouse);
   Application.Run;
 end.
 

@@ -369,6 +369,7 @@ inherited frmHospital: TfrmHospital
     left = 425
     top = 275
     object zqHospitalH_ID: TLongintField
+      Alignment = taLeftJustify
       DisplayLabel = 'ID'
       DisplayWidth = 5
       FieldKind = fkData
