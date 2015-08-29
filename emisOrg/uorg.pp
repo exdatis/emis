@@ -19,6 +19,7 @@ type
     actDrugWarehouse: TAction;
     actAppliancesWarehouse: TAction;
     actFoodWarehouse: TAction;
+    actOfficeWarehouse: TAction;
     actQuitApp: TAction;
     divExDatis: TDividerBevel;
     Image1: TImage;
@@ -27,6 +28,8 @@ type
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
     MenuItem11: TMenuItem;
+    MenuItem12: TMenuItem;
+    MenuItem13: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -49,11 +52,13 @@ type
     ToolButton6: TToolButton;
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
+    ToolButton9: TToolButton;
     procedure actAppliancesWarehouseExecute(Sender: TObject);
     procedure actDepartmentFrmExecute(Sender: TObject);
     procedure actDrugWarehouseExecute(Sender: TObject);
     procedure actFoodWarehouseExecute(Sender: TObject);
     procedure actHospitalFrmExecute(Sender: TObject);
+    procedure actOfficeWarehouseExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
     procedure divExDatisClick(Sender: TObject);
     procedure divExDatisMouseEnter(Sender: TObject);
@@ -77,7 +82,7 @@ const
 implementation
 uses
   uhospital, uDModule, uDepartment, uDrugWarehouse, uAppliancesWarehouse,
-  uFoodWarehouse;
+  uFoodWarehouse, uOfficeWarehouse;
 {$R *.lfm}
 
 { TfrmOrg }
@@ -132,6 +137,32 @@ begin
     Screen.Cursor:= crDefault;
   end;
 
+end;
+
+procedure TfrmOrg.actOfficeWarehouseExecute(Sender: TObject);
+var
+  newForm : TfrmOfficeWarehouse;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmOfficeWarehouse.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmOrg.actDepartmentFrmExecute(Sender: TObject);
