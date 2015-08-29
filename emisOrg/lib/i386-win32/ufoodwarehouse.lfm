@@ -375,12 +375,24 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
       Required = False
       Visible = False
     end
+    object zqWarehouseLOCATION_NAME: TStringField
+      DisplayLabel = 'Lokacija'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'LOCATION_NAME'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
     object zqWarehouseFW_ADDRESS: TStringField
       DisplayLabel = 'Adresa'
       DisplayWidth = 20
       FieldKind = fkData
       FieldName = 'FW_ADDRESS'
-      Index = 4
+      Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -392,7 +404,7 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
       DisplayWidth = 7
       FieldKind = fkData
       FieldName = 'FW_PHONE'
-      Index = 5
+      Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -404,7 +416,7 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
       DisplayWidth = 7
       FieldKind = fkData
       FieldName = 'FW_FAX'
-      Index = 6
+      Index = 7
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -416,7 +428,7 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
       DisplayWidth = 12
       FieldKind = fkData
       FieldName = 'FW_MAIL'
-      Index = 7
+      Index = 8
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -427,7 +439,7 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'FW_DEPARTMENT'
-      Index = 8
+      Index = 9
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -438,25 +450,13 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
       DisplayWidth = 120
       FieldKind = fkData
       FieldName = 'ZIP_CODE'
-      Index = 9
+      Index = 10
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
       Visible = False
       Size = 120
-    end
-    object zqWarehouseLOCATION_NAME: TStringField
-      DisplayLabel = 'Lokacija'
-      DisplayWidth = 12
-      FieldKind = fkData
-      FieldName = 'LOCATION_NAME'
-      Index = 10
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 280
     end
     object zqWarehouseDEPARTMENT_CODE: TStringField
       DisplayWidth = 120

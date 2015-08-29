@@ -557,6 +557,16 @@ object frmOrg: TfrmOrg
       ShowCaption = False
       ShowHint = True
     end
+    object ToolButton10: TToolButton
+      Cursor = crHandPoint
+      Left = 172
+      Top = 2
+      Action = actMaterialsWarehouse
+      ImageIndex = 6
+      ParentShowHint = False
+      ShowCaption = False
+      ShowHint = True
+    end
   end
   object mnuGeneral: TMainMenu
     Images = imgGeneral
@@ -635,6 +645,12 @@ object frmOrg: TfrmOrg
         object MenuItem13: TMenuItem
           Action = actOfficeWarehouse
         end
+        object MenuItem14: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem15: TMenuItem
+          Action = actMaterialsWarehouse
+        end
       end
     end
   end
@@ -675,9 +691,14 @@ object frmOrg: TfrmOrg
       OnExecute = actFoodWarehouseExecute
     end
     object actOfficeWarehouse: TAction
-      Caption = 'Kancelarisjkog materijala'
+      Caption = 'Kancelarijskog materijala'
       Hint = 'Kancelarijski materijal'
       OnExecute = actOfficeWarehouseExecute
+    end
+    object actMaterialsWarehouse: TAction
+      Caption = 'Skladišta repromaterijala'
+      Hint = 'Skladišta repromaterijala'
+      OnExecute = actMaterialsWarehouseExecute
     end
   end
   object imgGeneral: TImageList

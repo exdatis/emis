@@ -19,6 +19,7 @@ type
     actDrugWarehouse: TAction;
     actAppliancesWarehouse: TAction;
     actFoodWarehouse: TAction;
+    actMaterialsWarehouse: TAction;
     actOfficeWarehouse: TAction;
     actQuitApp: TAction;
     divExDatis: TDividerBevel;
@@ -58,6 +59,7 @@ type
     procedure actDrugWarehouseExecute(Sender: TObject);
     procedure actFoodWarehouseExecute(Sender: TObject);
     procedure actHospitalFrmExecute(Sender: TObject);
+    procedure actMaterialsWarehouseExecute(Sender: TObject);
     procedure actOfficeWarehouseExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
     procedure divExDatisClick(Sender: TObject);
@@ -82,7 +84,7 @@ const
 implementation
 uses
   uhospital, uDModule, uDepartment, uDrugWarehouse, uAppliancesWarehouse,
-  uFoodWarehouse, uOfficeWarehouse;
+  uFoodWarehouse, uOfficeWarehouse, uMaterialsWarehouse;
 {$R *.lfm}
 
 { TfrmOrg }
@@ -137,6 +139,32 @@ begin
     Screen.Cursor:= crDefault;
   end;
 
+end;
+
+procedure TfrmOrg.actMaterialsWarehouseExecute(Sender: TObject);
+var
+  newForm : TfrmMaterialsWarehouse;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmMaterialsWarehouse.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmOrg.actOfficeWarehouseExecute(Sender: TObject);

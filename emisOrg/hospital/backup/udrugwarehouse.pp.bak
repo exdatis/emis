@@ -309,9 +309,9 @@ end;
 
 procedure TfrmDrugWarehouse.dbgLocationKeyPress(Sender: TObject; var Key: char);
 begin
-    {space}
-    if(Key = #32) then
-      btnLocationOk.Click;
+  {space}
+  if(Key = #32) then
+    btnLocationOk.Click;
 end;
 
 procedure TfrmDrugWarehouse.dbgLocationMouseMove(Sender: TObject;

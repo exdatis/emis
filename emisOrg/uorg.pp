@@ -19,6 +19,7 @@ type
     actDrugWarehouse: TAction;
     actAppliancesWarehouse: TAction;
     actFoodWarehouse: TAction;
+    actMaterialsWarehouse: TAction;
     actOfficeWarehouse: TAction;
     actQuitApp: TAction;
     divExDatis: TDividerBevel;
@@ -30,6 +31,8 @@ type
     MenuItem11: TMenuItem;
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
+    MenuItem14: TMenuItem;
+    MenuItem15: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -45,6 +48,7 @@ type
     statusBarGeneral: TStatusBar;
     toolBarGeneral: TToolBar;
     ToolButton1: TToolButton;
+    ToolButton10: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
@@ -58,6 +62,7 @@ type
     procedure actDrugWarehouseExecute(Sender: TObject);
     procedure actFoodWarehouseExecute(Sender: TObject);
     procedure actHospitalFrmExecute(Sender: TObject);
+    procedure actMaterialsWarehouseExecute(Sender: TObject);
     procedure actOfficeWarehouseExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
     procedure divExDatisClick(Sender: TObject);
@@ -82,7 +87,7 @@ const
 implementation
 uses
   uhospital, uDModule, uDepartment, uDrugWarehouse, uAppliancesWarehouse,
-  uFoodWarehouse, uOfficeWarehouse;
+  uFoodWarehouse, uOfficeWarehouse, uMaterialsWarehouse;
 {$R *.lfm}
 
 { TfrmOrg }
@@ -137,6 +142,32 @@ begin
     Screen.Cursor:= crDefault;
   end;
 
+end;
+
+procedure TfrmOrg.actMaterialsWarehouseExecute(Sender: TObject);
+var
+  newForm : TfrmMaterialsWarehouse;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmMaterialsWarehouse.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmOrg.actOfficeWarehouseExecute(Sender: TObject);
