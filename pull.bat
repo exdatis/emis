@@ -9,6 +9,6 @@ REM verovatno izmenjeno i vise nevazi
 REM git pull ssh://exdatis@git.code.sf.net/p/emissoftware/code
 REM ovo je ispravno
 
-git pull git://git.code.sf.net/p/emissoftware/code
+git pull https://github.com/exdatis/emis.git
 
 pause

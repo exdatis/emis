@@ -236,7 +236,7 @@ end;
 procedure TfrmDrugWarehouse.dbgWarehouseMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
-    dbgWarehouse.Cursor:= crHandPoint;
+  dbgWarehouse.Cursor:= crHandPoint;
 end;
 
 procedure TfrmDrugWarehouse.dbgWarehouseTitleClick(Column: TColumn);
@@ -275,43 +275,43 @@ end;
 
 procedure TfrmDrugWarehouse.actFindLocationByCodeExecute(Sender: TObject);
 begin
-    locationArg:= FW_ZIP_CODE; //set search arg
-    findLocation(dbLocation.Text); //set text arg
+  locationArg:= FW_ZIP_CODE; //set search arg
+  findLocation(dbLocation.Text); //set text arg
 end;
 
 procedure TfrmDrugWarehouse.actFindLocationByNameExecute(Sender: TObject);
 begin
-    locationArg:= FW_LOCATION_NAME; //set search arg
-    findLocation(dbLocation.Text); //set text arg
+  locationArg:= FW_LOCATION_NAME; //set search arg
+  findLocation(dbLocation.Text); //set text arg
 end;
 
 procedure TfrmDrugWarehouse.btnFindLocationClick(Sender: TObject);
 begin
-    {show popUpMnu}
-    pupFindLocation.PopUp(Mouse.CursorPos.x, Mouse.CursorPos.y);
+  {show popUpMnu}
+  pupFindLocation.PopUp(Mouse.CursorPos.x, Mouse.CursorPos.y);
 end;
 
 procedure TfrmDrugWarehouse.btnLocationCancelClick(Sender: TObject);
 begin
-    {hide panel and set focus}
-    panelFindLocation.Visible:= False;
-    //set ficus
-    dbLocation.SetFocus;
-    dbLocation.SelectAll;
-    Application.ProcessMessages;
+  {hide panel and set focus}
+  panelFindLocation.Visible:= False;
+  //set ficus
+  dbLocation.SetFocus;
+  dbLocation.SelectAll;
+  Application.ProcessMessages;
 end;
 
 procedure TfrmDrugWarehouse.btnLocationOkClick(Sender: TObject);
 begin
-    {use current location}
-    useThisLocation;
+  {use current location}
+  useThisLocation;
 end;
 
 procedure TfrmDrugWarehouse.dbgLocationKeyPress(Sender: TObject; var Key: char);
 begin
-    {space}
-    if(Key = #32) then
-      btnLocationOk.Click;
+  {space}
+  if(Key = #32) then
+    btnLocationOk.Click;
 end;
 
 procedure TfrmDrugWarehouse.dbgLocationMouseMove(Sender: TObject;

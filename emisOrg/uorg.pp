@@ -17,6 +17,7 @@ type
     actHospitalFrm: TAction;
     actDepartmentFrm: TAction;
     actDrugWarehouse: TAction;
+    actAppliancesWarehouse: TAction;
     actQuitApp: TAction;
     divExDatis: TDividerBevel;
     Image1: TImage;
@@ -30,6 +31,7 @@ type
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
     mnuGeneral: TMainMenu;
     panelForms: TBCPanel;
     panelMnu: TPanel;
@@ -42,6 +44,8 @@ type
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
     ToolButton6: TToolButton;
+    ToolButton7: TToolButton;
+    procedure actAppliancesWarehouseExecute(Sender: TObject);
     procedure actDepartmentFrmExecute(Sender: TObject);
     procedure actDrugWarehouseExecute(Sender: TObject);
     procedure actHospitalFrmExecute(Sender: TObject);
@@ -67,7 +71,7 @@ const
   MAX_CTRLS : ShortInt = 4;
 implementation
 uses
-  uhospital, uDModule, uDepartment, uDrugWarehouse;
+  uhospital, uDModule, uDepartment, uDrugWarehouse, uAppliancesWarehouse;
 {$R *.lfm}
 
 { TfrmOrg }
@@ -134,6 +138,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmDepartment.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmOrg.actAppliancesWarehouseExecute(Sender: TObject);
+var
+  newForm : TfrmAppliancesWarehouse;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmAppliancesWarehouse.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}
