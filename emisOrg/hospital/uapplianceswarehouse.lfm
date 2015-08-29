@@ -379,7 +379,7 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
     end
     object zqWarehouseAW_ADDRESS: TStringField
       DisplayLabel = 'Adresa'
-      DisplayWidth = 12
+      DisplayWidth = 20
       FieldKind = fkData
       FieldName = 'AW_ADDRESS'
       Index = 4

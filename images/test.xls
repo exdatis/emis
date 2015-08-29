@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="LazReport html exporter">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>LazReport Exported Report</title>
+<!-- CSS section start -->
+<style type="text/css">
+ td.fs0 {
+  font-family: "helvetica [urw]";
+  font-size: 9pt;
+  font-weight: bold;
+ } 
+
+ td.fs1 {
+  font-family: "helvetica [urw]";
+  font-size: 9pt;
+ } 
+
+ td.fs2 {
+  font-family: "helvetica [urw]";
+  font-size: 10pt;
+ } 
+
+</style>
+<!-- CSS section end -->
+</head>
+
+<body bgColor="#FFFFFF">
+<table align="center" width="90%">
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="fs0" colspan=28>H1: OB Pancevo   Milosa Trebinjca br.11     tel.013-319-900   www.bolnicapancevo.rs</td></tr>
+<tr><td class="fs0">Ulazna faktura</td><td class="fs1">Ulaz broj:</td><td class="fs1">Odeljenje:</td><td class="fs1">Magacin:</td><td class="fs1">Datum:</td><td class="fs1">Valuta:</td><td class="fs1" colspan=4>Tip nabavke:</td><td class="fs1">5/2012</td><td class="fs1">Apoteka</td><td class="fs1">MD1: Apoteka ST</td><td class="fs1">12 May 2012</td><td class="fs1">3 Jan 2018</td><td class="fs1" colspan=9>Tender</td><td class="fs0">Dobavljac:</td><td class="fs1">CP2: Hemofarm</td><td class="fs1">Nije bitna</td><td class="fs1">Vrsac  -</td><td class="fs1">Faktura: 11 Ugovor: -</td><td class="fs1">Vrednost nabavke:</td><td class="fs1" colspan=9>Registrator ulaznih faktura: 5</td><td class="fs1" colspan=6>12,000.00</td></tr>
+<tr><td class="fs1">Rb.</td><td class="fs1">Sifra</td><td></td><td class="fs1" colspan=5>Proizvod</td><td colspan=2></td><td class="fs1" colspan=2>JM</td><td class="fs1">Kol.</td><td></td><td class="fs1" colspan=2>Cena</td><td class="fs1">R%</td><td></td><td class="fs1" colspan=3>PDV</td><td class="fs1" colspan=3>Rabat</td><td class="fs1" colspan=2>Porez</td><td class="fs1">Svega</td></tr>
+<tr><td class="fs1">1</td><td class="fs1">MD2</td><td></td><td class="fs1" colspan=7>Bensedin dugackog imena</td><td class="fs1" colspan=2>kom</td><td class="fs1" colspan=2>300</td><td class="fs1" colspan=2>300.00</td><td class="fs1">0</td><td></td><td class="fs1" colspan=3>8%</td><td class="fs1" colspan=3>0.00</td><td class="fs1" colspan=2>240.00</td><td class="fs1">3240.00</td></tr>
+<tr><td class="fs1">2</td><td class="fs1">MD5</td><td></td><td class="fs1" colspan=7>Cetvrti</td><td class="fs1" colspan=2>kom</td><td class="fs1" colspan=2>1</td><td class="fs1" colspan=2>1000.00</td><td class="fs1">10</td><td></td><td class="fs1" colspan=3>18%</td><td class="fs1" colspan=3>100.00</td><td class="fs1" colspan=2>162.00</td><td class="fs1">1062.00</td></tr>
+<tr><td class="fs1">3</td><td class="fs1">MD3</td><td></td><td class="fs1" colspan=7>Atest</td><td class="fs1" colspan=2>kom</td><td class="fs1" colspan=2>10000</td><td class="fs1" colspan=2>10.00</td><td class="fs1">10</td><td></td><td class="fs1" colspan=3>18%</td><td class="fs1" colspan=3>100.00</td><td class="fs1" colspan=2>162.00</td><td class="fs1">1062.00</td></tr>
+<tr><td class="fs1">4</td><td class="fs1">MD4</td><td></td><td class="fs1" colspan=7>Treci</td><td class="fs1" colspan=2>kom</td><td class="fs1" colspan=2>100</td><td class="fs1" colspan=2>100.00</td><td class="fs1">0</td><td></td><td class="fs1" colspan=3>18%</td><td class="fs1" colspan=3>0.00</td><td class="fs1" colspan=2>18.00</td><td class="fs1">118.00</td></tr>
+<tr><td class="fs1">5</td><td class="fs1">MD6</td><td></td><td class="fs1" colspan=7>Peti</td><td class="fs1" colspan=2>kom</td><td class="fs1" colspan=2>100</td><td class="fs1" colspan=2>100.00</td><td class="fs1">0</td><td></td><td class="fs1" colspan=3>18%</td><td class="fs1" colspan=3>0.00</td><td class="fs1" colspan=2>180.00</td><td class="fs1">1180.00</td></tr>
+<tr><td class="fs1">6</td><td class="fs1">MD3</td><td></td><td class="fs1" colspan=7>Atest</td><td class="fs1" colspan=2>kom</td><td class="fs1" colspan=2>100</td><td class="fs1" colspan=2>100.00</td><td class="fs1">3</td><td></td><td class="fs1" colspan=3>18%</td><td class="fs1" colspan=3>37.00</td><td class="fs1" colspan=2>173.34</td><td class="fs1">1136.34</td></tr>
+<tr><td class="fs1">7</td><td class="fs1">MD11</td><td></td><td class="fs1" colspan=7>Bez poreza</td><td class="fs1" colspan=2>kom</td><td class="fs1" colspan=2>100</td><td class="fs1" colspan=2>125.00</td><td class="fs1">10</td><td></td><td class="fs1" colspan=3>0%</td><td class="fs1" colspan=3>125.00</td><td class="fs1" colspan=2>0.00</td><td class="fs1">1125.00</td></tr>
+<tr><td class="fs1">Rb.</td><td class="fs1">Sifra</td><td></td><td class="fs1" colspan=6>Usluga</td><td></td><td class="fs1" colspan=2>JM</td><td class="fs1">Kol.</td><td></td><td class="fs1" colspan=2>Cena</td><td class="fs1">R%</td><td></td><td class="fs1" colspan=3>PDV</td><td class="fs1" colspan=3>Rabat</td><td class="fs1" colspan=2>Porez</td><td class="fs1">Svega</td></tr>
+<tr><td class="fs1">1</td><td class="fs1">PHSS1</td><td></td><td class="fs1" colspan=7>Post express</td><td class="fs1" colspan=2>kom</td><td class="fs1" colspan=2>1</td><td class="fs1" colspan=2>2500.00</td><td class="fs1">3</td><td></td><td class="fs1" colspan=3>18%</td><td class="fs1" colspan=3>75.00</td><td class="fs1" colspan=2>436.50</td><td class="fs1">2861.50</td></tr>
+<tr><td class="fs1">2</td><td class="fs1">PHSS2</td><td></td><td class="fs1" colspan=7>Transport</td><td class="fs1" colspan=2>kom</td><td class="fs1" colspan=2>1</td><td class="fs1" colspan=2>1000.00</td><td class="fs1">0</td><td></td><td class="fs1" colspan=3>18%</td><td class="fs1" colspan=3>0.00</td><td class="fs1" colspan=2>180.00</td><td class="fs1">1180.00</td></tr>
+<tr><td></td></tr>
+<tr><td class="fs1" colspan=5>Poreska stopa:</td><td class="fs1">18%</td><td></td><td class="fs1" colspan=6>Poreska osnovica:</td><td class="fs1" colspan=6>7,288.00</td><td></td><td class="fs1" colspan=5>Vrednost poreza:</td><td></td><td class="fs1" colspan=2>1311.84</td></tr>
+<tr><td class="fs1" colspan=5>Poreska stopa:</td><td class="fs1">8%</td><td></td><td class="fs1" colspan=6>Poreska osnovica:</td><td class="fs1" colspan=6>3,000.00</td><td></td><td class="fs1" colspan=5>Vrednost poreza:</td><td></td><td class="fs1" colspan=2>240.00</td></tr>
+<tr><td class="fs1" colspan=5>Poreska stopa:</td><td class="fs1">0%</td><td></td><td class="fs1" colspan=6>Poreska osnovica:</td><td class="fs1" colspan=6>1,125.00</td><td></td><td class="fs1" colspan=5>Vrednost poreza:</td><td></td><td class="fs1" colspan=2>0.00</td></tr>
+<tr><td class="fs1">Ukupna vrednost rabata:</td><td class="fs1">Ukupan porez:</td><td class="fs1">Vrednost bez poreza:</td><td class="fs1" colspan=9>Za uplatu:</td><td colspan=2></td><td class="fs2" colspan=4>1</td><td colspan=7></td><td class="fs1">Obrada</td><td class="fs1">12964.84</td><td class="fs1">437.00</td><td class="fs1">1551.84</td><td class="fs1" colspan=4>11413.00</td></tr>
+</table>
+</body>
+</html>

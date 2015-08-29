@@ -468,7 +468,26 @@ end;
 
 procedure TfrmAppliancesWarehouse.openDataSet;
 begin
-
+  {department(read only)}
+  TZAbstractDataset(TZAbstractRODataset(zroDepartment)).DisableControls;
+  TZAbstractDataset(TZAbstractRODataset(zroDepartment)).Close;
+  {department}
+  TZAbstractDataset(zqWarehouse).DisableControls;
+  TZAbstractDataset(zqWarehouse).Close;
+  try
+    TZAbstractDataset(TZAbstractRODataset(zroDepartment)).Open;
+    TZAbstractDataset(TZAbstractRODataset(zroDepartment)).EnableControls;
+    TZAbstractDataset(zqWarehouse).Open;
+    TZAbstractDataset(zqWarehouse).EnableControls;
+  except
+    on e : Exception do
+    begin
+      dModule.zdbh.Rollback;
+      TZAbstractDataset(TZAbstractRODataset(zroDepartment)).EnableControls;
+      TZAbstractDataset(zqWarehouse).EnableControls;
+      ShowMessage(e.Message);
+    end;
+  end;
 end;
 
 end.

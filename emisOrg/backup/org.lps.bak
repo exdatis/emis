@@ -4,14 +4,14 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="14">
+    <Units Count="15">
       <Unit0>
         <Filename Value="org.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="6"/>
         <TopLine Value="8"/>
         <CursorPos X="5" Y="22"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="47"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -20,10 +20,9 @@
         <ComponentName Value="frmOrg"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="162"/>
-        <CursorPos X="38" Y="182"/>
-        <UsageCount Value="45"/>
+        <TopLine Value="220"/>
+        <CursorPos X="32" Y="240"/>
+        <UsageCount Value="47"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -36,7 +35,7 @@
         <UnitName Value="uDModule"/>
         <EditorIndex Value="4"/>
         <CursorPos X="39" Y="15"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="47"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -50,7 +49,7 @@
         <EditorIndex Value="5"/>
         <TopLine Value="70"/>
         <CursorPos X="3" Y="104"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="46"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -62,7 +61,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uConfirm"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="46"/>
       </Unit4>
       <Unit5>
         <Filename Value="hospital\uhospital.pp"/>
@@ -73,7 +72,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="294"/>
         <CursorPos X="25" Y="298"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="42"/>
       </Unit5>
       <Unit6>
         <Filename Value="hospital\udepartment.pp"/>
@@ -85,7 +84,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="462"/>
         <CursorPos X="31" Y="492"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="36"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -96,22 +95,34 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uDrugWarehouse"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="472"/>
         <CursorPos X="21" Y="492"/>
-        <UsageCount Value="31"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="33"/>
       </Unit7>
       <Unit8>
+        <Filename Value="hospital\uapplianceswarehouse.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAppliancesWarehouse"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uAppliancesWarehouse"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="474"/>
+        <CursorPos X="41" Y="484"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit8>
+      <Unit9>
         <Filename Value="..\emisGeneral\ugeneral.pp"/>
         <ComponentName Value="frmGeneral"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="10"/>
-      </Unit8>
-      <Unit9>
+      </Unit9>
+      <Unit10>
         <Filename Value="..\common\ubasemoduleform.pp"/>
         <ComponentName Value="baseModuleForm"/>
         <HasResources Value="True"/>
@@ -121,8 +132,8 @@
         <TopLine Value="84"/>
         <CursorPos X="33" Y="80"/>
         <UsageCount Value="10"/>
-      </Unit9>
-      <Unit10>
+      </Unit10>
+      <Unit11>
         <Filename Value="..\emisGeneral\locations\ulocation.pp"/>
         <ComponentName Value="frmLocation"/>
         <HasResources Value="True"/>
@@ -132,158 +143,159 @@
         <TopLine Value="318"/>
         <CursorPos X="27" Y="324"/>
         <UsageCount Value="12"/>
-      </Unit10>
-      <Unit11>
+      </Unit11>
+      <Unit12>
         <Filename Value="..\emisGeneral\measure\umeasure.pp"/>
         <UnitName Value="uMeasure"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="203"/>
         <CursorPos X="27" Y="191"/>
         <UsageCount Value="11"/>
-      </Unit11>
-      <Unit12>
+      </Unit12>
+      <Unit13>
         <Filename Value="C:\lazarus\components\NewZeos\src\dbc\ZDbcInterbase6Utils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="816"/>
         <CursorPos Y="832"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit12>
-      <Unit13>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmAppliancesWarehouse"/>
+        <ComponentName Value="frmFoodWarehouse"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uAppliancesWarehouse"/>
+        <UnitName Value="uFoodWarehouse"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="473"/>
-        <CursorPos X="20" Y="493"/>
-        <UsageCount Value="23"/>
+        <TopLine Value="472"/>
+        <CursorPos X="2" Y="489"/>
+        <UsageCount Value="22"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit13>
+      </Unit14>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="29" Column="41" TopLine="9"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="4" Column="33"/>
       </Position1>
       <Position2>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="30" Column="41" TopLine="10"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="5" Column="35"/>
       </Position2>
       <Position3>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="23" Column="48" TopLine="11"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="93" Column="28" TopLine="74"/>
       </Position3>
       <Position4>
-        <Filename Value="hospital\udrugwarehouse.pp"/>
-        <Caret Line="227" Column="49" TopLine="223"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="107" Column="3" TopLine="104"/>
       </Position4>
       <Position5>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="6" Column="30"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="116" Column="35" TopLine="106"/>
       </Position5>
       <Position6>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="13" Column="36"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="137" Column="38" TopLine="124"/>
       </Position6>
       <Position7>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="6" Column="32"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="144" Column="37" TopLine="131"/>
       </Position7>
       <Position8>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="93" Column="30" TopLine="74"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="141" Column="50" TopLine="138"/>
       </Position8>
       <Position9>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="130" Column="24" TopLine="110"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="148" Column="50" TopLine="145"/>
       </Position9>
       <Position10>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="139" Column="39" TopLine="123"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="168" Column="37" TopLine="152"/>
       </Position10>
       <Position11>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="148" Column="26" TopLine="130"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="166" Column="31" TopLine="159"/>
       </Position11>
       <Position12>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="170" Column="26" TopLine="152"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="181" Column="34" TopLine="170"/>
       </Position12>
       <Position13>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="197" Column="26" TopLine="178"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="182" Column="25" TopLine="178"/>
       </Position13>
       <Position14>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="220" Column="33" TopLine="207"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="189" Column="36" TopLine="186"/>
       </Position14>
       <Position15>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="149" Column="33" TopLine="135"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="205" Column="35" TopLine="198"/>
       </Position15>
       <Position16>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="151" Column="32" TopLine="142"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="151" Column="30" TopLine="147"/>
       </Position16>
       <Position17>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="163" Column="33" TopLine="160"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="170" Column="39" TopLine="165"/>
       </Position17>
       <Position18>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="190" Column="39" TopLine="177"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="187" Column="44" TopLine="181"/>
       </Position18>
       <Position19>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="148" Column="50" TopLine="145"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="151" Column="31" TopLine="144"/>
       </Position19>
       <Position20>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="162" Column="63" TopLine="159"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="184" Column="26" TopLine="166"/>
       </Position20>
       <Position21>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="179" Column="41" TopLine="166"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="211" Column="27" TopLine="192"/>
       </Position21>
       <Position22>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="194" Column="39" TopLine="177"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="408" Column="31" TopLine="392"/>
       </Position22>
       <Position23>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="189" Column="35" TopLine="185"/>
+        <Filename Value="hospital\ufoodwarehouse.pp"/>
+        <Caret Line="123" Column="3" TopLine="113"/>
       </Position23>
       <Position24>
-        <Filename Value="hospital\uapplianceswarehouse.pp"/>
-        <Caret Line="208" Column="33" TopLine="194"/>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="180" Column="21" TopLine="165"/>
       </Position24>
       <Position25>
         <Filename Value="uorg.pp"/>
-        <Caret Line="178" Column="33" TopLine="160"/>
+        <Caret Line="7"/>
       </Position25>
       <Position26>
         <Filename Value="uorg.pp"/>
-        <Caret Line="5"/>
+        <Caret Line="75" Column="17" TopLine="62"/>
       </Position26>
       <Position27>
         <Filename Value="uorg.pp"/>
-        <Caret Line="70" Column="73" TopLine="58"/>
+        <Caret Line="77" Column="17" TopLine="64"/>
       </Position27>
       <Position28>
         <Filename Value="uorg.pp"/>
-        <Caret Line="72" Column="73" TopLine="60"/>
+        <Caret Line="237" Column="32" TopLine="217"/>
       </Position28>
       <Position29>
         <Filename Value="uorg.pp"/>
-        <Caret Line="180" Column="38" TopLine="160"/>
+        <Caret Line="238" Column="32" TopLine="218"/>
       </Position29>
       <Position30>
         <Filename Value="uorg.pp"/>
-        <Caret Line="181" Column="38" TopLine="161"/>
+        <Caret Line="239" Column="32" TopLine="219"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
