@@ -19,6 +19,7 @@ type
     actDrugWarehouse: TAction;
     actAppliancesWarehouse: TAction;
     actFoodWarehouse: TAction;
+    actHygieneWarehouse: TAction;
     actMaterialsWarehouse: TAction;
     actOfficeWarehouse: TAction;
     actQuitApp: TAction;
@@ -33,6 +34,8 @@ type
     MenuItem13: TMenuItem;
     MenuItem14: TMenuItem;
     MenuItem15: TMenuItem;
+    MenuItem16: TMenuItem;
+    MenuItem17: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -49,6 +52,7 @@ type
     toolBarGeneral: TToolBar;
     ToolButton1: TToolButton;
     ToolButton10: TToolButton;
+    ToolButton11: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
@@ -62,6 +66,7 @@ type
     procedure actDrugWarehouseExecute(Sender: TObject);
     procedure actFoodWarehouseExecute(Sender: TObject);
     procedure actHospitalFrmExecute(Sender: TObject);
+    procedure actHygieneWarehouseExecute(Sender: TObject);
     procedure actMaterialsWarehouseExecute(Sender: TObject);
     procedure actOfficeWarehouseExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
@@ -87,7 +92,7 @@ const
 implementation
 uses
   uhospital, uDModule, uDepartment, uDrugWarehouse, uAppliancesWarehouse,
-  uFoodWarehouse, uOfficeWarehouse, uMaterialsWarehouse;
+  uFoodWarehouse, uOfficeWarehouse, uMaterialsWarehouse, uHygieneWarehouse;
 {$R *.lfm}
 
 { TfrmOrg }
@@ -142,6 +147,32 @@ begin
     Screen.Cursor:= crDefault;
   end;
 
+end;
+
+procedure TfrmOrg.actHygieneWarehouseExecute(Sender: TObject);
+var
+  newForm : TfrmHygieneWarehouse;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmHygieneWarehouse.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmOrg.actMaterialsWarehouseExecute(Sender: TObject);

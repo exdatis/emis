@@ -7,6 +7,6 @@ echo ==============================================================
 
 REM emissoftware-
 
-gbak -replace -v d:\code\fdbBcp\emis.fbk localhost:c:\exdatis\emis.fdb -user sysdba -password Fpc013
+gbak -replace -v d:\emissoftware-code\fdbBcp\emis25.fbk localhost:c:\exdatis\emis25.fdb -user sysdba -password masterkey
 
 pause
