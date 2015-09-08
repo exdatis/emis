@@ -19,7 +19,6 @@
         <ComponentName Value="frmOrg"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="152"/>
         <CursorPos X="35" Y="161"/>
         <UsageCount Value="53"/>
@@ -34,7 +33,7 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="uDModule"/>
         <EditorIndex Value="4"/>
-        <CursorPos X="39" Y="15"/>
+        <CursorPos X="75" Y="6"/>
         <UsageCount Value="53"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -46,6 +45,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uBaseDbForm"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
         <TopLine Value="70"/>
         <CursorPos X="3" Y="104"/>
@@ -151,52 +151,6 @@
         <LoadedDesigner Value="True"/>
       </Unit11>
       <Unit12>
-        <Filename Value="..\emisGeneral\ugeneral.pp"/>
-        <ComponentName Value="frmGeneral"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="10"/>
-      </Unit12>
-      <Unit13>
-        <Filename Value="..\common\ubasemoduleform.pp"/>
-        <ComponentName Value="baseModuleForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uBaseModuleForm"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="84"/>
-        <CursorPos X="33" Y="80"/>
-        <UsageCount Value="10"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="..\emisGeneral\locations\ulocation.pp"/>
-        <ComponentName Value="frmLocation"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uLocation"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="318"/>
-        <CursorPos X="27" Y="324"/>
-        <UsageCount Value="12"/>
-      </Unit14>
-      <Unit15>
-        <Filename Value="..\emisGeneral\measure\umeasure.pp"/>
-        <UnitName Value="uMeasure"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="203"/>
-        <CursorPos X="27" Y="191"/>
-        <UsageCount Value="11"/>
-      </Unit15>
-      <Unit16>
-        <Filename Value="C:\lazarus\components\NewZeos\src\dbc\ZDbcInterbase6Utils.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="816"/>
-        <CursorPos Y="832"/>
-        <UsageCount Value="10"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit16>
-      <Unit17>
         <Filename Value="hospital\uhygienewarehouse.pp"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmHygieneWarehouse"/>
@@ -209,6 +163,52 @@
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="..\emisGeneral\ugeneral.pp"/>
+        <ComponentName Value="frmGeneral"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="..\common\ubasemoduleform.pp"/>
+        <ComponentName Value="baseModuleForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uBaseModuleForm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="84"/>
+        <CursorPos X="33" Y="80"/>
+        <UsageCount Value="10"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="..\emisGeneral\locations\ulocation.pp"/>
+        <ComponentName Value="frmLocation"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uLocation"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="318"/>
+        <CursorPos X="27" Y="324"/>
+        <UsageCount Value="12"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="..\emisGeneral\measure\umeasure.pp"/>
+        <UnitName Value="uMeasure"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="203"/>
+        <CursorPos X="27" Y="191"/>
+        <UsageCount Value="11"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="C:\lazarus\components\NewZeos\src\dbc\ZDbcInterbase6Utils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="816"/>
+        <CursorPos Y="832"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit17>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">

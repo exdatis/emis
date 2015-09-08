@@ -7,8 +7,9 @@ object baseDbForm: TbaseDbForm
   Caption = 'baseDbForm'
   ClientHeight = 516
   ClientWidth = 803
+  Font.Height = -11
   OnClose = FormClose
-  LCLVersion = '1.4.0.4'
+  LCLVersion = '1.4.2.0'
   object lblBaseDbTitle: TLabel
     Left = 0
     Height = 15
@@ -20,7 +21,7 @@ object baseDbForm: TbaseDbForm
     Caption = 'lblBaseDbTitle'
     Color = clGray
     Font.Color = clCream
-    Font.Height = 16
+    Font.Height = 10
     ParentColor = False
     ParentFont = False
     Transparent = False
@@ -28,18 +29,18 @@ object baseDbForm: TbaseDbForm
   end
   object groupBoxBtns: TGroupBox
     Left = 0
-    Height = 44
-    Top = 472
+    Height = 43
+    Top = 473
     Width = 803
     Align = alBottom
-    ClientHeight = 24
+    ClientHeight = 39
     ClientWidth = 799
     TabOrder = 0
     object btnInsert: TButton
       Cursor = crHandPoint
       Left = 329
       Height = 25
-      Top = -3
+      Top = 12
       Width = 75
       Action = actInsert
       ParentShowHint = False
@@ -50,7 +51,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 406
       Height = 25
-      Top = -3
+      Top = 12
       Width = 75
       Action = actDelete
       ParentShowHint = False
@@ -61,7 +62,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 483
       Height = 25
-      Top = -3
+      Top = 12
       Width = 75
       Action = actEdit
       ParentShowHint = False
@@ -72,7 +73,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 560
       Height = 25
-      Top = -3
+      Top = 12
       Width = 75
       Action = actSave
       ParentShowHint = False
@@ -83,7 +84,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 637
       Height = 25
-      Top = -3
+      Top = 12
       Width = 75
       Action = actCancel
       ParentShowHint = False
@@ -94,7 +95,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 719
       Height = 25
-      Top = -3
+      Top = 12
       Width = 75
       Action = actCloseForm
       ParentShowHint = False
@@ -105,7 +106,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 3
       Height = 25
-      Top = -3
+      Top = 12
       Width = 43
       Action = actFirst
       ParentFont = False
@@ -117,7 +118,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 48
       Height = 25
-      Top = -3
+      Top = 12
       Width = 43
       Action = actPrior
       ParentFont = False
@@ -129,7 +130,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 234
       Height = 25
-      Top = -3
+      Top = 12
       Width = 43
       Action = actNext
       ParentFont = False
@@ -141,7 +142,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 279
       Height = 25
-      Top = -3
+      Top = 12
       Width = 43
       Action = actLast
       ParentFont = False
@@ -152,15 +153,18 @@ object baseDbForm: TbaseDbForm
     object edtRecNo: TEdit
       Cursor = crHandPoint
       Left = 93
-      Height = 23
-      Top = -2
+      Height = 26
+      Top = 11
       Width = 139
       Alignment = taCenter
       Color = clWhite
-      Enabled = False
+      Font.Color = clBlack
+      Font.Height = -11
+      ParentFont = False
       ParentShowHint = False
       ReadOnly = True
       ShowHint = True
+      TabStop = False
       TabOrder = 10
     end
   end
