@@ -539,7 +539,7 @@ object frmOrg: TfrmOrg
     end
     object ToolButton8: TToolButton
       Cursor = crHandPoint
-      Left = 126
+      Left = 149
       Top = 2
       Action = actFoodWarehouse
       ImageIndex = 5
@@ -549,7 +549,7 @@ object frmOrg: TfrmOrg
     end
     object ToolButton9: TToolButton
       Cursor = crHandPoint
-      Left = 149
+      Left = 172
       Top = 2
       Action = actOfficeWarehouse
       ImageIndex = 7
@@ -559,7 +559,7 @@ object frmOrg: TfrmOrg
     end
     object ToolButton10: TToolButton
       Cursor = crHandPoint
-      Left = 172
+      Left = 195
       Top = 2
       Action = actMaterialsWarehouse
       ImageIndex = 6
@@ -569,7 +569,7 @@ object frmOrg: TfrmOrg
     end
     object ToolButton11: TToolButton
       Cursor = crHandPoint
-      Left = 195
+      Left = 218
       Top = 2
       Action = actHygieneWarehouse
       ImageIndex = 8
@@ -579,7 +579,7 @@ object frmOrg: TfrmOrg
     end
     object ToolButton12: TToolButton
       Cursor = crHandPoint
-      Left = 218
+      Left = 126
       Top = 2
       Action = actHEquipmentWarehouse
       ImageIndex = 9
@@ -652,6 +652,9 @@ object frmOrg: TfrmOrg
         end
         object MenuItem9: TMenuItem
           Action = actAppliancesWarehouse
+        end
+        object MenuItem18: TMenuItem
+          Action = actHEquipmentWarehouse
         end
         object MenuItem10: TMenuItem
           Caption = '-'
@@ -735,6 +738,11 @@ object frmOrg: TfrmOrg
       Caption = 'Bolničke opreme'
       Hint = 'Skladišta bolničke opreme'
       OnExecute = actHEquipmentWarehouseExecute
+    end
+    object actAppliancesHPWarehouse: TAction
+      Caption = 'Medicinski aparati(HP)'
+      Hint = 'Medicinski aparati(HP)'
+      OnExecute = actAppliancesHPWarehouseExecute
     end
   end
   object imgGeneral: TImageList

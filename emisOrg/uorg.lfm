@@ -682,6 +682,12 @@ object frmOrg: TfrmOrg
         end
       end
     end
+    object MenuItem19: TMenuItem
+      Caption = 'Skladišta humanitarne pomoći'
+      object MenuItem20: TMenuItem
+        Action = actAppliancesHPWarehouse
+      end
+    end
   end
   object actGeneral: TActionList
     Images = imgGeneral
@@ -738,6 +744,11 @@ object frmOrg: TfrmOrg
       Caption = 'Bolničke opreme'
       Hint = 'Skladišta bolničke opreme'
       OnExecute = actHEquipmentWarehouseExecute
+    end
+    object actAppliancesHPWarehouse: TAction
+      Caption = 'Medicinski aparati(HP)'
+      Hint = 'Medicinski aparati(HP)'
+      OnExecute = actAppliancesHPWarehouseExecute
     end
   end
   object imgGeneral: TImageList

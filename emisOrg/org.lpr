@@ -9,7 +9,8 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, uorg, lazcontrols, uDModule, uBaseDbForm, uConfirm, zcomponent,
   uhospital, uDepartment, uDrugWarehouse, uAppliancesWarehouse, uFoodWarehouse,
-  uOfficeWarehouse, uMaterialsWarehouse, uHygieneWarehouse, uHEquipmentWarehouse
+  uOfficeWarehouse, uMaterialsWarehouse, uHygieneWarehouse,
+  uHEquipmentWarehouse, uAppliancesHPWarehouse
   { you can add units after this };
 
 {$R *.res}
@@ -20,6 +21,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmOrg, frmOrg);
   Application.CreateForm(TdModule, dModule);
+  //Application.CreateForm(TfrmAppliancesHPWarehouse, frmAppliancesHPWarehouse);
   //Application.CreateForm(TfrmHEquipmentWarehouse, frmHEquipmentWarehouse);
   //Application.CreateForm(TfrmHygieneWarehouse, frmHygieneWarehouse);
   //Application.CreateForm(TfrmMaterialsWarehouse, frmMaterialsWarehouse);
