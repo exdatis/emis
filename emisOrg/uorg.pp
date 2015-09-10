@@ -20,6 +20,7 @@ type
     actAppliancesWarehouse: TAction;
     actFoodWarehouse: TAction;
     actHygieneWarehouse: TAction;
+    actHEquipmentWarehouse: TAction;
     actMaterialsWarehouse: TAction;
     actOfficeWarehouse: TAction;
     actQuitApp: TAction;
@@ -36,6 +37,7 @@ type
     MenuItem15: TMenuItem;
     MenuItem16: TMenuItem;
     MenuItem17: TMenuItem;
+    MenuItem18: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -53,6 +55,7 @@ type
     ToolButton1: TToolButton;
     ToolButton10: TToolButton;
     ToolButton11: TToolButton;
+    ToolButton12: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
@@ -65,6 +68,7 @@ type
     procedure actDepartmentFrmExecute(Sender: TObject);
     procedure actDrugWarehouseExecute(Sender: TObject);
     procedure actFoodWarehouseExecute(Sender: TObject);
+    procedure actHEquipmentWarehouseExecute(Sender: TObject);
     procedure actHospitalFrmExecute(Sender: TObject);
     procedure actHygieneWarehouseExecute(Sender: TObject);
     procedure actMaterialsWarehouseExecute(Sender: TObject);
@@ -92,7 +96,8 @@ const
 implementation
 uses
   uhospital, uDModule, uDepartment, uDrugWarehouse, uAppliancesWarehouse,
-  uFoodWarehouse, uOfficeWarehouse, uMaterialsWarehouse, uHygieneWarehouse;
+  uFoodWarehouse, uOfficeWarehouse, uMaterialsWarehouse, uHygieneWarehouse,
+  uHEquipmentWarehouse;
 {$R *.lfm}
 
 { TfrmOrg }
@@ -315,6 +320,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmFoodWarehouse.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmOrg.actHEquipmentWarehouseExecute(Sender: TObject);
+var
+  newForm : TfrmHEquipmentWarehouse;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmHEquipmentWarehouse.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}

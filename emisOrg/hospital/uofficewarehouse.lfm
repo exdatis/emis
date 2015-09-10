@@ -11,28 +11,28 @@ inherited frmOfficeWarehouse: TfrmOfficeWarehouse
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
-    ClientHeight = 111
+    ClientHeight = 113
     ClientWidth = 799
     TabOrder = 1
     object Label2: TLabel
       Left = 295
-      Height = 15
+      Height = 16
       Top = 10
-      Width = 85
+      Width = 82
       Caption = 'Naziv skladišta *'
       ParentColor = False
     end
     object Label1: TLabel
       Left = 11
-      Height = 15
+      Height = 16
       Top = 10
-      Width = 23
+      Width = 22
       Caption = 'Šifra'
       ParentColor = False
     end
     object dbCode: TDBEdit
       Left = 68
-      Height = 23
+      Height = 26
       Top = 5
       Width = 209
       DataField = 'OW_CODE'
@@ -43,7 +43,7 @@ inherited frmOfficeWarehouse: TfrmOfficeWarehouse
     end
     object dbName: TDBEdit
       Left = 392
-      Height = 23
+      Height = 26
       Top = 5
       Width = 400
       DataField = 'OW_NAME'
@@ -54,15 +54,15 @@ inherited frmOfficeWarehouse: TfrmOfficeWarehouse
     end
     object Label3: TLabel
       Left = 11
-      Height = 15
+      Height = 16
       Top = 36
-      Width = 45
+      Width = 44
       Caption = 'Sedište *'
       ParentColor = False
     end
     object dbLocation: TDBEdit
       Left = 68
-      Height = 23
+      Height = 26
       Hint = 'Enter za pretragu'
       Top = 31
       Width = 186
@@ -123,15 +123,15 @@ inherited frmOfficeWarehouse: TfrmOfficeWarehouse
     end
     object Label4: TLabel
       Left = 295
-      Height = 15
+      Height = 16
       Top = 36
-      Width = 44
+      Width = 43
       Caption = 'Adresa *'
       ParentColor = False
     end
     object dbAddress: TDBEdit
       Left = 392
-      Height = 23
+      Height = 26
       Top = 31
       Width = 400
       DataField = 'OW_ADDRESS'
@@ -142,15 +142,15 @@ inherited frmOfficeWarehouse: TfrmOfficeWarehouse
     end
     object Label5: TLabel
       Left = 11
-      Height = 15
+      Height = 16
       Top = 63
-      Width = 34
+      Width = 30
       Caption = 'E-mail'
       ParentColor = False
     end
     object dbMail: TDBEdit
       Left = 68
-      Height = 23
+      Height = 26
       Top = 58
       Width = 209
       DataField = 'OW_MAIL'
@@ -161,18 +161,19 @@ inherited frmOfficeWarehouse: TfrmOfficeWarehouse
     end
     object Label6: TLabel
       Left = 295
-      Height = 15
+      Height = 16
       Top = 63
-      Width = 58
+      Width = 54
       Caption = 'Odeljenje *'
       ParentColor = False
     end
     object dblDepartment: TDBLookupComboBox
       Left = 392
-      Height = 23
+      Height = 25
       Top = 58
       Width = 400
       AutoComplete = True
+      AutoSize = False
       DataField = 'OW_DEPARTMENT'
       DataSource = dsWarehouse
       KeyField = 'D_ID'
@@ -184,15 +185,15 @@ inherited frmOfficeWarehouse: TfrmOfficeWarehouse
     end
     object Label7: TLabel
       Left = 11
-      Height = 15
+      Height = 16
       Top = 89
-      Width = 40
+      Width = 37
       Caption = 'Telefon'
       ParentColor = False
     end
     object dbPhone: TDBEdit
       Left = 68
-      Height = 23
+      Height = 26
       Top = 84
       Width = 209
       DataField = 'OW_PHONE'
@@ -203,15 +204,15 @@ inherited frmOfficeWarehouse: TfrmOfficeWarehouse
     end
     object Label8: TLabel
       Left = 295
-      Height = 15
+      Height = 16
       Top = 89
-      Width = 17
+      Width = 18
       Caption = 'Fax'
       ParentColor = False
     end
     object dbFax: TDBEdit
       Left = 392
-      Height = 23
+      Height = 26
       Top = 84
       Width = 209
       DataField = 'OW_FAX'
@@ -224,7 +225,7 @@ inherited frmOfficeWarehouse: TfrmOfficeWarehouse
   object dbgWarehouse: TDBGrid[3]
     Cursor = crHandPoint
     Left = 0
-    Height = 326
+    Height = 327
     Hint = 'Klikni naslov polja za sortiranje'
     Top = 146
     Width = 803
@@ -236,13 +237,14 @@ inherited frmOfficeWarehouse: TfrmOfficeWarehouse
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
     ReadOnly = True
     TabOrder = 2
+    TitleFont.Height = -11
     OnMouseMove = dbgWarehouseMouseMove
     OnTitleClick = dbgWarehouseTitleClick
   end
   object panelFindLocation: TPanel[4]
-    Left = 71
+    Left = 70
     Height = 260
-    Top = 88
+    Top = 86
     Width = 722
     ClientHeight = 260
     ClientWidth = 722
@@ -263,6 +265,7 @@ inherited frmOfficeWarehouse: TfrmOfficeWarehouse
       ReadOnly = True
       ShowHint = True
       TabOrder = 0
+      TitleFont.Height = -11
       OnKeyPress = dbgLocationKeyPress
       OnMouseMove = dbgLocationMouseMove
       OnTitleClick = dbgLocationTitleClick

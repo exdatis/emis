@@ -242,9 +242,9 @@ inherited frmMaterialsWarehouse: TfrmMaterialsWarehouse
     OnTitleClick = dbgWarehouseTitleClick
   end
   object panelFindLocation: TPanel[4]
-    Left = 71
+    Left = 69
     Height = 260
-    Top = 148
+    Top = 82
     Width = 722
     ClientHeight = 260
     ClientWidth = 722
