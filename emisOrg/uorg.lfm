@@ -684,8 +684,17 @@ object frmOrg: TfrmOrg
     end
     object MenuItem19: TMenuItem
       Caption = 'Skladišta humanitarne pomoći'
+      object MenuItem21: TMenuItem
+        Action = actDrugHPWarehouse
+      end
       object MenuItem20: TMenuItem
         Action = actAppliancesHPWarehouse
+      end
+      object MenuItem22: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem23: TMenuItem
+        Action = actFoodHPWarehouse
       end
     end
   end
@@ -749,6 +758,16 @@ object frmOrg: TfrmOrg
       Caption = 'Medicinski aparati(HP)'
       Hint = 'Medicinski aparati(HP)'
       OnExecute = actAppliancesHPWarehouseExecute
+    end
+    object actDrugHPWarehouse: TAction
+      Caption = 'Lekovi i materijal(HP)'
+      Hint = 'Lekovi i materijal(HP)'
+      OnExecute = actDrugHPWarehouseExecute
+    end
+    object actFoodHPWarehouse: TAction
+      Caption = 'Skladišta hrane(HP)'
+      Hint = 'Skladišta hrane(HP)'
+      OnExecute = actFoodHPWarehouseExecute
     end
   end
   object imgGeneral: TImageList

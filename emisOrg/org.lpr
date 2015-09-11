@@ -10,7 +10,8 @@ uses
   Forms, uorg, lazcontrols, uDModule, uBaseDbForm, uConfirm, zcomponent,
   uhospital, uDepartment, uDrugWarehouse, uAppliancesWarehouse, uFoodWarehouse,
   uOfficeWarehouse, uMaterialsWarehouse, uHygieneWarehouse,
-  uHEquipmentWarehouse, uAppliancesHPWarehouse
+  uHEquipmentWarehouse, uAppliancesHPWarehouse, uDrugHPWarehouse,
+uFoodHPWarehouse
   { you can add units after this };
 
 {$R *.res}
@@ -21,6 +22,8 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmOrg, frmOrg);
   Application.CreateForm(TdModule, dModule);
+  //Application.CreateForm(TfrmFoodHPWarehouse, frmFoodHPWarehouse);
+  //Application.CreateForm(TfrmDrugHPWarehouse, frmDrugHPWarehouse);
   //Application.CreateForm(TfrmAppliancesHPWarehouse, frmAppliancesHPWarehouse);
   //Application.CreateForm(TfrmHEquipmentWarehouse, frmHEquipmentWarehouse);
   //Application.CreateForm(TfrmHygieneWarehouse, frmHygieneWarehouse);
