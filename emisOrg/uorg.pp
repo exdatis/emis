@@ -24,6 +24,7 @@ type
     actAppliancesHPWarehouse: TAction;
     actDrugHPWarehouse: TAction;
     actFoodHPWarehouse: TAction;
+    actHEquipmentHPWarehouse: TAction;
     actMaterialsWarehouse: TAction;
     actOfficeWarehouse: TAction;
     actQuitApp: TAction;
@@ -47,6 +48,8 @@ type
     MenuItem21: TMenuItem;
     MenuItem22: TMenuItem;
     MenuItem23: TMenuItem;
+    MenuItem24: TMenuItem;
+    MenuItem25: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
@@ -79,6 +82,7 @@ type
     procedure actDrugWarehouseExecute(Sender: TObject);
     procedure actFoodHPWarehouseExecute(Sender: TObject);
     procedure actFoodWarehouseExecute(Sender: TObject);
+    procedure actHEquipmentHPWarehouseExecute(Sender: TObject);
     procedure actHEquipmentWarehouseExecute(Sender: TObject);
     procedure actHospitalFrmExecute(Sender: TObject);
     procedure actHygieneWarehouseExecute(Sender: TObject);
@@ -109,7 +113,7 @@ uses
   uhospital, uDModule, uDepartment, uDrugWarehouse, uAppliancesWarehouse,
   uFoodWarehouse, uOfficeWarehouse, uMaterialsWarehouse, uHygieneWarehouse,
   uHEquipmentWarehouse, uAppliancesHPWarehouse, uDrugHPWarehouse,
-  uFoodHPWarehouse;
+  uFoodHPWarehouse, uHEquipmentHPWarehouse;
 {$R *.lfm}
 
 { TfrmOrg }
@@ -410,6 +414,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmFoodWarehouse.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmOrg.actHEquipmentHPWarehouseExecute(Sender: TObject);
+var
+  newForm : TfrmHEquipmentHPWarehouse;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmHEquipmentHPWarehouse.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}
