@@ -20,7 +20,7 @@
       <MajorVersionNr Value="3"/>
       <MinorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="27"/>
+      <BuildNr Value="30"/>
       <StringTable Comments="App by Morar" CompanyName="ExDatis" FileDescription="Emis module" InternalName="Emis org" LegalCopyright="Morar(self)" LegalTrademarks="ExDatis" OriginalFilename="org" ProductName="EmisOrg" ProductVersion="3"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="18">
+    <Units Count="20">
       <Unit0>
         <Filename Value="org.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -190,6 +190,22 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uHEquipmentHPWarehouse"/>
       </Unit17>
+      <Unit18>
+        <Filename Value="hospital\uhygienehpwarehouse.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmHygieneHPWarehouse"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uHygieneHPWarehouse"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="hospital\umaterialshpwarehouse.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMaterialsHPWarehouse"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uMaterialsHPWarehouse"/>
+      </Unit19>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

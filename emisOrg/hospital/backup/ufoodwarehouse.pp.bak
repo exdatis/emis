@@ -125,7 +125,7 @@ const
   FW_PHONE : String = 'FW_PHONE';
   FW_FAX : String = 'FW_FAX';
   FW_MAIL : String = 'FW_MAIL';
-  //VIEW  DRUG_WAREHOUSE_V
+  //VIEW  FOOD_WAREHOUSE_V
   FW_ZIP_CODE : String = 'ZIP_CODE';
   FW_LOCATION_NAME :String = 'LOCATION_NAME';
   FW_DEPARTMENT_CODE : String = 'DEPARTMENT_CODE';

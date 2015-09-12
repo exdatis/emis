@@ -11,7 +11,8 @@ uses
   uhospital, uDepartment, uDrugWarehouse, uAppliancesWarehouse, uFoodWarehouse,
   uOfficeWarehouse, uMaterialsWarehouse, uHygieneWarehouse,
   uHEquipmentWarehouse, uAppliancesHPWarehouse, uDrugHPWarehouse,
-uFoodHPWarehouse, uHEquipmentHPWarehouse
+uFoodHPWarehouse, uHEquipmentHPWarehouse, uHygieneHPWarehouse,
+uMaterialsHPWarehouse
   { you can add units after this };
 
 {$R *.res}
@@ -22,6 +23,8 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmOrg, frmOrg);
   Application.CreateForm(TdModule, dModule);
+  //Application.CreateForm(TfrmMaterialsHPWarehouse, frmMaterialsHPWarehouse);
+  //Application.CreateForm(TfrmHygieneHPWarehouse, frmHygieneHPWarehouse);
   //Application.CreateForm(TfrmHEquipmentHPWarehouse, frmHEquipmentHPWarehouse);
   //Application.CreateForm(TfrmFoodHPWarehouse, frmFoodHPWarehouse);
   //Application.CreateForm(TfrmDrugHPWarehouse, frmDrugHPWarehouse);

@@ -25,6 +25,8 @@ type
     actDrugHPWarehouse: TAction;
     actFoodHPWarehouse: TAction;
     actHEquipmentHPWarehouse: TAction;
+    actHygieneHPWarehouse: TAction;
+    actMaterialsHPWarehouse: TAction;
     actMaterialsWarehouse: TAction;
     actOfficeWarehouse: TAction;
     actQuitApp: TAction;
@@ -50,6 +52,10 @@ type
     MenuItem23: TMenuItem;
     MenuItem24: TMenuItem;
     MenuItem25: TMenuItem;
+    MenuItem26: TMenuItem;
+    MenuItem27: TMenuItem;
+    MenuItem28: TMenuItem;
+    MenuItem29: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
@@ -85,7 +91,9 @@ type
     procedure actHEquipmentHPWarehouseExecute(Sender: TObject);
     procedure actHEquipmentWarehouseExecute(Sender: TObject);
     procedure actHospitalFrmExecute(Sender: TObject);
+    procedure actHygieneHPWarehouseExecute(Sender: TObject);
     procedure actHygieneWarehouseExecute(Sender: TObject);
+    procedure actMaterialsHPWarehouseExecute(Sender: TObject);
     procedure actMaterialsWarehouseExecute(Sender: TObject);
     procedure actOfficeWarehouseExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
@@ -113,7 +121,8 @@ uses
   uhospital, uDModule, uDepartment, uDrugWarehouse, uAppliancesWarehouse,
   uFoodWarehouse, uOfficeWarehouse, uMaterialsWarehouse, uHygieneWarehouse,
   uHEquipmentWarehouse, uAppliancesHPWarehouse, uDrugHPWarehouse,
-  uFoodHPWarehouse, uHEquipmentHPWarehouse;
+  uFoodHPWarehouse, uHEquipmentHPWarehouse, uHygieneHPWarehouse,
+  uMaterialsHPWarehouse;
 {$R *.lfm}
 
 { TfrmOrg }
@@ -170,6 +179,32 @@ begin
 
 end;
 
+procedure TfrmOrg.actHygieneHPWarehouseExecute(Sender: TObject);
+var
+  newForm : TfrmHygieneHPWarehouse;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmHygieneHPWarehouse.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
 procedure TfrmOrg.actHygieneWarehouseExecute(Sender: TObject);
 var
   newForm : TfrmHygieneWarehouse;
@@ -180,6 +215,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmHygieneWarehouse.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmOrg.actMaterialsHPWarehouseExecute(Sender: TObject);
+var
+  newForm : TfrmMaterialsHPWarehouse;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmMaterialsHPWarehouse.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}
