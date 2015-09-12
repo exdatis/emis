@@ -12,7 +12,7 @@ uses
   uOfficeWarehouse, uMaterialsWarehouse, uHygieneWarehouse,
   uHEquipmentWarehouse, uAppliancesHPWarehouse, uDrugHPWarehouse,
 uFoodHPWarehouse, uHEquipmentHPWarehouse, uHygieneHPWarehouse,
-uMaterialsHPWarehouse
+uMaterialsHPWarehouse, uOfficeHPWarehouse
   { you can add units after this };
 
 {$R *.res}
@@ -23,6 +23,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmOrg, frmOrg);
   Application.CreateForm(TdModule, dModule);
+  //Application.CreateForm(TfrmOfficeHPWarehouse, frmOfficeHPWarehouse);
   //Application.CreateForm(TfrmMaterialsHPWarehouse, frmMaterialsHPWarehouse);
   //Application.CreateForm(TfrmHygieneHPWarehouse, frmHygieneHPWarehouse);
   //Application.CreateForm(TfrmHEquipmentHPWarehouse, frmHEquipmentHPWarehouse);

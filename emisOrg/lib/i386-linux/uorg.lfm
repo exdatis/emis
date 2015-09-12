@@ -690,6 +690,9 @@ object frmOrg: TfrmOrg
       object MenuItem20: TMenuItem
         Action = actAppliancesHPWarehouse
       end
+      object MenuItem30: TMenuItem
+        Action = actHEquipmentHPWarehouse
+      end
       object MenuItem22: TMenuItem
         Caption = '-'
       end
@@ -700,19 +703,19 @@ object frmOrg: TfrmOrg
         Caption = '-'
       end
       object MenuItem25: TMenuItem
-        Action = actHEquipmentHPWarehouse
+        Action = actOfficeHPWarehouse
       end
       object MenuItem26: TMenuItem
         Caption = '-'
       end
       object MenuItem27: TMenuItem
-        Action = actHygieneHPWarehouse
+        Action = actMaterialsHPWarehouse
       end
       object MenuItem28: TMenuItem
         Caption = '-'
       end
       object MenuItem29: TMenuItem
-        Action = actMaterialsHPWarehouse
+        Action = actHygieneHPWarehouse
       end
     end
   end
@@ -801,6 +804,11 @@ object frmOrg: TfrmOrg
       Caption = 'Repromaterijal(HP)'
       Hint = 'Repromaterijal(HP)'
       OnExecute = actMaterialsHPWarehouseExecute
+    end
+    object actOfficeHPWarehouse: TAction
+      Caption = 'Kancelarijski materijal(HP)'
+      Hint = 'Kancelarijski materijal(HP)'
+      OnExecute = actOfficeHPWarehouseExecute
     end
   end
   object imgGeneral: TImageList

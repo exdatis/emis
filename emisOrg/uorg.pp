@@ -26,6 +26,7 @@ type
     actFoodHPWarehouse: TAction;
     actHEquipmentHPWarehouse: TAction;
     actHygieneHPWarehouse: TAction;
+    actOfficeHPWarehouse: TAction;
     actMaterialsHPWarehouse: TAction;
     actMaterialsWarehouse: TAction;
     actOfficeWarehouse: TAction;
@@ -57,6 +58,7 @@ type
     MenuItem28: TMenuItem;
     MenuItem29: TMenuItem;
     MenuItem3: TMenuItem;
+    MenuItem30: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
@@ -95,6 +97,7 @@ type
     procedure actHygieneWarehouseExecute(Sender: TObject);
     procedure actMaterialsHPWarehouseExecute(Sender: TObject);
     procedure actMaterialsWarehouseExecute(Sender: TObject);
+    procedure actOfficeHPWarehouseExecute(Sender: TObject);
     procedure actOfficeWarehouseExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
     procedure divExDatisClick(Sender: TObject);
@@ -122,7 +125,7 @@ uses
   uFoodWarehouse, uOfficeWarehouse, uMaterialsWarehouse, uHygieneWarehouse,
   uHEquipmentWarehouse, uAppliancesHPWarehouse, uDrugHPWarehouse,
   uFoodHPWarehouse, uHEquipmentHPWarehouse, uHygieneHPWarehouse,
-  uMaterialsHPWarehouse;
+  uMaterialsHPWarehouse, uOfficeHPWarehouse;
 {$R *.lfm}
 
 { TfrmOrg }
@@ -267,6 +270,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmMaterialsWarehouse.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmOrg.actOfficeHPWarehouseExecute(Sender: TObject);
+var
+  newForm : TfrmOfficeHPWarehouse;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmOfficeHPWarehouse.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}

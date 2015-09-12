@@ -708,6 +708,12 @@ object frmOrg: TfrmOrg
       object MenuItem27: TMenuItem
         Action = actHygieneHPWarehouse
       end
+      object MenuItem28: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem29: TMenuItem
+        Action = actMaterialsHPWarehouse
+      end
     end
   end
   object actGeneral: TActionList
@@ -795,6 +801,11 @@ object frmOrg: TfrmOrg
       Caption = 'Repromaterijal(HP)'
       Hint = 'Repromaterijal(HP)'
       OnExecute = actMaterialsHPWarehouseExecute
+    end
+    object actOfficeHPWarehouse: TAction
+      Caption = 'Kancelarijski materijal(HP)'
+      Hint = 'Kancelarijski materijal(HP)'
+      OnExecute = actOfficeHPWarehouseExecute
     end
   end
   object imgGeneral: TImageList
