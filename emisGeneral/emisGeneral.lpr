@@ -27,7 +27,7 @@ begin
   //Application.CreateForm(TfrmDocWarehouseIn, frmDocWarehouseIn);
   //Application.CreateForm(TdlgConfirm, dlgConfirm);
   //Application.CreateForm(TfrmLocation, frmLocation);
-  Application.CreateForm(TbaseDbForm, baseDbForm);
+  //Application.CreateForm(TbaseDbForm, baseDbForm);
   //Application.CreateForm(TfrmDocReservation, frmDocReservation);
   //Application.CreateForm(TfrmDocRequisition, frmDocRequisition);
   //Application.CreateForm(TfrmDocFinance, frmDocFinance);

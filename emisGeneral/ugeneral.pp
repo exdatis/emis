@@ -168,7 +168,6 @@ type
     procedure divExDatisMouseEnter(Sender: TObject);
     procedure divExDatisMouseLeave(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure lblAboutFormsDocClick(Sender: TObject);
     procedure lblAboutFormsDocMouseEnter(Sender: TObject);
@@ -222,24 +221,24 @@ uses
 procedure TfrmGeneral.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   { free and nil }
+  DTAnalogClock1.Enabled:= False;
   CloseAction:= caFree;
   self:= nil;
 end;
 
-procedure TfrmGeneral.FormCreate(Sender: TObject);
+procedure TfrmGeneral.FormShow(Sender: TObject);
+var
+  userHome : String;
 begin
   HELP_PATH:= '-';
   {$IfDef WINDOWS}
     HELP_PATH:= 'c:\exdatis\hlp\';
   {$EndIf}
   {$IfDef Linux}
-    HELP_PATH:= '/usr/share/exdatis';  //privremeno resenje
+    userHome:= GetUserDir;
+    HELP_PATH:=  userHome + 'exdatis/hlp/';
   {$EndIf}
   //ShowMessage(HELP_PATH);
-end;
-
-procedure TfrmGeneral.FormShow(Sender: TObject);
-begin
   {enable the clock}
   DTAnalogClock1.Enabled:= True;
 end;
@@ -437,25 +436,28 @@ var
   cmdStrings : TStringList;
   fullCmd : String;
   cmdFile : String; {path of sh or bat}
+  s : ansistring;
 begin
+  {show cursor sqlwait}
+  Screen.Cursor:= crSQLWait;
+
   {find db for backup}
   thisDb:= ' ' + dModule.zdbh.HostName + ':';
   thisDb:= thisDb + dModule.zdbh.Database + '  ';
   {user and password}
   withUser:= ' -user ' + dModule.zdbh.User;
   withPassword:= ' -password ' + dModule.zdbh.Password;
-  {creeate process}
-  bcpProc:= TProcess.Create(nil);
+
   {concat full cmd}
   fullCmd:= 'gbak' + ' -b -g -v ';
   {add database(source) and destination}
 
-  fullCmd:= fullCmd + thisDb ;
-  fullCmd:= fullCmd + fbkPath;
+  fullCmd:= fullCmd + thisDb + ' ';
+  fullCmd:= fullCmd + fbkPath + ' ';
 
   {add user and password}
-  fullCmd:= fullCmd + withUser;
-  fullCmd:= fullCmd + withPassword;
+  fullCmd:= fullCmd + withUser + ' ';
+  fullCmd:= fullCmd + withPassword  + ' ';
   {debug msg}
   //ShowMessage(fullCmd);
 
@@ -467,9 +469,9 @@ begin
     cmdStrings.Append(linHeader);
   {$EndIf}
 
-  cmdStrings.Append('echo --ExDatis database backup --');
+  //cmdStrings.Append('echo --ExDatis database backup --');
   {debug test}
-  cmdStrings.Append('sleep 1');
+  //cmdStrings.Append('sleep 1');
   {add cmd}
   cmdStrings.Append(fullCmd);
 
@@ -477,7 +479,7 @@ begin
     cmdStrings.Append('PAUSE');
   {$EndIf}
   {$IfDef linux}
-    cmdStrings.Append('sleep 3');
+    cmdStrings.Append(' sleep 3');
   {$EndIf}
 
   {save file}
@@ -490,25 +492,31 @@ begin
     cmdStrings.SaveToFile(cmdFile);
   {$EndIf}
 
-  {prepare process}
+  {process}
   {$IfDef WINDOWS}
+    {creeate process}
+    bcpProc:= TProcess.Create(nil);
     bcpProc.CommandLine:= cmdFile;
+    {execute options}
+    bcpProc.Options:= bcpProc.Options + [poWaitOnExit, poNewConsole];
+    {execute}
+    bcpProc.Execute;
+    {free}
+    bcpProc.Free;
   {$EndIf}
+  {just run}
   {$IfDef Linux}
-    bcpProc.CommandLine:= 'sh ' + cmdFile;
+   RunCommand('sh', [cmdFile], s);
   {$EndIf}
 
-  {execute options}
-  bcpProc.Options:= bcpProc.Options + [poWaitOnExit, poNewConsole];
-  {execute}
-  bcpProc.Execute;
-  {free}
-  bcpProc.Free;
   {clear shell cmd}
   cmdStrings.Clear;
   cmdStrings.Append(' -- END --');
   cmdStrings.Append(FormatDateTime('dd.MM.yyyy hh:nn', Now));
   cmdStrings.SaveToFile(cmdFile);
+  {reset cursor}
+  Screen.Cursor:= crDefault;
+  Application.ProcessMessages;
   {free string_list}
   cmdStrings.Free;
   {success msg}
@@ -518,7 +526,7 @@ end;
 procedure TfrmGeneral.actQuitAppExecute(Sender: TObject);
 begin
   {close main form and terminate app}
-  self.Close;
+  Close;
   Application.Terminate;
 end;
 

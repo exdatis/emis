@@ -4,16 +4,17 @@ object frmOrg: TfrmOrg
   Top = 157
   Width = 1035
   Caption = 'Emis software - organizaciona struktura'
-  ClientHeight = 564
+  ClientHeight = 562
   ClientWidth = 1035
   Menu = mnuGeneral
   OnClose = FormClose
+  OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '1.4.2.0'
   object statusBarGeneral: TStatusBar
     Left = 0
-    Height = 19
-    Top = 545
+    Height = 21
+    Top = 541
     Width = 1035
     AutoHint = True
     Panels = <    
@@ -157,7 +158,7 @@ object frmOrg: TfrmOrg
   end
   object panelForms: TBCPanel
     Left = 232
-    Height = 519
+    Height = 515
     Top = 26
     Width = 803
     Align = alRight
@@ -549,7 +550,7 @@ object frmOrg: TfrmOrg
     object divExDatis: TDividerBevel
       Cursor = crHandPoint
       Left = 32
-      Height = 15
+      Height = 17
       Hint = 'Project home'
       Top = 464
       Width = 741
@@ -565,10 +566,10 @@ object frmOrg: TfrmOrg
     object lblModuleTitle: TLabel
       Cursor = crHandPoint
       Left = 16
-      Height = 15
+      Height = 17
       Hint = 'Project home page'
       Top = 22
-      Width = 193
+      Width = 196
       Caption = 'Emis software - module general data'
       Font.Color = clCream
       ParentColor = False
@@ -582,11 +583,180 @@ object frmOrg: TfrmOrg
   end
   object panelMnu: TPanel
     Left = 0
-    Height = 519
+    Height = 515
     Top = 26
     Width = 224
     Align = alLeft
+    ClientHeight = 515
+    ClientWidth = 224
     TabOrder = 3
+    object Label1: TLabel
+      Left = 0
+      Height = 15
+      Top = 1
+      Width = 226
+      AutoSize = False
+      Caption = ' Uputstva'
+      Color = clBlack
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object lblAboutModule: TLabel
+      Cursor = crHandPoint
+      Left = 0
+      Height = 15
+      Hint = 'Napomene o modulu'
+      Top = 18
+      Width = 226
+      AutoSize = False
+      Caption = ' Napomene o modulu (pdf)'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+    end
+    object lblAboutModuleDoc: TLabel
+      Cursor = crHandPoint
+      Left = 0
+      Height = 15
+      Hint = 'Napomene o modulu'
+      Top = 35
+      Width = 226
+      AutoSize = False
+      Caption = ' Napomene o modulu (doc)'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+    end
+    object lblAboutFormsPdf: TLabel
+      Cursor = crHandPoint
+      Left = 0
+      Height = 15
+      Hint = 'O formularima'
+      Top = 52
+      Width = 225
+      AutoSize = False
+      Caption = ' O formularima (pdf)'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+      OnClick = lblAboutFormsPdfClick
+      OnMouseEnter = lblAboutFormsPdfMouseEnter
+      OnMouseLeave = lblAboutFormsPdfMouseLeave
+    end
+    object lblAboutFormsDoc: TLabel
+      Cursor = crHandPoint
+      Left = 0
+      Height = 15
+      Hint = 'O formularima'
+      Top = 69
+      Width = 225
+      AutoSize = False
+      Caption = ' O formularima (doc)'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+      OnClick = lblAboutFormsDocClick
+      OnMouseEnter = lblAboutFormsDocMouseEnter
+      OnMouseLeave = lblAboutFormsDocMouseLeave
+    end
+    object lblEditDataDoc: TLabel
+      Cursor = crHandPoint
+      Left = 0
+      Height = 15
+      Hint = 'Obrada podataka'
+      Top = 86
+      Width = 225
+      AutoSize = False
+      Caption = 'Obrada podataka (doc)'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+      OnClick = lblEditDataDocClick
+      OnMouseEnter = lblEditDataDocMouseEnter
+      OnMouseLeave = lblEditDataDocMouseLeave
+    end
+    object lblEditDataPdf: TLabel
+      Cursor = crHandPoint
+      Left = 0
+      Height = 15
+      Hint = 'Obrada podataka'
+      Top = 103
+      Width = 225
+      AutoSize = False
+      Caption = 'Obrada podataka (pdf)'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+      OnClick = lblEditDataPdfClick
+      OnMouseEnter = lblEditDataPdfMouseEnter
+      OnMouseLeave = lblEditDataPdfMouseLeave
+    end
+    object Label2: TLabel
+      Left = 0
+      Height = 15
+      Top = 121
+      Width = 226
+      AutoSize = False
+      Caption = ' Arhiviranje podataka(backup)'
+      Color = clBlack
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object lblBackup: TLabel
+      Cursor = crHandPoint
+      Left = 0
+      Height = 15
+      Hint = 'Arhiviranje baze podataka'
+      Top = 138
+      Width = 225
+      AutoSize = False
+      Caption = 'Arhiviranje baze podataka'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+      OnClick = lblBackupClick
+      OnMouseEnter = lblBackupMouseEnter
+      OnMouseLeave = lblBackupMouseLeave
+    end
+    object DTAnalogClock1: TDTAnalogClock
+      Left = 47
+      Height = 128
+      Top = 253
+      Width = 128
+      Enabled = False
+    end
   end
   object mnuGeneral: TMainMenu
     Images = imgGeneral
@@ -1137,5 +1307,49 @@ object frmOrg: TfrmOrg
       000000000000000000FF0000000000000000FF9966FF996633FF996633FF9966
       33FF996633FF996633FF00000000
     }
+  end
+  object saveFbk: TSaveDialog
+    DefaultExt = '.*.fbk'
+    Filter = 'Backup|*.fbk;*.FBK'
+    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    left = 416
+    top = 244
+  end
+  object actHelp: TActionList
+    left = 375
+    top = 163
+    object actHlpAboutModulePdf: TAction
+      Caption = 'Opis modula (pdf)'
+      Hint = 'Opis modula (pdf)'
+    end
+    object actHlpAboutModuleDoc: TAction
+      Caption = 'Opis modula (doc)'
+      Hint = 'Opis modula (doc)'
+    end
+    object actHlpAboutFormsPdf: TAction
+      Caption = 'Opis formulara (pdf)'
+      Hint = 'Opis formulara (pdf)'
+      OnExecute = actHlpAboutFormsPdfExecute
+    end
+    object actHlpAboutFormsDoc: TAction
+      Caption = 'Opis formulara (doc)'
+      Hint = 'Opis formulara (doc)'
+      OnExecute = actHlpAboutFormsDocExecute
+    end
+    object actHlpEditDataPdf: TAction
+      Caption = 'Obrada podataka (pdf)'
+      Hint = 'Obrada podataka (pdf)'
+      OnExecute = actHlpEditDataPdfExecute
+    end
+    object actHlpEditDataDoc: TAction
+      Caption = 'Obrada podataka (doc)'
+      Hint = 'Obrada podataka (doc)'
+      OnExecute = actHlpEditDataDocExecute
+    end
+    object actDbBackup: TAction
+      Caption = 'Arhiviranje podataka'
+      Hint = 'Arhiviranje podataka'
+      OnExecute = actDbBackupExecute
+    end
   end
 end

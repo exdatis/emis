@@ -4,18 +4,17 @@ object frmGeneral: TfrmGeneral
   Top = 157
   Width = 1035
   Caption = 'Emis software - opšte tabele'
-  ClientHeight = 565
+  ClientHeight = 562
   ClientWidth = 1035
   Menu = mnuGeneral
   OnClose = FormClose
-  OnCreate = FormCreate
   OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '1.4.2.0'
   object statusBarGeneral: TStatusBar
     Left = 0
-    Height = 18
-    Top = 547
+    Height = 21
+    Top = 541
     Width = 1035
     AutoHint = True
     Panels = <    
@@ -322,11 +321,11 @@ object frmGeneral: TfrmGeneral
   end
   object panelMnu: TPanel
     Left = 0
-    Height = 521
+    Height = 515
     Top = 26
     Width = 224
     Align = alLeft
-    ClientHeight = 521
+    ClientHeight = 515
     ClientWidth = 224
     TabOrder = 2
     object Label1: TLabel
@@ -505,7 +504,7 @@ object frmGeneral: TfrmGeneral
   end
   object panelForms: TBCPanel
     Left = 232
-    Height = 521
+    Height = 515
     Top = 26
     Width = 803
     Align = alRight
@@ -897,7 +896,7 @@ object frmGeneral: TfrmGeneral
     object divExDatis: TDividerBevel
       Cursor = crHandPoint
       Left = 32
-      Height = 14
+      Height = 17
       Hint = 'Project home'
       Top = 464
       Width = 741
@@ -913,10 +912,10 @@ object frmGeneral: TfrmGeneral
     object lblModuleTitle: TLabel
       Cursor = crHandPoint
       Left = 16
-      Height = 14
+      Height = 17
       Hint = 'Project home page'
       Top = 22
-      Width = 230
+      Width = 196
       Caption = 'Emis software - module general data'
       Font.Color = clCream
       ParentColor = False

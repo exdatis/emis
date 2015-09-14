@@ -5,8 +5,9 @@ unit uorg;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, BCPanel, DividerBevel, Forms, Controls, Graphics,
-  Dialogs, ExtCtrls, StdCtrls, Menus, ActnList, LCLIntf, ComCtrls;
+  Classes, SysUtils, FileUtil, BCPanel, DTAnalogClock, DividerBevel, Forms,
+  Controls, Graphics, Dialogs, ExtCtrls, StdCtrls, Menus, ActnList, LCLIntf,
+  ComCtrls, process;
 
 type
 
@@ -26,14 +27,32 @@ type
     actFoodHPWarehouse: TAction;
     actHEquipmentHPWarehouse: TAction;
     actHygieneHPWarehouse: TAction;
+    actHelp: TActionList;
+    actHlpAboutModulePdf: TAction;
+    actHlpAboutModuleDoc: TAction;
+    actHlpAboutFormsPdf: TAction;
+    actHlpAboutFormsDoc: TAction;
+    actHlpEditDataPdf: TAction;
+    actHlpEditDataDoc: TAction;
+    actDbBackup: TAction;
     actOfficeHPWarehouse: TAction;
     actMaterialsHPWarehouse: TAction;
     actMaterialsWarehouse: TAction;
     actOfficeWarehouse: TAction;
     actQuitApp: TAction;
     divExDatis: TDividerBevel;
+    DTAnalogClock1: TDTAnalogClock;
     Image1: TImage;
     imgGeneral: TImageList;
+    Label1: TLabel;
+    Label2: TLabel;
+    lblAboutFormsDoc: TLabel;
+    lblAboutFormsPdf: TLabel;
+    lblAboutModule: TLabel;
+    lblAboutModuleDoc: TLabel;
+    lblBackup: TLabel;
+    lblEditDataDoc: TLabel;
+    lblEditDataPdf: TLabel;
     lblModuleTitle: TLabel;
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
@@ -68,6 +87,7 @@ type
     mnuGeneral: TMainMenu;
     panelForms: TBCPanel;
     panelMnu: TPanel;
+    saveFbk: TSaveDialog;
     shapeLogo: TShape;
     statusBarGeneral: TStatusBar;
     toolBarGeneral: TToolBar;
@@ -85,6 +105,7 @@ type
     ToolButton9: TToolButton;
     procedure actAppliancesHPWarehouseExecute(Sender: TObject);
     procedure actAppliancesWarehouseExecute(Sender: TObject);
+    procedure actDbBackupExecute(Sender: TObject);
     procedure actDepartmentFrmExecute(Sender: TObject);
     procedure actDrugHPWarehouseExecute(Sender: TObject);
     procedure actDrugWarehouseExecute(Sender: TObject);
@@ -92,6 +113,10 @@ type
     procedure actFoodWarehouseExecute(Sender: TObject);
     procedure actHEquipmentHPWarehouseExecute(Sender: TObject);
     procedure actHEquipmentWarehouseExecute(Sender: TObject);
+    procedure actHlpAboutFormsDocExecute(Sender: TObject);
+    procedure actHlpAboutFormsPdfExecute(Sender: TObject);
+    procedure actHlpEditDataDocExecute(Sender: TObject);
+    procedure actHlpEditDataPdfExecute(Sender: TObject);
     procedure actHospitalFrmExecute(Sender: TObject);
     procedure actHygieneHPWarehouseExecute(Sender: TObject);
     procedure actHygieneWarehouseExecute(Sender: TObject);
@@ -104,14 +129,32 @@ type
     procedure divExDatisMouseEnter(Sender: TObject);
     procedure divExDatisMouseLeave(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure lblAboutFormsDocClick(Sender: TObject);
+    procedure lblAboutFormsDocMouseEnter(Sender: TObject);
+    procedure lblAboutFormsDocMouseLeave(Sender: TObject);
+    procedure lblAboutFormsPdfClick(Sender: TObject);
+    procedure lblAboutFormsPdfMouseEnter(Sender: TObject);
+    procedure lblAboutFormsPdfMouseLeave(Sender: TObject);
+    procedure lblBackupClick(Sender: TObject);
+    procedure lblBackupMouseEnter(Sender: TObject);
+    procedure lblBackupMouseLeave(Sender: TObject);
+    procedure lblEditDataDocClick(Sender: TObject);
+    procedure lblEditDataDocMouseEnter(Sender: TObject);
+    procedure lblEditDataDocMouseLeave(Sender: TObject);
+    procedure lblEditDataPdfClick(Sender: TObject);
+    procedure lblEditDataPdfMouseEnter(Sender: TObject);
+    procedure lblEditDataPdfMouseLeave(Sender: TObject);
     procedure lblModuleTitleClick(Sender: TObject);
     procedure lblModuleTitleMouseEnter(Sender: TObject);
     procedure lblModuleTitleMouseLeave(Sender: TObject);
   private
     { private declarations }
     procedure closePriorForm;
+    procedure backupDb(const fbkPath : String);
   public
     { public declarations }
+    HELP_PATH : String;
   end;
 
 var
@@ -135,6 +178,132 @@ begin
   { free and nil }
   CloseAction:= caFree;
   self:= nil;
+end;
+
+procedure TfrmOrg.FormShow(Sender: TObject);
+var
+  userHome : String;
+begin
+  HELP_PATH:= '-';
+  {$IfDef WINDOWS}
+    HELP_PATH:= 'c:\exdatis\hlp\';
+  {$EndIf}
+  {$IfDef Linux}
+    userHome:= GetUserDir;
+    HELP_PATH:=  userHome + 'exdatis/hlp/';
+  {$EndIf}
+  //ShowMessage(HELP_PATH);
+  DTAnalogClock1.Enabled:= True;
+end;
+
+procedure TfrmOrg.lblAboutFormsDocClick(Sender: TObject);
+begin
+  {show help}
+  actHlpAboutFormsDoc.Execute;
+end;
+
+procedure TfrmOrg.lblAboutFormsDocMouseEnter(Sender: TObject);
+begin
+  {pseudo-link, underline}
+  lblAboutFormsDoc.Font.Underline:= True;
+  {set color}
+  lblAboutFormsDoc.Color:= clMaroon;
+end;
+
+procedure TfrmOrg.lblAboutFormsDocMouseLeave(Sender: TObject);
+begin
+  {reset pseudo-link, underline = False}
+  lblAboutFormsDoc.Font.Underline:= False;
+  {set color}
+  lblAboutFormsDoc.Color:= clGray;
+end;
+
+procedure TfrmOrg.lblAboutFormsPdfClick(Sender: TObject);
+begin
+  {show help}
+  actHlpAboutFormsPdf.Execute;
+end;
+
+procedure TfrmOrg.lblAboutFormsPdfMouseEnter(Sender: TObject);
+begin
+  {pseudo-link, underline}
+  lblAboutFormsPdf.Font.Underline:= True;
+  {set color}
+  lblAboutFormsPdf.Color:= clMaroon;
+end;
+
+procedure TfrmOrg.lblAboutFormsPdfMouseLeave(Sender: TObject);
+begin
+  {reset pseudo-link, underline = False}
+  lblAboutFormsPdf.Font.Underline:= False;
+  {set color}
+  lblAboutFormsPdf.Color:= clGray;
+end;
+
+procedure TfrmOrg.lblBackupClick(Sender: TObject);
+begin
+  {backup db}
+  actDbBackup.Execute;
+end;
+
+procedure TfrmOrg.lblBackupMouseEnter(Sender: TObject);
+begin
+  {pseudo-link, underline}
+  lblBackup.Font.Underline:= True;
+  {set color}
+  lblBackup.Color:= clMaroon;
+end;
+
+procedure TfrmOrg.lblBackupMouseLeave(Sender: TObject);
+begin
+  {reset pseud-link}
+  lblBackup.Font.Underline:= False;
+  {set color}
+  lblBackup.Color:= clGray;
+end;
+
+procedure TfrmOrg.lblEditDataDocClick(Sender: TObject);
+begin
+  {show help}
+  actHlpEditDataDoc.Execute;
+end;
+
+procedure TfrmOrg.lblEditDataDocMouseEnter(Sender: TObject);
+begin
+  {pseudo-link, underline}
+  lblEditDataDoc.Font.Underline:= True;
+  {set color}
+  lblEditDataDoc.Color:= clMaroon;
+end;
+
+procedure TfrmOrg.lblEditDataDocMouseLeave(Sender: TObject);
+begin
+  {reset pseudo-link, underline = False}
+  lblEditDataDoc.Font.Underline:= False;
+  {set color}
+  lblEditDataDoc.Color:= clGray;
+end;
+
+procedure TfrmOrg.lblEditDataPdfClick(Sender: TObject);
+begin
+  {show help}
+  actHlpEditDataPdf.Execute;
+end;
+
+procedure TfrmOrg.lblEditDataPdfMouseEnter(Sender: TObject);
+begin
+  {pseudo-link, underline}
+  lblEditDataPdf.Font.Underline:= True;
+  {set color}
+  lblEditDataPdf.Color:= clMaroon;
+end;
+
+procedure TfrmOrg.lblEditDataPdfMouseLeave(Sender: TObject);
+begin
+  {reset pseudo-link, underline = False}
+  lblEditDataPdf.Font.Underline:= False;
+  {set color}
+  lblEditDataPdf.Color:= clGray;
 end;
 
 procedure TfrmOrg.divExDatisClick(Sender: TObject);
@@ -416,6 +585,42 @@ begin
   end;
 end;
 
+procedure TfrmOrg.actDbBackupExecute(Sender: TObject);
+var
+  defaultPath : String;
+  fbkFile : String;
+  currDate : String;
+  fbkName : String;
+  currMonth : String;
+begin
+  {find initial folder}
+  {$IfDef windows}
+    defaultPath:= 'C:\exdatis\bcp\';
+  {$EndIf}
+  {$IfDef linux}
+    defaultPath:= GetUserDir + 'exdatis/bcp/';
+  {$EndIf}
+  saveFbk.InitialDir:= defaultPath;
+  {set default name of fbk}
+  currDate:= FormatDateTime('dd.MM.yyyy', Now);
+  fbkName:= ExtractFileNameOnly(dModule.zdbh.Database);
+
+  fbkName:= fbkName + LeftStr(currDate, 2);
+  currMonth:= Copy(currDate, 4, 2);
+  fbkName:= fbkName + currMonth;
+  fbkName:= fbkName + RightStr(currDate, 4);
+  {add extension}
+  fbkName:= fbkName + '.fbk';
+  saveFbk.FileName:= fbkName;
+  {run dialog}
+  if saveFbk.Execute then
+    if(Length(saveFbk.FileName) > 5) then
+      begin
+        fbkFile:= saveFbk.FileName;
+        backupDb(fbkFile);
+      end;
+end;
+
 procedure TfrmOrg.actAppliancesHPWarehouseExecute(Sender: TObject);
 var
   newForm : TfrmAppliancesHPWarehouse;
@@ -572,6 +777,66 @@ begin
   end;
 end;
 
+procedure TfrmOrg.actHlpAboutFormsDocExecute(Sender: TObject);
+var
+  full_path : String;
+begin
+  {help file path(pdf file)}
+  full_path:= HELP_PATH + 'forms.doc';
+  {open doc}
+  Screen.Cursor:= crHourGlass;
+  try
+    OpenDocument(full_path);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmOrg.actHlpAboutFormsPdfExecute(Sender: TObject);
+var
+  full_path : String;
+begin
+  {help file path(pdf file)}
+  full_path:= HELP_PATH + 'forms.pdf';
+  {open doc}
+  Screen.Cursor:= crHourGlass;
+  try
+    OpenDocument(full_path);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmOrg.actHlpEditDataDocExecute(Sender: TObject);
+var
+  full_path : String;
+begin
+  {help file path(pdf file)}
+  full_path:= HELP_PATH + 'editData.doc';
+  {open doc}
+  Screen.Cursor:= crHourGlass;
+  try
+    OpenDocument(full_path);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmOrg.actHlpEditDataPdfExecute(Sender: TObject);
+var
+  full_path : String;
+begin
+  {help file path(pdf file)}
+  full_path:= HELP_PATH + 'editData.pdf';
+  {open doc}
+  Screen.Cursor:= crHourGlass;
+  try
+    OpenDocument(full_path);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
 procedure TfrmOrg.divExDatisMouseEnter(Sender: TObject);
 begin
   {underline}
@@ -611,6 +876,105 @@ procedure TfrmOrg.closePriorForm;
 begin
   if(panelForms.ControlCount > MAX_CTRLS) then
     TForm(panelForms.Controls[MAX_CTRLS]).Close;
+end;
+
+procedure TfrmOrg.backupDb(const fbkPath: String);
+const
+  winHeader : String = '@echo off ' ;
+  linHeader : String = '#!/bin/sh ';
+  successMsg : String = 'Arhiviranje je uspešno završeno. ';
+var
+  bcpProc : TProcess;
+  thisDb : String;
+  withUser, withPassword : String;
+  cmdStrings : TStringList;
+  fullCmd : String;
+  cmdFile : String; {path of sh or bat}
+  s : ansistring;
+begin
+  {show cursor sqlwait}
+  Screen.Cursor:= crSQLWait;
+
+  {find db for backup}
+  thisDb:= ' ' + dModule.zdbh.HostName + ':';
+  thisDb:= thisDb + dModule.zdbh.Database + '  ';
+  {user and password}
+  withUser:= ' -user ' + dModule.zdbh.User;
+  withPassword:= ' -password ' + dModule.zdbh.Password;
+
+  {concat full cmd}
+  fullCmd:= 'gbak' + ' -b -g -v ';
+  {add database(source) and destination}
+
+  fullCmd:= fullCmd + thisDb + ' ';
+  fullCmd:= fullCmd + fbkPath + ' ';
+
+  {add user and password}
+  fullCmd:= fullCmd + withUser + ' ';
+  fullCmd:= fullCmd + withPassword  + ' ';
+  {debug msg}
+  //ShowMessage(fullCmd);
+
+  cmdStrings:= TStringList.Create;
+  {$IfDef windows}
+    cmdStrings.Append(winHeader);
+  {$EndIf}
+  {$IfDef linux}
+    cmdStrings.Append(linHeader);
+  {$EndIf}
+
+  //cmdStrings.Append('echo --ExDatis database backup --');
+  {debug test}
+  //cmdStrings.Append('sleep 1');
+  {add cmd}
+  cmdStrings.Append(fullCmd);
+
+  {$IfDef windows}
+    cmdStrings.Append('PAUSE');
+  {$EndIf}
+  {$IfDef linux}
+    cmdStrings.Append(' sleep 3');
+  {$EndIf}
+
+  {save file}
+  {$IfDef windows}
+    cmdFile:= 'C:\exdatis\bcp.bat';
+    cmdStrings.SaveToFile(cmdFile);
+  {$EndIf}
+  {$IfDef linux}
+    cmdFile:= GetUserDir + 'exdatis/bcp.sh';
+    cmdStrings.SaveToFile(cmdFile);
+  {$EndIf}
+
+  {process}
+  {$IfDef WINDOWS}
+    {creeate process}
+    bcpProc:= TProcess.Create(nil);
+    bcpProc.CommandLine:= cmdFile;
+    {execute options}
+    bcpProc.Options:= bcpProc.Options + [poWaitOnExit, poNewConsole];
+    {execute}
+    bcpProc.Execute;
+    {free}
+    bcpProc.Free;
+  {$EndIf}
+  {just run}
+  {$IfDef Linux}
+   RunCommand('sh', [cmdFile], s);
+  {$EndIf}
+
+  {clear shell cmd}
+  cmdStrings.Clear;
+  cmdStrings.Append(' -- END --');
+  cmdStrings.Append(FormatDateTime('dd.MM.yyyy hh:nn', Now));
+  cmdStrings.SaveToFile(cmdFile);
+  {reset cursor}
+  Screen.Cursor:= crDefault;
+  Application.ProcessMessages;
+  {free string_list}
+  cmdStrings.Free;
+  {success msg}
+  ShowMessage(successMsg);
 end;
 
 end.
