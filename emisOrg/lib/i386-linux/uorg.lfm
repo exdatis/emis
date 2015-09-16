@@ -569,8 +569,8 @@ object frmOrg: TfrmOrg
       Height = 17
       Hint = 'Project home page'
       Top = 22
-      Width = 196
-      Caption = 'Emis software - module general data'
+      Width = 249
+      Caption = 'Emis software - module organisation structure'
       Font.Color = clCream
       ParentColor = False
       ParentFont = False

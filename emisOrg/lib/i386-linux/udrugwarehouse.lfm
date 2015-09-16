@@ -718,9 +718,15 @@ inherited frmDrugWarehouse: TfrmDrugWarehouse
       Hint = 'Pronadji po nazivu'
       OnExecute = actFindLocationByNameExecute
     end
-    object actFindLocationHelp: TAction
-      Caption = 'Uputstvo'
+    object actFindLocationHelpPdf: TAction
+      Caption = 'Uputstvo(pdf)'
       Hint = 'Pomoć u pretrazi'
+      OnExecute = actFindLocationHelpPdfExecute
+    end
+    object actFindLocationHelpdoc: TAction
+      Caption = 'Uputstvo(doc)'
+      Hint = 'Pomoć u pretrazi'
+      OnExecute = actFindLocationHelpdocExecute
     end
   end
   object pupFindLocation: TPopupMenu[13]
@@ -736,7 +742,10 @@ inherited frmDrugWarehouse: TfrmDrugWarehouse
       Caption = '-'
     end
     object MenuItem4: TMenuItem
-      Action = actFindLocationHelp
+      Action = actFindLocationHelpPdf
+    end
+    object MenuItem5: TMenuItem
+      Action = actFindLocationHelpdoc
     end
   end
   object zroDepartment: TZReadOnlyQuery[14]

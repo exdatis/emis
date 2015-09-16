@@ -12,30 +12,30 @@ inherited frmDepartment: TfrmDepartment
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
-    ClientHeight = 112
+    ClientHeight = 114
     ClientWidth = 799
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
     object Label2: TLabel
       Left = 295
-      Height = 15
+      Height = 16
       Top = 10
-      Width = 88
+      Width = 82
       Caption = 'Naziv odeljenja *'
       ParentColor = False
     end
     object Label1: TLabel
       Left = 11
-      Height = 15
+      Height = 16
       Top = 10
-      Width = 23
+      Width = 22
       Caption = 'Šifra'
       ParentColor = False
     end
     object dbCode: TDBEdit
       Left = 68
-      Height = 23
+      Height = 26
       Top = 5
       Width = 209
       DataField = 'D_CODE'
@@ -46,7 +46,7 @@ inherited frmDepartment: TfrmDepartment
     end
     object dbName: TDBEdit
       Left = 392
-      Height = 23
+      Height = 26
       Top = 5
       Width = 400
       DataField = 'D_NAME'
@@ -57,15 +57,15 @@ inherited frmDepartment: TfrmDepartment
     end
     object Label3: TLabel
       Left = 11
-      Height = 15
+      Height = 16
       Top = 36
-      Width = 45
+      Width = 44
       Caption = 'Sedište *'
       ParentColor = False
     end
     object dbLocation: TDBEdit
       Left = 68
-      Height = 23
+      Height = 26
       Hint = 'Enter za pretragu'
       Top = 31
       Width = 186
@@ -126,15 +126,15 @@ inherited frmDepartment: TfrmDepartment
     end
     object Label4: TLabel
       Left = 295
-      Height = 15
+      Height = 16
       Top = 36
-      Width = 44
+      Width = 43
       Caption = 'Adresa *'
       ParentColor = False
     end
     object dbAddress: TDBEdit
       Left = 392
-      Height = 23
+      Height = 26
       Top = 31
       Width = 400
       DataField = 'D_ADDRESS'
@@ -145,15 +145,15 @@ inherited frmDepartment: TfrmDepartment
     end
     object Label5: TLabel
       Left = 11
-      Height = 15
+      Height = 16
       Top = 62
-      Width = 34
+      Width = 30
       Caption = 'E-mail'
       ParentColor = False
     end
     object dbMail: TDBEdit
       Left = 68
-      Height = 23
+      Height = 26
       Top = 57
       Width = 209
       DataField = 'D_MAIL'
@@ -164,15 +164,15 @@ inherited frmDepartment: TfrmDepartment
     end
     object Label6: TLabel
       Left = 295
-      Height = 15
+      Height = 16
       Top = 62
-      Width = 57
+      Width = 56
       Caption = 'Ustanova *'
       ParentColor = False
     end
     object dblHospital: TDBLookupComboBox
       Left = 392
-      Height = 23
+      Height = 28
       Top = 57
       Width = 400
       AutoComplete = True
@@ -187,15 +187,15 @@ inherited frmDepartment: TfrmDepartment
     end
     object Label7: TLabel
       Left = 11
-      Height = 15
+      Height = 16
       Top = 88
-      Width = 40
+      Width = 37
       Caption = 'Telefon'
       ParentColor = False
     end
     object dbPhone: TDBEdit
       Left = 68
-      Height = 23
+      Height = 26
       Top = 83
       Width = 209
       DataField = 'D_PHONE'
@@ -206,15 +206,15 @@ inherited frmDepartment: TfrmDepartment
     end
     object Label8: TLabel
       Left = 295
-      Height = 15
+      Height = 16
       Top = 88
-      Width = 17
+      Width = 18
       Caption = 'Fax'
       ParentColor = False
     end
     object dbFax: TDBEdit
       Left = 392
-      Height = 23
+      Height = 26
       Top = 83
       Width = 209
       DataField = 'D_FAX'
@@ -227,7 +227,7 @@ inherited frmDepartment: TfrmDepartment
   object dbgDepartment: TDBGrid[3]
     Cursor = crHandPoint
     Left = 0
-    Height = 325
+    Height = 326
     Hint = 'Klikni naslov polja za sortiranje'
     Top = 147
     Width = 803
@@ -240,6 +240,7 @@ inherited frmDepartment: TfrmDepartment
     ReadOnly = True
     ShowHint = True
     TabOrder = 2
+    TitleFont.Height = -11
     OnMouseMove = dbgDepartmentMouseMove
     OnTitleClick = dbgDepartmentTitleClick
   end
@@ -267,6 +268,7 @@ inherited frmDepartment: TfrmDepartment
       ReadOnly = True
       ShowHint = True
       TabOrder = 0
+      TitleFont.Height = -11
       OnKeyPress = dbgLocationKeyPress
       OnMouseMove = dbgLocationMouseMove
       OnTitleClick = dbgLocationTitleClick
@@ -783,9 +785,15 @@ inherited frmDepartment: TfrmDepartment
       Hint = 'Pronadji po nazivu'
       OnExecute = actFindLocationByNameExecute
     end
-    object actFindLocationHelp: TAction
-      Caption = 'Uputstvo'
+    object actFindLocationHelpPdf: TAction
+      Caption = 'Uputstvo(pdf)'
       Hint = 'Pomoć u pretrazi'
+      OnExecute = actFindLocationHelpPdfExecute
+    end
+    object actFindLocationHelpDoc: TAction
+      Caption = 'Uputstvo(doc)'
+      Hint = 'Pomoć u pretrazi'
+      OnExecute = actFindLocationHelpDocExecute
     end
   end
   object pupFindLocation: TPopupMenu[15]
@@ -801,7 +809,10 @@ inherited frmDepartment: TfrmDepartment
       Caption = '-'
     end
     object MenuItem4: TMenuItem
-      Action = actFindLocationHelp
+      Action = actFindLocationHelpPdf
+    end
+    object MenuItem5: TMenuItem
+      Action = actFindLocationHelpDoc
     end
   end
 end

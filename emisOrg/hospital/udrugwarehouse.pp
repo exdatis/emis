@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ActnList, DbCtrls, Buttons, Menus, DBGrids, ExtCtrls, uBaseDbForm, db,
-  ZDataset, ZSequence, ZSqlUpdate, ZAbstractDataset, ZAbstractRODataset;
+  ZDataset, ZSequence, ZSqlUpdate, ZAbstractDataset, ZAbstractRODataset, LCLIntf;
 
 type
 
@@ -17,7 +17,8 @@ type
     actFind: TActionList;
     actFindLocationByCode: TAction;
     actFindLocationByName: TAction;
-    actFindLocationHelp: TAction;
+    actFindLocationHelpPdf: TAction;
+    actFindLocationHelpdoc: TAction;
     btnFindLocation: TSpeedButton;
     btnLocationCancel: TButton;
     btnLocationOk: TButton;
@@ -47,6 +48,7 @@ type
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
     panelFindLocation: TPanel;
     pupFindLocation: TPopupMenu;
     zqWarehouse: TZQuery;
@@ -74,6 +76,8 @@ type
     zupdWarehouse: TZUpdateSQL;
     procedure actFindLocationByCodeExecute(Sender: TObject);
     procedure actFindLocationByNameExecute(Sender: TObject);
+    procedure actFindLocationHelpdocExecute(Sender: TObject);
+    procedure actFindLocationHelpPdfExecute(Sender: TObject);
     procedure btnFindLocationClick(Sender: TObject);
     procedure btnLocationCancelClick(Sender: TObject);
     procedure btnLocationOkClick(Sender: TObject);
@@ -99,6 +103,7 @@ type
     procedure useThisLocation;
   public
     { public declarations }
+    HELP_PATH : String;
     procedure onActFirst; override;
     procedure onActPrior; override;
     procedure onActNext; override;
@@ -283,6 +288,36 @@ procedure TfrmDrugWarehouse.actFindLocationByNameExecute(Sender: TObject);
 begin
   locationArg:= FW_LOCATION_NAME; //set search arg
   findLocation(dbLocation.Text); //set text arg
+end;
+
+procedure TfrmDrugWarehouse.actFindLocationHelpdocExecute(Sender: TObject);
+var
+  full_path : String;
+begin
+  {help file path(pdf file)}
+  full_path:= HELP_PATH + 'FindLocation.doc';
+  {open doc}
+  Screen.Cursor:= crHourGlass;
+  try
+    OpenDocument(full_path);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmDrugWarehouse.actFindLocationHelpPdfExecute(Sender: TObject);
+var
+  full_path : String;
+begin
+  {help file path(pdf file)}
+  full_path:= HELP_PATH + 'FindLocation.pdf';
+  {open doc}
+  Screen.Cursor:= crHourGlass;
+  try
+    OpenDocument(full_path);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmDrugWarehouse.btnFindLocationClick(Sender: TObject);
