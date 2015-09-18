@@ -39,6 +39,7 @@ type
     actBcpDb: TAction;
     actHlpEditDataDoc: TAction;
     actEditDataPdf: TAction;
+    actTaxes: TAction;
     actMeasure: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
@@ -164,6 +165,7 @@ type
     procedure actLocationFrmExecute(Sender: TObject);
     procedure actMeasureExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
+    procedure actTaxesExecute(Sender: TObject);
     procedure divExDatisClick(Sender: TObject);
     procedure divExDatisMouseEnter(Sender: TObject);
     procedure divExDatisMouseLeave(Sender: TObject);
@@ -213,7 +215,7 @@ uses
   uDModule, uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
   uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
-  uDocFinance, uDocRequisition, uDocReservation;
+  uDocFinance, uDocRequisition, uDocReservation, uTaxes;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -436,25 +438,28 @@ var
   cmdStrings : TStringList;
   fullCmd : String;
   cmdFile : String; {path of sh or bat}
+  s : ansistring;
 begin
+  {show cursor sqlwait}
+  Screen.Cursor:= crSQLWait;
+
   {find db for backup}
   thisDb:= ' ' + dModule.zdbh.HostName + ':';
   thisDb:= thisDb + dModule.zdbh.Database + '  ';
   {user and password}
   withUser:= ' -user ' + dModule.zdbh.User;
   withPassword:= ' -password ' + dModule.zdbh.Password;
-  {creeate process}
-  bcpProc:= TProcess.Create(nil);
+
   {concat full cmd}
   fullCmd:= 'gbak' + ' -b -g -v ';
   {add database(source) and destination}
 
-  fullCmd:= fullCmd + thisDb ;
-  fullCmd:= fullCmd + fbkPath;
+  fullCmd:= fullCmd + thisDb + ' ';
+  fullCmd:= fullCmd + fbkPath + ' ';
 
   {add user and password}
-  fullCmd:= fullCmd + withUser;
-  fullCmd:= fullCmd + withPassword;
+  fullCmd:= fullCmd + withUser + ' ';
+  fullCmd:= fullCmd + withPassword  + ' ';
   {debug msg}
   //ShowMessage(fullCmd);
 
@@ -468,7 +473,7 @@ begin
 
   //cmdStrings.Append('echo --ExDatis database backup --');
   {debug test}
-  cmdStrings.Append('sleep 1');
+  //cmdStrings.Append('sleep 1');
   {add cmd}
   cmdStrings.Append(fullCmd);
 
@@ -476,7 +481,7 @@ begin
     cmdStrings.Append('PAUSE');
   {$EndIf}
   {$IfDef linux}
-    cmdStrings.Append('sleep 3');
+    cmdStrings.Append(' sleep 3');
   {$EndIf}
 
   {save file}
@@ -489,25 +494,31 @@ begin
     cmdStrings.SaveToFile(cmdFile);
   {$EndIf}
 
-  {prepare process}
+  {process}
   {$IfDef WINDOWS}
+    {creeate process}
+    bcpProc:= TProcess.Create(nil);
     bcpProc.CommandLine:= cmdFile;
+    {execute options}
+    bcpProc.Options:= bcpProc.Options + [poWaitOnExit, poNewConsole];
+    {execute}
+    bcpProc.Execute;
+    {free}
+    bcpProc.Free;
   {$EndIf}
+  {just run}
   {$IfDef Linux}
-    bcpProc.CommandLine:= 'sh ' + cmdFile;
+   RunCommand('sh', [cmdFile], s);
   {$EndIf}
 
-  {execute options}
-  bcpProc.Options:= bcpProc.Options + [poWaitOnExit, poNewConsole];
-  {execute}
-  bcpProc.Execute;
-  {free}
-  bcpProc.Free;
   {clear shell cmd}
   cmdStrings.Clear;
   cmdStrings.Append(' -- END --');
   cmdStrings.Append(FormatDateTime('dd.MM.yyyy hh:nn', Now));
   cmdStrings.SaveToFile(cmdFile);
+  {reset cursor}
+  Screen.Cursor:= crDefault;
+  Application.ProcessMessages;
   {free string_list}
   cmdStrings.Free;
   {success msg}
@@ -519,6 +530,32 @@ begin
   {close main form and terminate app}
   Close;
   Application.Terminate;
+end;
+
+procedure TfrmGeneral.actTaxesExecute(Sender: TObject);
+var
+  newForm : TfrmTaxes;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmTaxes.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmGeneral.actLocationFrmExecute(Sender: TObject);

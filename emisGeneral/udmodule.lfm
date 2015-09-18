@@ -13,7 +13,7 @@ object dModule: TdModule
     Connected = True
     HostName = 'localhost'
     Port = 3050
-    Database = '/home/exdatis/exdatis/emis25.fdb'
+    Database = '/home/morar/exdatis/emis25.fdb'
     User = 'sysdba'
     Password = 'masterkey'
     Protocol = 'firebirdd-2.5'

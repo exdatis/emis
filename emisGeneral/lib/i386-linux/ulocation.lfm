@@ -16,7 +16,7 @@ inherited frmLocation: TfrmLocation
     TabOrder = 1
     object cmbCharFilter: TComboBox
       Left = 6
-      Height = 28
+      Height = 27
       Hint = 'Izaberite početno slovo'
       Top = 6
       Width = 159
@@ -74,7 +74,7 @@ inherited frmLocation: TfrmLocation
     object cmbFieldArg: TComboBox
       Cursor = crHandPoint
       Left = 311
-      Height = 27
+      Height = 25
       Hint = 'Polje za pretragu'
       Top = 6
       Width = 164
@@ -97,7 +97,7 @@ inherited frmLocation: TfrmLocation
     end
     object edtLocate: TEdit
       Left = 480
-      Height = 27
+      Height = 25
       Hint = 'Početak teksta'
       Top = 6
       Width = 132
@@ -130,22 +130,22 @@ inherited frmLocation: TfrmLocation
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
-    ClientHeight = 59
+    ClientHeight = 61
     ClientWidth = 799
     ParentShowHint = False
     ShowHint = True
     TabOrder = 2
     object Label1: TLabel
       Left = 10
-      Height = 16
+      Height = 14
       Top = 5
-      Width = 67
+      Width = 68
       Caption = 'Poštanski broj'
       ParentColor = False
     end
     object dbCode: TDBEdit
       Left = 169
-      Height = 26
+      Height = 24
       Top = 2
       Width = 135
       DataField = 'L_CODE'
@@ -156,15 +156,15 @@ inherited frmLocation: TfrmLocation
     end
     object Label2: TLabel
       Left = 10
-      Height = 16
+      Height = 14
       Top = 31
-      Width = 69
+      Width = 70
       Caption = 'Naziv mesta *'
       ParentColor = False
     end
     object dbName: TDBEdit
       Left = 169
-      Height = 26
+      Height = 24
       Top = 28
       Width = 304
       DataField = 'L_NAME'

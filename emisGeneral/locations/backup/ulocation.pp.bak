@@ -105,22 +105,7 @@ var
   x, y : Longint;
 begin
   {gubi poziciju nije ispravno}
-  {********************************************************
-  {show help for search loctions}
-  helpMsg:= helpMsg + #13#10;
-  helpMsg:= helpMsg + 'grada kao filter.';
-  helpMsg:= helpMsg + #13#10;
-  helpMsg:= helpMsg + 'Prikazana su mesta na slovo: A';
-  pupNotiferLocation.Text:= helpMsg;
-  {* cmbCharFilter position *}
-  x:= Screen.ActiveControl.Left + 247;
-  y:= Screen.ActiveControl.Top + 120;
-  { show at position }
-  pupNotiferLocation.ShowAtPos(x, y);
-  {this is not ok}
-  {* Sleep(2500);
-  pupNotiferLocation.Hide; *}
-  **********************************************************}
+
 end;
 
 procedure TfrmLocation.actCharFilterExecute(Sender: TObject);
