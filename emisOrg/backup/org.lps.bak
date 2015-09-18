@@ -19,9 +19,8 @@
         <ComponentName Value="frmOrg"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="654"/>
-        <CursorPos X="36" Y="672"/>
+        <CursorPos X="43" Y="670"/>
         <UsageCount Value="74"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -33,8 +32,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="uDModule"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
-        <CursorPos X="41" Y="12"/>
+        <CursorPos X="63" Y="16"/>
         <UsageCount Value="74"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -309,7 +309,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit25>
     </Units>
-    <JumpHistory Count="27" HistoryIndex="26">
+    <JumpHistory Count="25" HistoryIndex="24">
       <Position1>
         <Filename Value="uorg.pp"/>
         <Caret Line="911" TopLine="881"/>
@@ -347,77 +347,69 @@
         <Caret Line="800" Column="20" TopLine="786"/>
       </Position9>
       <Position10>
-        <Filename Value="uorg.pp"/>
-        <Caret Line="157" Column="5" TopLine="166"/>
+        <Filename Value="hospital\udepartment.pp"/>
+        <Caret Line="181" Column="5" TopLine="112"/>
       </Position10>
       <Position11>
         <Filename Value="hospital\udepartment.pp"/>
-        <Caret Line="107" Column="24" TopLine="165"/>
+        <Caret Line="10" Column="81"/>
       </Position11>
       <Position12>
         <Filename Value="hospital\udepartment.pp"/>
-        <Caret Line="181" Column="5" TopLine="112"/>
+        <Caret Line="190" Column="17" TopLine="178"/>
       </Position12>
       <Position13>
         <Filename Value="hospital\udepartment.pp"/>
-        <Caret Line="10" Column="81"/>
+        <Caret Line="185" Column="25" TopLine="173"/>
       </Position13>
       <Position14>
-        <Filename Value="hospital\udepartment.pp"/>
-        <Caret Line="190" Column="17" TopLine="178"/>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="528" Column="34" TopLine="477"/>
       </Position14>
       <Position15>
-        <Filename Value="hospital\udepartment.pp"/>
-        <Caret Line="185" Column="25" TopLine="173"/>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="331" Column="3" TopLine="312"/>
       </Position15>
       <Position16>
         <Filename Value="uorg.pp"/>
-        <Caret Line="528" Column="34" TopLine="477"/>
+        <Caret Line="528" Column="35" TopLine="510"/>
       </Position16>
       <Position17>
-        <Filename Value="uorg.pp"/>
-        <Caret Line="331" Column="3" TopLine="312"/>
+        <Filename Value="hospital\udrugwarehouse.pp"/>
+        <Caret Line="492" Column="21" TopLine="456"/>
       </Position17>
       <Position18>
-        <Filename Value="uorg.pp"/>
-        <Caret Line="528" Column="35" TopLine="510"/>
+        <Filename Value="hospital\udepartment.pp"/>
+        <Caret Line="108" Column="5" TopLine="108"/>
       </Position18>
       <Position19>
         <Filename Value="hospital\udrugwarehouse.pp"/>
-        <Caret Line="492" Column="21" TopLine="456"/>
+        <Caret Line="102" Column="24" TopLine="89"/>
       </Position19>
       <Position20>
-        <Filename Value="hospital\udepartment.pp"/>
-        <Caret Line="108" Column="5" TopLine="108"/>
+        <Filename Value="hospital\udrugwarehouse.pp"/>
+        <Caret Line="104" Column="24" TopLine="91"/>
       </Position20>
       <Position21>
         <Filename Value="hospital\udrugwarehouse.pp"/>
-        <Caret Line="102" Column="24" TopLine="89"/>
+        <Caret Line="309" Column="13" TopLine="291"/>
       </Position21>
       <Position22>
         <Filename Value="hospital\udrugwarehouse.pp"/>
-        <Caret Line="104" Column="24" TopLine="91"/>
+        <Caret Line="297" Column="44" TopLine="292"/>
       </Position22>
       <Position23>
-        <Filename Value="hospital\udrugwarehouse.pp"/>
-        <Caret Line="309" Column="13" TopLine="291"/>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="345" Column="35" TopLine="327"/>
       </Position23>
       <Position24>
-        <Filename Value="hospital\udrugwarehouse.pp"/>
-        <Caret Line="297" Column="44" TopLine="292"/>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="658" Column="3" TopLine="654"/>
       </Position24>
       <Position25>
         <Filename Value="uorg.pp"/>
-        <Caret Line="345" Column="35" TopLine="327"/>
-      </Position25>
-      <Position26>
-        <Filename Value="uorg.pp"/>
-        <Caret Line="658" Column="3" TopLine="654"/>
-      </Position26>
-      <Position27>
-        <Filename Value="uorg.pp"/>
         <Caret Line="345" Column="36" TopLine="327"/>
-      </Position27>
+      </Position25>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

@@ -11,7 +11,7 @@ uses
   uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
   uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
-  uDocFinance, uDocRequisition, uDocReservation, uTaxes;
+  uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers;
 
 {$R *.res}
 
@@ -21,6 +21,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmGeneral, frmGeneral);
   Application.CreateForm(TdModule, dModule);
+  Application.CreateForm(TfrmSuppliers, frmSuppliers);
   //Application.CreateForm(TfrmTaxes, frmTaxes);
   //Application.CreateForm(TfrmDocSOOutput, frmDocSOOutput);
   //Application.CreateForm(TfrmDocSOInput, frmDocSOInput);

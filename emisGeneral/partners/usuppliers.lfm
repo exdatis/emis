@@ -1,0 +1,832 @@
+inherited frmSuppliers: TfrmSuppliers
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Dobavljači'
+    Font.Height = 12
+  end
+  object panelParams: TPanel[2]
+    Left = 0
+    Height = 35
+    Top = 15
+    Width = 803
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 803
+    TabOrder = 1
+    object cmbCharFilter: TComboBox
+      Left = 6
+      Height = 27
+      Hint = 'Izaberite početno slovo'
+      Top = 6
+      Width = 159
+      AutoComplete = True
+      AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+      ItemHeight = 0
+      Items.Strings = (
+        'A'
+        'B'
+        'C'
+        'Č'
+        'Ć'
+        'D'
+        'Dž'
+        'Dj'
+        'E'
+        'F'
+        'G'
+        'H'
+        'I'
+        'J'
+        'K'
+        'L'
+        'Lj'
+        'M'
+        'N'
+        'Nj'
+        'O'
+        'P'
+        'R'
+        'Q'
+        'S'
+        'Š'
+        'T'
+        'U'
+        'V'
+        'Z'
+        'Ž'
+      )
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = 'Dobavljači na slovo ...'
+    end
+    object btnCharFilter: TSpeedButton
+      Cursor = crHandPoint
+      Left = 171
+      Height = 23
+      Top = 6
+      Width = 135
+      Caption = ' Filter(slovo)'
+      ShowHint = True
+      ParentShowHint = False
+    end
+    object cmbFieldArg: TComboBox
+      Cursor = crHandPoint
+      Left = 311
+      Height = 25
+      Hint = 'Polje za pretragu'
+      Top = 6
+      Width = 164
+      AutoComplete = True
+      AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+      AutoDropDown = True
+      ItemHeight = 0
+      ItemIndex = 0
+      Items.Strings = (
+        'Pretraga polja ...'
+        'Naziv dobavljača'
+        'Šifra dobavljača'
+        'PIB broj'
+      )
+      ParentShowHint = False
+      ShowHint = True
+      Style = csDropDownList
+      TabOrder = 1
+      Text = 'Pretraga polja ...'
+    end
+    object edtLocate: TEdit
+      Left = 480
+      Height = 25
+      Hint = 'Početak teksta'
+      Top = 6
+      Width = 132
+      Font.Color = clGray
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+      Text = 'Pronadji ...'
+    end
+    object btnShowAll: TSpeedButton
+      Cursor = crHandPoint
+      Left = 617
+      Height = 23
+      Top = 6
+      Width = 179
+      Caption = 'Ukloni filter'
+      ShowHint = True
+      ParentShowHint = False
+    end
+  end
+  object groupBoxEdit: TGroupBox[3]
+    Left = 0
+    Height = 101
+    Hint = 'Polja sa (*) su obavezna'
+    Top = 50
+    Width = 803
+    Align = alTop
+    Caption = ' Obrada podataka '
+    ClientHeight = 85
+    ClientWidth = 799
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 7
+      Height = 14
+      Top = 12
+      Width = 26
+      Caption = 'Šifra '
+      ParentColor = False
+    end
+    object dbCode: TDBEdit
+      Left = 58
+      Height = 24
+      Top = 5
+      Width = 104
+      DataField = 'S_CODE'
+      DataSource = dsSuppliers
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object Label2: TLabel
+      Left = 171
+      Height = 14
+      Top = 12
+      Width = 20
+      Caption = 'PIB '
+      ParentColor = False
+    end
+    object dbReg: TDBEdit
+      Left = 195
+      Height = 24
+      Top = 5
+      Width = 105
+      DataField = 'S_REG'
+      DataSource = dsSuppliers
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+    object Label3: TLabel
+      Left = 310
+      Height = 14
+      Top = 12
+      Width = 57
+      Caption = 'Dobavljač *'
+      ParentColor = False
+    end
+    object dbName: TDBEdit
+      Left = 378
+      Height = 24
+      Top = 5
+      Width = 414
+      DataField = 'S_NAME'
+      DataSource = dsSuppliers
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 2
+    end
+    object Label4: TLabel
+      Left = 7
+      Height = 14
+      Top = 37
+      Width = 45
+      Caption = 'Sedište *'
+      ParentColor = False
+    end
+    object dbLocation: TDBEdit
+      Left = 58
+      Height = 24
+      Top = 30
+      Width = 216
+      DataField = 'L_NAME'
+      DataSource = dsSuppliers
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 3
+    end
+    object btnFindLocation: TSpeedButton
+      Cursor = crHandPoint
+      Left = 277
+      Height = 23
+      Hint = 'Izbor pretrage'
+      Top = 31
+      Width = 23
+      Flat = True
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF003BA8DBFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF003BA8DBFF3BA8DBFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF003BA8
+        DBFF3BA8DBFF3BA8DBFF3BA8DBFF3BA8DBFF3BA8DBFF3BA8DBFF3BA8DBFF3BA8
+        DBFF3BA8DBFF3BA8DBFF3BA8DBFF3BA8DBFFFFFFFF00FFFFFF00FFFFFF003BA8
+        DBFF3BA8DBFF3BA8DBFF3BA8DBFF3BA8DBFF3BA8DBFF3BA8DBFF3BA8DBFF3BA8
+        DBFF3BA8DBFF3BA8DBFF3BA8DBFF3BA8DBFFFFFFFF00FFFFFF00FFFFFF00FFFF
+        FF003BA8DBFF3BA8DBFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF003BA8DBFFFFFFFF00403B35FF4A443EFF49443EFF3A3631FF2A26
+        23FFFFFFFF00373434FF282522FF24221FFF1A1816FF050404FFFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF0049433DFF90857CFFABA197FF7C7268FF4943
+        3EFFFFFFFF00484441FFA09488FF9F9489FF7D7369FF191715FFFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00524C46FF90867DFFAEA59BFF776D64FF5550
+        4CFFFFFFFF0045423FFF9A8F84FFA0978CFF7A7167FF1F1C1AFFFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF0078726EFFA3978CFFC2B9AFFFA6998EFF827C
+        76FFFFFFFF006F6C69FF9C9186FFBBB0A5FFA69A8EFF4F4C49FFFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00605953FF46413BFF4E4842FF38332FFF3835
+        32FFC6C6C5FF5A5856FF1D1B19FF201D1BFF131110FF111111FFFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00A3978BFFA99D90FF7F756BFF7F7469FF7D72
+        67FF4E473FFF6B6056FF84786DFF7A6E64FF776D63FF1C1A18FFFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00C8BFB7FFA89B90FF897E74FF86786AFF8E7F
+        70FFA19181FF958372FF937F6DFF897666FF7D7166FF555351FFFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00897E73FF9B8E82FF887D72FF564F
+        48FFC0BCB8FF5D564EFF857668FF7C6F63FF6C655FFFBBBAB9FFFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00E5E3E1FFCFC9C4FFACA297FF776F
+        66FFFFFFFF00776D64FFA09488FFBAB3ADFFE2E1E0FFFFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00DFDBD7FFB3A79CFFA599
+        8DFFFFFFFF00AC9F92FF94897FFFB8B4B0FFFFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      ShowCaption = False
+      PopupMenu = pupFindLocation
+    end
+    object Label5: TLabel
+      Left = 310
+      Height = 14
+      Top = 37
+      Width = 34
+      Caption = 'Adresa'
+      ParentColor = False
+    end
+    object dbAddress: TDBEdit
+      Left = 378
+      Height = 24
+      Top = 30
+      Width = 414
+      DataField = 'S_ADDRESS'
+      DataSource = dsSuppliers
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 4
+    end
+    object Label6: TLabel
+      Left = 7
+      Height = 14
+      Top = 62
+      Width = 36
+      Caption = 'Telefon'
+      ParentColor = False
+    end
+    object dbPhone: TDBEdit
+      Left = 58
+      Height = 24
+      Top = 55
+      Width = 104
+      DataField = 'S_PHONE'
+      DataSource = dsSuppliers
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 5
+    end
+    object Label7: TLabel
+      Left = 169
+      Height = 14
+      Top = 62
+      Width = 17
+      Caption = 'Fax'
+      ParentColor = False
+    end
+    object dbFax: TDBEdit
+      Left = 195
+      Height = 24
+      Top = 55
+      Width = 105
+      DataField = 'S_FAX'
+      DataSource = dsSuppliers
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 6
+    end
+    object Label8: TLabel
+      Left = 310
+      Height = 14
+      Top = 62
+      Width = 32
+      Caption = 'E-mail'
+      ParentColor = False
+    end
+    object dbMail: TDBEdit
+      Left = 378
+      Height = 24
+      Top = 55
+      Width = 256
+      DataField = 'S_MAIL'
+      DataSource = dsSuppliers
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 7
+    end
+    object Label9: TLabel
+      Left = 642
+      Height = 14
+      Top = 62
+      Width = 37
+      Caption = 'Mobilni'
+      ParentColor = False
+    end
+    object dbMobile: TDBEdit
+      Left = 687
+      Height = 24
+      Top = 55
+      Width = 105
+      DataField = 'S_MOBILE'
+      DataSource = dsSuppliers
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 8
+    end
+  end
+  object dbgSuppliers: TDBGrid[4]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 322
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 151
+    Width = 803
+    Align = alClient
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsSuppliers
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 3
+    TitleFont.Height = -11
+  end
+  object panelFindLocation: TPanel[5]
+    Left = 59
+    Height = 260
+    Top = 117
+    Width = 722
+    ClientHeight = 260
+    ClientWidth = 722
+    TabOrder = 4
+    Visible = False
+    object dbgLocation: TDBGrid
+      Cursor = crHandPoint
+      Left = 1
+      Height = 217
+      Hint = 'Klikni naslov polja za sortiranje'
+      Top = 1
+      Width = 720
+      Align = alTop
+      Color = clWindow
+      Columns = <>
+      DataSource = dsFindLocation
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      ReadOnly = True
+      ShowHint = True
+      TabOrder = 0
+      TitleFont.Height = -11
+    end
+    object btnLocationOk: TButton
+      Cursor = crHandPoint
+      Left = 541
+      Height = 25
+      Hint = 'Prihvati rezultat'
+      Top = 225
+      Width = 75
+      Caption = 'Prihvati'
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+    end
+    object btnLocationCancel: TButton
+      Cursor = crHandPoint
+      Left = 619
+      Height = 25
+      Hint = 'Ponovi pretragu'
+      Top = 225
+      Width = 75
+      Caption = 'Odustani'
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+    end
+  end
+  inherited actDb: TActionList[6]
+  end
+  object zqSuppliers: TZQuery[7]
+    Connection = dModule.zdbh
+    SortedFields = 'S_NAME'
+    SQL.Strings = (
+      'SELECT '
+      '  a.S_ID, '
+      '  a.S_CODE, '
+      '  a.S_REG, '
+      '  a.S_NAME, '
+      '  a.S_LOCATION, '
+      '  a.S_ADDRESS,'
+      '  a.S_PHONE, '
+      '  a.S_FAX, '
+      '  a.S_MOBILE, '
+      '  a.S_MAIL, '
+      '  a.L_CODE, '
+      '  a.L_NAME'
+      'FROM '
+      '  SUPPLIERS_V a '
+    )
+    Params = <>
+    IndexFieldNames = 'S_NAME Asc'
+    Sequence = zseqSuppliers
+    SequenceField = 'S_ID'
+    left = 488
+    top = 275
+    object zqSuppliersS_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'S_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zqSuppliersS_CODE: TStringField
+      DisplayLabel = 'Šifra'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'S_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zqSuppliersS_REG: TStringField
+      DisplayLabel = 'PIB'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'S_REG'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zqSuppliersS_NAME: TStringField
+      DisplayLabel = 'Dobavljač'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'S_NAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqSuppliersS_LOCATION: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'S_LOCATION'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqSuppliersL_NAME: TStringField
+      DisplayLabel = 'Lokacija'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'L_NAME'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqSuppliersS_ADDRESS: TStringField
+      DisplayLabel = 'Adresa'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'S_ADDRESS'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqSuppliersS_PHONE: TStringField
+      DisplayLabel = 'Telefon'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'S_PHONE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object zqSuppliersS_FAX: TStringField
+      DisplayLabel = 'Fax'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'S_FAX'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object zqSuppliersS_MOBILE: TStringField
+      DisplayLabel = 'Mobilni'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'S_MOBILE'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object zqSuppliersS_MAIL: TStringField
+      DisplayLabel = 'E-mail'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'S_MAIL'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object zqSuppliersL_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'L_CODE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+  end
+  object zseqSuppliers: TZSequence[8]
+    Connection = dModule.zdbh
+    SequenceName = 'PARTNERS_SEQ'
+    left = 442
+    top = 340
+  end
+  object zupdSuppliers: TZUpdateSQL[9]
+    DeleteSQL.Strings = (
+      'DELETE FROM '
+      '  SUPPLIERS a '
+      'WHERE'
+      '  a.S_ID = :S_ID'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO '
+      '  SUPPLIERS (S_ID, S_CODE, S_REG, S_NAME, S_LOCATION, S_ADDRESS,'
+      '  S_PHONE, S_FAX, S_MOBILE, S_MAIL)'
+      'VALUES ('
+      '  :S_ID, '
+      '  :S_CODE, '
+      '  :S_REG, '
+      '  :S_NAME, '
+      '  :S_LOCATION, '
+      '  :S_ADDRESS, '
+      '  :S_PHONE, '
+      '  :S_FAX, '
+      '  :S_MOBILE, '
+      '  :S_MAIL'
+      ')'
+    )
+    ModifySQL.Strings = (
+      'UPDATE '
+      '  SUPPLIERS a'
+      'SET '
+      '  a.S_CODE = :S_CODE, '
+      '  a.S_REG = :S_REG, '
+      '  a.S_NAME = :S_NAME, '
+      '  a.S_LOCATION = :S_LOCATION, '
+      '  a.S_ADDRESS = :S_ADDRESS, '
+      '  a.S_PHONE = :S_PHONE, '
+      '  a.S_FAX = :S_FAX, '
+      '  a.S_MOBILE = :S_MOBILE, '
+      '  a.S_MAIL = :S_MAIL'
+      'WHERE'
+      '  a.S_ID = :S_ID'
+    )
+    RefreshSQL.Strings = (
+      'SELECT '
+      '  a.S_ID, '
+      '  a.S_CODE, '
+      '  a.S_REG, '
+      '  a.S_NAME, '
+      '  a.S_LOCATION, '
+      '  a.S_ADDRESS,'
+      '  a.S_PHONE, '
+      '  a.S_FAX, '
+      '  a.S_MOBILE, '
+      '  a.S_MAIL, '
+      '  a.L_CODE, '
+      '  a.L_NAME'
+      'FROM '
+      '  SUPPLIERS_V a '
+      'WHERE'
+      '  a.S_ID = :S_ID'
+    )
+    UseSequenceFieldForRefreshSQL = True
+    left = 509
+    top = 322
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'S_CODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'S_REG'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'S_NAME'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'S_LOCATION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'S_ADDRESS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'S_PHONE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'S_FAX'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'S_MOBILE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'S_MAIL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'S_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object dsSuppliers: TDataSource[10]
+    DataSet = zqSuppliers
+    left = 574
+    top = 325
+  end
+  object zroFindLocation: TZReadOnlyQuery[11]
+    Connection = dModule.zdbh
+    SortedFields = 'L_NAME'
+    SQL.Strings = (
+      'SELECT'
+      '  A.L_ID,'
+      '  A.L_CODE,'
+      '  A.L_NAME'
+      'FROM'
+      '  LOCATION A'
+      'WHERE'
+      '  LOWER(A.L_CODE) LIKE LOWER(:L_CODE)'
+      '  AND'
+      '  LOWER(A.L_NAME) LIKE LOWER(:L_NAME)'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'L_CODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'L_NAME'
+        ParamType = ptUnknown
+      end>
+    IndexFieldNames = 'L_NAME Asc'
+    left = 181
+    top = 277
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'L_CODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'L_NAME'
+        ParamType = ptUnknown
+      end>
+    object zroFindLocationL_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'L_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zroFindLocationL_CODE: TStringField
+      DisplayLabel = 'Pošta'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'L_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zroFindLocationL_NAME: TStringField
+      DisplayLabel = 'Naziv mesta'
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'L_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+  end
+  object dsFindLocation: TDataSource[12]
+    DataSet = zroFindLocation
+    left = 168
+    top = 337
+  end
+  object actFind: TActionList[13]
+    left = 252
+    top = 352
+    object actFindLocationByCode: TAction
+      Caption = 'Pronadji poštanski broj'
+      Hint = 'Pronadji po pošti'
+    end
+    object actFindLocationByName: TAction
+      Caption = 'Pronadji naziv mesta'
+      Hint = 'Pronadji po nazivu'
+    end
+    object actFindLocationHelp: TAction
+      Caption = 'Uputstvo'
+      Hint = 'Pomoć u pretrazi'
+    end
+  end
+  object pupFindLocation: TPopupMenu[14]
+    left = 324
+    top = 368
+    object MenuItem1: TMenuItem
+      Action = actFindLocationByCode
+    end
+    object MenuItem2: TMenuItem
+      Action = actFindLocationByName
+    end
+    object MenuItem3: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem4: TMenuItem
+      Action = actFindLocationHelp
+    end
+  end
+end

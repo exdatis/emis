@@ -21,7 +21,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmGeneral, frmGeneral);
   Application.CreateForm(TdModule, dModule);
-  Application.CreateForm(TfrmTaxes, frmTaxes);
+  //Application.CreateForm(TfrmTaxes, frmTaxes);
   //Application.CreateForm(TfrmDocSOOutput, frmDocSOOutput);
   //Application.CreateForm(TfrmDocSOInput, frmDocSOInput);
   //Application.CreateForm(TfrmDocWarehouseOut, frmDocWarehouseOut);
