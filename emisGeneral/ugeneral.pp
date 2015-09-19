@@ -41,6 +41,7 @@ type
     actEditDataPdf: TAction;
     actFrmSuppliers: TAction;
     actDonorsFrm: TAction;
+    actDrugNomenclatures: TAction;
     actTaxes: TAction;
     actMeasure: TAction;
     actLocationFrm: TAction;
@@ -100,6 +101,9 @@ type
     MenuItem48: TMenuItem;
     MenuItem49: TMenuItem;
     MenuItem5: TMenuItem;
+    MenuItem50: TMenuItem;
+    MenuItem51: TMenuItem;
+    MenuItem52: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
@@ -171,6 +175,7 @@ type
     procedure actDocWOutExecute(Sender: TObject);
     procedure actDonorsFrmExecute(Sender: TObject);
     procedure actDrugFormsExecute(Sender: TObject);
+    procedure actDrugNomenclaturesExecute(Sender: TObject);
     procedure actEditDataPdfExecute(Sender: TObject);
     procedure actFrmSuppliersExecute(Sender: TObject);
     procedure actHlpAboutFormsDocExecute(Sender: TObject);
@@ -231,7 +236,8 @@ uses
   uDModule, uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
   uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
-  uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors;
+  uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors,
+  uDrugNomenclatures;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -1114,6 +1120,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmDrugForms.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDrugNomenclaturesExecute(Sender: TObject);
+var
+  newForm : TfrmDrugNomenclatures;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDrugNomenclatures.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}

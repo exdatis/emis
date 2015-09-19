@@ -1137,6 +1137,11 @@ object frmGeneral: TfrmGeneral
       Hint = 'Donatori'
       OnExecute = actDonorsFrmExecute
     end
+    object actDrugNomenclatures: TAction
+      Caption = 'Nomenklature lekova'
+      Hint = 'Nomenklature lekova'
+      OnExecute = actDrugNomenclaturesExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2162,6 +2167,15 @@ object frmGeneral: TfrmGeneral
       end
       object MenuItem48: TMenuItem
         Action = actDonorsFrm
+      end
+    end
+    object MenuItem50: TMenuItem
+      Caption = 'Proizvodi'
+      object MenuItem51: TMenuItem
+        Caption = 'Lekovi'
+        object MenuItem52: TMenuItem
+          Action = actDrugNomenclatures
+        end
       end
     end
   end
