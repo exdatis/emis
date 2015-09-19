@@ -1,0 +1,331 @@
+inherited frmDonors: TfrmDonors
+  OnClose = FormClose
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Donatori'
+    Font.Height = 12
+  end
+  object panelSearch: TPanel[2]
+    Left = 0
+    Height = 37
+    Top = 15
+    Width = 803
+    Align = alTop
+    ClientHeight = 37
+    ClientWidth = 803
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 8
+      Height = 14
+      Top = 13
+      Width = 388
+      Caption = 'Pronadji donatora po nazivu (unos karaktera od početka reči-naziva donatora ) : '
+      ParentColor = False
+    end
+    object edtLocate: TEdit
+      Left = 429
+      Height = 24
+      Top = 8
+      Width = 365
+      Font.Color = clGray
+      Font.Height = -11
+      OnEnter = edtLocateEnter
+      OnExit = edtLocateExit
+      OnKeyUp = edtLocateKeyUp
+      ParentFont = False
+      TabOrder = 0
+      Text = 'Pronadji ...'
+    end
+  end
+  object groupBoxEdit: TGroupBox[3]
+    Left = 0
+    Height = 99
+    Hint = 'Polja označena zvezdicom su obavezna'
+    Top = 52
+    Width = 803
+    Align = alTop
+    Caption = ' Obrada podataka '
+    ClientHeight = 83
+    ClientWidth = 799
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+    object Label2: TLabel
+      Left = 7
+      Height = 14
+      Top = 11
+      Width = 23
+      Caption = 'Šifra'
+      ParentColor = False
+    end
+    object dbCode: TDBEdit
+      Left = 58
+      Height = 24
+      Top = 4
+      Width = 105
+      DataField = 'D_CODE'
+      DataSource = dsDonors
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object Label3: TLabel
+      Left = 171
+      Height = 14
+      Hint = 'Zemlja porekla'
+      Top = 11
+      Width = 73
+      Caption = 'Zemlja porekla'
+      ParentColor = False
+    end
+    object dbCountry: TDBEdit
+      Left = 250
+      Height = 24
+      Hint = 'Zemlja porekla'
+      Top = 4
+      Width = 105
+      DataField = 'D_COUNTRY'
+      DataSource = dsDonors
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+    object Label4: TLabel
+      Left = 362
+      Height = 14
+      Top = 11
+      Width = 60
+      Caption = 'Ime/Naziv *'
+      ParentColor = False
+    end
+    object dbName: TDBEdit
+      Left = 427
+      Height = 24
+      Top = 4
+      Width = 365
+      DataField = 'D_NAME'
+      DataSource = dsDonors
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 2
+    end
+    object Label5: TLabel
+      Left = 7
+      Height = 14
+      Top = 36
+      Width = 36
+      Caption = 'Telefon'
+      ParentColor = False
+    end
+    object dbPhone: TDBEdit
+      Left = 58
+      Height = 24
+      Top = 29
+      Width = 105
+      DataField = 'D_PHONE'
+      DataSource = dsDonors
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 3
+    end
+    object Label6: TLabel
+      Left = 171
+      Height = 14
+      Top = 36
+      Width = 17
+      Caption = 'Fax'
+      ParentColor = False
+    end
+    object dbFax: TDBEdit
+      Left = 250
+      Height = 24
+      Top = 29
+      Width = 105
+      DataField = 'D_FAX'
+      DataSource = dsDonors
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 4
+    end
+    object Label7: TLabel
+      Left = 362
+      Height = 14
+      Top = 36
+      Width = 32
+      Caption = 'E-mail'
+      ParentColor = False
+    end
+    object dbMail: TDBEdit
+      Left = 427
+      Height = 24
+      Top = 29
+      Width = 365
+      DataField = 'D_MAIL'
+      DataSource = dsDonors
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 5
+    end
+    object Label8: TLabel
+      Left = 7
+      Height = 14
+      Top = 61
+      Width = 37
+      Caption = 'Mobilni'
+      ParentColor = False
+    end
+    object dbMobile: TDBEdit
+      Left = 58
+      Height = 24
+      Top = 54
+      Width = 105
+      DataField = 'D_MOBILE'
+      DataSource = dsDonors
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 6
+    end
+  end
+  object dbgDonors: TDBGrid[4]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 322
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 151
+    Width = 803
+    Align = alClient
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsDonors
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 3
+    TitleFont.Height = -11
+    OnMouseMove = dbgDonorsMouseMove
+    OnTitleClick = dbgDonorsTitleClick
+  end
+  inherited actDb: TActionList[5]
+  end
+  object ztDonors: TZTable[6]
+    Connection = dModule.zdbh
+    SortedFields = 'D_NAME'
+    AfterOpen = ztDonorsAfterOpen
+    AfterScroll = ztDonorsAfterScroll
+    AfterPost = ztDonorsAfterPost
+    AfterDelete = ztDonorsAfterDelete
+    TableName = 'DONORS'
+    IndexFieldNames = 'D_NAME Asc'
+    Sequence = zseqDonors
+    SequenceField = 'D_ID'
+    left = 566
+    top = 354
+    object ztDonorsD_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'D_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ztDonorsD_CODE: TStringField
+      DisplayLabel = 'Šifra'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'D_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 120
+    end
+    object ztDonorsD_COUNTRY: TStringField
+      DisplayLabel = 'Poreklo'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'D_COUNTRY'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 120
+    end
+    object ztDonorsD_NAME: TStringField
+      DisplayLabel = 'Donator'
+      DisplayWidth = 25
+      FieldKind = fkData
+      FieldName = 'D_NAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 280
+    end
+    object ztDonorsD_PHONE: TStringField
+      DisplayLabel = 'Telefon'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'D_PHONE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object ztDonorsD_FAX: TStringField
+      DisplayLabel = 'Fax'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'D_FAX'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object ztDonorsD_MOBILE: TStringField
+      DisplayLabel = 'Mobilni'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'D_MOBILE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object ztDonorsD_MAIL: TStringField
+      DisplayLabel = 'E-mail'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'D_MAIL'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+  end
+  object zseqDonors: TZSequence[7]
+    Connection = dModule.zdbh
+    SequenceName = 'PARTNERS_SEQ'
+    left = 444
+    top = 359
+  end
+  object dsDonors: TDataSource[8]
+    DataSet = ztDonors
+    left = 638
+    top = 357
+  end
+end

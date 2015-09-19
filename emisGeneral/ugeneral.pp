@@ -40,6 +40,7 @@ type
     actHlpEditDataDoc: TAction;
     actEditDataPdf: TAction;
     actFrmSuppliers: TAction;
+    actDonorsFrm: TAction;
     actTaxes: TAction;
     actMeasure: TAction;
     actLocationFrm: TAction;
@@ -96,6 +97,8 @@ type
     MenuItem45: TMenuItem;
     MenuItem46: TMenuItem;
     MenuItem47: TMenuItem;
+    MenuItem48: TMenuItem;
+    MenuItem49: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
@@ -142,6 +145,7 @@ type
     ToolButton34: TToolButton;
     ToolButton35: TToolButton;
     ToolButton36: TToolButton;
+    ToolButton37: TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
     ToolButton6: TToolButton;
@@ -165,6 +169,7 @@ type
     procedure actDocSOOutputExecute(Sender: TObject);
     procedure actDocWInExecute(Sender: TObject);
     procedure actDocWOutExecute(Sender: TObject);
+    procedure actDonorsFrmExecute(Sender: TObject);
     procedure actDrugFormsExecute(Sender: TObject);
     procedure actEditDataPdfExecute(Sender: TObject);
     procedure actFrmSuppliersExecute(Sender: TObject);
@@ -226,7 +231,7 @@ uses
   uDModule, uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
   uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
-  uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers;
+  uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -1057,6 +1062,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmDocWarehouseOut.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDonorsFrmExecute(Sender: TObject);
+var
+  newForm : TfrmDonors;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDonors.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}
