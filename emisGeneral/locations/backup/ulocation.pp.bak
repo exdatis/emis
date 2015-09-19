@@ -59,7 +59,6 @@ type
     charArg : String; {name-start with this char}
     fieldArg : String; {locate text from field}
     procedure saveBeforeClose;
-    procedure sortDbGrid(var dataSet : TZAbstractDataset; Column : TColumn);
   public
     { public declarations }
     procedure onActFirst; override;
@@ -96,7 +95,7 @@ procedure TfrmLocation.FormCreate(Sender: TObject);
 begin
   {default args}
   charArg:= 'A%';
-  fieldArg:= FIELD_NAME; {locate using field_name}
+  fieldArg:= PARAM_NAME; {locate using field_name}
 end;
 
 procedure TfrmLocation.FormShow(Sender: TObject);
@@ -151,7 +150,7 @@ var
   recMsg : String = '0 od 0'; {find again recNo}
 begin
   {sort}
-  sortDbGrid(TZAbstractDataset(zqLocation), Column);
+  doSortDbGrid(TZAbstractDataset(zqLocation), Column);
   {refresh after sort}
   dbgLocation.Refresh;
   { find recNo}
@@ -323,32 +322,6 @@ begin
   {check all}
   if saveAll then
     doSaveRec(TZAbstractDataset(zqLocation)); {in this case just one dataSet}
-end;
-
-procedure TfrmLocation.sortDbGrid(var dataSet : TZAbstractDataset; Column : TColumn);
-var
-  currField : String;
-  currSortType : TSortType;
-begin
-  {check current sortField and type}
-  if( not dataSet.IsEmpty) then
-    begin
-      currField:= dataSet.SortedFields;
-      currSortType:= dataSet.SortType;
-      if(currField = Column.FieldName) then
-        begin
-          if currSortType = stAscending then
-            dataSet.SortType:= stDescending
-          else
-            dataSet.SortType:= stAscending;
-        end
-      else
-        begin
-          dataSet.SortedFields:= Column.FieldName;
-          dataSet.SortType:= stAscending;
-        end;
-    end;
-    {just refresh}
 end;
 
 procedure TfrmLocation.onActFirst;

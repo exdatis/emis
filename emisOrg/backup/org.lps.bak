@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="7"/>
         <CursorPos X="5" Y="26"/>
-        <UsageCount Value="74"/>
+        <UsageCount Value="75"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -21,7 +21,7 @@
         <ResourceBaseClass Value="Form"/>
         <TopLine Value="654"/>
         <CursorPos X="43" Y="670"/>
-        <UsageCount Value="74"/>
+        <UsageCount Value="75"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -32,10 +32,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="uDModule"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
         <CursorPos X="63" Y="16"/>
-        <UsageCount Value="74"/>
+        <UsageCount Value="75"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -49,7 +48,7 @@
         <EditorIndex Value="6"/>
         <TopLine Value="81"/>
         <CursorPos X="3" Y="104"/>
-        <UsageCount Value="73"/>
+        <UsageCount Value="74"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -61,7 +60,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uConfirm"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="73"/>
+        <UsageCount Value="74"/>
       </Unit4>
       <Unit5>
         <Filename Value="hospital\uhospital.pp"/>
@@ -72,7 +71,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="52"/>
         <CursorPos X="47" Y="22"/>
-        <UsageCount Value="69"/>
+        <UsageCount Value="70"/>
       </Unit5>
       <Unit6>
         <Filename Value="hospital\udepartment.pp"/>
@@ -84,7 +83,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="188"/>
         <CursorPos X="13" Y="200"/>
-        <UsageCount Value="63"/>
+        <UsageCount Value="64"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -98,7 +97,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="293"/>
         <CursorPos X="44" Y="298"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="61"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit7>
@@ -112,7 +111,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="457"/>
         <CursorPos X="41" Y="484"/>
-        <UsageCount Value="52"/>
+        <UsageCount Value="53"/>
       </Unit8>
       <Unit9>
         <Filename Value="hospital\ufoodwarehouse.pp"/>
@@ -121,10 +120,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFoodWarehouse"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="465"/>
-        <CursorPos X="21" Y="488"/>
-        <UsageCount Value="49"/>
+        <TopLine Value="464"/>
+        <CursorPos X="53" Y="469"/>
+        <UsageCount Value="50"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit9>
@@ -138,7 +138,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="457"/>
         <CursorPos X="16" Y="490"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
       </Unit10>
       <Unit11>
         <Filename Value="hospital\umaterialswarehouse.pp"/>
@@ -150,7 +150,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="457"/>
         <CursorPos X="59" Y="476"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="45"/>
       </Unit11>
       <Unit12>
         <Filename Value="hospital\uhygienewarehouse.pp"/>
@@ -162,7 +162,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="454"/>
         <CursorPos X="23" Y="490"/>
-        <UsageCount Value="42"/>
+        <UsageCount Value="43"/>
       </Unit12>
       <Unit13>
         <Filename Value="hospital\uhequipmentwarehouse.pp"/>
@@ -174,7 +174,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="457"/>
         <CursorPos X="20" Y="490"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="42"/>
       </Unit13>
       <Unit14>
         <Filename Value="hospital\uapplianceshpwarehouse.pp"/>
@@ -186,7 +186,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="456"/>
         <CursorPos X="22" Y="492"/>
-        <UsageCount Value="39"/>
+        <UsageCount Value="40"/>
       </Unit14>
       <Unit15>
         <Filename Value="hospital\udrughpwarehouse.pp"/>
@@ -198,7 +198,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="365"/>
         <CursorPos X="21" Y="490"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="38"/>
       </Unit15>
       <Unit16>
         <Filename Value="hospital\ufoodhpwarehouse.pp"/>
@@ -210,7 +210,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="454"/>
         <CursorPos X="18" Y="490"/>
-        <UsageCount Value="35"/>
+        <UsageCount Value="36"/>
       </Unit16>
       <Unit17>
         <Filename Value="hospital\uhequipmenthpwarehouse.pp"/>
@@ -222,7 +222,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="469"/>
         <CursorPos X="54" Y="478"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="34"/>
       </Unit17>
       <Unit18>
         <Filename Value="hospital\uhygienehpwarehouse.pp"/>
@@ -234,7 +234,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="466"/>
         <CursorPos X="55" Y="483"/>
-        <UsageCount Value="31"/>
+        <UsageCount Value="32"/>
       </Unit18>
       <Unit19>
         <Filename Value="hospital\umaterialshpwarehouse.pp"/>
@@ -246,7 +246,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="468"/>
         <CursorPos Y="495"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="29"/>
       </Unit19>
       <Unit20>
         <Filename Value="hospital\uofficehpwarehouse.pp"/>
@@ -258,7 +258,7 @@
         <EditorIndex Value="4"/>
         <TopLine Value="467"/>
         <CursorPos X="21" Y="494"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="26"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit20>

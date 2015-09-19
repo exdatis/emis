@@ -39,6 +39,7 @@ type
     actBcpDb: TAction;
     actHlpEditDataDoc: TAction;
     actEditDataPdf: TAction;
+    actFrmSuppliers: TAction;
     actTaxes: TAction;
     actMeasure: TAction;
     actLocationFrm: TAction;
@@ -93,6 +94,8 @@ type
     MenuItem43: TMenuItem;
     MenuItem44: TMenuItem;
     MenuItem45: TMenuItem;
+    MenuItem46: TMenuItem;
+    MenuItem47: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
@@ -137,6 +140,8 @@ type
     ToolButton32: TToolButton;
     ToolButton33: TToolButton;
     ToolButton34: TToolButton;
+    ToolButton35: TToolButton;
+    ToolButton36: TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
     ToolButton6: TToolButton;
@@ -162,6 +167,7 @@ type
     procedure actDocWOutExecute(Sender: TObject);
     procedure actDrugFormsExecute(Sender: TObject);
     procedure actEditDataPdfExecute(Sender: TObject);
+    procedure actFrmSuppliersExecute(Sender: TObject);
     procedure actHlpAboutFormsDocExecute(Sender: TObject);
     procedure actHlpAboutFormsPdfExecute(Sender: TObject);
     procedure actHlpAboutModuleDocExecute(Sender: TObject);
@@ -220,7 +226,7 @@ uses
   uDModule, uLocation, uDocWarehouseIn, uDocWarehouseOut, uDocSOInput, uDocSOOutput,
   uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
-  uDocFinance, uDocRequisition, uDocReservation, uTaxes;
+  uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -1103,6 +1109,34 @@ begin
   Screen.Cursor:= crHourGlass;
   try
     OpenDocument(full_path);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actFrmSuppliersExecute(Sender: TObject);
+var
+  newForm : TfrmSuppliers;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmSuppliers.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.applyCharFilter; {with default char}
+    {set help-path}
+    newForm.HELP_PATH:= HELP_PATH;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
   finally
     Screen.Cursor:= crDefault;
   end;

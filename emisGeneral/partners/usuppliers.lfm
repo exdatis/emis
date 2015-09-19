@@ -1,4 +1,6 @@
 inherited frmSuppliers: TfrmSuppliers
+  OnClose = FormClose
+  OnCreate = FormCreate
   inherited lblBaseDbTitle: TLabel
     Caption = 'Dobavljači'
     Font.Height = 12
@@ -65,7 +67,7 @@ inherited frmSuppliers: TfrmSuppliers
       Height = 23
       Top = 6
       Width = 135
-      Caption = ' Filter(slovo)'
+      Action = actCharFilter
       ShowHint = True
       ParentShowHint = False
     end
@@ -87,6 +89,7 @@ inherited frmSuppliers: TfrmSuppliers
         'Šifra dobavljača'
         'PIB broj'
       )
+      OnChange = cmbFieldArgChange
       ParentShowHint = False
       ShowHint = True
       Style = csDropDownList
@@ -100,6 +103,9 @@ inherited frmSuppliers: TfrmSuppliers
       Top = 6
       Width = 132
       Font.Color = clGray
+      OnEnter = edtLocateEnter
+      OnExit = edtLocateExit
+      OnKeyUp = edtLocateKeyUp
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -112,7 +118,7 @@ inherited frmSuppliers: TfrmSuppliers
       Height = 23
       Top = 6
       Width = 179
-      Caption = 'Ukloni filter'
+      Action = actClearFilter
       ShowHint = True
       ParentShowHint = False
     end
@@ -205,6 +211,7 @@ inherited frmSuppliers: TfrmSuppliers
       CharCase = ecNormal
       MaxLength = 0
       TabOrder = 3
+      OnKeyPress = dbLocationKeyPress
     end
     object btnFindLocation: TSpeedButton
       Cursor = crHandPoint
@@ -250,6 +257,7 @@ inherited frmSuppliers: TfrmSuppliers
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
+      OnClick = btnFindLocationClick
       ShowCaption = False
       PopupMenu = pupFindLocation
     end
@@ -366,6 +374,8 @@ inherited frmSuppliers: TfrmSuppliers
     ShowHint = True
     TabOrder = 3
     TitleFont.Height = -11
+    OnMouseMove = dbgSuppliersMouseMove
+    OnTitleClick = dbgSuppliersTitleClick
   end
   object panelFindLocation: TPanel[5]
     Left = 59
@@ -392,6 +402,9 @@ inherited frmSuppliers: TfrmSuppliers
       ShowHint = True
       TabOrder = 0
       TitleFont.Height = -11
+      OnKeyPress = dbgLocationKeyPress
+      OnMouseMove = dbgLocationMouseMove
+      OnTitleClick = dbgLocationTitleClick
     end
     object btnLocationOk: TButton
       Cursor = crHandPoint
@@ -401,6 +414,7 @@ inherited frmSuppliers: TfrmSuppliers
       Top = 225
       Width = 75
       Caption = 'Prihvati'
+      OnClick = btnLocationOkClick
       ParentShowHint = False
       ShowHint = True
       TabOrder = 1
@@ -413,6 +427,7 @@ inherited frmSuppliers: TfrmSuppliers
       Top = 225
       Width = 75
       Caption = 'Odustani'
+      OnClick = btnLocationCancelClick
       ParentShowHint = False
       ShowHint = True
       TabOrder = 2
@@ -423,6 +438,11 @@ inherited frmSuppliers: TfrmSuppliers
   object zqSuppliers: TZQuery[7]
     Connection = dModule.zdbh
     SortedFields = 'S_NAME'
+    AfterOpen = zqSuppliersAfterOpen
+    AfterScroll = zqSuppliersAfterScroll
+    UpdateObject = zupdSuppliers
+    AfterPost = zqSuppliersAfterPost
+    AfterDelete = zqSuppliersAfterDelete
     SQL.Strings = (
       'SELECT '
       '  a.S_ID, '
@@ -439,13 +459,26 @@ inherited frmSuppliers: TfrmSuppliers
       '  a.L_NAME'
       'FROM '
       '  SUPPLIERS_V a '
+      'WHERE'
+      '  LOWER(a.S_NAME) LIKE LOWER(:S_NAME)'
     )
-    Params = <>
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'S_NAME'
+        ParamType = ptUnknown
+      end>
     IndexFieldNames = 'S_NAME Asc'
     Sequence = zseqSuppliers
     SequenceField = 'S_ID'
     left = 488
     top = 275
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'S_NAME'
+        ParamType = ptUnknown
+      end>
     object zqSuppliersS_ID: TLongintField
       Alignment = taLeftJustify
       DisplayLabel = 'ID'
@@ -803,14 +836,22 @@ inherited frmSuppliers: TfrmSuppliers
     object actFindLocationByCode: TAction
       Caption = 'Pronadji poštanski broj'
       Hint = 'Pronadji po pošti'
+      OnExecute = actFindLocationByCodeExecute
     end
     object actFindLocationByName: TAction
       Caption = 'Pronadji naziv mesta'
       Hint = 'Pronadji po nazivu'
+      OnExecute = actFindLocationByNameExecute
     end
-    object actFindLocationHelp: TAction
-      Caption = 'Uputstvo'
+    object actFindLocationHelpPdf: TAction
+      Caption = 'Uputstvo(pdf)'
       Hint = 'Pomoć u pretrazi'
+      OnExecute = actFindLocationHelpPdfExecute
+    end
+    object actFindLocationHelpDoc: TAction
+      Caption = 'Uputstvo(doc)'
+      Hint = 'Pomoć u pretrazi'
+      OnExecute = actFindLocationHelpDocExecute
     end
   end
   object pupFindLocation: TPopupMenu[14]
@@ -826,7 +867,21 @@ inherited frmSuppliers: TfrmSuppliers
       Caption = '-'
     end
     object MenuItem4: TMenuItem
-      Action = actFindLocationHelp
+      Action = actFindLocationHelpPdf
+    end
+  end
+  object actSuppliers: TActionList[15]
+    left = 99
+    top = 415
+    object actCharFilter: TAction
+      Caption = 'Filter(slovo)'
+      Hint = 'Primeni filter'
+      OnExecute = actCharFilterExecute
+    end
+    object actClearFilter: TAction
+      Caption = 'Ukloni filter'
+      Hint = 'Svi slogovi'
+      OnExecute = actClearFilterExecute
     end
   end
 end
