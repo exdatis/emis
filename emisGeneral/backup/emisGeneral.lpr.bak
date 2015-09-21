@@ -22,7 +22,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmGeneral, frmGeneral);
   Application.CreateForm(TdModule, dModule);
-  Application.CreateForm(TfrmDrugNomenclatures, frmDrugNomenclatures);
+  //Application.CreateForm(TfrmDrugNomenclatures, frmDrugNomenclatures);
   //Application.CreateForm(TfrmSuppliers, frmSuppliers);
   //Application.CreateForm(TfrmDonors, frmDonors);
   //Application.CreateForm(TfrmTaxes, frmTaxes);

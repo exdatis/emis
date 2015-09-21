@@ -19,7 +19,6 @@
         <ComponentName Value="frmOrg"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="512"/>
         <CursorPos X="41" Y="518"/>
         <UsageCount Value="78"/>
@@ -33,6 +32,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="uDModule"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
         <CursorPos X="63" Y="16"/>
         <UsageCount Value="78"/>

@@ -87,7 +87,7 @@ begin
   {sort}
   doSortDbGrid(TZAbstractDataset(ztDrugNomenclatures), Column);
   {refresh after sort}
-  dbgDonors.Refresh;
+  dbgDrugNomenclatures.Refresh;
   { find recNo}
   recCount:= IntToStr(TZAbstractDataset(ztDrugNomenclatures).RecordCount);
   recNo:= IntToStr(TZAbstractDataset(ztDrugNomenclatures).RecNo);

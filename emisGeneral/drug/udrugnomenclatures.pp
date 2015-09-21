@@ -61,7 +61,7 @@ type
 
 var
   frmDrugNomenclatures: TfrmDrugNomenclatures;
-  {fields of tbl DocLab}
+  {fields of tbl drugNomenclatures}
   FDN_ID : String = 'DN_ID';
   FDN_CODE : String = 'DN_CODE';
   FDN_NAME : String = 'DN_NAME';
