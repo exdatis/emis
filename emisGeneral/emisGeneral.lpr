@@ -12,7 +12,7 @@ uses
   uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
   uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors,
-  uDrugNomenclatures, uGenerics, uPropertiesOfDrug;
+  uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups;
 
 {$R *.res}
 
@@ -22,6 +22,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmGeneral, frmGeneral);
   Application.CreateForm(TdModule, dModule);
+  //Application.CreateForm(TfrmDrugGroups, frmDrugGroups);
   //Application.CreateForm(TfrmGenerics, frmGenerics);
   //Application.CreateForm(TfrmPropertiesOfDrug, frmPropertiesOfDrug);
   //Application.CreateForm(TfrmDrugNomenclatures, frmDrugNomenclatures);
