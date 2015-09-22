@@ -304,7 +304,19 @@ end;
 
 procedure TfrmGenerics.openDataSet;
 begin
-
+  TZAbstractDataset(ztGenerics).DisableControls;
+  TZAbstractDataset(ztGenerics).Close;
+  try
+    TZAbstractDataset(ztGenerics).Open;
+    TZAbstractDataset(ztGenerics).EnableControls;
+  except
+    on e : Exception do
+    begin
+      dModule.zdbh.Rollback;
+      TZAbstractDataset(ztGenerics).EnableControls;
+      ShowMessage(e.Message);
+    end;
+  end;
 end;
 
 end.

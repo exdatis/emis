@@ -61,6 +61,7 @@ type
 
 var
   frmGenerics: TfrmGenerics;
+const
   {fields of tbl generics}
   FG_ID : String = 'G_ID';
   FG_CODE : String = 'G_CODE';

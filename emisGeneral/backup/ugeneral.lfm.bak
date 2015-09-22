@@ -1142,6 +1142,16 @@ object frmGeneral: TfrmGeneral
       Hint = 'Nomenklature lekova'
       OnExecute = actDrugNomenclaturesExecute
     end
+    object actGenerics: TAction
+      Caption = 'Generičke grupe'
+      Hint = 'Generika lekova'
+      OnExecute = actGenericsExecute
+    end
+    object actPropertiesOfDrug: TAction
+      Caption = 'Dodatne osobine leka'
+      Hint = 'Svojstva lekova'
+      OnExecute = actPropertiesOfDrugExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2167,6 +2177,18 @@ object frmGeneral: TfrmGeneral
       end
       object MenuItem48: TMenuItem
         Action = actDonorsFrm
+      end
+    end
+    object MenuItem50: TMenuItem
+      Caption = 'Proizvodi'
+      object MenuItem51: TMenuItem
+        Caption = 'Lekovi'
+        object MenuItem52: TMenuItem
+          Action = actDrugNomenclatures
+        end
+        object MenuItem53: TMenuItem
+          Action = actGenerics
+        end
       end
     end
   end

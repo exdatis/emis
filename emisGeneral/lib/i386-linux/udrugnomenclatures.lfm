@@ -15,15 +15,15 @@ inherited frmDrugNomenclatures: TfrmDrugNomenclatures
     TabOrder = 1
     object Label1: TLabel
       Left = 8
-      Height = 16
+      Height = 14
       Top = 13
-      Width = 370
+      Width = 368
       Caption = 'Pronadji nomenklaturu po nazivu ( unos karaktera od početka reči-naziva ) : '
       ParentColor = False
     end
     object edtLocate: TEdit
       Left = 429
-      Height = 26
+      Height = 24
       Top = 8
       Width = 365
       Font.Color = clGray
@@ -44,22 +44,22 @@ inherited frmDrugNomenclatures: TfrmDrugNomenclatures
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
-    ClientHeight = 60
+    ClientHeight = 62
     ClientWidth = 799
     ParentShowHint = False
     ShowHint = True
     TabOrder = 2
     object Label2: TLabel
       Left = 11
-      Height = 16
+      Height = 14
       Top = 6
-      Width = 93
+      Width = 94
       Caption = 'Šifra nomenklature'
       ParentColor = False
     end
     object Label3: TLabel
       Left = 11
-      Height = 16
+      Height = 14
       Top = 34
       Width = 107
       Caption = 'Naziv nomenklature *'
@@ -67,7 +67,7 @@ inherited frmDrugNomenclatures: TfrmDrugNomenclatures
     end
     object dbCode: TDBEdit
       Left = 142
-      Height = 26
+      Height = 24
       Top = 2
       Width = 194
       DataField = 'DN_CODE'
@@ -78,7 +78,7 @@ inherited frmDrugNomenclatures: TfrmDrugNomenclatures
     end
     object dbName: TDBEdit
       Left = 142
-      Height = 26
+      Height = 24
       Top = 28
       Width = 386
       DataField = 'DN_NAME'

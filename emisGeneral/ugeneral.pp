@@ -42,6 +42,8 @@ type
     actFrmSuppliers: TAction;
     actDonorsFrm: TAction;
     actDrugNomenclatures: TAction;
+    actGenerics: TAction;
+    actPropertiesOfDrug: TAction;
     actTaxes: TAction;
     actMeasure: TAction;
     actLocationFrm: TAction;
@@ -104,6 +106,8 @@ type
     MenuItem50: TMenuItem;
     MenuItem51: TMenuItem;
     MenuItem52: TMenuItem;
+    MenuItem53: TMenuItem;
+    MenuItem54: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
@@ -178,6 +182,7 @@ type
     procedure actDrugNomenclaturesExecute(Sender: TObject);
     procedure actEditDataPdfExecute(Sender: TObject);
     procedure actFrmSuppliersExecute(Sender: TObject);
+    procedure actGenericsExecute(Sender: TObject);
     procedure actHlpAboutFormsDocExecute(Sender: TObject);
     procedure actHlpAboutFormsPdfExecute(Sender: TObject);
     procedure actHlpAboutModuleDocExecute(Sender: TObject);
@@ -185,6 +190,7 @@ type
     procedure actHlpEditDataDocExecute(Sender: TObject);
     procedure actLocationFrmExecute(Sender: TObject);
     procedure actMeasureExecute(Sender: TObject);
+    procedure actPropertiesOfDrugExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
     procedure actTaxesExecute(Sender: TObject);
     procedure divExDatisClick(Sender: TObject);
@@ -237,7 +243,7 @@ uses
   uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
   uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors,
-  uDrugNomenclatures;
+  uDrugNomenclatures, uGenerics, uPropertiesOfDrug;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -616,6 +622,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmMeasure.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actPropertiesOfDrugExecute(Sender: TObject);
+var
+  newForm : TfrmPropertiesOfDrug;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmPropertiesOfDrug.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}
@@ -1196,6 +1228,32 @@ begin
     newForm.applyCharFilter; {with default char}
     {set help-path}
     newForm.HELP_PATH:= HELP_PATH;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actGenericsExecute(Sender: TObject);
+var
+  newForm : TfrmGenerics;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmGenerics.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
     {show form}
     newForm.Show;
     {set focus to enable shortcuts}

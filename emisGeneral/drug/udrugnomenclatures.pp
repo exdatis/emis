@@ -61,6 +61,7 @@ type
 
 var
   frmDrugNomenclatures: TfrmDrugNomenclatures;
+const
   {fields of tbl drugNomenclatures}
   FDN_ID : String = 'DN_ID';
   FDN_CODE : String = 'DN_CODE';
