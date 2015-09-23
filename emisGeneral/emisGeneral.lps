@@ -47,7 +47,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uGeneral"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="1175"/>
         <CursorPos X="29" Y="1184"/>
@@ -357,6 +356,21 @@
         <UsageCount Value="22"/>
       </Unit29>
       <Unit30>
+        <Filename Value="drug\udruggroups.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDrugGroups"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDrugGroups"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="100"/>
+        <CursorPos X="35" Y="116"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit30>
+      <Unit31>
         <Filename Value="locations\ulocations.pp"/>
         <ComponentName Value="frmLocations"/>
         <HasResources Value="True"/>
@@ -365,8 +379,8 @@
         <TopLine Value="283"/>
         <CursorPos X="35" Y="300"/>
         <UsageCount Value="21"/>
-      </Unit30>
-      <Unit31>
+      </Unit31>
+      <Unit32>
         <Filename Value="..\common\ubasemoduleform.pp"/>
         <ComponentName Value="baseModuleForm"/>
         <HasResources Value="True"/>
@@ -375,199 +389,185 @@
         <TopLine Value="41"/>
         <CursorPos X="25" Y="56"/>
         <UsageCount Value="19"/>
-      </Unit31>
-      <Unit32>
+      </Unit32>
+      <Unit33>
         <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZDataset.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="110"/>
         <CursorPos X="47" Y="119"/>
         <UsageCount Value="7"/>
-      </Unit32>
-      <Unit33>
+      </Unit33>
+      <Unit34>
         <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZDatasetUtils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="19"/>
         <CursorPos X="43" Y="28"/>
         <UsageCount Value="7"/>
-      </Unit33>
-      <Unit34>
+      </Unit34>
+      <Unit35>
         <Filename Value="C:\lazarus\components\ZeosLib\src\dbc\ZDbcInterbase6Utils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="823"/>
         <CursorPos Y="832"/>
         <UsageCount Value="7"/>
-      </Unit34>
-      <Unit35>
+      </Unit35>
+      <Unit36>
         <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZAbstractConnection.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="940"/>
         <CursorPos X="52" Y="952"/>
         <UsageCount Value="7"/>
-      </Unit35>
-      <Unit36>
+      </Unit36>
+      <Unit37>
         <Filename Value="C:\lazarus\components\ZeosLib\src\dbc\ZDbcGenericResolver.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="888"/>
         <CursorPos X="46" Y="898"/>
         <UsageCount Value="7"/>
-      </Unit36>
-      <Unit37>
+      </Unit37>
+      <Unit38>
         <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZAbstractDataset.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="430"/>
         <CursorPos Y="446"/>
         <UsageCount Value="8"/>
-      </Unit37>
-      <Unit38>
+      </Unit38>
+      <Unit39>
         <Filename Value="..\..\..\..\usr\share\lazarus\1.4.2\components\zeosDBA\src\dbc\ZDbcInterbase6Utils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="819"/>
         <CursorPos Y="832"/>
         <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit38>
-      <Unit39>
+      </Unit39>
+      <Unit40>
         <Filename Value="..\..\..\..\usr\share\lazarus\1.4.2\components\zeosDBA\src\component\ZAbstractDataset.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="433"/>
         <CursorPos Y="446"/>
         <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit39>
-      <Unit40>
-        <Filename Value="drug\udruggroups.pp"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmDrugGroups"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uDrugGroups"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="75"/>
-        <CursorPos X="16" Y="91"/>
-        <UsageCount Value="21"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit40>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="ugeneral.pp"/>
-        <Caret Line="1162" Column="14" TopLine="1139"/>
+        <Caret Line="240" Column="32" TopLine="218"/>
       </Position1>
       <Position2>
         <Filename Value="ugeneral.pp"/>
-        <Caret Line="240" Column="32" TopLine="218"/>
+        <Caret Line="242" Column="32" TopLine="220"/>
       </Position2>
       <Position3>
         <Filename Value="ugeneral.pp"/>
-        <Caret Line="242" Column="32" TopLine="220"/>
+        <Caret Line="1219" Column="27" TopLine="1210"/>
       </Position3>
       <Position4>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="1219" Column="27" TopLine="1210"/>
+        <Filename Value="drug\ugenerics.pp"/>
+        <Caret Line="303" Column="54" TopLine="233"/>
       </Position4>
       <Position5>
         <Filename Value="drug\ugenerics.pp"/>
-        <Caret Line="303" Column="54" TopLine="233"/>
+        <Caret Line="10" Column="3"/>
       </Position5>
       <Position6>
-        <Filename Value="drug\ugenerics.pp"/>
-        <Caret Line="10" Column="3"/>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="1234" Column="18" TopLine="1211"/>
       </Position6>
       <Position7>
         <Filename Value="ugeneral.pp"/>
-        <Caret Line="1234" Column="18" TopLine="1211"/>
+        <Caret Line="243" Column="51" TopLine="221"/>
       </Position7>
       <Position8>
         <Filename Value="ugeneral.pp"/>
-        <Caret Line="243" Column="51" TopLine="221"/>
+        <Caret Line="245" Column="51" TopLine="223"/>
       </Position8>
       <Position9>
         <Filename Value="ugeneral.pp"/>
-        <Caret Line="245" Column="51" TopLine="223"/>
+        <Caret Line="649" Column="35" TopLine="640"/>
       </Position9>
       <Position10>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="649" Column="35" TopLine="640"/>
+        <Filename Value="drug\udruggroups.pp"/>
       </Position10>
       <Position11>
-        <Filename Value="drug\udruggroups.pp"/>
+        <Filename Value="drug\ugenerics.pp"/>
+        <Caret Line="320" Column="11" TopLine="291"/>
       </Position11>
       <Position12>
         <Filename Value="drug\ugenerics.pp"/>
-        <Caret Line="320" Column="11" TopLine="291"/>
+        <Caret Line="10" Column="3"/>
       </Position12>
       <Position13>
-        <Filename Value="drug\ugenerics.pp"/>
-        <Caret Line="10" Column="3"/>
+        <Filename Value="drug\udruggroups.pp"/>
+        <Caret Line="47" Column="28" TopLine="15"/>
       </Position13>
       <Position14>
         <Filename Value="drug\udruggroups.pp"/>
-        <Caret Line="47" Column="28" TopLine="15"/>
+        <Caret Line="61" Column="22" TopLine="39"/>
       </Position14>
       <Position15>
         <Filename Value="drug\udruggroups.pp"/>
-        <Caret Line="61" Column="22" TopLine="39"/>
+        <Caret Line="71" Column="16" TopLine="67"/>
       </Position15>
       <Position16>
         <Filename Value="drug\udruggroups.pp"/>
-        <Caret Line="71" Column="16" TopLine="67"/>
+        <Caret Line="86" Column="50" TopLine="75"/>
       </Position16>
       <Position17>
         <Filename Value="drug\udruggroups.pp"/>
-        <Caret Line="86" Column="50" TopLine="75"/>
+        <Caret Line="97" Column="34" TopLine="93"/>
       </Position17>
       <Position18>
         <Filename Value="drug\udruggroups.pp"/>
-        <Caret Line="97" Column="34" TopLine="93"/>
+        <Caret Line="106" Column="33" TopLine="102"/>
       </Position18>
       <Position19>
         <Filename Value="drug\udruggroups.pp"/>
-        <Caret Line="106" Column="33" TopLine="102"/>
+        <Caret Line="114" Column="51" TopLine="110"/>
       </Position19>
       <Position20>
         <Filename Value="drug\udruggroups.pp"/>
-        <Caret Line="114" Column="51" TopLine="110"/>
+        <Caret Line="126" Column="20" TopLine="122"/>
       </Position20>
       <Position21>
         <Filename Value="drug\udruggroups.pp"/>
-        <Caret Line="126" Column="20" TopLine="122"/>
+        <Caret Line="149" Column="27" TopLine="131"/>
       </Position21>
       <Position22>
         <Filename Value="drug\udruggroups.pp"/>
-        <Caret Line="149" Column="27" TopLine="131"/>
+        <Caret Line="171" Column="27" TopLine="153"/>
       </Position22>
       <Position23>
         <Filename Value="drug\udruggroups.pp"/>
-        <Caret Line="171" Column="27" TopLine="153"/>
+        <Caret Line="188" Column="39" TopLine="175"/>
       </Position23>
       <Position24>
         <Filename Value="drug\udruggroups.pp"/>
-        <Caret Line="188" Column="39" TopLine="175"/>
+        <Caret Line="317" Column="37" TopLine="292"/>
       </Position24>
       <Position25>
-        <Filename Value="drug\udruggroups.pp"/>
-        <Caret Line="317" Column="37" TopLine="292"/>
+        <Filename Value="ugeneral.pp"/>
+        <Caret Line="664" Column="17" TopLine="641"/>
       </Position25>
       <Position26>
         <Filename Value="ugeneral.pp"/>
-        <Caret Line="664" Column="17" TopLine="641"/>
+        <Caret Line="246" Column="64" TopLine="224"/>
       </Position26>
       <Position27>
         <Filename Value="ugeneral.pp"/>
-        <Caret Line="246" Column="64" TopLine="224"/>
+        <Caret Line="248" Column="64" TopLine="226"/>
       </Position27>
       <Position28>
         <Filename Value="ugeneral.pp"/>
-        <Caret Line="248" Column="64" TopLine="226"/>
+        <Caret Line="1182" Column="29" TopLine="1173"/>
       </Position28>
       <Position29>
         <Filename Value="ugeneral.pp"/>
-        <Caret Line="1182" Column="29" TopLine="1173"/>
+        <Caret Line="1183" Column="29" TopLine="1174"/>
       </Position29>
       <Position30>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="1183" Column="29" TopLine="1174"/>
+        <Filename Value="drug\udruggroups.pp"/>
+        <Caret Line="91" Column="16" TopLine="75"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

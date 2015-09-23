@@ -9,24 +9,24 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
   object groupBoxEdit: TGroupBox[2]
     Left = 0
     Height = 131
-    Top = 15
+    Top = 52
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
-    ClientHeight = 111
+    ClientHeight = 115
     ClientWidth = 799
     TabOrder = 1
     object Label2: TLabel
       Left = 295
-      Height = 15
+      Height = 14
       Top = 10
-      Width = 85
+      Width = 82
       Caption = 'Naziv skladišta *'
       ParentColor = False
     end
     object Label1: TLabel
       Left = 11
-      Height = 15
+      Height = 14
       Top = 10
       Width = 23
       Caption = 'Šifra'
@@ -34,7 +34,7 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
     end
     object dbCode: TDBEdit
       Left = 68
-      Height = 23
+      Height = 24
       Top = 5
       Width = 209
       DataField = 'AW_CODE'
@@ -45,7 +45,7 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
     end
     object dbName: TDBEdit
       Left = 392
-      Height = 23
+      Height = 24
       Top = 5
       Width = 400
       DataField = 'AW_NAME'
@@ -56,7 +56,7 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
     end
     object Label3: TLabel
       Left = 11
-      Height = 15
+      Height = 14
       Top = 36
       Width = 45
       Caption = 'Sedište *'
@@ -64,7 +64,7 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
     end
     object dbLocation: TDBEdit
       Left = 68
-      Height = 23
+      Height = 24
       Hint = 'Enter za pretragu'
       Top = 31
       Width = 186
@@ -125,15 +125,15 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
     end
     object Label4: TLabel
       Left = 295
-      Height = 15
+      Height = 14
       Top = 36
-      Width = 44
+      Width = 43
       Caption = 'Adresa *'
       ParentColor = False
     end
     object dbAddress: TDBEdit
       Left = 392
-      Height = 23
+      Height = 24
       Top = 31
       Width = 400
       DataField = 'AW_ADDRESS'
@@ -144,15 +144,15 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
     end
     object Label5: TLabel
       Left = 11
-      Height = 15
+      Height = 14
       Top = 63
-      Width = 34
+      Width = 32
       Caption = 'E-mail'
       ParentColor = False
     end
     object dbMail: TDBEdit
       Left = 68
-      Height = 23
+      Height = 24
       Top = 58
       Width = 209
       DataField = 'AW_MAIL'
@@ -163,18 +163,19 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
     end
     object Label6: TLabel
       Left = 295
-      Height = 15
+      Height = 14
       Top = 63
-      Width = 58
+      Width = 56
       Caption = 'Odeljenje *'
       ParentColor = False
     end
     object dblDepartment: TDBLookupComboBox
       Left = 392
-      Height = 23
+      Height = 25
       Top = 58
       Width = 400
       AutoComplete = True
+      AutoSize = False
       DataField = 'AW_DEPARTMENT'
       DataSource = dsWarehouse
       KeyField = 'D_ID'
@@ -186,15 +187,15 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
     end
     object Label7: TLabel
       Left = 11
-      Height = 15
+      Height = 14
       Top = 89
-      Width = 40
+      Width = 36
       Caption = 'Telefon'
       ParentColor = False
     end
     object dbPhone: TDBEdit
       Left = 68
-      Height = 23
+      Height = 24
       Top = 84
       Width = 209
       DataField = 'AW_PHONE'
@@ -205,7 +206,7 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
     end
     object Label8: TLabel
       Left = 295
-      Height = 15
+      Height = 14
       Top = 89
       Width = 17
       Caption = 'Fax'
@@ -213,7 +214,7 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
     end
     object dbFax: TDBEdit
       Left = 392
-      Height = 23
+      Height = 24
       Top = 84
       Width = 209
       DataField = 'AW_FAX'
@@ -226,9 +227,9 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
   object dbgWarehouse: TDBGrid[3]
     Cursor = crHandPoint
     Left = 0
-    Height = 326
+    Height = 290
     Hint = 'Klikni naslov polja za sortiranje'
-    Top = 146
+    Top = 183
     Width = 803
     Align = alClient
     AlternateColor = clScrollBar
@@ -238,13 +239,14 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
     ReadOnly = True
     TabOrder = 2
+    TitleFont.Height = -11
     OnMouseMove = dbgWarehouseMouseMove
     OnTitleClick = dbgWarehouseTitleClick
   end
   object panelFindLocation: TPanel[4]
-    Left = 71
+    Left = 70
     Height = 260
-    Top = 88
+    Top = 119
     Width = 722
     ClientHeight = 260
     ClientWidth = 722
@@ -265,6 +267,7 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
       ReadOnly = True
       ShowHint = True
       TabOrder = 0
+      TitleFont.Height = -11
       OnKeyPress = dbgLocationKeyPress
       OnMouseMove = dbgLocationMouseMove
       OnTitleClick = dbgLocationTitleClick
@@ -296,9 +299,39 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
       TabOrder = 2
     end
   end
-  inherited actDb: TActionList[5]
+  object panelSearch: TPanel[5]
+    Left = 0
+    Height = 37
+    Top = 15
+    Width = 803
+    Align = alTop
+    ClientHeight = 37
+    ClientWidth = 803
+    TabOrder = 4
+    object Label9: TLabel
+      Left = 8
+      Height = 14
+      Top = 13
+      Width = 343
+      Caption = 'Pronadji skladište po nazivu ( unos karaktera od početka reči-naziva ) : '
+      ParentColor = False
+    end
+    object edtLocate: TEdit
+      Left = 429
+      Height = 24
+      Top = 8
+      Width = 365
+      Font.Color = clGray
+      Font.Height = -11
+      OnEnter = edtLocateEnter
+      ParentFont = False
+      TabOrder = 0
+      Text = 'Pronadji ...'
+    end
   end
-  object zqWarehouse: TZQuery[6]
+  inherited actDb: TActionList[6]
+  end
+  object zqWarehouse: TZQuery[7]
     Connection = dModule.zdbh
     SortedFields = 'AW_NAME'
     AfterOpen = zqWarehouseAfterOpen
@@ -485,18 +518,18 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
       Size = 280
     end
   end
-  object zseqWarehouse: TZSequence[7]
+  object zseqWarehouse: TZSequence[8]
     Connection = dModule.zdbh
     SequenceName = 'WAREHOUSE_SEQ'
     left = 491
     top = 404
   end
-  object dsWarehouse: TDataSource[8]
+  object dsWarehouse: TDataSource[9]
     DataSet = zqWarehouse
     left = 593
     top = 353
   end
-  object zupdWarehouse: TZUpdateSQL[9]
+  object zupdWarehouse: TZUpdateSQL[10]
     DeleteSQL.Strings = (
       'DELETE FROM '
       '  APPLIANCES_WAREHOUSE '
@@ -615,7 +648,7 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
         ParamType = ptUnknown
       end>
   end
-  object zroFindLocation: TZReadOnlyQuery[10]
+  object zroFindLocation: TZReadOnlyQuery[11]
     Connection = dModule.zdbh
     SortedFields = 'L_NAME'
     SQL.Strings = (
@@ -692,12 +725,12 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
       Size = 280
     end
   end
-  object dsFindLocation: TDataSource[11]
+  object dsFindLocation: TDataSource[12]
     DataSet = zroFindLocation
     left = 148
     top = 369
   end
-  object actFind: TActionList[12]
+  object actFind: TActionList[13]
     left = 232
     top = 384
     object actFindLocationByCode: TAction
@@ -715,7 +748,7 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
       Hint = 'Pomoć u pretrazi'
     end
   end
-  object pupFindLocation: TPopupMenu[13]
+  object pupFindLocation: TPopupMenu[14]
     left = 304
     top = 400
     object MenuItem1: TMenuItem
@@ -731,7 +764,7 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
       Action = actFindLocationHelp
     end
   end
-  object zroDepartment: TZReadOnlyQuery[14]
+  object zroDepartment: TZReadOnlyQuery[15]
     Connection = dModule.zdbh
     SortedFields = 'D_NAME'
     SQL.Strings = (
@@ -769,7 +802,7 @@ inherited frmAppliancesWarehouse: TfrmAppliancesWarehouse
       Size = 280
     end
   end
-  object dsDepartment: TDataSource[15]
+  object dsDepartment: TDataSource[16]
     DataSet = zroDepartment
     left = 706
     top = 367

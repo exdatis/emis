@@ -8,7 +8,7 @@ inherited frmOfficeHPWarehouse: TfrmOfficeHPWarehouse
   object groupBoxEdit: TGroupBox[2]
     Left = 0
     Height = 131
-    Top = 15
+    Top = 52
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
@@ -226,9 +226,9 @@ inherited frmOfficeHPWarehouse: TfrmOfficeHPWarehouse
   object dbgWarehouse: TDBGrid[3]
     Cursor = crHandPoint
     Left = 0
-    Height = 327
+    Height = 290
     Hint = 'Klikni naslov polja za sortiranje'
-    Top = 146
+    Top = 183
     Width = 803
     Align = alClient
     AlternateColor = clScrollBar
@@ -243,9 +243,9 @@ inherited frmOfficeHPWarehouse: TfrmOfficeHPWarehouse
     OnTitleClick = dbgWarehouseTitleClick
   end
   object panelFindLocation: TPanel[4]
-    Left = 69
+    Left = 70
     Height = 260
-    Top = 83
+    Top = 119
     Width = 722
     ClientHeight = 260
     ClientWidth = 722
@@ -298,9 +298,41 @@ inherited frmOfficeHPWarehouse: TfrmOfficeHPWarehouse
       TabOrder = 2
     end
   end
-  inherited actDb: TActionList[5]
+  object panelSearch: TPanel[5]
+    Left = 0
+    Height = 37
+    Top = 15
+    Width = 803
+    Align = alTop
+    ClientHeight = 37
+    ClientWidth = 803
+    TabOrder = 4
+    object Label9: TLabel
+      Left = 8
+      Height = 14
+      Top = 13
+      Width = 343
+      Caption = 'Pronadji skladište po nazivu ( unos karaktera od početka reči-naziva ) : '
+      ParentColor = False
+    end
+    object edtLocate: TEdit
+      Left = 429
+      Height = 24
+      Top = 8
+      Width = 365
+      Font.Color = clGray
+      Font.Height = -11
+      OnEnter = edtLocateEnter
+      OnExit = edtLocateExit
+      OnKeyUp = edtLocateKeyUp
+      ParentFont = False
+      TabOrder = 0
+      Text = 'Pronadji ...'
+    end
   end
-  object zqWarehouse: TZQuery[6]
+  inherited actDb: TActionList[6]
+  end
+  object zqWarehouse: TZQuery[7]
     Connection = dModule.zdbh
     SortedFields = 'OHPW_NAME'
     AfterOpen = zqWarehouseAfterOpen
@@ -487,23 +519,23 @@ inherited frmOfficeHPWarehouse: TfrmOfficeHPWarehouse
       Size = 280
     end
   end
-  object dsWarehouse: TDataSource[7]
+  object dsWarehouse: TDataSource[8]
     DataSet = zqWarehouse
     left = 597
     top = 360
   end
-  object zseqWarehouse: TZSequence[8]
+  object zseqWarehouse: TZSequence[9]
     Connection = dModule.zdbh
     SequenceName = 'WAREHOUSE_SEQ'
     left = 495
     top = 411
   end
-  object dsDepartment: TDataSource[9]
+  object dsDepartment: TDataSource[10]
     DataSet = zroDepartment
     left = 710
     top = 374
   end
-  object zroDepartment: TZReadOnlyQuery[10]
+  object zroDepartment: TZReadOnlyQuery[11]
     Connection = dModule.zdbh
     SortedFields = 'D_NAME'
     SQL.Strings = (
@@ -541,7 +573,7 @@ inherited frmOfficeHPWarehouse: TfrmOfficeHPWarehouse
       Size = 280
     end
   end
-  object zroFindLocation: TZReadOnlyQuery[11]
+  object zroFindLocation: TZReadOnlyQuery[12]
     Connection = dModule.zdbh
     SortedFields = 'L_NAME'
     SQL.Strings = (
@@ -618,12 +650,12 @@ inherited frmOfficeHPWarehouse: TfrmOfficeHPWarehouse
       Size = 280
     end
   end
-  object dsFindLocation: TDataSource[12]
+  object dsFindLocation: TDataSource[13]
     DataSet = zroFindLocation
     left = 152
     top = 376
   end
-  object actFind: TActionList[13]
+  object actFind: TActionList[14]
     left = 236
     top = 391
     object actFindLocationByCode: TAction
@@ -641,7 +673,7 @@ inherited frmOfficeHPWarehouse: TfrmOfficeHPWarehouse
       Hint = 'Pomoć u pretrazi'
     end
   end
-  object pupFindLocation: TPopupMenu[14]
+  object pupFindLocation: TPopupMenu[15]
     left = 308
     top = 407
     object MenuItem1: TMenuItem
@@ -657,7 +689,7 @@ inherited frmOfficeHPWarehouse: TfrmOfficeHPWarehouse
       Action = actFindLocationHelp
     end
   end
-  object zupdWarehouse: TZUpdateSQL[15]
+  object zupdWarehouse: TZUpdateSQL[16]
     DeleteSQL.Strings = (
       'DELETE FROM '
       '  OFFICE_HPWAREHOUSE a '

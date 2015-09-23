@@ -34,6 +34,7 @@ type
     dsDepartment: TDataSource;
     dsFindLocation: TDataSource;
     dsWarehouse: TDataSource;
+    edtLocate: TEdit;
     groupBoxEdit: TGroupBox;
     Label1: TLabel;
     Label2: TLabel;
@@ -43,11 +44,13 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
+    Label9: TLabel;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     panelFindLocation: TPanel;
+    panelSearch: TPanel;
     pupFindLocation: TPopupMenu;
     zqWarehouse: TZQuery;
     zqWarehouseDEPARTMENT_CODE: TStringField;
@@ -85,6 +88,8 @@ type
       Y: Integer);
     procedure dbgWarehouseTitleClick(Column: TColumn);
     procedure dbLocationKeyPress(Sender: TObject; var Key: char);
+    procedure edtLocateEnter(Sender: TObject);
+    procedure edtLocateExit(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure zqWarehouseAfterDelete(DataSet: TDataSet);
@@ -230,6 +235,20 @@ begin
       locationArg:= FW_LOCATION_NAME;
       findLocation(dbLocation.Text);
     end;
+end;
+
+procedure TfrmHEquipmentHPWarehouse.edtLocateEnter(Sender: TObject);
+begin
+  {clear text and set font-color}
+  edtLocate.Text:= '';
+  edtLocate.Font.Color:= clBlack;
+end;
+
+procedure TfrmHEquipmentHPWarehouse.edtLocateExit(Sender: TObject);
+begin
+  {set text and font-color}
+  edtLocate.Text:= 'Pronadji ...';
+  edtLocate.Font.Color:= clGray;
 end;
 
 procedure TfrmHEquipmentHPWarehouse.FormClose(Sender: TObject;
@@ -470,7 +489,26 @@ end;
 
 procedure TfrmHEquipmentHPWarehouse.openDataSet;
 begin
-
+  {department(read only)}
+  TZAbstractDataset(TZAbstractRODataset(zroDepartment)).DisableControls;
+  TZAbstractDataset(TZAbstractRODataset(zroDepartment)).Close;
+  {department}
+  TZAbstractDataset(zqWarehouse).DisableControls;
+  TZAbstractDataset(zqWarehouse).Close;
+  try
+    TZAbstractDataset(TZAbstractRODataset(zroDepartment)).Open;
+    TZAbstractDataset(TZAbstractRODataset(zroDepartment)).EnableControls;
+    TZAbstractDataset(zqWarehouse).Open;
+    TZAbstractDataset(zqWarehouse).EnableControls;
+  except
+    on e : Exception do
+    begin
+      dModule.zdbh.Rollback;
+      TZAbstractDataset(TZAbstractRODataset(zroDepartment)).EnableControls;
+      TZAbstractDataset(zqWarehouse).EnableControls;
+      ShowMessage(e.Message);
+    end;
+  end;
 end;
 
 end.

@@ -7,7 +7,7 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
   object groupBoxEdit: TGroupBox[2]
     Left = 0
     Height = 131
-    Top = 15
+    Top = 52
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
@@ -225,9 +225,9 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
   object dbgWarehouse: TDBGrid[3]
     Cursor = crHandPoint
     Left = 0
-    Height = 327
+    Height = 290
     Hint = 'Klikni naslov polja za sortiranje'
-    Top = 146
+    Top = 183
     Width = 803
     Align = alClient
     AlternateColor = clScrollBar
@@ -244,7 +244,7 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
   object panelFindLocation: TPanel[4]
     Left = 69
     Height = 260
-    Top = 83
+    Top = 119
     Width = 722
     ClientHeight = 260
     ClientWidth = 722
@@ -297,9 +297,41 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
       TabOrder = 2
     end
   end
-  inherited actDb: TActionList[5]
+  object panelSearch: TPanel[5]
+    Left = 0
+    Height = 37
+    Top = 15
+    Width = 803
+    Align = alTop
+    ClientHeight = 37
+    ClientWidth = 803
+    TabOrder = 4
+    object Label9: TLabel
+      Left = 8
+      Height = 14
+      Top = 13
+      Width = 343
+      Caption = 'Pronadji skladište po nazivu ( unos karaktera od početka reči-naziva ) : '
+      ParentColor = False
+    end
+    object edtLocate: TEdit
+      Left = 429
+      Height = 24
+      Top = 8
+      Width = 365
+      Font.Color = clGray
+      Font.Height = -11
+      OnEnter = edtLocateEnter
+      OnExit = edtLocateExit
+      OnKeyUp = edtLocateKeyUp
+      ParentFont = False
+      TabOrder = 0
+      Text = 'Pronadji ...'
+    end
   end
-  object zqWarehouse: TZQuery[6]
+  inherited actDb: TActionList[6]
+  end
+  object zqWarehouse: TZQuery[7]
     Connection = dModule.zdbh
     SortedFields = 'FW_NAME'
     AfterOpen = zqWarehouseAfterOpen
@@ -486,18 +518,18 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
       Size = 280
     end
   end
-  object dsWarehouse: TDataSource[7]
+  object dsWarehouse: TDataSource[8]
     DataSet = zqWarehouse
     left = 621
     top = 381
   end
-  object zseqWarehouse: TZSequence[8]
+  object zseqWarehouse: TZSequence[9]
     Connection = dModule.zdbh
     SequenceName = 'WAREHOUSE_SEQ'
     left = 519
     top = 432
   end
-  object zroDepartment: TZReadOnlyQuery[9]
+  object zroDepartment: TZReadOnlyQuery[10]
     Connection = dModule.zdbh
     SortedFields = 'D_NAME'
     SQL.Strings = (
@@ -535,12 +567,12 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
       Size = 280
     end
   end
-  object dsDepartment: TDataSource[10]
+  object dsDepartment: TDataSource[11]
     DataSet = zroDepartment
     left = 734
     top = 395
   end
-  object zroFindLocation: TZReadOnlyQuery[11]
+  object zroFindLocation: TZReadOnlyQuery[12]
     Connection = dModule.zdbh
     SortedFields = 'L_NAME'
     SQL.Strings = (
@@ -617,12 +649,12 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
       Size = 280
     end
   end
-  object dsFindLocation: TDataSource[12]
+  object dsFindLocation: TDataSource[13]
     DataSet = zroFindLocation
     left = 176
     top = 397
   end
-  object actFind: TActionList[13]
+  object actFind: TActionList[14]
     left = 260
     top = 412
     object actFindLocationByCode: TAction
@@ -640,7 +672,7 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
       Hint = 'Pomoć u pretrazi'
     end
   end
-  object pupFindLocation: TPopupMenu[14]
+  object pupFindLocation: TPopupMenu[15]
     left = 332
     top = 428
     object MenuItem1: TMenuItem
@@ -656,7 +688,7 @@ inherited frmFoodWarehouse: TfrmFoodWarehouse
       Action = actFindLocationHelp
     end
   end
-  object zupdWarehouse: TZUpdateSQL[15]
+  object zupdWarehouse: TZUpdateSQL[16]
     DeleteSQL.Strings = (
       'DELETE FROM '
       '  FOOD_WAREHOUSE '

@@ -7,16 +7,16 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
   object groupBoxEdit: TGroupBox[2]
     Left = 0
     Height = 131
-    Top = 15
+    Top = 52
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
-    ClientHeight = 113
+    ClientHeight = 115
     ClientWidth = 799
     TabOrder = 1
     object Label2: TLabel
       Left = 295
-      Height = 16
+      Height = 14
       Top = 10
       Width = 82
       Caption = 'Naziv skladišta *'
@@ -24,15 +24,15 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
     end
     object Label1: TLabel
       Left = 11
-      Height = 16
+      Height = 14
       Top = 10
-      Width = 22
+      Width = 23
       Caption = 'Šifra'
       ParentColor = False
     end
     object dbCode: TDBEdit
       Left = 68
-      Height = 26
+      Height = 24
       Top = 5
       Width = 209
       DataField = 'HEW_CODE'
@@ -43,7 +43,7 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
     end
     object dbName: TDBEdit
       Left = 392
-      Height = 26
+      Height = 24
       Top = 5
       Width = 400
       DataField = 'HEW_NAME'
@@ -54,15 +54,15 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
     end
     object Label3: TLabel
       Left = 11
-      Height = 16
+      Height = 14
       Top = 36
-      Width = 44
+      Width = 45
       Caption = 'Sedište *'
       ParentColor = False
     end
     object dbLocation: TDBEdit
       Left = 68
-      Height = 26
+      Height = 24
       Hint = 'Enter za pretragu'
       Top = 31
       Width = 186
@@ -123,7 +123,7 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
     end
     object Label4: TLabel
       Left = 295
-      Height = 16
+      Height = 14
       Top = 36
       Width = 43
       Caption = 'Adresa *'
@@ -131,7 +131,7 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
     end
     object dbAddress: TDBEdit
       Left = 392
-      Height = 26
+      Height = 24
       Top = 31
       Width = 400
       DataField = 'HEW_ADDRESS'
@@ -142,15 +142,15 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
     end
     object Label5: TLabel
       Left = 11
-      Height = 16
+      Height = 14
       Top = 63
-      Width = 30
+      Width = 32
       Caption = 'E-mail'
       ParentColor = False
     end
     object dbMail: TDBEdit
       Left = 68
-      Height = 26
+      Height = 24
       Top = 58
       Width = 209
       DataField = 'HEW_MAIL'
@@ -161,9 +161,9 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
     end
     object Label6: TLabel
       Left = 295
-      Height = 16
+      Height = 14
       Top = 63
-      Width = 54
+      Width = 56
       Caption = 'Odeljenje *'
       ParentColor = False
     end
@@ -185,15 +185,15 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
     end
     object Label7: TLabel
       Left = 11
-      Height = 16
+      Height = 14
       Top = 89
-      Width = 37
+      Width = 36
       Caption = 'Telefon'
       ParentColor = False
     end
     object dbPhone: TDBEdit
       Left = 68
-      Height = 26
+      Height = 24
       Top = 84
       Width = 209
       DataField = 'HEW_PHONE'
@@ -204,15 +204,15 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
     end
     object Label8: TLabel
       Left = 295
-      Height = 16
+      Height = 14
       Top = 89
-      Width = 18
+      Width = 17
       Caption = 'Fax'
       ParentColor = False
     end
     object dbFax: TDBEdit
       Left = 392
-      Height = 26
+      Height = 24
       Top = 84
       Width = 209
       DataField = 'HEW_FAX'
@@ -225,9 +225,9 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
   object dbgWarehouse: TDBGrid[3]
     Cursor = crHandPoint
     Left = 0
-    Height = 327
+    Height = 290
     Hint = 'Klikni naslov polja za sortiranje'
-    Top = 146
+    Top = 183
     Width = 803
     Align = alClient
     AlternateColor = clScrollBar
@@ -244,7 +244,7 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
   object panelFindLocation: TPanel[4]
     Left = 70
     Height = 260
-    Top = 86
+    Top = 119
     Width = 722
     ClientHeight = 260
     ClientWidth = 722
@@ -297,9 +297,40 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
       TabOrder = 2
     end
   end
-  inherited actDb: TActionList[5]
+  object panelSearch: TPanel[5]
+    Left = 0
+    Height = 37
+    Top = 15
+    Width = 803
+    Align = alTop
+    ClientHeight = 37
+    ClientWidth = 803
+    TabOrder = 4
+    object Label9: TLabel
+      Left = 8
+      Height = 14
+      Top = 13
+      Width = 343
+      Caption = 'Pronadji skladište po nazivu ( unos karaktera od početka reči-naziva ) : '
+      ParentColor = False
+    end
+    object edtLocate: TEdit
+      Left = 429
+      Height = 24
+      Top = 8
+      Width = 365
+      Font.Color = clGray
+      Font.Height = -11
+      OnEnter = edtLocateEnter
+      OnExit = edtLocateExit
+      ParentFont = False
+      TabOrder = 0
+      Text = 'Pronadji ...'
+    end
   end
-  object zqWarehouse: TZQuery[6]
+  inherited actDb: TActionList[6]
+  end
+  object zqWarehouse: TZQuery[7]
     Connection = dModule.zdbh
     SortedFields = 'HEW_NAME'
     AfterOpen = zqWarehouseAfterOpen
@@ -486,18 +517,18 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
       Size = 280
     end
   end
-  object zseqWarehouse: TZSequence[7]
+  object zseqWarehouse: TZSequence[8]
     Connection = dModule.zdbh
     SequenceName = 'WAREHOUSE_SEQ'
     left = 487
     top = 395
   end
-  object dsWarehouse: TDataSource[8]
+  object dsWarehouse: TDataSource[9]
     DataSet = zqWarehouse
     left = 589
     top = 344
   end
-  object zroDepartment: TZReadOnlyQuery[9]
+  object zroDepartment: TZReadOnlyQuery[10]
     Connection = dModule.zdbh
     SortedFields = 'D_NAME'
     SQL.Strings = (
@@ -535,12 +566,12 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
       Size = 280
     end
   end
-  object dsDepartment: TDataSource[10]
+  object dsDepartment: TDataSource[11]
     DataSet = zroDepartment
     left = 702
     top = 358
   end
-  object zroFindLocation: TZReadOnlyQuery[11]
+  object zroFindLocation: TZReadOnlyQuery[12]
     Connection = dModule.zdbh
     SortedFields = 'L_NAME'
     SQL.Strings = (
@@ -617,12 +648,12 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
       Size = 280
     end
   end
-  object dsFindLocation: TDataSource[12]
+  object dsFindLocation: TDataSource[13]
     DataSet = zroFindLocation
     left = 144
     top = 360
   end
-  object actFind: TActionList[13]
+  object actFind: TActionList[14]
     left = 228
     top = 375
     object actFindLocationByCode: TAction
@@ -640,7 +671,7 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
       Hint = 'Pomoć u pretrazi'
     end
   end
-  object pupFindLocation: TPopupMenu[14]
+  object pupFindLocation: TPopupMenu[15]
     left = 300
     top = 391
     object MenuItem1: TMenuItem
@@ -656,7 +687,7 @@ inherited frmHEquipmentWarehouse: TfrmHEquipmentWarehouse
       Action = actFindLocationHelp
     end
   end
-  object zupdWarehouse: TZUpdateSQL[15]
+  object zupdWarehouse: TZUpdateSQL[16]
     DeleteSQL.Strings = (
       'DELETE FROM '
       '  HEQUIPMENT_WAREHOUSE a '

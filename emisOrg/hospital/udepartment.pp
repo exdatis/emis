@@ -35,6 +35,7 @@ type
     dbLocation: TDBEdit;
     dbName: TDBEdit;
     dsDepartment: TDataSource;
+    edtLocate: TEdit;
     groupBoxEdit: TGroupBox;
     Label1: TLabel;
     Label2: TLabel;
@@ -44,12 +45,14 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
+    Label9: TLabel;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     panelFindLocation: TPanel;
+    panelSearch: TPanel;
     pupFindLocation: TPopupMenu;
     zqDepartment: TZQuery;
     zqDepartmentD_ADDRESS: TStringField;
@@ -91,6 +94,10 @@ type
       Y: Integer);
     procedure dbgLocationTitleClick(Column: TColumn);
     procedure dbLocationKeyPress(Sender: TObject; var Key: char);
+    procedure edtLocateEnter(Sender: TObject);
+    procedure edtLocateExit(Sender: TObject);
+    procedure edtLocateKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure zqDepartmentAfterDelete(DataSet: TDataSet);
@@ -126,7 +133,7 @@ const
   {fields of tbl department(FD -> fields department) and view(department_v)}
   FD_ID : String = 'D_ID';
   FD_CODE : String = 'D_CODE';
-  FD_NAME : String = 'H_NAME';
+  FD_NAME : String = 'D_NAME';
   FD_LOCATION : String = 'D_LOCATION';
   FD_ADDRESS : String = 'D_ADDRESS';
   FD_PHONE : String = 'D_PHONE';
@@ -264,6 +271,31 @@ begin
     begin
       locationArg:= FD_LOCATION_NAME;
       findLocation(dbLocation.Text);
+    end;
+end;
+
+procedure TfrmDepartment.edtLocateEnter(Sender: TObject);
+begin
+  {clear text and set font-color}
+  edtLocate.Text:= '';
+  edtLocate.Font.Color:= clBlack;
+end;
+
+procedure TfrmDepartment.edtLocateExit(Sender: TObject);
+begin
+  {set text and font-color}
+  edtLocate.Text:= 'Pronadji ...';
+  edtLocate.Font.Color:= clGray;
+end;
+
+procedure TfrmDepartment.edtLocateKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  {try to locate}
+  if(not TZAbstractDataset(zqDepartment).Locate(FD_NAME, edtLocate.Text, [loCaseInsensitive, loPartialKey])) then
+    begin
+      Beep;
+      edtLocate.SelectAll;
     end;
 end;
 

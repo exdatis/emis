@@ -8,34 +8,34 @@ inherited frmDepartment: TfrmDepartment
     Left = 0
     Height = 132
     Hint = 'Polja označena * su obavezna'
-    Top = 15
+    Top = 52
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
-    ClientHeight = 114
+    ClientHeight = 116
     ClientWidth = 799
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
     object Label2: TLabel
       Left = 295
-      Height = 16
+      Height = 14
       Top = 10
-      Width = 82
+      Width = 84
       Caption = 'Naziv odeljenja *'
       ParentColor = False
     end
     object Label1: TLabel
       Left = 11
-      Height = 16
+      Height = 14
       Top = 10
-      Width = 22
+      Width = 23
       Caption = 'Šifra'
       ParentColor = False
     end
     object dbCode: TDBEdit
       Left = 68
-      Height = 26
+      Height = 24
       Top = 5
       Width = 209
       DataField = 'D_CODE'
@@ -46,7 +46,7 @@ inherited frmDepartment: TfrmDepartment
     end
     object dbName: TDBEdit
       Left = 392
-      Height = 26
+      Height = 24
       Top = 5
       Width = 400
       DataField = 'D_NAME'
@@ -57,15 +57,15 @@ inherited frmDepartment: TfrmDepartment
     end
     object Label3: TLabel
       Left = 11
-      Height = 16
+      Height = 14
       Top = 36
-      Width = 44
+      Width = 45
       Caption = 'Sedište *'
       ParentColor = False
     end
     object dbLocation: TDBEdit
       Left = 68
-      Height = 26
+      Height = 24
       Hint = 'Enter za pretragu'
       Top = 31
       Width = 186
@@ -126,7 +126,7 @@ inherited frmDepartment: TfrmDepartment
     end
     object Label4: TLabel
       Left = 295
-      Height = 16
+      Height = 14
       Top = 36
       Width = 43
       Caption = 'Adresa *'
@@ -134,7 +134,7 @@ inherited frmDepartment: TfrmDepartment
     end
     object dbAddress: TDBEdit
       Left = 392
-      Height = 26
+      Height = 24
       Top = 31
       Width = 400
       DataField = 'D_ADDRESS'
@@ -145,15 +145,15 @@ inherited frmDepartment: TfrmDepartment
     end
     object Label5: TLabel
       Left = 11
-      Height = 16
+      Height = 14
       Top = 62
-      Width = 30
+      Width = 32
       Caption = 'E-mail'
       ParentColor = False
     end
     object dbMail: TDBEdit
       Left = 68
-      Height = 26
+      Height = 24
       Top = 57
       Width = 209
       DataField = 'D_MAIL'
@@ -164,15 +164,15 @@ inherited frmDepartment: TfrmDepartment
     end
     object Label6: TLabel
       Left = 295
-      Height = 16
+      Height = 14
       Top = 62
-      Width = 56
+      Width = 55
       Caption = 'Ustanova *'
       ParentColor = False
     end
     object dblHospital: TDBLookupComboBox
       Left = 392
-      Height = 28
+      Height = 27
       Top = 57
       Width = 400
       AutoComplete = True
@@ -187,15 +187,15 @@ inherited frmDepartment: TfrmDepartment
     end
     object Label7: TLabel
       Left = 11
-      Height = 16
+      Height = 14
       Top = 88
-      Width = 37
+      Width = 36
       Caption = 'Telefon'
       ParentColor = False
     end
     object dbPhone: TDBEdit
       Left = 68
-      Height = 26
+      Height = 24
       Top = 83
       Width = 209
       DataField = 'D_PHONE'
@@ -206,15 +206,15 @@ inherited frmDepartment: TfrmDepartment
     end
     object Label8: TLabel
       Left = 295
-      Height = 16
+      Height = 14
       Top = 88
-      Width = 18
+      Width = 17
       Caption = 'Fax'
       ParentColor = False
     end
     object dbFax: TDBEdit
       Left = 392
-      Height = 26
+      Height = 24
       Top = 83
       Width = 209
       DataField = 'D_FAX'
@@ -227,9 +227,9 @@ inherited frmDepartment: TfrmDepartment
   object dbgDepartment: TDBGrid[3]
     Cursor = crHandPoint
     Left = 0
-    Height = 326
+    Height = 289
     Hint = 'Klikni naslov polja za sortiranje'
-    Top = 147
+    Top = 184
     Width = 803
     Align = alClient
     AlternateColor = clScrollBar
@@ -245,9 +245,9 @@ inherited frmDepartment: TfrmDepartment
     OnTitleClick = dbgDepartmentTitleClick
   end
   object panelFindLocation: TPanel[4]
-    Left = 71
+    Left = 70
     Height = 260
-    Top = 88
+    Top = 119
     Width = 722
     ClientHeight = 260
     ClientWidth = 722
@@ -300,9 +300,41 @@ inherited frmDepartment: TfrmDepartment
       TabOrder = 2
     end
   end
-  inherited actDb: TActionList[5]
+  object panelSearch: TPanel[5]
+    Left = 0
+    Height = 37
+    Top = 15
+    Width = 803
+    Align = alTop
+    ClientHeight = 37
+    ClientWidth = 803
+    TabOrder = 4
+    object Label9: TLabel
+      Left = 8
+      Height = 14
+      Top = 13
+      Width = 345
+      Caption = 'Pronadji odeljenje po nazivu ( unos karaktera od početka reči-naziva ) : '
+      ParentColor = False
+    end
+    object edtLocate: TEdit
+      Left = 429
+      Height = 24
+      Top = 8
+      Width = 365
+      Font.Color = clGray
+      Font.Height = -11
+      OnEnter = edtLocateEnter
+      OnExit = edtLocateExit
+      OnKeyUp = edtLocateKeyUp
+      ParentFont = False
+      TabOrder = 0
+      Text = 'Pronadji ...'
+    end
   end
-  object zqDepartment: TZQuery[6]
+  inherited actDb: TActionList[6]
+  end
+  object zqDepartment: TZQuery[7]
     Connection = dModule.zdbh
     SortedFields = 'D_NAME'
     AfterOpen = zqDepartmentAfterOpen
@@ -515,13 +547,13 @@ inherited frmDepartment: TfrmDepartment
       Size = 100
     end
   end
-  object zsecDepartment: TZSequence[7]
+  object zsecDepartment: TZSequence[8]
     Connection = dModule.zdbh
     SequenceName = 'DEPARTMENT_SEQ'
     left = 552
     top = 327
   end
-  object zupdDepartment: TZUpdateSQL[8]
+  object zupdDepartment: TZUpdateSQL[9]
     DeleteSQL.Strings = (
       'DELETE FROM '
       '  DEPARTMENT '
@@ -642,12 +674,12 @@ inherited frmDepartment: TfrmDepartment
         ParamType = ptUnknown
       end>
   end
-  object dsDepartment: TDataSource[9]
+  object dsDepartment: TDataSource[10]
     DataSet = zqDepartment
     left = 512
     top = 304
   end
-  object zroHospital: TZReadOnlyQuery[10]
+  object zroHospital: TZReadOnlyQuery[11]
     Connection = dModule.zdbh
     SortedFields = 'H_NAME'
     SQL.Strings = (
@@ -685,17 +717,17 @@ inherited frmDepartment: TfrmDepartment
       Size = 280
     end
   end
-  object dsHospital: TDataSource[11]
+  object dsHospital: TDataSource[12]
     DataSet = zroHospital
     left = 669
     top = 404
   end
-  object dsFindLocation: TDataSource[12]
+  object dsFindLocation: TDataSource[13]
     DataSet = zroFindLocation
     left = 92
     top = 313
   end
-  object zroFindLocation: TZReadOnlyQuery[13]
+  object zroFindLocation: TZReadOnlyQuery[14]
     Connection = dModule.zdbh
     SortedFields = 'L_NAME'
     SQL.Strings = (
@@ -772,7 +804,7 @@ inherited frmDepartment: TfrmDepartment
       Size = 280
     end
   end
-  object actFind: TActionList[14]
+  object actFind: TActionList[15]
     left = 163
     top = 400
     object actFindLocationByCode: TAction
@@ -796,7 +828,7 @@ inherited frmDepartment: TfrmDepartment
       OnExecute = actFindLocationHelpDocExecute
     end
   end
-  object pupFindLocation: TPopupMenu[15]
+  object pupFindLocation: TPopupMenu[16]
     left = 241
     top = 419
     object MenuItem1: TMenuItem

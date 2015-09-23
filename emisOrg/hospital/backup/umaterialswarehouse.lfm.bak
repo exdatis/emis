@@ -7,7 +7,7 @@ inherited frmMaterialsWarehouse: TfrmMaterialsWarehouse
   object groupBoxEdit: TGroupBox[2]
     Left = 0
     Height = 131
-    Top = 15
+    Top = 52
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
@@ -225,9 +225,9 @@ inherited frmMaterialsWarehouse: TfrmMaterialsWarehouse
   object dbgWarehouse: TDBGrid[3]
     Cursor = crHandPoint
     Left = 0
-    Height = 327
+    Height = 290
     Hint = 'Klikni naslov polja za sortiranje'
-    Top = 146
+    Top = 183
     Width = 803
     Align = alClient
     AlternateColor = clScrollBar
@@ -244,7 +244,7 @@ inherited frmMaterialsWarehouse: TfrmMaterialsWarehouse
   object panelFindLocation: TPanel[4]
     Left = 69
     Height = 260
-    Top = 82
+    Top = 119
     Width = 722
     ClientHeight = 260
     ClientWidth = 722
@@ -297,9 +297,40 @@ inherited frmMaterialsWarehouse: TfrmMaterialsWarehouse
       TabOrder = 2
     end
   end
-  inherited actDb: TActionList[5]
+  object panelSearch: TPanel[5]
+    Left = 0
+    Height = 37
+    Top = 15
+    Width = 803
+    Align = alTop
+    ClientHeight = 37
+    ClientWidth = 803
+    TabOrder = 4
+    object Label9: TLabel
+      Left = 8
+      Height = 14
+      Top = 13
+      Width = 343
+      Caption = 'Pronadji skladište po nazivu ( unos karaktera od početka reči-naziva ) : '
+      ParentColor = False
+    end
+    object edtLocate: TEdit
+      Left = 429
+      Height = 24
+      Top = 8
+      Width = 365
+      Font.Color = clGray
+      Font.Height = -11
+      OnEnter = edtLocateEnter
+      OnExit = edtLocateExit
+      ParentFont = False
+      TabOrder = 0
+      Text = 'Pronadji ...'
+    end
   end
-  object zqWarehouse: TZQuery[6]
+  inherited actDb: TActionList[6]
+  end
+  object zqWarehouse: TZQuery[7]
     Connection = dModule.zdbh
     SortedFields = 'MW_NAME'
     AfterOpen = zqWarehouseAfterOpen
@@ -487,7 +518,7 @@ inherited frmMaterialsWarehouse: TfrmMaterialsWarehouse
       Size = 280
     end
   end
-  object zroFindLocation: TZReadOnlyQuery[7]
+  object zroFindLocation: TZReadOnlyQuery[8]
     Connection = dModule.zdbh
     SortedFields = 'L_NAME'
     SQL.Strings = (
@@ -564,12 +595,12 @@ inherited frmMaterialsWarehouse: TfrmMaterialsWarehouse
       Size = 280
     end
   end
-  object dsFindLocation: TDataSource[8]
+  object dsFindLocation: TDataSource[9]
     DataSet = zroFindLocation
     left = 192
     top = 388
   end
-  object actFind: TActionList[9]
+  object actFind: TActionList[10]
     left = 276
     top = 403
     object actFindLocationByCode: TAction
@@ -587,7 +618,7 @@ inherited frmMaterialsWarehouse: TfrmMaterialsWarehouse
       Hint = 'Pomoć u pretrazi'
     end
   end
-  object pupFindLocation: TPopupMenu[10]
+  object pupFindLocation: TPopupMenu[11]
     left = 348
     top = 419
     object MenuItem1: TMenuItem
@@ -603,23 +634,23 @@ inherited frmMaterialsWarehouse: TfrmMaterialsWarehouse
       Action = actFindLocationHelp
     end
   end
-  object dsWarehouse: TDataSource[11]
+  object dsWarehouse: TDataSource[12]
     DataSet = zqWarehouse
     left = 576
     top = 360
   end
-  object zseqWarehouse: TZSequence[12]
+  object zseqWarehouse: TZSequence[13]
     Connection = dModule.zdbh
     SequenceName = 'WAREHOUSE_SEQ'
     left = 535
     top = 423
   end
-  object dsDepartment: TDataSource[13]
+  object dsDepartment: TDataSource[14]
     DataSet = zroDepartment
     left = 713
     top = 402
   end
-  object zroDepartment: TZReadOnlyQuery[14]
+  object zroDepartment: TZReadOnlyQuery[15]
     Connection = dModule.zdbh
     SortedFields = 'D_NAME'
     SQL.Strings = (
@@ -657,7 +688,7 @@ inherited frmMaterialsWarehouse: TfrmMaterialsWarehouse
       Size = 280
     end
   end
-  object zupdWarehouse: TZUpdateSQL[15]
+  object zupdWarehouse: TZUpdateSQL[16]
     DeleteSQL.Strings = (
       'DELETE FROM '
       '  MATERIALS_WAREHOUSE '
