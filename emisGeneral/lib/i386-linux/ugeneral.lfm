@@ -1157,6 +1157,11 @@ object frmGeneral: TfrmGeneral
       Hint = 'Grupe lekova'
       OnExecute = actDrugGroupsExecute
     end
+    object actDrugs: TAction
+      Caption = 'Lekovi'
+      Hint = 'Lekovi'
+      OnExecute = actDrugsExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2202,6 +2207,12 @@ object frmGeneral: TfrmGeneral
         end
         object MenuItem56: TMenuItem
           Action = actDrugGroups
+        end
+        object MenuItem57: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem58: TMenuItem
+          Action = actDrugs
         end
       end
     end

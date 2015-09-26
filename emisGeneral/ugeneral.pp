@@ -44,6 +44,7 @@ type
     actDrugNomenclatures: TAction;
     actGenerics: TAction;
     actDrugGroups: TAction;
+    actDrugs: TAction;
     actPropertiesOfDrug: TAction;
     actTaxes: TAction;
     actMeasure: TAction;
@@ -111,6 +112,8 @@ type
     MenuItem54: TMenuItem;
     MenuItem55: TMenuItem;
     MenuItem56: TMenuItem;
+    MenuItem57: TMenuItem;
+    MenuItem58: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
@@ -184,6 +187,7 @@ type
     procedure actDrugFormsExecute(Sender: TObject);
     procedure actDrugGroupsExecute(Sender: TObject);
     procedure actDrugNomenclaturesExecute(Sender: TObject);
+    procedure actDrugsExecute(Sender: TObject);
     procedure actEditDataPdfExecute(Sender: TObject);
     procedure actFrmSuppliersExecute(Sender: TObject);
     procedure actGenericsExecute(Sender: TObject);
@@ -247,7 +251,7 @@ uses
   uDocBuying, uDocSell, uDocContract, uMeasure, uDrugForms, uDocMedicalInput,
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
   uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors,
-  uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups;
+  uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups, uDrugs;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -1215,6 +1219,34 @@ begin
     newForm.Top:= 0;
     {open dataSets}
     newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actDrugsExecute(Sender: TObject);
+var
+  newForm : TfrmDrugs;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDrugs.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openRODataSets;
+    Application.ProcessMessages;
+    newForm.applyCharFilter; {with default char}
     {show form}
     newForm.Show;
     {set focus to enable shortcuts}
