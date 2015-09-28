@@ -152,10 +152,10 @@ inherited frmDrugs: TfrmDrugs
     Height = 137
     Top = 336
     Width = 803
-    ActivePage = tsNomenclatures
+    ActivePage = tsDrug
     Align = alClient
     Images = frmGeneral.imgGeneral
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 3
     OnChange = pcDrugsChange
     object tsDrug: TTabSheet
@@ -463,7 +463,85 @@ inherited frmDrugs: TfrmDrugs
     end
     object tsStrong: TTabSheet
       Caption = 'Jačina jedinice'
+      ClientHeight = 107
+      ClientWidth = 799
       ImageIndex = 12
+      object gbEditNomenclature1: TGroupBox
+        Left = 0
+        Height = 107
+        Hint = 'Polja sa (*) su obavezna'
+        Top = 0
+        Width = 799
+        Align = alClient
+        Caption = ' Obrada podataka '
+        ClientHeight = 91
+        ClientWidth = 795
+        TabOrder = 0
+        object Label12: TLabel
+          Left = 7
+          Height = 14
+          Top = 24
+          Width = 76
+          Caption = 'Jedinica mere *'
+          ParentColor = False
+        end
+        object dblDSMeasure: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 117
+          Height = 25
+          Top = 16
+          Width = 251
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'DS_MEASURE'
+          DataSource = dsDrugStrong
+          KeyField = 'M_ID'
+          ListField = 'M_NAME'
+          ListFieldIndex = 0
+          ListSource = dsMeasure
+          LookupCache = False
+          TabOrder = 0
+        end
+        object Label13: TLabel
+          Left = 7
+          Height = 14
+          Top = 49
+          Width = 52
+          Caption = 'Vrednost *'
+          ParentColor = False
+        end
+        object dbDSValue: TDBEdit
+          Left = 117
+          Height = 24
+          Top = 42
+          Width = 251
+          DataField = 'DS_VALUE'
+          DataSource = dsDrugStrong
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object dbgDrugStrong: TDBGrid
+          Cursor = crHandPoint
+          Left = 376
+          Height = 91
+          Hint = 'Klikni naslov polja za sortiranje'
+          Top = 0
+          Width = 419
+          Align = alRight
+          AlternateColor = clScrollBar
+          Color = clSilver
+          Columns = <>
+          DataSource = dsDrugStrong
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+          ReadOnly = True
+          ShowHint = True
+          TabOrder = 2
+          TitleFont.Height = -11
+          OnMouseMove = dbgDrugStrongMouseMove
+          OnTitleClick = dbgDrugStrongTitleClick
+        end
+      end
     end
     object tsProperties: TTabSheet
       Caption = 'Dodatne osobine'
@@ -1376,5 +1454,225 @@ inherited frmDrugs: TfrmDrugs
     DataSet = zroNomenclature
     left = 380
     top = 80
+  end
+  object zqDrugStrong: TZQuery[27]
+    Connection = dModule.zdbh
+    SortedFields = 'DS_ID'
+    BeforeOpen = zqDrugStrongBeforeOpen
+    AfterOpen = zqDrugStrongAfterOpen
+    AfterScroll = zqDrugStrongAfterScroll
+    UpdateObject = zupdDrugStrong
+    BeforePost = zqDrugStrongBeforePost
+    AfterPost = zqDrugStrongAfterPost
+    AfterDelete = zqDrugStrongAfterDelete
+    SQL.Strings = (
+      'SELECT '
+      '  a.DS_ID, '
+      '  a.DS_DRUG, '
+      '  a.DS_MEASURE, '
+      '  a.DS_VALUE, '
+      '  a.DRUG_CODE, '
+      '  a.DRUG_NAME,'
+      '  a.MEASURE_CODE, '
+      '  a.MEASURE_NAME'
+      'FROM '
+      '  DRUG_STRONG_V a '
+      'WHERE'
+      '  a.DS_DRUG = :DS_DRUG'
+      'ORDER BY'
+      '  a.DS_ID'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'DS_DRUG'
+        ParamType = ptUnknown
+      end>
+    IndexFieldNames = 'DS_ID Asc'
+    Sequence = zseqStrong
+    SequenceField = 'DS_ID'
+    left = 335
+    top = 237
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'DS_DRUG'
+        ParamType = ptUnknown
+      end>
+    object zqDrugStrongDS_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DS_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqDrugStrongDS_DRUG: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DS_DRUG'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqDrugStrongDS_MEASURE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DS_MEASURE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqDrugStrongMEASURE_NAME: TStringField
+      DisplayLabel = 'Jedinica mere'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'MEASURE_NAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object zqDrugStrongDS_VALUE: TFloatField
+      DisplayLabel = 'Vrednost'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'DS_VALUE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '#0.00'
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object zqDrugStrongDRUG_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'DRUG_CODE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+    object zqDrugStrongDRUG_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'DRUG_NAME'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 280
+    end
+    object zqDrugStrongMEASURE_CODE: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'MEASURE_CODE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 60
+    end
+  end
+  object zseqStrong: TZSequence[28]
+    Connection = dModule.zdbh
+    SequenceName = 'STRONG_SEQ'
+    left = 309
+    top = 261
+  end
+  object dsDrugStrong: TDataSource[29]
+    DataSet = zqDrugStrong
+    left = 347
+    top = 276
+  end
+  object zupdDrugStrong: TZUpdateSQL[30]
+    DeleteSQL.Strings = (
+      'DELETE FROM '
+      '  DRUG_STRONG a '
+      'WHERE'
+      '  a.DS_ID = :DS_ID'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO '
+      '  DRUG_STRONG (DS_ID, DS_DRUG, DS_MEASURE, DS_VALUE)'
+      'VALUES ('
+      '  :DS_ID, '
+      '  :DS_DRUG, '
+      '  :DS_MEASURE, '
+      '  :DS_VALUE'
+      ')'
+    )
+    ModifySQL.Strings = (
+      'UPDATE '
+      '  DRUG_STRONG a'
+      'SET '
+      '  a.DS_DRUG = :DS_DRUG, '
+      '  a.DS_MEASURE = :DS_MEASURE, '
+      '  a.DS_VALUE = :DS_VALUE'
+      'WHERE'
+      '  a.DS_ID = :DS_ID'
+    )
+    RefreshSQL.Strings = (
+      'SELECT '
+      '  a.DS_ID, '
+      '  a.DS_DRUG, '
+      '  a.DS_MEASURE, '
+      '  a.DS_VALUE, '
+      '  a.DRUG_CODE, '
+      '  a.DRUG_NAME,'
+      '  a.MEASURE_CODE, '
+      '  a.MEASURE_NAME'
+      'FROM '
+      '  DRUG_STRONG_V a '
+      'WHERE'
+      '  a.DS_ID = :DS_ID'
+      ''
+    )
+    UseSequenceFieldForRefreshSQL = True
+    left = 278
+    top = 251
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'DS_DRUG'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DS_MEASURE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DS_VALUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DS_ID'
+        ParamType = ptUnknown
+      end>
   end
 end

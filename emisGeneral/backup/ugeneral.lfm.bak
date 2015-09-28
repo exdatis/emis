@@ -1,10 +1,10 @@
 object frmGeneral: TfrmGeneral
   Left = 212
-  Height = 585
+  Height = 583
   Top = 157
   Width = 1035
   Caption = 'Emis software - opšte tabele'
-  ClientHeight = 564
+  ClientHeight = 562
   ClientWidth = 1035
   Menu = mnuGeneral
   OnClose = FormClose
@@ -14,7 +14,7 @@ object frmGeneral: TfrmGeneral
   object statusBarGeneral: TStatusBar
     Left = 0
     Height = 19
-    Top = 545
+    Top = 543
     Width = 1035
     AutoHint = True
     Panels = <    
@@ -375,11 +375,11 @@ object frmGeneral: TfrmGeneral
   end
   object panelMnu: TPanel
     Left = 0
-    Height = 519
+    Height = 517
     Top = 26
     Width = 224
     Align = alLeft
-    ClientHeight = 519
+    ClientHeight = 517
     ClientWidth = 224
     TabOrder = 2
     object Label1: TLabel
@@ -558,7 +558,7 @@ object frmGeneral: TfrmGeneral
   end
   object panelForms: TBCPanel
     Left = 232
-    Height = 519
+    Height = 517
     Top = 26
     Width = 803
     Align = alRight
@@ -2207,6 +2207,12 @@ object frmGeneral: TfrmGeneral
         end
         object MenuItem56: TMenuItem
           Action = actDrugGroups
+        end
+        object MenuItem57: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem58: TMenuItem
+          Action = actDrugs
         end
       end
     end
