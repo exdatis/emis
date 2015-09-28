@@ -1,4 +1,6 @@
 inherited frmDrugs: TfrmDrugs
+  Left = 383
+  Top = 157
   OnClose = FormClose
   OnCreate = FormCreate
   inherited lblBaseDbTitle: TLabel
@@ -145,6 +147,7 @@ inherited frmDrugs: TfrmDrugs
     OnTitleClick = dbgDrugsTitleClick
   end
   object pcDrugs: TPageControl[4]
+    Cursor = crHandPoint
     Left = 0
     Height = 137
     Top = 336
@@ -154,6 +157,7 @@ inherited frmDrugs: TfrmDrugs
     Images = frmGeneral.imgGeneral
     TabIndex = 0
     TabOrder = 3
+    OnChange = pcDrugsChange
     object tsDrug: TTabSheet
       Caption = 'Lekovi'
       ClientHeight = 107
@@ -377,9 +381,91 @@ inherited frmDrugs: TfrmDrugs
     end
     object tsNomenclatures: TTabSheet
       Caption = 'Nomenklature'
+      ClientHeight = 107
+      ClientWidth = 799
       ImageIndex = 2
+      object gbEditNomenclature: TGroupBox
+        Left = 0
+        Height = 107
+        Hint = 'Polja sa (*) su obavezna'
+        Top = 0
+        Width = 799
+        Align = alClient
+        Caption = ' Obrada podataka '
+        ClientHeight = 91
+        ClientWidth = 795
+        TabOrder = 0
+        object Label10: TLabel
+          Left = 7
+          Height = 14
+          Top = 24
+          Width = 79
+          Caption = 'Nomenklatura *'
+          ParentColor = False
+        end
+        object dblNomenclature: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 117
+          Height = 25
+          Top = 16
+          Width = 251
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'DNV_NOMENCLATURE'
+          DataSource = dsNomenclatureVar
+          KeyField = 'DN_ID'
+          ListField = 'DN_NAME'
+          ListFieldIndex = 0
+          ListSource = dsNomenclature
+          LookupCache = False
+          TabOrder = 0
+        end
+        object Label11: TLabel
+          Left = 7
+          Height = 14
+          Top = 49
+          Width = 52
+          Caption = 'Vrednost *'
+          ParentColor = False
+        end
+        object dbValue: TDBEdit
+          Left = 117
+          Height = 24
+          Top = 42
+          Width = 251
+          DataField = 'DNV_VALUE'
+          DataSource = dsNomenclatureVar
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object dbgNomenclatureVar: TDBGrid
+          Cursor = crHandPoint
+          Left = 376
+          Height = 91
+          Hint = 'Klikni naslov polja za sortiranje'
+          Top = 0
+          Width = 419
+          Align = alRight
+          AlternateColor = clScrollBar
+          Color = clSilver
+          Columns = <>
+          DataSource = dsNomenclatureVar
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+          ReadOnly = True
+          ShowHint = True
+          TabOrder = 2
+          TitleFont.Height = -11
+          OnMouseMove = dbgNomenclatureVarMouseMove
+          OnTitleClick = dbgNomenclatureVarTitleClick
+        end
+      end
     end
-    object tsDrugProperties: TTabSheet
+    object tsStrong: TTabSheet
+      Caption = 'Jačina jedinice'
+      ImageIndex = 12
+    end
+    object tsProperties: TTabSheet
       Caption = 'Dodatne osobine'
       ImageIndex = 21
     end
@@ -675,6 +761,7 @@ inherited frmDrugs: TfrmDrugs
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Visible = False
       MaxValue = 0
       MinValue = 0
       Precision = 2
@@ -1045,5 +1132,249 @@ inherited frmDrugs: TfrmDrugs
       OnExecute = actClearFilterExecute
       ShortCut = 49217
     end
+  end
+  object zqNomenclatureVar: TZQuery[21]
+    Connection = dModule.zdbh
+    SortedFields = 'DNV_ID'
+    BeforeOpen = zqNomenclatureVarBeforeOpen
+    AfterOpen = zqNomenclatureVarAfterOpen
+    AfterScroll = zqNomenclatureVarAfterScroll
+    UpdateObject = zupdNomenclatureVar
+    BeforePost = zqNomenclatureVarBeforePost
+    AfterPost = zqNomenclatureVarAfterPost
+    AfterDelete = zqNomenclatureVarAfterDelete
+    SQL.Strings = (
+      'SELECT '
+      '  a.DNV_ID, '
+      '  a.DNV_DRUG, '
+      '  a.DNV_NOMENCLATURE, '
+      '  a.DNV_VALUE, '
+      '  a.DRUG_CODE,'
+      '  a.DRUG_NAME, '
+      '  a.NOMENCLATURE_NAME'
+      'FROM '
+      '  DRUG_NOMENCLATURE_VAR_V a '
+      'WHERE'
+      '  a.DNV_DRUG = :DNV_DRUG'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'DNV_DRUG'
+        ParamType = ptUnknown
+      end>
+    IndexFieldNames = 'DNV_ID Asc'
+    Sequence = zseqNomenlatureVar
+    SequenceField = 'DNV_ID'
+    left = 525
+    top = 144
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'DNV_DRUG'
+        ParamType = ptUnknown
+      end>
+    object zqNomenclatureVarDNV_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DNV_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqNomenclatureVarDNV_DRUG: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DNV_DRUG'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqNomenclatureVarDNV_NOMENCLATURE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DNV_NOMENCLATURE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqNomenclatureVarNOMENCLATURE_NAME: TStringField
+      DisplayLabel = 'Nomenklatura'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'NOMENCLATURE_NAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqNomenclatureVarDNV_VALUE: TStringField
+      DisplayLabel = 'Vrednost'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'DNV_VALUE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zqNomenclatureVarDRUG_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'DRUG_CODE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+    object zqNomenclatureVarDRUG_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'DRUG_NAME'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 280
+    end
+  end
+  object zseqNomenlatureVar: TZSequence[22]
+    Connection = dModule.zdbh
+    SequenceName = 'NOMENCLATURES_VAR_SEQ'
+    left = 484
+    top = 165
+  end
+  object dsNomenclatureVar: TDataSource[23]
+    DataSet = zqNomenclatureVar
+    left = 441
+    top = 156
+  end
+  object zupdNomenclatureVar: TZUpdateSQL[24]
+    DeleteSQL.Strings = (
+      'DELETE FROM '
+      '  DRUG_NOMENCLATURE_VAR a '
+      'WHERE'
+      '   a.DNV_ID = :DNV_ID'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO '
+      '  DRUG_NOMENCLATURE_VAR (DNV_ID, DNV_DRUG, DNV_NOMENCLATURE,'
+      '  DNV_VALUE)'
+      'VALUES ('
+      '  :DNV_ID, '
+      '  :DNV_DRUG, '
+      '  :DNV_NOMENCLATURE, '
+      '  :DNV_VALUE'
+      ')'
+    )
+    ModifySQL.Strings = (
+      'UPDATE '
+      '  DRUG_NOMENCLATURE_VAR a'
+      'SET '
+      '  a.DNV_DRUG = :DNV_DRUG, '
+      '  a.DNV_NOMENCLATURE = :DNV_NOMENCLATURE, '
+      '  a.DNV_VALUE = :DNV_VALUE'
+      'WHERE'
+      '  a.DNV_ID = :DNV_ID'
+    )
+    RefreshSQL.Strings = (
+      'SELECT '
+      '  a.DNV_ID, '
+      '  a.DNV_DRUG, '
+      '  a.DNV_NOMENCLATURE, '
+      '  a.DNV_VALUE, '
+      '  a.DRUG_CODE,'
+      '  a.DRUG_NAME, '
+      '  a.NOMENCLATURE_NAME'
+      'FROM '
+      '  DRUG_NOMENCLATURE_VAR_V a '
+      'WHERE'
+      '  a.DNV_ID = :DNV_ID'
+    )
+    UseSequenceFieldForRefreshSQL = True
+    left = 540
+    top = 185
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'DNV_DRUG'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DNV_NOMENCLATURE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DNV_VALUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DNV_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object zroNomenclature: TZReadOnlyQuery[25]
+    Connection = dModule.zdbh
+    SortedFields = 'DN_NAME'
+    SQL.Strings = (
+      'SELECT '
+      '  a.DN_ID, '
+      '  a.DN_NAME'
+      'FROM '
+      '  DRUG_NOMENCLATURES a'
+      'ORDER BY'
+      '  a.DN_NAME'
+    )
+    Params = <>
+    IndexFieldNames = 'DN_NAME Asc'
+    left = 344
+    top = 71
+    object zroNomenclatureDN_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DN_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroNomenclatureDN_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'DN_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 280
+    end
+  end
+  object dsNomenclature: TDataSource[26]
+    DataSet = zroNomenclature
+    left = 380
+    top = 80
   end
 end

@@ -9,6 +9,9 @@ uses
   Graphics, Dialogs, StdCtrls, ActnList, ExtCtrls, Buttons, DBGrids, ComCtrls,
   DbCtrls, uBaseDbForm, db, ZAbstractRODataset, ZAbstractDataset;
 
+{exception if drug_id is null}
+type
+  TENoDrugs = class(Exception);
 type
 
   { TfrmDrugs }
@@ -21,6 +24,11 @@ type
     btnShowAll: TSpeedButton;
     cmbCharFilter: TComboBox;
     cmbFieldArg: TComboBox;
+    dbgNomenclatureVar: TDBGrid;
+    dbValue: TDBEdit;
+    dblNomenclature: TDBLookupComboBox;
+    dsNomenclature: TDataSource;
+    dsNomenclatureVar: TDataSource;
     dbCode: TDBEdit;
     dbBarCode: TDBEdit;
     dblGenerics: TDBLookupComboBox;
@@ -39,7 +47,10 @@ type
     dsDrugs: TDataSource;
     edtLocate: TEdit;
     gbEditDrugs: TGroupBox;
+    gbEditNomenclature: TGroupBox;
     Label1: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -50,7 +61,8 @@ type
     Label9: TLabel;
     pcDrugs: TPageControl;
     panelParams: TPanel;
-    tsDrugProperties: TTabSheet;
+    tsProperties: TTabSheet;
+    tsStrong: TTabSheet;
     tsNomenclatures: TTabSheet;
     tsDrug: TTabSheet;
     zqDrugs: TZQuery;
@@ -74,6 +86,17 @@ type
     zqDrugsMEASURE_NAME: TStringField;
     zqDrugsTAX_CODE: TStringField;
     zqDrugsTAX_VALUE: TFloatField;
+    zqNomenclatureVar: TZQuery;
+    zqNomenclatureVarDNV_DRUG: TLongintField;
+    zqNomenclatureVarDNV_ID: TLongintField;
+    zqNomenclatureVarDNV_NOMENCLATURE: TLongintField;
+    zqNomenclatureVarDNV_VALUE: TStringField;
+    zqNomenclatureVarDRUG_CODE: TStringField;
+    zqNomenclatureVarDRUG_NAME: TStringField;
+    zqNomenclatureVarNOMENCLATURE_NAME: TStringField;
+    zroNomenclature: TZReadOnlyQuery;
+    zroNomenclatureDN_ID: TLongintField;
+    zroNomenclatureDN_NAME: TStringField;
     zroTaxes: TZReadOnlyQuery;
     zroMeasure: TZReadOnlyQuery;
     zroDrugGroups: TZReadOnlyQuery;
@@ -90,6 +113,8 @@ type
     zroTaxesTX_CODE: TStringField;
     zroTaxesTX_ID: TLongintField;
     zseqProducts: TZSequence;
+    zseqNomenlatureVar: TZSequence;
+    zupdNomenclatureVar: TZUpdateSQL;
     zupdDrugs: TZUpdateSQL;
     procedure actCharFilterExecute(Sender: TObject);
     procedure actClearFilterExecute(Sender: TObject);
@@ -97,17 +122,28 @@ type
     procedure dbgDrugsMouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
     procedure dbgDrugsTitleClick(Column: TColumn);
+    procedure dbgNomenclatureVarMouseMove(Sender: TObject; Shift: TShiftState;
+      X, Y: Integer);
+    procedure dbgNomenclatureVarTitleClick(Column: TColumn);
     procedure edtLocateEnter(Sender: TObject);
     procedure edtLocateExit(Sender: TObject);
     procedure edtLocateKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState
       );
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure pcDrugsChange(Sender: TObject);
     procedure zqDrugsAfterDelete(DataSet: TDataSet);
     procedure zqDrugsAfterOpen(DataSet: TDataSet);
     procedure zqDrugsAfterPost(DataSet: TDataSet);
     procedure zqDrugsAfterScroll(DataSet: TDataSet);
     procedure zqDrugsBeforeScroll(DataSet: TDataSet);
+    procedure zqDrugsNewRecord(DataSet: TDataSet);
+    procedure zqNomenclatureVarAfterDelete(DataSet: TDataSet);
+    procedure zqNomenclatureVarAfterOpen(DataSet: TDataSet);
+    procedure zqNomenclatureVarAfterPost(DataSet: TDataSet);
+    procedure zqNomenclatureVarAfterScroll(DataSet: TDataSet);
+    procedure zqNomenclatureVarBeforeOpen(DataSet: TDataSet);
+    procedure zqNomenclatureVarBeforePost(DataSet: TDataSet);
   private
     { private declarations }
     charArg : String; {name-start with this char}
@@ -132,6 +168,8 @@ type
 var
   frmDrugs: TfrmDrugs;
 const
+  {exception msg}
+  ENoDrugsMsg : String = 'Nije selektovan/izabran lek.';
   //**************************** drugs *****************************************
   {fields of tbl drugs}
   FD_ID : String = 'D_ID';
@@ -158,6 +196,16 @@ const
   {params}
   PARAM_NAME : String = 'D_NAME'; {:D_NAME}
   //****************************************************************************
+  {fields of table drug_nomenclature_var}
+  FDNV_ID : String = 'DNV_ID';
+  FDNV_DRUG : String = 'DNV_DRUG';
+  FDNV_NOMENCLATURE : String = 'DNV_NOMENCLATURE';
+  FDNV_VALUE : String = 'DNV_VALUE';
+  {fields of view drug_nomenclature_var_v}
+  NOMENCLATURE_NAME : String = 'NOMENCLATURE_NAME';
+  DRUG_CODE : String = 'DRUG_CODE';
+  DRUG_NAME : String = 'DRUG_NAME';
+  //****************************************************************************
 implementation
 uses
   uDModule, uConfirm;
@@ -170,6 +218,41 @@ begin
   {default args}
   charArg:= 'AB%';
   fieldArg:= PARAM_NAME; {locate using field_name}
+end;
+
+procedure TfrmDrugs.pcDrugsChange(Sender: TObject);
+begin
+  //exception if not drugs
+  if(TZAbstractDataset(zqDrugs).IsEmpty) then
+    if(pcDrugs.ActivePageIndex > 0) then
+      begin
+        pcDrugs.ActivePageIndex:= 0;
+        Application.ProcessMessages;
+        raise TENoDrugs.Create(ENoDrugsMsg);
+        Application.ProcessMessages;
+        Exit;
+      end;
+  {else open dataSet}
+  case pcDrugs.ActivePageIndex of
+    1:
+       begin
+         TZAbstractDataset(zqNomenclatureVar).DisableControls;
+         TZAbstractDataset(zqNomenclatureVar).Close;
+         TZAbstractDataset(zqNomenclatureVar).Open;
+         TZAbstractDataset(zqNomenclatureVar).EnableControls;
+         dbgNomenclatureVar.Refresh;
+         Application.ProcessMessages;
+       end;
+    2:
+        begin
+          //TZAbstractDataset(zqNomenclatureVar).DisableControls;
+          //TZAbstractDataset(zqNomenclatureVar).Close;
+          //TZAbstractDataset(zqNomenclatureVar).Open;
+          //TZAbstractDataset(zqNomenclatureVar).EnableControls;
+          //dbgNomenclatureVar.Refresh;
+          Application.ProcessMessages;
+        end;
+  end;
 end;
 
 procedure TfrmDrugs.zqDrugsAfterDelete(DataSet: TDataSet);
@@ -288,6 +371,118 @@ begin
     end;
 end;
 
+procedure TfrmDrugs.zqDrugsNewRecord(DataSet: TDataSet);
+begin
+  {set default values}
+  TZAbstractDataset(DataSet).FieldByName(FD_PIECES).AsFloat:= 1;
+end;
+
+procedure TfrmDrugs.zqNomenclatureVarAfterDelete(DataSet: TDataSet);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {upply updates}
+  TZAbstractDataset(DataSet).ApplyUpdates;
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmDrugs.zqNomenclatureVarAfterOpen(DataSet: TDataSet);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {set btns cheking recCount}
+  doAfterOpenDataSet(TZAbstractDataset(DataSet));
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmDrugs.zqNomenclatureVarAfterPost(DataSet: TDataSet);
+var
+  {calc records(recNo and countRec)}
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {upply updates}
+  TZAbstractDataset(DataSet).ApplyUpdates;
+  {rtefresh current row}
+  TZAbstractDataset(DataSet).RefreshCurrentRow(True);
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then {*** never ***}
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmDrugs.zqNomenclatureVarAfterScroll(DataSet: TDataSet);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {set btns cheking recCount}
+  if(TZAbstractDataset(DataSet).State in [dsEdit, dsInsert]) then
+    Exit;
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmDrugs.zqNomenclatureVarBeforeOpen(DataSet: TDataSet);
+var
+  current_drug : Integer;
+begin
+  //find current
+  current_drug:= TZAbstractDataset(zqDrugs).FieldByName(FD_ID).AsInteger;
+  TZAbstractDataset(zqNomenclatureVar).ParamByName(FDNV_DRUG).AsInteger:= current_drug;
+end;
+
+procedure TfrmDrugs.zqNomenclatureVarBeforePost(DataSet: TDataSet);
+var
+  current_drug : Integer;
+begin
+  //find current
+  current_drug:= TZAbstractDataset(zqDrugs).FieldByName(FD_ID).AsInteger;
+  TZAbstractDataset(zqNomenclatureVar).FieldByName(FDNV_DRUG).AsInteger:= current_drug;
+end;
+
 procedure TfrmDrugs.actCharFilterExecute(Sender: TObject);
 begin
   {check current page}
@@ -367,6 +562,19 @@ begin
   edtRecNo.Text:= recMsg;
 end;
 
+procedure TfrmDrugs.dbgNomenclatureVarMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  {set cursor}
+  dbgNomenclatureVar.Cursor:= crHandPoint;
+end;
+
+procedure TfrmDrugs.dbgNomenclatureVarTitleClick(Column: TColumn);
+begin
+  {sort}
+  doSortDbGrid(TZAbstractDataset(zqNomenclatureVar), Column);
+end;
+
 procedure TfrmDrugs.edtLocateEnter(Sender: TObject);
 begin
   {check current page}
@@ -407,7 +615,7 @@ end;
 
 procedure TfrmDrugs.saveBeforeClose;
 begin
-
+  ShowMessage('Do not forget!');
 end;
 
 procedure TfrmDrugs.openRODataSets;
@@ -432,102 +640,114 @@ begin
   zroTaxes.DisableControls;
   zroTaxes.Open;
   zroTaxes.EnableControls;
+  //nomenclatures
+  zroNomenclature.DisableControls;
+  zroNomenclature.Open;
+  zroNomenclature.EnableControls;
 end;
 
 procedure TfrmDrugs.onActFirst;
 begin
+  {jump to first rec}
   case pcDrugs.ActivePageIndex of
-    0:   {jump to first rec}
-         doFirstRec(TZAbstractDataset(zqDrugs));
-    1: ShowMessage('Not jet');
+    0: doFirstRec(TZAbstractDataset(zqDrugs));
+    1: doFirstRec(TZAbstractDataset(zqNomenclatureVar));
     2: ShowMessage('Not jet');
   end;
 end;
 
 procedure TfrmDrugs.onActPrior;
 begin
+  {jump to prior rec}
   case pcDrugs.ActivePageIndex of
-    0:   {jump to prior rec}
-         doPriorRec(TZAbstractDataset(zqDrugs));
-    1: ShowMessage('Not jet');
+    0: doPriorRec(TZAbstractDataset(zqDrugs));
+    1: doPriorRec(TZAbstractDataset(zqNomenclatureVar));
     2: ShowMessage('Not jet');
   end;
 end;
 
 procedure TfrmDrugs.onActNext;
 begin
+  {jump to next rec}
   case pcDrugs.ActivePageIndex of
-    0:   {jump to next rec}
-         doNextRec(TZAbstractDataset(zqDrugs));
-    1: ShowMessage('Not jet');
+    0: doNextRec(TZAbstractDataset(zqDrugs));
+    1: doNextRec(TZAbstractDataset(zqNomenclatureVar));
     2: ShowMessage('Not jet');
   end;
 end;
 
 procedure TfrmDrugs.onActLast;
 begin
+  {jump to last rec}
   case pcDrugs.ActivePageIndex of
-    0:   {jump to last rec}
-         doLastRec(TZAbstractDataset(zqDrugs));
-    1: ShowMessage('Not jet');
+    0: doLastRec(TZAbstractDataset(zqDrugs));
+    1: doLastRec(TZAbstractDataset(zqNomenclatureVar));
     2: ShowMessage('Not jet');
   end;
 end;
 
 procedure TfrmDrugs.onActInsert;
 begin
+  {set focus and insert new rec}
   case pcDrugs.ActivePageIndex of
     0:
        begin
-         {set focus and insert new rec}
          dbCode.SetFocus;
          doInsertRec(TZAbstractDataset(zqDrugs));
        end;
-    1: ShowMessage('Not jet');
+    1:
+       begin
+         dblNomenclature.SetFocus;
+         doInsertRec(TZAbstractDataset(zqNomenclatureVar));
+       end;
     2: ShowMessage('Not jet');
   end;
 end;
 
 procedure TfrmDrugs.onActDelete;
 begin
+  {delete rec}
   case pcDrugs.ActivePageIndex of
-    0:   {delete rec}
-         doDeleteRec(TZAbstractDataset(zqDrugs));
-    1: ShowMessage('Not jet');
+    0: doDeleteRec(TZAbstractDataset(zqDrugs));
+    1: doDeleteRec(TZAbstractDataset(zqNomenclatureVar));
     2: ShowMessage('Not jet');
   end;
 end;
 
 procedure TfrmDrugs.onActEdit;
 begin
+  {set focus and edit rec}
   case pcDrugs.ActivePageIndex of
     0:
        begin
-         {set focus and edit rec}
          dbCode.SetFocus;
          doEditRec(TZAbstractDataset(zqDrugs));
        end;
-    1: ShowMessage('Not jet');
+    1:
+       begin
+          dblNomenclature.SetFocus;
+          doEditRec(TZAbstractDataset(zqNomenclatureVar));
+        end;
     2: ShowMessage('Not jet');
   end;
 end;
 
 procedure TfrmDrugs.onActSave;
 begin
+  {save rec}
   case pcDrugs.ActivePageIndex of
-    0:   {save rec}
-         doSaveRec(TZAbstractDataset(zqDrugs));
-    1: ShowMessage('Not jet');
+    0: doSaveRec(TZAbstractDataset(zqDrugs));
+    1: doSaveRec(TZAbstractDataset(zqNomenclatureVar));
     2: ShowMessage('Not jet');
   end;
 end;
 
 procedure TfrmDrugs.onActCancel;
 begin
+  {cancel rec}
   case pcDrugs.ActivePageIndex of
-    0:   {cancel rec}
-         doCancelRec(TZAbstractDataset(zqDrugs));
-    1: ShowMessage('Not jet');
+    0: doCancelRec(TZAbstractDataset(zqDrugs));
+    1: doCancelRec(TZAbstractDataset(zqNomenclatureVar));
     2: ShowMessage('Not jet');
   end;
 end;
