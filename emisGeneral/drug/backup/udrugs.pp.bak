@@ -301,6 +301,9 @@ begin
 end;
 
 procedure TfrmDrugs.pcDrugsChange(Sender: TObject);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
 begin
   //exception if not drugs
   if(TZAbstractDataset(zqDrugs).IsEmpty) then
@@ -314,6 +317,21 @@ begin
       end;
   {else open dataSet}
   case pcDrugs.ActivePageIndex of
+    0:
+       begin
+         {show recNo and countRec}
+         if(TZAbstractDataset(DataSet).IsEmpty) then
+           begin
+             edtRecNo.Text:= recMsg;
+             Exit;
+           end;
+         {find vars}
+         recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+         recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+         {create recMsg}
+         recMsg:= recNo + ' od ' + recCount;
+         edtRecNo.Text:= recMsg;
+       end;
     1:
        begin
          TZAbstractDataset(zqNomenclatureVar).DisableControls;
@@ -992,7 +1010,7 @@ begin
         doSaveRec(TZAbstractDataset(zqDrugStrong)); {drug_strong dataSet}
 
       if (TZAbstractDataset(zqPropertiesVar).State in [dsEdit, dsInsert]) then
-        doSaveRec(TZAbstractDataset(zqPropertiesVar)); {drugs dataSet}
+        doSaveRec(TZAbstractDataset(zqPropertiesVar)); {properties_var dataSet}
     end;
 end;
 

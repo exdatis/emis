@@ -281,7 +281,19 @@ end;
 
 procedure TfrmPropertiesOfDrug.openDataSet;
 begin
-
+  TZAbstractDataset(ztPropertiesOfDrug).DisableControls;
+  TZAbstractDataset(ztPropertiesOfDrug).Close;
+  try
+    TZAbstractDataset(ztPropertiesOfDrug).Open;
+    TZAbstractDataset(ztPropertiesOfDrug).EnableControls;
+  except
+    on e : Exception do
+    begin
+      dModule.zdbh.Rollback;
+      TZAbstractDataset(ztPropertiesOfDrug).EnableControls;
+      ShowMessage(e.Message);
+    end;
+  end;
 end;
 
 procedure TfrmPropertiesOfDrug.saveBeforeClose;

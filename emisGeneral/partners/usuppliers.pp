@@ -535,8 +535,8 @@ begin
   panelFindLocation.Visible:= False;
   //set focus
   dbAddress.SetFocus;
-  dbAddress.SelectAll;
   Application.ProcessMessages;
+  dbAddress.SelectAll;
 end;
 
 procedure TfrmSuppliers.onActFirst;

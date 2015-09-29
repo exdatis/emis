@@ -1,4 +1,6 @@
 inherited frmPropertiesOfDrug: TfrmPropertiesOfDrug
+  Left = 374
+  Top = 159
   OnClose = FormClose
   inherited lblBaseDbTitle: TLabel
     Caption = 'Svojstva lekova (dodatne osobine leka)'

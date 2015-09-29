@@ -1,4 +1,6 @@
 inherited frmPropertiesOfDrug: TfrmPropertiesOfDrug
+  Left = 374
+  Top = 159
   OnClose = FormClose
   inherited lblBaseDbTitle: TLabel
     Caption = 'Svojstva lekova (dodatne osobine leka)'
@@ -148,7 +150,7 @@ inherited frmPropertiesOfDrug: TfrmPropertiesOfDrug
       Size = 120
     end
     object ztPropertiesOfDrugPOD_NAME: TStringField
-      DisplayLabel = 'Svojstvo naziv'
+      DisplayLabel = 'Svojstvo'
       DisplayWidth = 35
       FieldKind = fkData
       FieldName = 'POD_NAME'

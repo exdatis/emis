@@ -16,12 +16,13 @@ inherited frmSuppliers: TfrmSuppliers
     TabOrder = 1
     object cmbCharFilter: TComboBox
       Left = 6
-      Height = 27
+      Height = 25
       Hint = 'Izaberite početno slovo'
-      Top = 6
+      Top = 5
       Width = 159
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+      AutoSize = False
       ItemHeight = 0
       Items.Strings = (
         'A'
