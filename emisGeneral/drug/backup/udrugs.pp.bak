@@ -941,7 +941,7 @@ begin
   if(not TZAbstractDataset(zqPropertiesVar).Locate(PROPERTY_NAME, edtLocateProperty.Text, [loCaseInsensitive, loPartialKey])) then
     begin
       Beep;
-      edtLocate.SelectAll;
+      edtLocateProperty.SelectAll;
     end;
 end;
 
@@ -953,8 +953,47 @@ begin
 end;
 
 procedure TfrmDrugs.saveBeforeClose;
+var
+  newDlg : TdlgConfirm;
+  confirmMsg : String = 'Postoje izmene koje nisu sačuvane!';
+  saveAll : Boolean = False;
 begin
-  ShowMessage('Do not forget!');
+  {set confirm msg}
+  confirmMsg:= confirmMsg + #13#10;
+  confirmMsg:= confirmMsg + 'Želite da sačuvamo izmene?';
+  if((TZAbstractDataset(zqDrugs).State in [dsEdit, dsInsert])
+      or
+      (TZAbstractDataset(zqNomenclatureVar).State in [dsEdit, dsInsert])
+      or
+      (TZAbstractDataset(zqDrugStrong).State in [dsEdit, dsInsert])
+      or
+      (TZAbstractDataset(zqPropertiesVar).State in [dsEdit, dsInsert])
+     )
+  then
+    begin
+      {ask user to confirm}
+      newDlg:= TdlgConfirm.Create(nil);
+      newDlg.memoMsg.Lines.Text:= confirmMsg;
+      if(newDlg.ShowModal = mrOK) then
+        saveAll:= True;
+      {free dialog}
+      newDlg.Free;
+    end;
+  {check all}
+  if saveAll then
+    begin
+      if (TZAbstractDataset(zqDrugs).State in [dsEdit, dsInsert]) then
+        doSaveRec(TZAbstractDataset(zqDrugs)); {drugs dataSet}
+
+      if (TZAbstractDataset(zqNomenclatureVar).State in [dsEdit, dsInsert]) then
+        doSaveRec(TZAbstractDataset(zqNomenclatureVar)); {nomenclature_var dataSet}
+
+      if (TZAbstractDataset(zqDrugStrong).State in [dsEdit, dsInsert]) then
+        doSaveRec(TZAbstractDataset(zqDrugStrong)); {drug_strong dataSet}
+
+      if (TZAbstractDataset(zqPropertiesVar).State in [dsEdit, dsInsert]) then
+        doSaveRec(TZAbstractDataset(zqPropertiesVar)); {drugs dataSet}
+    end;
 end;
 
 procedure TfrmDrugs.openRODataSets;

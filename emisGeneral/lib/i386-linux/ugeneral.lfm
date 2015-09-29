@@ -1162,6 +1162,11 @@ object frmGeneral: TfrmGeneral
       Hint = 'Lekovi'
       OnExecute = actDrugsExecute
     end
+    object actPMaterialGroup: TAction
+      Caption = 'Grupe materijala'
+      Hint = 'Grupe sanitetskog materijala'
+      OnExecute = actPMaterialGroupExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2213,6 +2218,12 @@ object frmGeneral: TfrmGeneral
         end
         object MenuItem58: TMenuItem
           Action = actDrugs
+        end
+      end
+      object MenuItem59: TMenuItem
+        Caption = 'Sanitetski materijal'
+        object MenuItem60: TMenuItem
+          Action = actPMaterialGroup
         end
       end
     end
