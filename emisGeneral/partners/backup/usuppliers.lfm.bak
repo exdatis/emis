@@ -403,7 +403,7 @@ inherited frmSuppliers: TfrmSuppliers
       ShowHint = True
       TabOrder = 0
       TitleFont.Height = -11
-      OnKeyPress = dbgLocationKeyPress
+      OnKeyDown = dbgLocationKeyDown
       OnMouseMove = dbgLocationMouseMove
       OnTitleClick = dbgLocationTitleClick
     end
@@ -411,7 +411,7 @@ inherited frmSuppliers: TfrmSuppliers
       Cursor = crHandPoint
       Left = 541
       Height = 25
-      Hint = 'Prihvati rezultat'
+      Hint = '(Ctrl + Space)'
       Top = 225
       Width = 75
       Caption = 'Prihvati'
@@ -432,6 +432,19 @@ inherited frmSuppliers: TfrmSuppliers
       ParentShowHint = False
       ShowHint = True
       TabOrder = 2
+    end
+    object edtGridSearch: TEdit
+      Left = 1
+      Height = 24
+      Hint = 'Pretraga po nazivu'
+      Top = 218
+      Width = 231
+      OnKeyDown = edtGridSearchKeyDown
+      OnKeyUp = edtGridSearchKeyUp
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+      Visible = False
     end
   end
   inherited actDb: TActionList[6]

@@ -1,0 +1,14 @@
+procedure TForm1.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+  );
+begin
+  // uses LCLType 
+  if (ssCtrl in Shift)and (Key = VK_A)
+    then ShowMessage('Ctrl + a');
+end;
+
+
+//use LCLType
+
+  {Ctrl+space}
+  if (ssCtrl in Shift)and (Key = VK_SPACE) then
+    btnLocationOk.Click; 
