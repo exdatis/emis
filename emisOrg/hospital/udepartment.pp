@@ -7,7 +7,8 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ActnList, DbCtrls, Buttons, DBGrids, ExtCtrls, Menus, uBaseDbForm, db,
-  ZDataset, ZSequence, ZSqlUpdate, ZAbstractDataset, ZAbstractRODataset, LCLIntf;
+  ZDataset, ZSequence, ZSqlUpdate, ZAbstractDataset, ZAbstractRODataset, LCLIntf,
+  LCLType;
 
 type
 
@@ -35,6 +36,7 @@ type
     dbLocation: TDBEdit;
     dbName: TDBEdit;
     dsDepartment: TDataSource;
+    edtGridSearch: TEdit;
     edtLocate: TEdit;
     groupBoxEdit: TGroupBox;
     Label1: TLabel;
@@ -89,11 +91,16 @@ type
     procedure dbgDepartmentMouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
     procedure dbgDepartmentTitleClick(Column: TColumn);
-    procedure dbgLocationKeyPress(Sender: TObject; var Key: char);
+    procedure dbgLocationKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure dbgLocationMouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
     procedure dbgLocationTitleClick(Column: TColumn);
     procedure dbLocationKeyPress(Sender: TObject; var Key: char);
+    procedure edtGridSearchKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtGridSearchKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure edtLocateEnter(Sender: TObject);
     procedure edtLocateExit(Sender: TObject);
     procedure edtLocateKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState
@@ -246,11 +253,19 @@ begin
   edtRecNo.Text:= recMsg;
 end;
 
-procedure TfrmDepartment.dbgLocationKeyPress(Sender: TObject; var Key: char);
+procedure TfrmDepartment.dbgLocationKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
-  {space}
-  if(Key = #32) then
+  {Ctrl+space to use this result}
+  if (ssCtrl in Shift)and (Key = VK_SPACE) then
     btnLocationOk.Click;
+  {Advanced search}
+  if (ssCtrl in Shift)and (Key = VK_F) then
+    begin
+      edtGridSearch.Visible:= True;
+      edtGridSearch.SetFocus;
+      Application.ProcessMessages;
+    end;
 end;
 
 procedure TfrmDepartment.dbgLocationMouseMove(Sender: TObject;
@@ -271,6 +286,33 @@ begin
     begin
       locationArg:= FD_LOCATION_NAME;
       findLocation(dbLocation.Text);
+    end;
+end;
+
+procedure TfrmDepartment.edtGridSearchKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  {Escape to exit}
+  if (Key = VK_ESCAPE) then
+    begin
+      edtGridSearch.Visible:= False;
+      dbgLocation.SetFocus;
+      Application.ProcessMessages;
+      Exit;
+    end;
+  {Ctrl+space to use this result}
+  if (ssCtrl in Shift)and (Key = VK_SPACE) then
+    btnLocationOk.Click;
+end;
+
+procedure TfrmDepartment.edtGridSearchKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  {try to locate}
+  if(not TZAbstractRODataset(zroFindLocation).Locate('L_NAME', edtGridSearch.Text, [loCaseInsensitive, loPartialKey])) then
+    begin
+      Beep;
+      edtGridSearch.SelectAll;
     end;
 end;
 
