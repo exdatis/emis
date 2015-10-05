@@ -1,4 +1,6 @@
 inherited frmHygieneHPWarehouse: TfrmHygieneHPWarehouse
+  Left = 373
+  Top = 158
   OnClose = FormClose
   OnCreate = FormCreate
   inherited lblBaseDbTitle: TLabel
@@ -267,7 +269,7 @@ inherited frmHygieneHPWarehouse: TfrmHygieneHPWarehouse
       ShowHint = True
       TabOrder = 0
       TitleFont.Height = -11
-      OnKeyPress = dbgLocationKeyPress
+      OnKeyDown = dbgLocationKeyDown
       OnMouseMove = dbgLocationMouseMove
       OnTitleClick = dbgLocationTitleClick
     end
@@ -296,6 +298,19 @@ inherited frmHygieneHPWarehouse: TfrmHygieneHPWarehouse
       ParentShowHint = False
       ShowHint = True
       TabOrder = 2
+    end
+    object edtGridSearch: TEdit
+      Left = 1
+      Height = 24
+      Hint = 'Pretraga po nazivu'
+      Top = 218
+      Width = 231
+      OnKeyDown = edtGridSearchKeyDown
+      OnKeyUp = edtGridSearchKeyUp
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+      Visible = False
     end
   end
   object panelSearch: TPanel[5]

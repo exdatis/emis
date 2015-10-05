@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ActnList, DbCtrls, Buttons, DBGrids, ExtCtrls, Menus, uBaseDbForm, db,
-  ZDataset, ZSequence, ZSqlUpdate, ZAbstractDataset, ZAbstractRODataset;
+  ZDataset, ZSequence, ZSqlUpdate, ZAbstractDataset, ZAbstractRODataset, LCLIntf;
 
 type
 
@@ -35,6 +35,7 @@ type
     dbLocation: TDBEdit;
     dbName: TDBEdit;
     dsHospital: TDataSource;
+    edtGridSearch: TEdit;
     groupBoxEdit: TGroupBox;
     Label1: TLabel;
     Label10: TLabel;
@@ -84,11 +85,16 @@ type
     procedure dbgHospitalMouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
     procedure dbgHospitalTitleClick(Column: TColumn);
-    procedure dbgLocationKeyPress(Sender: TObject; var Key: char);
+    procedure dbgLocationKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure dbgLocationMouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
     procedure dbgLocationTitleClick(Column: TColumn);
     procedure dbLocationKeyPress(Sender: TObject; var Key: char);
+    procedure edtGridSearchKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtGridSearchKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure zqHospitalAfterDelete(DataSet: TDataSet);
@@ -290,6 +296,8 @@ end;
 procedure TfrmHospital.btnLocationCancelClick(Sender: TObject);
 begin
   {hide panel and set focus}
+  if(edtGridSearch.Visible) then
+    edtGridSearch.Visible:= False;
   panelFindLocation.Visible:= False;
   //set ficus
   dbLocation.SetFocus;
@@ -326,11 +334,19 @@ begin
   edtRecNo.Text:= recMsg;
 end;
 
-procedure TfrmHospital.dbgLocationKeyPress(Sender: TObject; var Key: char);
+procedure TfrmHospital.dbgLocationKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
-  {space}
-  if(Key = #32) then
+  {Ctrl+space to use this result}
+  if (ssCtrl in Shift)and (Key = VK_SPACE) then
     btnLocationOk.Click;
+  {Advanced search}
+  if (ssCtrl in Shift)and (Key = VK_F) then
+    begin
+      edtGridSearch.Visible:= True;
+      edtGridSearch.SetFocus;
+      Application.ProcessMessages;
+    end;
 end;
 
 procedure TfrmHospital.dbgLocationMouseMove(Sender: TObject;
@@ -351,6 +367,33 @@ begin
     begin
       locationArg:= FH_LOCATION_NAME;
       findLocation(dbLocation.Text);
+    end;
+end;
+
+procedure TfrmHospital.edtGridSearchKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  {Escape to exit}
+  if (Key = VK_ESCAPE) then
+    begin
+      edtGridSearch.Visible:= False;
+      dbgLocation.SetFocus;
+      Application.ProcessMessages;
+      Exit;
+    end;
+  {Ctrl+space to use this result}
+  if (ssCtrl in Shift)and (Key = VK_SPACE) then
+    btnLocationOk.Click;
+end;
+
+procedure TfrmHospital.edtGridSearchKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  {try to locate}
+  if(not TZAbstractRODataset(zroFindLocation).Locate('L_NAME', edtGridSearch.Text, [loCaseInsensitive, loPartialKey])) then
+    begin
+      Beep;
+      edtGridSearch.SelectAll;
     end;
 end;
 
@@ -438,6 +481,8 @@ begin
   TZAbstractDataset(zqHospital).FieldByName(FH_LOCATION).AsInteger:= zroFindLocation.Fields[0].AsInteger;
   TZAbstractDataset(zqHospital).FieldByName(FH_LOCATION_NAME).AsString:= zroFindLocation.Fields[2].AsString;
   //hide panel
+  if(edtGridSearch.Visible) then
+    edtGridSearch.Visible:= False;
   panelFindLocation.Visible:= False;
   //set focus
   dbAddress.SetFocus;
@@ -496,6 +541,11 @@ end;
 
 procedure TfrmHospital.onActCancel;
 begin
+  {hide panel}
+  if(edtGridSearch.Visible) then
+    edtGridSearch.Visible:= False;
+  if(panelFindLocation.Visible) then
+    panelFindLocation.Visible:= False;
   {cancel rec}
   doCancelRec(TZAbstractDataset(zqHospital));
 end;

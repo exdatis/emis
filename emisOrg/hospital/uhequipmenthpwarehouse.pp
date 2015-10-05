@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, ZDataset, ZSequence, ZSqlUpdate, Forms, Controls,
   Graphics, Dialogs, StdCtrls, ActnList, Menus, DbCtrls, Buttons, DBGrids,
-  ExtCtrls, uBaseDbForm, db, ZAbstractDataset, ZAbstractRODataset;
+  ExtCtrls, uBaseDbForm, db, ZAbstractDataset, ZAbstractRODataset, LCLType;
 
 type
 
@@ -34,6 +34,7 @@ type
     dsDepartment: TDataSource;
     dsFindLocation: TDataSource;
     dsWarehouse: TDataSource;
+    edtGridSearch: TEdit;
     edtLocate: TEdit;
     groupBoxEdit: TGroupBox;
     Label1: TLabel;
@@ -80,6 +81,8 @@ type
     procedure btnFindLocationClick(Sender: TObject);
     procedure btnLocationCancelClick(Sender: TObject);
     procedure btnLocationOkClick(Sender: TObject);
+    procedure dbgLocationKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure dbgLocationKeyPress(Sender: TObject; var Key: char);
     procedure dbgLocationMouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
@@ -88,6 +91,10 @@ type
       Y: Integer);
     procedure dbgWarehouseTitleClick(Column: TColumn);
     procedure dbLocationKeyPress(Sender: TObject; var Key: char);
+    procedure edtGridSearchKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtGridSearchKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure edtLocateEnter(Sender: TObject);
     procedure edtLocateExit(Sender: TObject);
     procedure edtLocateKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState
@@ -179,6 +186,8 @@ end;
 procedure TfrmHEquipmentHPWarehouse.btnLocationCancelClick(Sender: TObject);
 begin
   {hide panel and set focus}
+  if(edtGridSearch.Visible) then
+    edtGridSearch.Visible:= False;
   panelFindLocation.Visible:= False;
   //set ficus
   dbLocation.SetFocus;
@@ -192,12 +201,25 @@ begin
   useThisLocation;
 end;
 
+procedure TfrmHEquipmentHPWarehouse.dbgLocationKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  {Ctrl+space to use this result}
+  if (ssCtrl in Shift)and (Key = VK_SPACE) then
+    btnLocationOk.Click;
+  {Advanced search}
+  if (ssCtrl in Shift)and (Key = VK_F) then
+    begin
+      edtGridSearch.Visible:= True;
+      edtGridSearch.SetFocus;
+      Application.ProcessMessages;
+    end;
+end;
+
 procedure TfrmHEquipmentHPWarehouse.dbgLocationKeyPress(Sender: TObject;
   var Key: char);
 begin
-  {space}
-  if(Key = #32) then
-    btnLocationOk.Click;
+
 end;
 
 procedure TfrmHEquipmentHPWarehouse.dbgLocationMouseMove(Sender: TObject;
@@ -236,6 +258,33 @@ begin
     begin
       locationArg:= FW_LOCATION_NAME;
       findLocation(dbLocation.Text);
+    end;
+end;
+
+procedure TfrmHEquipmentHPWarehouse.edtGridSearchKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  {Escape to exit}
+  if (Key = VK_ESCAPE) then
+    begin
+      edtGridSearch.Visible:= False;
+      dbgLocation.SetFocus;
+      Application.ProcessMessages;
+      Exit;
+    end;
+  {Ctrl+space to use this result}
+  if (ssCtrl in Shift)and (Key = VK_SPACE) then
+    btnLocationOk.Click;
+end;
+
+procedure TfrmHEquipmentHPWarehouse.edtGridSearchKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  {try to locate}
+  if(not TZAbstractRODataset(zroFindLocation).Locate('L_NAME', edtGridSearch.Text, [loCaseInsensitive, loPartialKey])) then
+    begin
+      Beep;
+      edtGridSearch.SelectAll;
     end;
 end;
 
@@ -438,6 +487,8 @@ begin
   TZAbstractDataset(zqWarehouse).FieldByName(FW_LOCATION).AsInteger:= zroFindLocation.Fields[0].AsInteger;
   TZAbstractDataset(zqWarehouse).FieldByName(FW_LOCATION_NAME).AsString:= zroFindLocation.Fields[2].AsString;
   //hide panel
+  if(edtGridSearch.Visible) then
+    edtGridSearch.Visible:= False;
   panelFindLocation.Visible:= False;
   //set focus
   dbAddress.SetFocus;
@@ -496,6 +547,11 @@ end;
 
 procedure TfrmHEquipmentHPWarehouse.onActCancel;
 begin
+  {hide panel}
+  if(edtGridSearch.Visible) then
+    edtGridSearch.Visible:= False;
+  if(panelFindLocation.Visible) then
+    panelFindLocation.Visible:= False;
   {cancel rec}
   doCancelRec(TZAbstractDataset(zqWarehouse));
 end;
