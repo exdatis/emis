@@ -348,6 +348,8 @@ end;
 procedure TfrmSuppliers.btnLocationCancelClick(Sender: TObject);
 begin
   {hide panel and set focus}
+  if(edtGridSearch.Visible) then
+    edtGridSearch.Visible:= False;
   panelFindLocation.Visible:= False;
   //set ficus
   dbLocation.SetFocus;
@@ -450,7 +452,6 @@ begin
   {Ctrl+space to use this result}
   if (ssCtrl in Shift)and (Key = VK_SPACE) then
     btnLocationOk.Click;
-
 end;
 
 procedure TfrmSuppliers.edtGridSearchKeyUp(Sender: TObject; var Key: Word;
@@ -574,6 +575,8 @@ begin
   TZAbstractDataset(zqSuppliers).FieldByName(FS_LOCATION).AsInteger:= zroFindLocation.Fields[0].AsInteger;
   TZAbstractDataset(zqSuppliers).FieldByName(FS_LOCATION_NAME).AsString:= zroFindLocation.Fields[2].AsString;
   //hide panel
+  if(edtGridSearch.Visible) then
+    edtGridSearch.Visible:= False;
   panelFindLocation.Visible:= False;
   //set focus
   dbAddress.SetFocus;

@@ -75,7 +75,7 @@ inherited frmSuppliers: TfrmSuppliers
     object cmbFieldArg: TComboBox
       Cursor = crHandPoint
       Left = 311
-      Height = 25
+      Height = 23
       Hint = 'Polje za pretragu'
       Top = 6
       Width = 164

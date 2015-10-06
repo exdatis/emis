@@ -153,8 +153,8 @@ object baseDbForm: TbaseDbForm
     object edtRecNo: TEdit
       Cursor = crHandPoint
       Left = 93
-      Height = 26
-      Top = 11
+      Height = 24
+      Top = 13
       Width = 139
       Alignment = taCenter
       Color = clWhite

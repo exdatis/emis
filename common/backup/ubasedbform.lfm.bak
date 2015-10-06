@@ -164,6 +164,7 @@ object baseDbForm: TbaseDbForm
       ParentShowHint = False
       ReadOnly = True
       ShowHint = True
+      TabStop = False
       TabOrder = 10
     end
   end

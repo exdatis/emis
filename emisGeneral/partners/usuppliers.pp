@@ -348,6 +348,8 @@ end;
 procedure TfrmSuppliers.btnLocationCancelClick(Sender: TObject);
 begin
   {hide panel and set focus}
+  if(edtGridSearch.Visible) then
+    edtGridSearch.Visible:= False;
   panelFindLocation.Visible:= False;
   //set ficus
   dbLocation.SetFocus;
@@ -573,6 +575,8 @@ begin
   TZAbstractDataset(zqSuppliers).FieldByName(FS_LOCATION).AsInteger:= zroFindLocation.Fields[0].AsInteger;
   TZAbstractDataset(zqSuppliers).FieldByName(FS_LOCATION_NAME).AsString:= zroFindLocation.Fields[2].AsString;
   //hide panel
+  if(edtGridSearch.Visible) then
+    edtGridSearch.Visible:= False;
   panelFindLocation.Visible:= False;
   //set focus
   dbAddress.SetFocus;
@@ -631,6 +635,11 @@ end;
 
 procedure TfrmSuppliers.onActCancel;
 begin
+  {hide panel}
+  if(edtGridSearch.Visible) then
+    edtGridSearch.Visible:= False;
+  if(panelFindLocation.Visible) then
+    panelFindLocation.Visible:= False;
   {cancel rec}
   doCancelRec(TZAbstractDataset(zqSuppliers));
 end;
