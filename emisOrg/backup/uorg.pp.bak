@@ -668,6 +668,8 @@ begin
     newForm.Top:= 0;
     {open dataSets}
     newForm.openDataSet;
+    {set help-path}
+    newForm.HELP_PATH:= HELP_PATH;
     {show form}
     newForm.Show;
     {set focus to enable shortcuts}

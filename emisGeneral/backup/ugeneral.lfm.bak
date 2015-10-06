@@ -2227,6 +2227,12 @@ object frmGeneral: TfrmGeneral
       end
       object MenuItem59: TMenuItem
         Caption = 'Sanitetski materijal'
+        object MenuItem61: TMenuItem
+          Action = actPropertiesOfPHMaterial
+        end
+        object MenuItem62: TMenuItem
+          Caption = '-'
+        end
         object MenuItem60: TMenuItem
           Action = actPMaterialGroup
         end
