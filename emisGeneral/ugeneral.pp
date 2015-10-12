@@ -45,6 +45,7 @@ type
     actGenerics: TAction;
     actDrugGroups: TAction;
     actDrugs: TAction;
+    actPharmacyMaterial: TAction;
     actPropertiesOfPHMaterial: TAction;
     actPMaterialGroup: TAction;
     actPropertiesOfDrug: TAction;
@@ -121,6 +122,8 @@ type
     MenuItem60: TMenuItem;
     MenuItem61: TMenuItem;
     MenuItem62: TMenuItem;
+    MenuItem63: TMenuItem;
+    MenuItem64: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
@@ -204,6 +207,7 @@ type
     procedure actHlpEditDataDocExecute(Sender: TObject);
     procedure actLocationFrmExecute(Sender: TObject);
     procedure actMeasureExecute(Sender: TObject);
+    procedure actPharmacyMaterialExecute(Sender: TObject);
     procedure actPMaterialGroupExecute(Sender: TObject);
     procedure actPropertiesOfDrugExecute(Sender: TObject);
     procedure actPropertiesOfPHMaterialExecute(Sender: TObject);
@@ -260,7 +264,7 @@ uses
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
   uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors,
   uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups, uDrugs,
-  uPharmacyMaterialGroup, uPropertiesOfPHMaterial;
+  uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -646,6 +650,34 @@ begin
     newForm.Top:= 0;
     {open dataSets}
     newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actPharmacyMaterialExecute(Sender: TObject);
+var
+  newForm : TfrmPharmacyMaterial;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmPharmacyMaterial.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openRODataSets;
+    Application.ProcessMessages;
+    newForm.applyCharFilter; {with default char}
     {show form}
     newForm.Show;
     {set focus to enable shortcuts}

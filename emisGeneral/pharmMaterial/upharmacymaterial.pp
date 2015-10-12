@@ -1,0 +1,806 @@
+unit uPharmacyMaterial;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, DividerBevel, ZDataset, ZSequence, ZSqlUpdate,
+  Forms, Controls, Graphics, Dialogs, StdCtrls, ActnList, ExtCtrls, Buttons,
+  DBGrids, ComCtrls, DbCtrls, uBaseDbForm, db, ZAbstractDataset;
+
+{exception if drug_id is null}
+type
+  TENoProducts = class(Exception);
+type
+
+  { TfrmPharmacyMaterial }
+
+  TfrmPharmacyMaterial = class(TbaseDbForm)
+    actCharFilter: TAction;
+    actClearFilter: TAction;
+    actFindPHMaterial: TActionList;
+    btnCharFilter: TSpeedButton;
+    btnShowAll: TSpeedButton;
+    cmbCharFilter: TComboBox;
+    cmbFieldArg: TComboBox;
+    dsPropertiesVar: TDataSource;
+    dbgPropertiesVar: TDBGrid;
+    dblProperty: TDBLookupComboBox;
+    dbValue1: TDBEdit;
+    DividerBevel1: TDividerBevel;
+    dsProperties: TDataSource;
+    dbBarCode: TDBEdit;
+    dbCode: TDBEdit;
+    dblGroup: TDBLookupComboBox;
+    dblMeasure: TDBLookupComboBox;
+    dblTaxes: TDBLookupComboBox;
+    dbName: TDBEdit;
+    dbPieces: TDBEdit;
+    dsMeasure: TDataSource;
+    dsPHMaterialGroups: TDataSource;
+    dbgProducts: TDBGrid;
+    dsPharmacyMaterial: TDataSource;
+    dsTaxes: TDataSource;
+    edtLocate: TEdit;
+    edtLocateProperty: TEdit;
+    gbEditPhMaterial: TGroupBox;
+    gbEditPropertiesVar: TGroupBox;
+    Label1: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    pcPharmacyMaterial: TPageControl;
+    panelParams: TPanel;
+    tsProperties: TTabSheet;
+    tsPharmacyMaterial: TTabSheet;
+    zqPharmacyMaterial: TZQuery;
+    zqPharmacyMaterialMEASURE_CODE: TStringField;
+    zqPharmacyMaterialMEASURE_NAME: TStringField;
+    zqPharmacyMaterialPM_BARCODE: TStringField;
+    zqPharmacyMaterialPM_CODE: TStringField;
+    zqPharmacyMaterialPM_GROUP: TLongintField;
+    zqPharmacyMaterialPM_GROUP_CODE: TStringField;
+    zqPharmacyMaterialPM_GROUP_NAME: TStringField;
+    zqPharmacyMaterialPM_ID: TLongintField;
+    zqPharmacyMaterialPM_MEASURE: TLongintField;
+    zqPharmacyMaterialPM_NAME: TStringField;
+    zqPharmacyMaterialPM_PIECES: TFloatField;
+    zqPharmacyMaterialPM_TAX: TLongintField;
+    zqPharmacyMaterialTAX_CODE: TStringField;
+    zqPharmacyMaterialTAX_VALUE: TFloatField;
+    zqPropertiesVar: TZQuery;
+    zqPropertiesVarPHMATERIAL_CODE: TStringField;
+    zqPropertiesVarPHMATERIAL_NAME: TStringField;
+    zqPropertiesVarPHMPROPERTY_NAME: TStringField;
+    zqPropertiesVarPPV_ID: TLongintField;
+    zqPropertiesVarPPV_PHMATERIAL: TLongintField;
+    zqPropertiesVarPPV_PROPERTY: TLongintField;
+    zqPropertiesVarPPV_VALUE: TStringField;
+    zroProperties: TZReadOnlyQuery;
+    zroMeasure: TZReadOnlyQuery;
+    zroMeasureM_ID: TLongintField;
+    zroMeasureM_NAME: TStringField;
+    zroPHMaterialGroups: TZReadOnlyQuery;
+    zroPHMaterialGroupsPMG_ID: TLongintField;
+    zroPHMaterialGroupsPMG_NAME: TStringField;
+    zroPropertiesPOPM_ID: TLongintField;
+    zroPropertiesPOPM_NAME: TStringField;
+    zroTaxes: TZReadOnlyQuery;
+    zroTaxesTX_CODE: TStringField;
+    zroTaxesTX_ID: TLongintField;
+    zseqProducts: TZSequence;
+    zseqPropertiesVar: TZSequence;
+    zupdPropertiesVar: TZUpdateSQL;
+    zupdPharmacyMaterial: TZUpdateSQL;
+    procedure actCharFilterExecute(Sender: TObject);
+    procedure actClearFilterExecute(Sender: TObject);
+    procedure cmbFieldArgChange(Sender: TObject);
+    procedure dbgProductsMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure dbgProductsTitleClick(Column: TColumn);
+    procedure dbgPropertiesVarMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure dbgPropertiesVarTitleClick(Column: TColumn);
+    procedure edtLocateEnter(Sender: TObject);
+    procedure edtLocateExit(Sender: TObject);
+    procedure edtLocateKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
+    procedure edtLocatePropertyEnter(Sender: TObject);
+    procedure edtLocatePropertyExit(Sender: TObject);
+    procedure edtLocatePropertyKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure pcPharmacyMaterialChange(Sender: TObject);
+    procedure zqPharmacyMaterialAfterDelete(DataSet: TDataSet);
+    procedure zqPharmacyMaterialAfterOpen(DataSet: TDataSet);
+    procedure zqPharmacyMaterialAfterPost(DataSet: TDataSet);
+    procedure zqPharmacyMaterialAfterScroll(DataSet: TDataSet);
+    procedure zqPharmacyMaterialBeforeScroll(DataSet: TDataSet);
+    procedure zqPharmacyMaterialNewRecord(DataSet: TDataSet);
+    procedure zqPropertiesVarAfterDelete(DataSet: TDataSet);
+    procedure zqPropertiesVarAfterOpen(DataSet: TDataSet);
+    procedure zqPropertiesVarAfterPost(DataSet: TDataSet);
+    procedure zqPropertiesVarAfterScroll(DataSet: TDataSet);
+    procedure zqPropertiesVarBeforeOpen(DataSet: TDataSet);
+    procedure zqPropertiesVarBeforePost(DataSet: TDataSet);
+  private
+    { private declarations }
+    charArg : String; {name-start with this char}
+    fieldArg : String; {locate text from field}
+    procedure saveBeforeClose;
+  public
+    { public declarations }
+    procedure onActFirst; override;
+    procedure onActPrior; override;
+    procedure onActNext; override;
+    procedure onActLast; override;
+    procedure onActInsert; override;
+    procedure onActDelete; override;
+    procedure onActEdit; override;
+    procedure onActSave; override;
+    procedure onActCancel; override;
+    {open dataSet using charArg}
+    procedure openRODataSets;
+    procedure applyCharFilter;
+  end;
+
+var
+  frmPharmacyMaterial: TfrmPharmacyMaterial;
+const
+  {exception msg}
+  ENoProductsMsg : String = 'Nije selektovan/izabran materijal.';
+  //**************************** drugs *****************************************
+  {fields of tbl pharmacyMaterial}
+  FD_ID : String = 'PM_ID';
+  FD_CODE : String = 'PM_CODE';
+  FD_NAME : String = 'PM_NAME';
+  FD_BARCODE : String = 'PM_BARCODE';
+  FD_GROUP : String = 'PM_GROUP';
+  FD_MEASURE : String = 'PM_MEASURE';
+  FD_TAX : String = 'PM_TAX';
+  FD_PIECES : String = 'PM_PIECES';
+  {fields of view pharmacy_material_v}
+  GROUP_CODE : String = 'PM_GROUP_CODE';
+  GROUP_NAME : String = 'PM_GROUP_NAME';
+  MEASURE_CODE : String = 'MEASURE_CODE';
+  MEASURE_NAME : String = 'MEASURE_NAME';
+  TAX_CODE : String = 'TAX_CODE';
+  TAX_VALUE : STring = 'TAX_VALUE';
+  {params}
+  PARAM_NAME : String = 'PM_NAME'; {:PM_NAME}
+
+  //****************************************************************************
+  {fields of table phmaterial_properties_var} //fpv- field_properties_var
+  FPV_ID : String = 'PPV_ID';
+  FPV_PRODUCT : String = 'PPV_PHMATERIAL';
+  FPV_PROPERTY : String = 'PPV_PROPERTY';
+  FPV_VALUE : String = 'PPV_VALUE';
+  {fields of view phmaterial_properties_var_v}
+  {existent --||-- + property_name}
+  PROPERTY_NAME : String = 'PHMPROPERTY_NAME';
+implementation
+uses
+  uDModule, uConfirm;
+{$R *.lfm}
+
+{ TfrmPharmacyMaterial }
+
+procedure TfrmPharmacyMaterial.actCharFilterExecute(Sender: TObject);
+begin
+  {check current page}
+  if (not(pcPharmacyMaterial.ActivePageIndex = 0)) then
+    begin
+      pcPharmacyMaterial.ActivePageIndex:= 0;
+      Application.ProcessMessages;
+    end;
+  {set filter}
+  charArg:= cmbCharFilter.Text + '%';
+  {apply filter}
+  applyCharFilter;
+end;
+
+procedure TfrmPharmacyMaterial.actClearFilterExecute(Sender: TObject);
+begin
+  {check current page}
+  if (not(pcPharmacyMaterial.ActivePageIndex = 0)) then
+    begin
+      pcPharmacyMaterial.ActivePageIndex:= 0;
+      Application.ProcessMessages;
+    end;
+  {set char-argument}
+  charArg:= '%'; {show all}
+  applyCharFilter;
+  {set cmbCharFilter index}
+  cmbCharFilter.Text:= 'Materijal na slovo ...'; {message like text}
+end;
+
+procedure TfrmPharmacyMaterial.cmbFieldArgChange(Sender: TObject);
+begin
+  {check current page}
+  if (not(pcPharmacyMaterial.ActivePageIndex = 0)) then
+    begin
+      pcPharmacyMaterial.ActivePageIndex:= 0;
+      Application.ProcessMessages;
+    end;
+  {set field-filter}
+  case cmbFieldArg.ItemIndex of
+    1: fieldArg:= FD_NAME;
+    2: fieldArg:= FD_CODE;
+    3: fieldArg:= FD_BARCODE;
+  else
+    fieldArg:= FD_NAME;
+  end;
+  {set focus}
+  edtLocate.SetFocus;
+end;
+
+procedure TfrmPharmacyMaterial.dbgProductsMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  {set cursor again}
+  dbgProducts.Cursor:= crHandPoint;
+end;
+
+procedure TfrmPharmacyMaterial.dbgProductsTitleClick(Column: TColumn);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0'; {find again recNo}
+begin
+  {set current page}
+  if (not(pcPharmacyMaterial.ActivePageIndex = 0)) then
+    begin
+      pcPharmacyMaterial.ActivePageIndex:= 0;
+      Application.ProcessMessages;
+    end;
+  {sort}
+  doSortDbGrid(TZAbstractDataset(zqPharmacyMaterial), Column);
+  {refresh after sort}
+  dbgProducts.Refresh;
+  { find recNo}
+  recCount:= IntToStr(TZAbstractDataset(zqPharmacyMaterial).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(zqPharmacyMaterial).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmPharmacyMaterial.dbgPropertiesVarMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  {set cursor}
+  dbgPropertiesVar.Cursor:= crHandPoint;
+end;
+
+procedure TfrmPharmacyMaterial.dbgPropertiesVarTitleClick(Column: TColumn);
+begin
+  {sort}
+  doSortDbGrid(TZAbstractDataset(zqPropertiesVar), Column);
+end;
+
+procedure TfrmPharmacyMaterial.edtLocateEnter(Sender: TObject);
+begin
+  {check current page}
+  if (not(pcPharmacyMaterial.ActivePageIndex = 0)) then
+    begin
+      pcPharmacyMaterial.ActivePageIndex:= 0;
+      Application.ProcessMessages;
+    end;
+  {clear text and set font-color}
+  edtLocate.Text:= '';
+  edtLocate.Font.Color:= clBlack;
+end;
+
+procedure TfrmPharmacyMaterial.edtLocateExit(Sender: TObject);
+begin
+  {set text and font-color}
+  edtLocate.Text:= 'Pronadji ...';
+  edtLocate.Font.Color:= clGray;
+end;
+
+procedure TfrmPharmacyMaterial.edtLocateKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  {try to locate}
+  if(not TZAbstractDataset(zqPharmacyMaterial).Locate(fieldArg, edtLocate.Text, [loCaseInsensitive, loPartialKey])) then
+    begin
+      Beep;
+      edtLocate.SelectAll;
+    end;
+end;
+
+procedure TfrmPharmacyMaterial.edtLocatePropertyEnter(Sender: TObject);
+begin
+  {clear text and set font-color}
+  edtLocateProperty.Text:= '';
+  edtLocateProperty.Font.Color:= clBlack;
+end;
+
+procedure TfrmPharmacyMaterial.edtLocatePropertyExit(Sender: TObject);
+begin
+  {set text and font-color}
+  edtLocateProperty.Text:= 'Pronadji ...';
+  edtLocateProperty.Font.Color:= clGray;
+end;
+
+procedure TfrmPharmacyMaterial.edtLocatePropertyKeyUp(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  {try to locate}
+  if(not TZAbstractDataset(zqPropertiesVar).Locate(PROPERTY_NAME, edtLocateProperty.Text, [loCaseInsensitive, loPartialKey])) then
+    begin
+      Beep;
+      edtLocateProperty.SelectAll;
+    end;
+end;
+
+procedure TfrmPharmacyMaterial.FormClose(Sender: TObject;
+  var CloseAction: TCloseAction);
+begin
+  {check for unsaved changes}
+  saveBeforeClose;
+  inherited;
+end;
+
+procedure TfrmPharmacyMaterial.FormCreate(Sender: TObject);
+begin
+  {default args}
+  charArg:= 'AB%';
+  fieldArg:= PARAM_NAME; {locate using field_name}
+end;
+
+procedure TfrmPharmacyMaterial.pcPharmacyMaterialChange(Sender: TObject);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  //exception if not drugs
+  if(TZAbstractDataset(zqPharmacyMaterial).IsEmpty) then
+    if(pcPharmacyMaterial.ActivePageIndex > 0) then
+      begin
+        pcPharmacyMaterial.ActivePageIndex:= 0;
+        Application.ProcessMessages;
+        raise TENoProducts.Create(ENoProductsMsg);
+        Application.ProcessMessages;
+        Exit;
+      end;
+  {else open dataSet}
+  case pcPharmacyMaterial.ActivePageIndex of
+    0:
+       begin
+         {show recNo and countRec}
+         if(TZAbstractDataset(zqPharmacyMaterial).IsEmpty) then
+           begin
+             edtRecNo.Text:= recMsg;
+             Exit;
+           end;
+         {find vars}
+         recCount:= IntToStr(TZAbstractDataset(zqPharmacyMaterial).RecordCount);
+         recNo:= IntToStr(TZAbstractDataset(zqPharmacyMaterial).RecNo);
+         {create recMsg}
+         recMsg:= recNo + ' od ' + recCount;
+         edtRecNo.Text:= recMsg;
+       end;
+    1:
+       begin
+         TZAbstractDataset(zqPropertiesVar).DisableControls;
+         TZAbstractDataset(zqPropertiesVar).Close;
+         TZAbstractDataset(zqPropertiesVar).Open;
+         TZAbstractDataset(zqPropertiesVar).EnableControls;
+         dbgPropertiesVar.Refresh;
+         Application.ProcessMessages;
+       end;
+  end;
+end;
+
+procedure TfrmPharmacyMaterial.zqPharmacyMaterialAfterDelete(DataSet: TDataSet);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {upply updates}
+  TZAbstractDataset(DataSet).ApplyUpdates;
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmPharmacyMaterial.zqPharmacyMaterialAfterOpen(DataSet: TDataSet);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {set btns cheking recCount}
+  doAfterOpenDataSet(TZAbstractDataset(DataSet));
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmPharmacyMaterial.zqPharmacyMaterialAfterPost(DataSet: TDataSet);
+var
+  currId : Longint;
+  firstChar : String = '';
+  currText : String;
+  {calc records(recNo and countRec)}
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {upply updates}
+  TZAbstractDataset(DataSet).ApplyUpdates;
+  {rtefresh current row}
+  TZAbstractDataset(DataSet).RefreshCurrentRow(True);
+  {find currText}
+  currText:= TZAbstractDataset(DataSet).FieldByName(FD_NAME).AsString;
+  {first char to firstChar-var}
+  firstChar:= LeftStr(currText, 2); //two chars
+  firstChar:= firstChar + '%';
+  {compare current charFilter}
+  if(charArg <> firstChar) then
+    begin
+      {save position}
+      currId:= TZAbstractDataset(DataSet).FieldByName(FD_ID).AsInteger;
+      charArg:= firstChar;
+      applyCharFilter;
+      {locate}
+      TZAbstractDataset(DataSet).Locate(FD_ID, currId, []);
+    end;
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then {*** never ***}
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmPharmacyMaterial.zqPharmacyMaterialAfterScroll(DataSet: TDataSet);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {set btns cheking recCount}
+  if(TZAbstractDataset(DataSet).State in [dsEdit, dsInsert]) then
+    Exit;
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmPharmacyMaterial.zqPharmacyMaterialBeforeScroll(DataSet: TDataSet
+  );
+begin
+  {check current page}
+  if (not(pcPharmacyMaterial.ActivePageIndex = 0)) then
+    begin
+      pcPharmacyMaterial.ActivePageIndex:= 0;
+      Application.ProcessMessages;
+    end;
+end;
+
+procedure TfrmPharmacyMaterial.zqPharmacyMaterialNewRecord(DataSet: TDataSet);
+begin
+  {set default values}
+  TZAbstractDataset(DataSet).FieldByName(FD_PIECES).AsFloat:= 1;
+end;
+
+procedure TfrmPharmacyMaterial.zqPropertiesVarAfterDelete(DataSet: TDataSet);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {upply updates}
+  TZAbstractDataset(DataSet).ApplyUpdates;
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmPharmacyMaterial.zqPropertiesVarAfterOpen(DataSet: TDataSet);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {set btns cheking recCount}
+  doAfterOpenDataSet(TZAbstractDataset(DataSet));
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmPharmacyMaterial.zqPropertiesVarAfterPost(DataSet: TDataSet);
+var
+  {calc records(recNo and countRec)}
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {upply updates}
+  TZAbstractDataset(DataSet).ApplyUpdates;
+  {rtefresh current row}
+  TZAbstractDataset(DataSet).RefreshCurrentRow(True);
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then {*** never ***}
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmPharmacyMaterial.zqPropertiesVarAfterScroll(DataSet: TDataSet);
+var
+  recCount, recNo : String;
+  recMsg : String = '0 od 0';
+begin
+  {set btns cheking recCount}
+  if(TZAbstractDataset(DataSet).State in [dsEdit, dsInsert]) then
+    Exit;
+  {show recNo and countRec}
+  if(TZAbstractDataset(DataSet).IsEmpty) then
+    begin
+      edtRecNo.Text:= recMsg;
+      Exit;
+    end;
+  {find vars}
+  recCount:= IntToStr(TZAbstractDataset(DataSet).RecordCount);
+  recNo:= IntToStr(TZAbstractDataset(DataSet).RecNo);
+  {create recMsg}
+  recMsg:= recNo + ' od ' + recCount;
+  edtRecNo.Text:= recMsg;
+end;
+
+procedure TfrmPharmacyMaterial.zqPropertiesVarBeforeOpen(DataSet: TDataSet);
+var
+  current_product : Integer;
+begin
+  //find current
+  current_product:= TZAbstractDataset(zqPharmacyMaterial).FieldByName(FD_ID).AsInteger;
+  TZAbstractDataset(zqPropertiesVar).ParamByName(FPV_PRODUCT).AsInteger:= current_product;
+end;
+
+procedure TfrmPharmacyMaterial.zqPropertiesVarBeforePost(DataSet: TDataSet);
+var
+  current_product : Integer;
+begin
+  //find current
+  current_product:= TZAbstractDataset(zqPharmacyMaterial).FieldByName(FD_ID).AsInteger;
+  TZAbstractDataset(zqPropertiesVar).FieldByName(FPV_PRODUCT).AsInteger:= current_product;
+end;
+
+procedure TfrmPharmacyMaterial.saveBeforeClose;
+var
+  newDlg : TdlgConfirm;
+  confirmMsg : String = 'Postoje izmene koje nisu sačuvane!';
+  saveAll : Boolean = False;
+begin
+  {set confirm msg}
+  confirmMsg:= confirmMsg + #13#10;
+  confirmMsg:= confirmMsg + 'Želite da sačuvamo izmene?';
+  if((TZAbstractDataset(zqPharmacyMaterial).State in [dsEdit, dsInsert])
+      or
+      (TZAbstractDataset(zqPropertiesVar).State in [dsEdit, dsInsert])
+     )
+  then
+    begin
+      {ask user to confirm}
+      newDlg:= TdlgConfirm.Create(nil);
+      newDlg.memoMsg.Lines.Text:= confirmMsg;
+      if(newDlg.ShowModal = mrOK) then
+        saveAll:= True;
+      {free dialog}
+      newDlg.Free;
+    end;
+  {check all}
+  if saveAll then
+    begin
+      if (TZAbstractDataset(zqPharmacyMaterial).State in [dsEdit, dsInsert]) then
+        doSaveRec(TZAbstractDataset(zqPharmacyMaterial)); {pharmacyMaterial dataSet}
+
+      if (TZAbstractDataset(zqPropertiesVar).State in [dsEdit, dsInsert]) then
+        doSaveRec(TZAbstractDataset(zqPropertiesVar)); {properties_var dataSet}
+    end;
+end;
+
+procedure TfrmPharmacyMaterial.onActFirst;
+begin
+  {jump to first rec}
+  case pcPharmacyMaterial.ActivePageIndex of
+    0: doFirstRec(TZAbstractDataset(zqPharmacyMaterial));
+    1: doFirstRec(TZAbstractDataset(zqPropertiesVar));
+  end;
+end;
+
+procedure TfrmPharmacyMaterial.onActPrior;
+begin
+  {jump to prior rec}
+  case pcPharmacyMaterial.ActivePageIndex of
+    0: doPriorRec(TZAbstractDataset(zqPharmacyMaterial));
+    1: doPriorRec(TZAbstractDataset(zqPropertiesVar));
+  end;
+end;
+
+procedure TfrmPharmacyMaterial.onActNext;
+begin
+  {jump to next rec}
+  case pcPharmacyMaterial.ActivePageIndex of
+    0: doNextRec(TZAbstractDataset(zqPharmacyMaterial));
+    1: doNextRec(TZAbstractDataset(zqPropertiesVar));
+  end;
+end;
+
+procedure TfrmPharmacyMaterial.onActLast;
+begin
+  {jump to last rec}
+  case pcPharmacyMaterial.ActivePageIndex of
+    0: doLastRec(TZAbstractDataset(zqPharmacyMaterial));
+    1: doLastRec(TZAbstractDataset(zqPropertiesVar));
+  end;
+end;
+
+procedure TfrmPharmacyMaterial.onActInsert;
+begin
+  {set focus and insert new rec}
+  case pcPharmacyMaterial.ActivePageIndex of
+    0:
+       begin
+         dbCode.SetFocus;
+         doInsertRec(TZAbstractDataset(zqPharmacyMaterial));
+       end;
+
+    1:
+       begin
+         dblProperty.SetFocus;
+         doInsertRec(TZAbstractDataset(zqPropertiesVar));
+       end;
+  end;
+end;
+
+procedure TfrmPharmacyMaterial.onActDelete;
+begin
+  {delete rec}
+  case pcPharmacyMaterial.ActivePageIndex of
+    0: doDeleteRec(TZAbstractDataset(zqPharmacyMaterial));
+    1: doDeleteRec(TZAbstractDataset(zqPropertiesVar));
+  end;
+end;
+
+procedure TfrmPharmacyMaterial.onActEdit;
+begin
+  {set focus and edit rec}
+  case pcPharmacyMaterial.ActivePageIndex of
+    0:
+       begin
+         dbCode.SetFocus;
+         doEditRec(TZAbstractDataset(zqPharmacyMaterial));
+       end;
+
+    1:
+       begin
+          dblProperty.SetFocus;
+          doEditRec(TZAbstractDataset(zqPropertiesVar));
+        end;
+  end;
+end;
+
+procedure TfrmPharmacyMaterial.onActSave;
+begin
+  {save rec}
+  case pcPharmacyMaterial.ActivePageIndex of
+    0: doSaveRec(TZAbstractDataset(zqPharmacyMaterial));
+    1: doSaveRec(TZAbstractDataset(zqPropertiesVar));
+  end;
+end;
+
+procedure TfrmPharmacyMaterial.onActCancel;
+begin
+  {cancel rec}
+  case pcPharmacyMaterial.ActivePageIndex of
+    0: doCancelRec(TZAbstractDataset(zqPharmacyMaterial));
+    1: doCancelRec(TZAbstractDataset(zqPropertiesVar));
+  end;
+end;
+
+procedure TfrmPharmacyMaterial.openRODataSets;
+begin
+  //product groups
+  zroPHMaterialGroups.DisableControls;
+  zroPHMaterialGroups.Open;
+  zroPHMaterialGroups.EnableControls;
+  //measure
+  zroMeasure.DisableControls;
+  zroMeasure.Open;
+  zroMeasure.EnableControls;
+  //taxes
+  zroTaxes.DisableControls;
+  zroTaxes.Open;
+  zroTaxes.EnableControls;
+  //property(of pharmacyMaterial)
+  zroProperties.DisableControls;
+  zroProperties.Open;
+  zroProperties.EnableControls;
+end;
+
+procedure TfrmPharmacyMaterial.applyCharFilter;
+begin
+  TZAbstractDataset(zqPharmacyMaterial).DisableControls;
+  TZAbstractDataset(zqPharmacyMaterial).Close;
+  try
+    TZAbstractDataset(zqPharmacyMaterial).ParamByName(PARAM_NAME).AsString:= charArg;
+    TZAbstractDataset(zqPharmacyMaterial).Open;
+    TZAbstractDataset(zqPharmacyMaterial).EnableControls;
+    {show arg in cmbChar}
+    //cmbCharFilter.ItemIndex:= cmbCharFilter.Items.IndexOf(LeftStr(charArg, 1)); {without '%'}
+  except
+    on e : Exception do
+    begin
+      dModule.zdbh.Rollback;
+      TZAbstractDataset(zqPharmacyMaterial).EnableControls;
+      ShowMessage(e.Message);
+    end;
+  end;
+end;
+
+end.
+

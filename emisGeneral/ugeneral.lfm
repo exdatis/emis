@@ -1173,6 +1173,11 @@ object frmGeneral: TfrmGeneral
       Hint = 'Svojstva materijala'
       OnExecute = actPropertiesOfPHMaterialExecute
     end
+    object actPharmacyMaterial: TAction
+      Caption = 'Material'
+      Hint = 'Sanitetski materijal'
+      OnExecute = actPharmacyMaterialExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2236,6 +2241,12 @@ object frmGeneral: TfrmGeneral
         end
         object MenuItem60: TMenuItem
           Action = actPMaterialGroup
+        end
+        object MenuItem63: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem64: TMenuItem
+          Action = actPharmacyMaterial
         end
       end
     end

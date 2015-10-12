@@ -173,6 +173,9 @@ type
     procedure dbgNomenclatureVarMouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: Integer);
     procedure dbgNomenclatureVarTitleClick(Column: TColumn);
+    procedure dbgPropertiesVarMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure dbgPropertiesVarTitleClick(Column: TColumn);
     procedure edtLocateEnter(Sender: TObject);
     procedure edtLocateExit(Sender: TObject);
     procedure edtLocateKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState
@@ -905,6 +908,19 @@ procedure TfrmDrugs.dbgNomenclatureVarTitleClick(Column: TColumn);
 begin
   {sort}
   doSortDbGrid(TZAbstractDataset(zqNomenclatureVar), Column);
+end;
+
+procedure TfrmDrugs.dbgPropertiesVarMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  {set cursor}
+  dbgPropertiesVar.Cursor:= crHandPoint;
+end;
+
+procedure TfrmDrugs.dbgPropertiesVarTitleClick(Column: TColumn);
+begin
+  {sort}
+  doSortDbGrid(TZAbstractDataset(zqPropertiesVar), Column);
 end;
 
 procedure TfrmDrugs.edtLocateEnter(Sender: TObject);

@@ -77,7 +77,7 @@ inherited frmDrugs: TfrmDrugs
     object cmbFieldArg: TComboBox
       Cursor = crHandPoint
       Left = 311
-      Height = 25
+      Height = 23
       Hint = 'Polje za pretragu'
       Top = 6
       Width = 164
@@ -152,27 +152,27 @@ inherited frmDrugs: TfrmDrugs
     Height = 137
     Top = 336
     Width = 803
-    ActivePage = tsDrug
+    ActivePage = tsProperties
     Align = alClient
     Images = frmGeneral.imgGeneral
-    TabIndex = 0
+    TabIndex = 3
     TabOrder = 3
     OnChange = pcDrugsChange
     object tsDrug: TTabSheet
       Caption = 'Lekovi'
-      ClientHeight = 107
-      ClientWidth = 799
+      ClientHeight = 111
+      ClientWidth = 801
       ImageIndex = 20
       object gbEditDrugs: TGroupBox
         Left = 0
-        Height = 107
+        Height = 111
         Hint = 'Polja sa (*) su obavezna'
         Top = 0
-        Width = 799
+        Width = 801
         Align = alClient
         Caption = ' Obrada podataka '
-        ClientHeight = 91
-        ClientWidth = 795
+        ClientHeight = 95
+        ClientWidth = 797
         ParentShowHint = False
         ShowHint = True
         TabOrder = 0
@@ -381,19 +381,19 @@ inherited frmDrugs: TfrmDrugs
     end
     object tsNomenclatures: TTabSheet
       Caption = 'Nomenklature'
-      ClientHeight = 107
-      ClientWidth = 799
+      ClientHeight = 111
+      ClientWidth = 801
       ImageIndex = 2
       object gbEditNomenclature: TGroupBox
         Left = 0
-        Height = 107
+        Height = 111
         Hint = 'Polja sa (*) su obavezna'
         Top = 0
-        Width = 799
+        Width = 801
         Align = alClient
         Caption = ' Obrada podataka '
-        ClientHeight = 91
-        ClientWidth = 795
+        ClientHeight = 95
+        ClientWidth = 797
         TabOrder = 0
         object Label10: TLabel
           Left = 7
@@ -441,8 +441,8 @@ inherited frmDrugs: TfrmDrugs
         end
         object dbgNomenclatureVar: TDBGrid
           Cursor = crHandPoint
-          Left = 376
-          Height = 91
+          Left = 378
+          Height = 95
           Hint = 'Klikni naslov polja za sortiranje'
           Top = 0
           Width = 419
@@ -463,19 +463,19 @@ inherited frmDrugs: TfrmDrugs
     end
     object tsStrong: TTabSheet
       Caption = 'Jačina jedinice'
-      ClientHeight = 107
-      ClientWidth = 799
+      ClientHeight = 111
+      ClientWidth = 801
       ImageIndex = 12
       object gbEditNomenclature1: TGroupBox
         Left = 0
-        Height = 107
+        Height = 111
         Hint = 'Polja sa (*) su obavezna'
         Top = 0
-        Width = 799
+        Width = 801
         Align = alClient
         Caption = ' Obrada podataka '
-        ClientHeight = 91
-        ClientWidth = 795
+        ClientHeight = 95
+        ClientWidth = 797
         TabOrder = 0
         object Label12: TLabel
           Left = 7
@@ -523,8 +523,8 @@ inherited frmDrugs: TfrmDrugs
         end
         object dbgDrugStrong: TDBGrid
           Cursor = crHandPoint
-          Left = 376
-          Height = 91
+          Left = 378
+          Height = 95
           Hint = 'Klikni naslov polja za sortiranje'
           Top = 0
           Width = 419
@@ -545,19 +545,19 @@ inherited frmDrugs: TfrmDrugs
     end
     object tsProperties: TTabSheet
       Caption = 'Dodatne osobine'
-      ClientHeight = 107
-      ClientWidth = 799
+      ClientHeight = 111
+      ClientWidth = 801
       ImageIndex = 21
       object gbEditPropertiesVar: TGroupBox
         Left = 0
-        Height = 107
+        Height = 111
         Hint = 'Polja sa (*) su obavezna'
         Top = 0
-        Width = 799
+        Width = 801
         Align = alClient
         Caption = ' Obrada podataka '
-        ClientHeight = 91
-        ClientWidth = 795
+        ClientHeight = 95
+        ClientWidth = 797
         TabOrder = 0
         object Label15: TLabel
           Left = 7
@@ -605,8 +605,8 @@ inherited frmDrugs: TfrmDrugs
         end
         object dbgPropertiesVar: TDBGrid
           Cursor = crHandPoint
-          Left = 376
-          Height = 91
+          Left = 378
+          Height = 95
           Hint = 'Klikni naslov polja za sortiranje'
           Top = 0
           Width = 419
@@ -620,8 +620,8 @@ inherited frmDrugs: TfrmDrugs
           ShowHint = True
           TabOrder = 2
           TitleFont.Height = -11
-          OnMouseMove = dbgNomenclatureVarMouseMove
-          OnTitleClick = dbgNomenclatureVarTitleClick
+          OnMouseMove = dbgPropertiesVarMouseMove
+          OnTitleClick = dbgPropertiesVarTitleClick
         end
         object edtLocateProperty: TEdit
           Left = 117
@@ -659,8 +659,8 @@ inherited frmDrugs: TfrmDrugs
     end
     object tsDiagnostic: TTabSheet
       Caption = 'Diagnostic'
-      ClientHeight = 107
-      ClientWidth = 799
+      ClientHeight = 111
+      ClientWidth = 801
       ImageIndex = 3
       object Label14: TLabel
         Left = 336
