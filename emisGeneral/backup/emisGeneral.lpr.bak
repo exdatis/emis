@@ -24,7 +24,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmGeneral, frmGeneral);
   Application.CreateForm(TdModule, dModule);
-  Application.CreateForm(TfrmAppliancesGroup, frmAppliancesGroup);
+  //Application.CreateForm(TfrmAppliancesGroup, frmAppliancesGroup);
   //Application.CreateForm(TfrmPharmacyMaterial, frmPharmacyMaterial);
   //Application.CreateForm(TfrmPropertiesOfAppliances, frmPropertiesOfAppliances);
   //Application.CreateForm(TfrmPropertiesOfPHMaterial, frmPropertiesOfPHMaterial);

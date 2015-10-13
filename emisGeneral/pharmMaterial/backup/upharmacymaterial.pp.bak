@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, DividerBevel, ZDataset, ZSequence, ZSqlUpdate,
   Forms, Controls, Graphics, Dialogs, StdCtrls, ActnList, ExtCtrls, Buttons,
-  DBGrids, ComCtrls, DbCtrls, uBaseDbForm, db, ZAbstractDataset, ZAbstractRODataset;
+  DBGrids, ComCtrls, DbCtrls, uBaseDbForm, db, ZAbstractDataset;
 
 {exception if drug_id is null}
 type

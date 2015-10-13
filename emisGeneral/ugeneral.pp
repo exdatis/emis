@@ -46,6 +46,7 @@ type
     actDrugGroups: TAction;
     actDrugs: TAction;
     actAppliancesGroup: TAction;
+    actMedicineAppliances: TAction;
     actPropertiesOfAppliences: TAction;
     actPharmacyMaterial: TAction;
     actPropertiesOfPHMaterial: TAction;
@@ -130,7 +131,9 @@ type
     MenuItem66: TMenuItem;
     MenuItem67: TMenuItem;
     MenuItem68: TMenuItem;
+    MenuItem69: TMenuItem;
     MenuItem7: TMenuItem;
+    MenuItem70: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     panelForms: TBCPanel;
@@ -214,6 +217,7 @@ type
     procedure actHlpEditDataDocExecute(Sender: TObject);
     procedure actLocationFrmExecute(Sender: TObject);
     procedure actMeasureExecute(Sender: TObject);
+    procedure actMedicineAppliancesExecute(Sender: TObject);
     procedure actPharmacyMaterialExecute(Sender: TObject);
     procedure actPMaterialGroupExecute(Sender: TObject);
     procedure actPropertiesOfAppliencesExecute(Sender: TObject);
@@ -273,7 +277,7 @@ uses
   uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors,
   uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups, uDrugs,
   uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial,
-  uPropertiesOfAppliances, uAppliancesGroup;
+  uPropertiesOfAppliances, uAppliancesGroup, uMedicineAppliances;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -659,6 +663,34 @@ begin
     newForm.Top:= 0;
     {open dataSets}
     newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actMedicineAppliancesExecute(Sender: TObject);
+var
+  newForm : TfrmMedicineAppliances;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmMedicineAppliances.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openRODataSets;
+    Application.ProcessMessages;
+    newForm.applyCharFilter; {with default char}
     {show form}
     newForm.Show;
     {set focus to enable shortcuts}
