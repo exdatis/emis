@@ -45,6 +45,7 @@ type
     actGenerics: TAction;
     actDrugGroups: TAction;
     actDrugs: TAction;
+    actPropertiesOfAppliences: TAction;
     actPharmacyMaterial: TAction;
     actPropertiesOfPHMaterial: TAction;
     actPMaterialGroup: TAction;
@@ -122,6 +123,8 @@ type
     MenuItem60: TMenuItem;
     MenuItem61: TMenuItem;
     MenuItem62: TMenuItem;
+    MenuItem63: TMenuItem;
+    MenuItem64: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
@@ -207,6 +210,7 @@ type
     procedure actMeasureExecute(Sender: TObject);
     procedure actPharmacyMaterialExecute(Sender: TObject);
     procedure actPMaterialGroupExecute(Sender: TObject);
+    procedure actPropertiesOfAppliencesExecute(Sender: TObject);
     procedure actPropertiesOfDrugExecute(Sender: TObject);
     procedure actPropertiesOfPHMaterialExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
@@ -262,7 +266,7 @@ uses
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
   uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors,
   uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups, uDrugs,
-  uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial;
+  uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial, uPropertiesOfAppliances;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -695,6 +699,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmPharmacyMaterialGroup.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actPropertiesOfAppliencesExecute(Sender: TObject);
+var
+  newForm : TfrmPropertiesOfAppliances;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmPropertiesOfAppliances.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}

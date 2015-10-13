@@ -13,7 +13,8 @@ uses
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
   uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors,
   uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups, uDrugs,
-uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial;
+uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial,
+uPropertiesOfAppliances;
 
 {$R *.res}
 
@@ -23,7 +24,8 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmGeneral, frmGeneral);
   Application.CreateForm(TdModule, dModule);
-  Application.CreateForm(TfrmPharmacyMaterial, frmPharmacyMaterial);
+  //Application.CreateForm(TfrmPharmacyMaterial, frmPharmacyMaterial);
+  //Application.CreateForm(TfrmPropertiesOfAppliances, frmPropertiesOfAppliances);
   //Application.CreateForm(TfrmPropertiesOfPHMaterial, frmPropertiesOfPHMaterial);
   //Application.CreateForm(TfrmPharmacyMaterialGroup, frmPharmacyMaterialGroup);
   //Application.CreateForm(TfrmDrugs, frmDrugs);

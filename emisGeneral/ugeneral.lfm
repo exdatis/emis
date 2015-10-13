@@ -1,7 +1,7 @@
 object frmGeneral: TfrmGeneral
-  Left = 212
+  Left = 243
   Height = 582
-  Top = 157
+  Top = 161
   Width = 1035
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Emis software - opšte tabele'
@@ -1178,6 +1178,11 @@ object frmGeneral: TfrmGeneral
       Hint = 'Sanitetski materijal'
       OnExecute = actPharmacyMaterialExecute
     end
+    object actPropertiesOfAppliences: TAction
+      Caption = 'Dodatne osobine aparata'
+      Hint = 'Osobine medicinskih aparata'
+      OnExecute = actPropertiesOfAppliencesExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2247,6 +2252,12 @@ object frmGeneral: TfrmGeneral
         end
         object MenuItem64: TMenuItem
           Action = actPharmacyMaterial
+        end
+      end
+      object MenuItem65: TMenuItem
+        Caption = 'Medicinski aparati'
+        object MenuItem66: TMenuItem
+          Action = actPropertiesOfAppliences
         end
       end
     end
