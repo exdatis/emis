@@ -150,10 +150,10 @@ inherited frmMedicineAppliances: TfrmMedicineAppliances
     Height = 137
     Top = 336
     Width = 803
-    ActivePage = tsProperties
+    ActivePage = tsPharmacyMaterial
     Align = alClient
     Images = frmGeneral.imgGeneral
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 3
     OnChange = pcProductChange
     object tsPharmacyMaterial: TTabSheet

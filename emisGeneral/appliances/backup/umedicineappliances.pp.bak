@@ -9,6 +9,9 @@ uses
   Forms, Controls, Graphics, Dialogs, StdCtrls, ActnList, ExtCtrls, Buttons,
   DBGrids, ComCtrls, DbCtrls, uBaseDbForm, db, ZAbstractDataset;
 
+{exception if drug_id is null}
+type
+  TENoProducts = class(Exception);
 type
 
   { TfrmMedicineAppliances }
