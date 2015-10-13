@@ -45,6 +45,7 @@ type
     actGenerics: TAction;
     actDrugGroups: TAction;
     actDrugs: TAction;
+    actAppliancesGroup: TAction;
     actPropertiesOfAppliences: TAction;
     actPharmacyMaterial: TAction;
     actPropertiesOfPHMaterial: TAction;
@@ -127,6 +128,8 @@ type
     MenuItem64: TMenuItem;
     MenuItem65: TMenuItem;
     MenuItem66: TMenuItem;
+    MenuItem67: TMenuItem;
+    MenuItem68: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
@@ -178,6 +181,7 @@ type
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
     ToolButton9: TToolButton;
+    procedure actAppliancesGroupExecute(Sender: TObject);
     procedure actBcpDbExecute(Sender: TObject);
     procedure actDocBuyingExecute(Sender: TObject);
     procedure actDocContractExecute(Sender: TObject);
@@ -268,7 +272,8 @@ uses
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
   uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors,
   uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups, uDrugs,
-  uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial, uPropertiesOfAppliances;
+  uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial,
+  uPropertiesOfAppliances, uAppliancesGroup;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -907,6 +912,32 @@ begin
         fbkFile:= saveFbk.FileName;
         backupDb(fbkFile);
       end;
+end;
+
+procedure TfrmGeneral.actAppliancesGroupExecute(Sender: TObject);
+var
+  newForm : TfrmAppliancesGroup;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmAppliancesGroup.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmGeneral.actDocContractExecute(Sender: TObject);

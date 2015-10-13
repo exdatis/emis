@@ -1183,6 +1183,11 @@ object frmGeneral: TfrmGeneral
       Hint = 'Osobine medicinskih aparata'
       OnExecute = actPropertiesOfAppliencesExecute
     end
+    object actAppliancesGroup: TAction
+      Caption = 'Grupe aparata'
+      Hint = 'Grupe medicinskih aparata'
+      OnExecute = actAppliancesGroupExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2258,6 +2263,12 @@ object frmGeneral: TfrmGeneral
         Caption = 'Medicinski aparati'
         object MenuItem66: TMenuItem
           Action = actPropertiesOfAppliences
+        end
+        object MenuItem67: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem68: TMenuItem
+          Action = actAppliancesGroup
         end
       end
     end
