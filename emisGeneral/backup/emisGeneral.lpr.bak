@@ -14,7 +14,8 @@ uses
   uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors,
   uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups, uDrugs,
 uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial,
-uPropertiesOfAppliances, uAppliancesGroup;
+uPropertiesOfAppliances, uAppliancesGroup, uMedicineAppliances,
+uHEquipmentGroup, uPropertiesOfHEquipment;
 
 {$R *.res}
 
@@ -24,6 +25,9 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmGeneral, frmGeneral);
   Application.CreateForm(TdModule, dModule);
+  Application.CreateForm(TfrmPropertiesOfHEquipment, frmPropertiesOfHEquipment);
+  //Application.CreateForm(TfrmHEquipmentGroup, frmHEquipmentGroup);
+  //Application.CreateForm(TfrmMedicineAppliances, frmMedicineAppliances);
   //Application.CreateForm(TfrmAppliancesGroup, frmAppliancesGroup);
   //Application.CreateForm(TfrmPharmacyMaterial, frmPharmacyMaterial);
   //Application.CreateForm(TfrmPropertiesOfAppliances, frmPropertiesOfAppliances);

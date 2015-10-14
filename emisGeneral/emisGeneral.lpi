@@ -20,7 +20,7 @@
       <MajorVersionNr Value="5"/>
       <MinorVersionNr Value="3"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="81"/>
+      <BuildNr Value="82"/>
       <StringTable Comments="App by Morar" CompanyName="Morar Zivica personal" FileDescription="Medical software" InternalName="Emis" LegalCopyright="Morar Zivica personal(Exdatis)" LegalTrademarks="exdatis@users.sourceforge.net" OriginalFilename="emisGeneral" ProductName="Emis" ProductVersion="5.3"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="38">
+    <Units Count="40">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -336,6 +336,22 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uMedicineAppliances"/>
       </Unit37>
+      <Unit38>
+        <Filename Value="equipment\uhequipmentgroup.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmHEquipmentGroup"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uHEquipmentGroup"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="equipment\upropertiesofhequipment.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmPropertiesOfHEquipment"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uPropertiesOfHEquipment"/>
+      </Unit39>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -346,7 +362,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="..\common;..\dialogs;locations;docs;measure;drug;taxes;partners;pharmMaterial;appliances"/>
+      <OtherUnitFiles Value="..\common;..\dialogs;locations;docs;measure;drug;taxes;partners;pharmMaterial;appliances;equipment"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

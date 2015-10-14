@@ -46,6 +46,8 @@ type
     actDrugGroups: TAction;
     actDrugs: TAction;
     actAppliancesGroup: TAction;
+    actHEquipmentGroup: TAction;
+    actPropertiesOfHEquipment: TAction;
     actMedicineAppliances: TAction;
     actPropertiesOfAppliences: TAction;
     actPharmacyMaterial: TAction;
@@ -134,6 +136,10 @@ type
     MenuItem69: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem70: TMenuItem;
+    MenuItem71: TMenuItem;
+    MenuItem72: TMenuItem;
+    MenuItem73: TMenuItem;
+    MenuItem74: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     panelForms: TBCPanel;
@@ -210,6 +216,7 @@ type
     procedure actEditDataPdfExecute(Sender: TObject);
     procedure actFrmSuppliersExecute(Sender: TObject);
     procedure actGenericsExecute(Sender: TObject);
+    procedure actHEquipmentGroupExecute(Sender: TObject);
     procedure actHlpAboutFormsDocExecute(Sender: TObject);
     procedure actHlpAboutFormsPdfExecute(Sender: TObject);
     procedure actHlpAboutModuleDocExecute(Sender: TObject);
@@ -222,6 +229,7 @@ type
     procedure actPMaterialGroupExecute(Sender: TObject);
     procedure actPropertiesOfAppliencesExecute(Sender: TObject);
     procedure actPropertiesOfDrugExecute(Sender: TObject);
+    procedure actPropertiesOfHEquipmentExecute(Sender: TObject);
     procedure actPropertiesOfPHMaterialExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
     procedure actTaxesExecute(Sender: TObject);
@@ -277,7 +285,8 @@ uses
   uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors,
   uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups, uDrugs,
   uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial,
-  uPropertiesOfAppliances, uAppliancesGroup, uMedicineAppliances;
+  uPropertiesOfAppliances, uAppliancesGroup, uMedicineAppliances, uHEquipmentGroup,
+  uPropertiesOfHEquipment;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -790,6 +799,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmPropertiesOfDrug.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actPropertiesOfHEquipmentExecute(Sender: TObject);
+var
+  newForm : TfrmPropertiesOfHEquipment;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmPropertiesOfHEquipment.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}
@@ -1495,6 +1530,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmGenerics.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actHEquipmentGroupExecute(Sender: TObject);
+var
+  newForm : TfrmHEquipmentGroup;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmHEquipmentGroup.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}
