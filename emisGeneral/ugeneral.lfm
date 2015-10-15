@@ -1213,6 +1213,16 @@ object frmGeneral: TfrmGeneral
       Hint = 'Svojstva hrane'
       OnExecute = actPropertiesOfFoodExecute
     end
+    object actFoodGroups: TAction
+      Caption = 'Grupe hrane'
+      Hint = 'Grupe hrane'
+      OnExecute = actFoodGroupsExecute
+    end
+    object actFood: TAction
+      Caption = 'Hrana'
+      Hint = 'Hrana'
+      OnExecute = actFoodExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2324,6 +2334,18 @@ object frmGeneral: TfrmGeneral
         Caption = 'Hrana'
         object MenuItem78: TMenuItem
           Action = actPropertiesOfFood
+        end
+        object MenuItem79: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem80: TMenuItem
+          Action = actFoodGroups
+        end
+        object MenuItem81: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem82: TMenuItem
+          Action = actFood
         end
       end
     end

@@ -48,6 +48,8 @@ type
     actAppliancesGroup: TAction;
     actHEquipmentGroup: TAction;
     actHospitalEquipment: TAction;
+    actFoodGroups: TAction;
+    actFood: TAction;
     actPropertiesOfFood: TAction;
     actPropertiesOfHEquipment: TAction;
     actMedicineAppliances: TAction;
@@ -146,7 +148,11 @@ type
     MenuItem76: TMenuItem;
     MenuItem77: TMenuItem;
     MenuItem78: TMenuItem;
+    MenuItem79: TMenuItem;
     MenuItem8: TMenuItem;
+    MenuItem80: TMenuItem;
+    MenuItem81: TMenuItem;
+    MenuItem82: TMenuItem;
     MenuItem9: TMenuItem;
     panelForms: TBCPanel;
     imgGeneral: TImageList;
@@ -220,6 +226,8 @@ type
     procedure actDrugNomenclaturesExecute(Sender: TObject);
     procedure actDrugsExecute(Sender: TObject);
     procedure actEditDataPdfExecute(Sender: TObject);
+    procedure actFoodExecute(Sender: TObject);
+    procedure actFoodGroupsExecute(Sender: TObject);
     procedure actFrmSuppliersExecute(Sender: TObject);
     procedure actGenericsExecute(Sender: TObject);
     procedure actHEquipmentGroupExecute(Sender: TObject);
@@ -294,7 +302,7 @@ uses
   uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups, uDrugs,
   uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial,
   uPropertiesOfAppliances, uAppliancesGroup, uMedicineAppliances, uHEquipmentGroup,
-  uPropertiesOfHEquipment, uHospitalEquipment, uPropertiesOfFood;
+  uPropertiesOfHEquipment, uHospitalEquipment, uPropertiesOfFood, uFoodGroups, uFood;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -1521,6 +1529,60 @@ begin
   Screen.Cursor:= crHourGlass;
   try
     OpenDocument(full_path);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actFoodExecute(Sender: TObject);
+var
+  newForm : TfrmFood;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmFood.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openRODataSets;
+    Application.ProcessMessages;
+    newForm.applyCharFilter; {with default char}
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actFoodGroupsExecute(Sender: TObject);
+var
+  newForm : TfrmFoodGroups;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmFoodGroups.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
   finally
     Screen.Cursor:= crDefault;
   end;
