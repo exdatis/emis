@@ -48,6 +48,7 @@ type
     actAppliancesGroup: TAction;
     actHEquipmentGroup: TAction;
     actHospitalEquipment: TAction;
+    actPropertiesOfFood: TAction;
     actPropertiesOfHEquipment: TAction;
     actMedicineAppliances: TAction;
     actPropertiesOfAppliences: TAction;
@@ -143,6 +144,8 @@ type
     MenuItem74: TMenuItem;
     MenuItem75: TMenuItem;
     MenuItem76: TMenuItem;
+    MenuItem77: TMenuItem;
+    MenuItem78: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     panelForms: TBCPanel;
@@ -233,6 +236,7 @@ type
     procedure actPMaterialGroupExecute(Sender: TObject);
     procedure actPropertiesOfAppliencesExecute(Sender: TObject);
     procedure actPropertiesOfDrugExecute(Sender: TObject);
+    procedure actPropertiesOfFoodExecute(Sender: TObject);
     procedure actPropertiesOfHEquipmentExecute(Sender: TObject);
     procedure actPropertiesOfPHMaterialExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
@@ -290,7 +294,7 @@ uses
   uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups, uDrugs,
   uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial,
   uPropertiesOfAppliances, uAppliancesGroup, uMedicineAppliances, uHEquipmentGroup,
-  uPropertiesOfHEquipment, uHospitalEquipment;
+  uPropertiesOfHEquipment, uHospitalEquipment, uPropertiesOfFood;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -803,6 +807,32 @@ begin
   closePriorForm;
   try
     newForm:= TfrmPropertiesOfDrug.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actPropertiesOfFoodExecute(Sender: TObject);
+var
+  newForm : TfrmPropertiesOfFood;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmPropertiesOfFood.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}

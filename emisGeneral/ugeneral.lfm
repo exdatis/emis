@@ -1208,6 +1208,11 @@ object frmGeneral: TfrmGeneral
       Hint = 'Bolnička oprema'
       OnExecute = actHospitalEquipmentExecute
     end
+    object actPropertiesOfFood: TAction
+      Caption = 'Dodatne osobine hrane'
+      Hint = 'Svojstva hrane'
+      OnExecute = actPropertiesOfFoodExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2313,6 +2318,12 @@ object frmGeneral: TfrmGeneral
         end
         object MenuItem76: TMenuItem
           Action = actHospitalEquipment
+        end
+      end
+      object MenuItem77: TMenuItem
+        Caption = 'Hrana'
+        object MenuItem78: TMenuItem
+          Action = actPropertiesOfFood
         end
       end
     end

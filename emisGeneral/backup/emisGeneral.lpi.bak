@@ -20,7 +20,7 @@
       <MajorVersionNr Value="5"/>
       <MinorVersionNr Value="3"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="82"/>
+      <BuildNr Value="83"/>
       <StringTable Comments="App by Morar" CompanyName="Morar Zivica personal" FileDescription="Medical software" InternalName="Emis" LegalCopyright="Morar Zivica personal(Exdatis)" LegalTrademarks="exdatis@users.sourceforge.net" OriginalFilename="emisGeneral" ProductName="Emis" ProductVersion="5.3"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="41">
+    <Units Count="42">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -360,6 +360,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uHospitalEquipment"/>
       </Unit40>
+      <Unit41>
+        <Filename Value="food\upropertiesoffood.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmPropertiesOfFood"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uPropertiesOfFood"/>
+      </Unit41>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -370,7 +378,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="..\common;..\dialogs;locations;docs;measure;drug;taxes;partners;pharmMaterial;appliances;equipment"/>
+      <OtherUnitFiles Value="..\common;..\dialogs;locations;docs;measure;drug;taxes;partners;pharmMaterial;appliances;equipment;food"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
