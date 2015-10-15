@@ -58,7 +58,7 @@ type
     Label7: TLabel;
     panelParams: TPanel;
     pcProduct: TPageControl;
-    tsPharmacyMaterial: TTabSheet;
+    tsProduct: TTabSheet;
     tsProperties: TTabSheet;
     zqProduct: TZQuery;
     zqProductGROUP_CODE: TStringField;
@@ -375,6 +375,8 @@ begin
   case pcProduct.ActivePageIndex of
     0:
        begin
+         {enable-disable scrollBtns}
+         doAfterOpenDataSet(TZAbstractDataset(zqProduct));
          {show recNo and countRec}
          if(TZAbstractDataset(zqProduct).IsEmpty) then
            begin

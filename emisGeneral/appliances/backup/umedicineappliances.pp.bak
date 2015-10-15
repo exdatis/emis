@@ -58,7 +58,7 @@ type
     Label7: TLabel;
     panelParams: TPanel;
     pcProduct: TPageControl;
-    tsPharmacyMaterial: TTabSheet;
+    tsProduct: TTabSheet;
     tsProperties: TTabSheet;
     zqProduct: TZQuery;
     zqProductGROUP_CODE: TStringField;

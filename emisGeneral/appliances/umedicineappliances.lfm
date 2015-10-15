@@ -150,14 +150,14 @@ inherited frmMedicineAppliances: TfrmMedicineAppliances
     Height = 137
     Top = 336
     Width = 803
-    ActivePage = tsPharmacyMaterial
+    ActivePage = tsProduct
     Align = alClient
     Images = frmGeneral.imgGeneral
     TabIndex = 0
     TabOrder = 3
     OnChange = pcProductChange
-    object tsPharmacyMaterial: TTabSheet
-      Caption = 'Sanitetski materijal'
+    object tsProduct: TTabSheet
+      Caption = 'Medicinski aparati'
       ClientHeight = 111
       ClientWidth = 801
       ImageIndex = 11
@@ -1159,7 +1159,7 @@ inherited frmMedicineAppliances: TfrmMedicineAppliances
     top = 292
     object actCharFilter: TAction
       Caption = ' Filter(slovo)'
-      Hint = 'Pronadji lekove'
+      Hint = 'Pronadji aparat'
       ImageIndex = 1
       OnExecute = actCharFilterExecute
       ShortCut = 49219

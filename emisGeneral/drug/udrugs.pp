@@ -322,6 +322,8 @@ begin
   case pcDrugs.ActivePageIndex of
     0:
        begin
+         {enable-disable scrollBtns}
+         doAfterOpenDataSet(TZAbstractDataset(zqDrugs));
          {show recNo and countRec}
          if(TZAbstractDataset(zqDrugs).IsEmpty) then
            begin

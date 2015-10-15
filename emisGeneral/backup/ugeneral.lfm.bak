@@ -1194,7 +1194,7 @@ object frmGeneral: TfrmGeneral
       OnExecute = actMedicineAppliancesExecute
     end
     object actPropertiesOfHEquipment: TAction
-      Caption = 'Dodatne osobine'
+      Caption = 'Dodatne osobine opreme'
       Hint = 'Dodatne osobine opreme'
       OnExecute = actPropertiesOfHEquipmentExecute
     end
@@ -1202,6 +1202,11 @@ object frmGeneral: TfrmGeneral
       Caption = 'Grupe opreme'
       Hint = 'Grupe bolničke opreme'
       OnExecute = actHEquipmentGroupExecute
+    end
+    object actHospitalEquipment: TAction
+      Caption = 'Oprema'
+      Hint = 'Bolnička oprema'
+      OnExecute = actHospitalEquipmentExecute
     end
   end
   object imgGeneral: TImageList
@@ -2290,6 +2295,18 @@ object frmGeneral: TfrmGeneral
         end
         object MenuItem70: TMenuItem
           Action = actMedicineAppliances
+        end
+      end
+      object MenuItem71: TMenuItem
+        Caption = 'Bolnička oprema'
+        object MenuItem72: TMenuItem
+          Action = actPropertiesOfHEquipment
+        end
+        object MenuItem73: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem74: TMenuItem
+          Action = actHEquipmentGroup
         end
       end
     end

@@ -1159,7 +1159,7 @@ inherited frmPharmacyMaterial: TfrmPharmacyMaterial
     top = 264
     object actCharFilter: TAction
       Caption = ' Filter(slovo)'
-      Hint = 'Pronadji lekove'
+      Hint = 'Pronadji materijal'
       ImageIndex = 1
       OnExecute = actCharFilterExecute
       ShortCut = 49219

@@ -1203,6 +1203,11 @@ object frmGeneral: TfrmGeneral
       Hint = 'Grupe bolničke opreme'
       OnExecute = actHEquipmentGroupExecute
     end
+    object actHospitalEquipment: TAction
+      Caption = 'Oprema'
+      Hint = 'Bolnička oprema'
+      OnExecute = actHospitalEquipmentExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2302,6 +2307,12 @@ object frmGeneral: TfrmGeneral
         end
         object MenuItem74: TMenuItem
           Action = actHEquipmentGroup
+        end
+        object MenuItem75: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem76: TMenuItem
+          Action = actHospitalEquipment
         end
       end
     end

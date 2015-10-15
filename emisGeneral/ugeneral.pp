@@ -47,6 +47,7 @@ type
     actDrugs: TAction;
     actAppliancesGroup: TAction;
     actHEquipmentGroup: TAction;
+    actHospitalEquipment: TAction;
     actPropertiesOfHEquipment: TAction;
     actMedicineAppliances: TAction;
     actPropertiesOfAppliences: TAction;
@@ -140,6 +141,8 @@ type
     MenuItem72: TMenuItem;
     MenuItem73: TMenuItem;
     MenuItem74: TMenuItem;
+    MenuItem75: TMenuItem;
+    MenuItem76: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     panelForms: TBCPanel;
@@ -222,6 +225,7 @@ type
     procedure actHlpAboutModuleDocExecute(Sender: TObject);
     procedure actHlpAboutModulePdfExecute(Sender: TObject);
     procedure actHlpEditDataDocExecute(Sender: TObject);
+    procedure actHospitalEquipmentExecute(Sender: TObject);
     procedure actLocationFrmExecute(Sender: TObject);
     procedure actMeasureExecute(Sender: TObject);
     procedure actMedicineAppliancesExecute(Sender: TObject);
@@ -286,7 +290,7 @@ uses
   uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups, uDrugs,
   uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial,
   uPropertiesOfAppliances, uAppliancesGroup, uMedicineAppliances, uHEquipmentGroup,
-  uPropertiesOfHEquipment;
+  uPropertiesOfHEquipment, uHospitalEquipment;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -1642,6 +1646,34 @@ begin
   Screen.Cursor:= crHourGlass;
   try
     OpenDocument(full_path);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actHospitalEquipmentExecute(Sender: TObject);
+var
+  newForm : TfrmHospitalEquipment;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmHospitalEquipment.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openRODataSets;
+    Application.ProcessMessages;
+    newForm.applyCharFilter; {with default char}
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
   finally
     Screen.Cursor:= crDefault;
   end;
