@@ -20,7 +20,7 @@
       <MajorVersionNr Value="5"/>
       <MinorVersionNr Value="3"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="85"/>
+      <BuildNr Value="86"/>
       <StringTable Comments="App by Morar" CompanyName="Morar Zivica personal" FileDescription="Medical software" InternalName="Emis" LegalCopyright="Morar Zivica personal(Exdatis)" LegalTrademarks="exdatis@users.sourceforge.net" OriginalFilename="emisGeneral" ProductName="Emis" ProductVersion="5.3"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="44">
+    <Units Count="46">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -384,6 +384,22 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uFood"/>
       </Unit43>
+      <Unit44>
+        <Filename Value="office\upropertiesofofficem.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmPropertiesOfOfficeM"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="upropertiesOfOfficeM"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="office\uofficemgroups.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmOfficeMGroups"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uOfficeMGroups"/>
+      </Unit45>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -394,7 +410,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="..\common;..\dialogs;locations;docs;measure;drug;taxes;partners;pharmMaterial;appliances;equipment;food"/>
+      <OtherUnitFiles Value="..\common;..\dialogs;locations;docs;measure;drug;taxes;partners;pharmMaterial;appliances;equipment;food;office"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

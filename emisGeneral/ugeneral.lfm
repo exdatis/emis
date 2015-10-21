@@ -1223,6 +1223,16 @@ object frmGeneral: TfrmGeneral
       Hint = 'Hrana'
       OnExecute = actFoodExecute
     end
+    object actPropertiesOfOfficeM: TAction
+      Caption = 'Dodatne osobine materijala'
+      Hint = 'Svojstva kancelarisjkog materijala'
+      OnExecute = actPropertiesOfOfficeMExecute
+    end
+    object actOfficeMGroups: TAction
+      Caption = 'Grupe materijala'
+      Hint = 'Grupe kancelarijskog materijala'
+      OnExecute = actOfficeMGroupsExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2346,6 +2356,19 @@ object frmGeneral: TfrmGeneral
         end
         object MenuItem82: TMenuItem
           Action = actFood
+        end
+      end
+      object MenuItem83: TMenuItem
+        Caption = 'Kancelarijski materijal'
+        Hint = 'Kancelarijski materijal'
+        object MenuItem84: TMenuItem
+          Action = actPropertiesOfOfficeM
+        end
+        object MenuItem85: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem86: TMenuItem
+          Action = actOfficeMGroups
         end
       end
     end
