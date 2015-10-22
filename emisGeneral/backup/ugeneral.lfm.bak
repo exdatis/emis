@@ -1233,6 +1233,11 @@ object frmGeneral: TfrmGeneral
       Hint = 'Grupe kancelarijskog materijala'
       OnExecute = actOfficeMGroupsExecute
     end
+    object actOfficeMaterial: TAction
+      Caption = 'Kancelarijski materijal'
+      Hint = 'Kancelarijski materijal'
+      OnExecute = actOfficeMaterialExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2363,6 +2368,12 @@ object frmGeneral: TfrmGeneral
         Hint = 'Kancelarijski materijal'
         object MenuItem84: TMenuItem
           Action = actPropertiesOfOfficeM
+        end
+        object MenuItem85: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem86: TMenuItem
+          Action = actOfficeMGroups
         end
       end
     end

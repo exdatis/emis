@@ -13,10 +13,11 @@ uses
   uDocMedicalOutput, uDocMedicalOrders, uDocLab, uDocPayment, uDocOutgoings,
   uDocFinance, uDocRequisition, uDocReservation, uTaxes, uSuppliers, uDonors,
   uDrugNomenclatures, uGenerics, uPropertiesOfDrug, uDrugGroups, uDrugs,
-uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial,
-uPropertiesOfAppliances, uAppliancesGroup, uMedicineAppliances,
-uHEquipmentGroup, uPropertiesOfHEquipment, uHospitalEquipment,
-uPropertiesOfFood, uFoodGroups, uFood, upropertiesOfOfficeM, uOfficeMGroups;
+  uPharmacyMaterialGroup, uPropertiesOfPHMaterial, uPharmacyMaterial,
+  uPropertiesOfAppliances, uAppliancesGroup, uMedicineAppliances,
+  uHEquipmentGroup, uPropertiesOfHEquipment, uHospitalEquipment,
+  uPropertiesOfFood, uFoodGroups, uFood, upropertiesOfOfficeM, uOfficeMGroups,
+  uOfficeMaterial;
 
 {$R *.res}
 
@@ -26,6 +27,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmGeneral, frmGeneral);
   Application.CreateForm(TdModule, dModule);
+  //Application.CreateForm(TfrmOfficeMaterial, frmOfficeMaterial);
   //Application.CreateForm(TfrmOfficeMGroups, frmOfficeMGroups);
   //Application.CreateForm(TfrmPropertiesOfOfficeM, frmPropertiesOfOfficeM);
   //Application.CreateForm(TfrmFood, frmFood);

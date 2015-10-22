@@ -1,0 +1,1175 @@
+inherited frmOfficeMaterial: TfrmOfficeMaterial
+  Left = 359
+  Top = 261
+  OnClose = FormClose
+  OnCreate = FormCreate
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Kancelarijski materijal'
+    Font.Height = 12
+  end
+  object panelParams: TPanel[2]
+    Left = 0
+    Height = 35
+    Top = 15
+    Width = 803
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 803
+    TabOrder = 1
+    object cmbCharFilter: TComboBox
+      Left = 6
+      Height = 25
+      Hint = 'Izaberite početno slovo'
+      Top = 5
+      Width = 159
+      AutoComplete = True
+      AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+      AutoSize = False
+      ItemHeight = 0
+      Items.Strings = (
+        'A'
+        'B'
+        'C'
+        'Č'
+        'Ć'
+        'D'
+        'Dž'
+        'Dj'
+        'E'
+        'F'
+        'G'
+        'H'
+        'I'
+        'J'
+        'K'
+        'L'
+        'Lj'
+        'M'
+        'N'
+        'Nj'
+        'O'
+        'P'
+        'R'
+        'Q'
+        'S'
+        'Š'
+        'T'
+        'U'
+        'V'
+        'Z'
+        'Ž'
+      )
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = 'Materijal na slovo ...'
+    end
+    object btnCharFilter: TSpeedButton
+      Cursor = crHandPoint
+      Left = 171
+      Height = 23
+      Top = 6
+      Width = 135
+      Action = actCharFilter
+      ShowHint = True
+      ParentShowHint = False
+    end
+    object cmbFieldArg: TComboBox
+      Cursor = crHandPoint
+      Left = 311
+      Height = 23
+      Hint = 'Polje za pretragu'
+      Top = 6
+      Width = 164
+      AutoComplete = True
+      AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+      AutoDropDown = True
+      ItemHeight = 0
+      ItemIndex = 0
+      Items.Strings = (
+        'Pretraga polja ...'
+        'Naziv aparata'
+        'Šifra aparata'
+        'BarCode'
+      )
+      OnChange = cmbFieldArgChange
+      ParentShowHint = False
+      ShowHint = True
+      Style = csDropDownList
+      TabOrder = 1
+      Text = 'Pretraga polja ...'
+    end
+    object edtLocate: TEdit
+      Left = 480
+      Height = 25
+      Hint = 'Početak teksta'
+      Top = 6
+      Width = 132
+      Font.Color = clGray
+      OnEnter = edtLocateEnter
+      OnExit = edtLocateExit
+      OnKeyUp = edtLocateKeyUp
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+      Text = 'Pronadji ...'
+    end
+    object btnShowAll: TSpeedButton
+      Cursor = crHandPoint
+      Left = 617
+      Height = 23
+      Top = 6
+      Width = 179
+      Action = actClearFilter
+      ShowHint = True
+      ParentShowHint = False
+    end
+  end
+  object dbgProducts: TDBGrid[3]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 286
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 50
+    Width = 803
+    Align = alTop
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsProduct
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 2
+    TitleFont.Height = -11
+    OnMouseMove = dbgProductsMouseMove
+    OnTitleClick = dbgProductsTitleClick
+  end
+  object pcProduct: TPageControl[4]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 137
+    Top = 336
+    Width = 803
+    ActivePage = tsProduct
+    Align = alClient
+    Images = frmGeneral.imgGeneral
+    TabIndex = 0
+    TabOrder = 3
+    OnChange = pcProductChange
+    object tsProduct: TTabSheet
+      Caption = 'Kancelarijski materijal'
+      ClientHeight = 111
+      ClientWidth = 801
+      ImageIndex = 11
+      object gbEditProduct: TGroupBox
+        Left = 0
+        Height = 111
+        Hint = 'Polja sa (*) su obavezna'
+        Top = 0
+        Width = 801
+        Align = alClient
+        Caption = ' Obrada podataka '
+        ClientHeight = 95
+        ClientWidth = 797
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 6
+          Height = 14
+          Top = 12
+          Width = 23
+          Caption = 'Šifra'
+          ParentColor = False
+        end
+        object dbCode: TDBEdit
+          Left = 69
+          Height = 24
+          Top = 5
+          Width = 101
+          DataField = 'OM_CODE'
+          DataSource = dsProduct
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object Label2: TLabel
+          Left = 175
+          Height = 14
+          Top = 12
+          Width = 49
+          Caption = 'Oprema *'
+          ParentColor = False
+        end
+        object dbName: TDBEdit
+          Left = 240
+          Height = 24
+          Top = 7
+          Width = 320
+          DataField = 'OM_NAME'
+          DataSource = dsProduct
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object Label3: TLabel
+          Left = 566
+          Height = 14
+          Top = 12
+          Width = 42
+          Caption = 'BarCode'
+          ParentColor = False
+        end
+        object dbBarCode: TDBEdit
+          Left = 617
+          Height = 24
+          Top = 7
+          Width = 170
+          DataField = 'OM_BARCODE'
+          DataSource = dsProduct
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 2
+        end
+        object Label4: TLabel
+          Left = 6
+          Height = 14
+          Top = 37
+          Width = 52
+          Caption = 'Kom/pak *'
+          ParentColor = False
+        end
+        object dbPieces: TDBEdit
+          Left = 69
+          Height = 24
+          Top = 30
+          Width = 101
+          DataField = 'OM_PIECES'
+          DataSource = dsProduct
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 3
+        end
+        object Label5: TLabel
+          Left = 175
+          Height = 14
+          Top = 37
+          Width = 39
+          Caption = 'Grupa *'
+          ParentColor = False
+        end
+        object dblGroup: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 240
+          Height = 25
+          Top = 31
+          Width = 320
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'OM_GROUP'
+          DataSource = dsProduct
+          KeyField = 'OG_ID'
+          ListField = 'OG_NAME'
+          ListFieldIndex = 0
+          ListSource = dsGroups
+          LookupCache = False
+          TabOrder = 4
+        end
+        object Label6: TLabel
+          Left = 566
+          Height = 14
+          Top = 37
+          Width = 35
+          Caption = 'Mera *'
+          ParentColor = False
+        end
+        object dblMeasure: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 616
+          Height = 25
+          Top = 31
+          Width = 170
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'OM_MEASURE'
+          DataSource = dsProduct
+          KeyField = 'M_ID'
+          ListField = 'M_NAME'
+          ListFieldIndex = 0
+          ListSource = dsMeasure
+          LookupCache = False
+          TabOrder = 5
+        end
+        object Label7: TLabel
+          Left = 6
+          Height = 14
+          Top = 61
+          Width = 29
+          Caption = 'PDV *'
+          ParentColor = False
+        end
+        object dblTaxes: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 69
+          Height = 25
+          Top = 55
+          Width = 101
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'OM_TAX'
+          DataSource = dsProduct
+          KeyField = 'TX_ID'
+          ListField = 'TX_CODE'
+          ListFieldIndex = 0
+          ListSource = dsTaxes
+          LookupCache = False
+          TabOrder = 6
+        end
+      end
+    end
+    object tsProperties: TTabSheet
+      Caption = 'Dodatne osobine'
+      ClientHeight = 111
+      ClientWidth = 801
+      ImageIndex = 21
+      object gbEditPropertiesVar: TGroupBox
+        Left = 0
+        Height = 111
+        Hint = 'Polja sa (*) su obavezna'
+        Top = 0
+        Width = 801
+        Align = alClient
+        Caption = ' Obrada podataka '
+        ClientHeight = 95
+        ClientWidth = 797
+        TabOrder = 0
+        object Label15: TLabel
+          Left = 7
+          Height = 14
+          Top = 8
+          Width = 49
+          Caption = 'Svojstvo *'
+          ParentColor = False
+        end
+        object dblProperty: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 117
+          Height = 25
+          Top = 0
+          Width = 251
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'HPV_PROPERTY'
+          DataSource = dsPropertiesVar
+          KeyField = 'POH_ID'
+          ListField = 'POH_NAME'
+          ListFieldIndex = 0
+          ListSource = dsProperties
+          LookupCache = False
+          TabOrder = 0
+        end
+        object Label16: TLabel
+          Left = 7
+          Height = 14
+          Top = 33
+          Width = 52
+          Caption = 'Vrednost *'
+          ParentColor = False
+        end
+        object dbValue1: TDBEdit
+          Left = 117
+          Height = 24
+          Top = 26
+          Width = 251
+          DataField = 'HPV_VALUE'
+          DataSource = dsPropertiesVar
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object dbgPropertiesVar: TDBGrid
+          Cursor = crHandPoint
+          Left = 378
+          Height = 95
+          Hint = 'Klikni naslov polja za sortiranje'
+          Top = 0
+          Width = 419
+          Align = alRight
+          AlternateColor = clScrollBar
+          Color = clSilver
+          Columns = <>
+          DataSource = dsPropertiesVar
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+          ReadOnly = True
+          ShowHint = True
+          TabOrder = 2
+          TitleFont.Height = -11
+          OnMouseMove = dbgPropertiesVarMouseMove
+          OnTitleClick = dbgPropertiesVarTitleClick
+        end
+        object edtLocateProperty: TEdit
+          Left = 117
+          Height = 25
+          Hint = 'Početak naziva svojstva'
+          Top = 66
+          Width = 251
+          Font.Color = clGray
+          OnEnter = edtLocatePropertyEnter
+          OnExit = edtLocatePropertyExit
+          OnKeyUp = edtLocatePropertyKeyUp
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          Text = 'Pronadji ...'
+        end
+        object Label17: TLabel
+          Left = 7
+          Height = 14
+          Top = 74
+          Width = 42
+          Caption = 'Pretraga'
+          ParentColor = False
+        end
+        object DividerBevel1: TDividerBevel
+          Left = 7
+          Height = 15
+          Top = 51
+          Width = 361
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+      end
+    end
+  end
+  inherited actDb: TActionList[5]
+  end
+  object zqProduct: TZQuery[6]
+    Connection = dModule.zdbh
+    SortedFields = 'OM_NAME'
+    AfterOpen = zqProductAfterOpen
+    BeforeScroll = zqProductBeforeScroll
+    AfterScroll = zqProductAfterScroll
+    UpdateObject = zupdProduct
+    AfterPost = zqProductAfterPost
+    AfterDelete = zqProductAfterDelete
+    OnNewRecord = zqProductNewRecord
+    SQL.Strings = (
+      'SELECT '
+      '  a.OM_ID, '
+      '  a.OM_CODE, '
+      '  a.OM_NAME, '
+      '  a.OM_BARCODE, '
+      '  a.OM_GROUP, '
+      '  a.OM_MEASURE,'
+      '  a.OM_TAX, '
+      '  a.OM_PIECES, '
+      '  a.GROUP_CODE, '
+      '  a.GROUP_NAME, '
+      '  a.MEASURE_CODE,'
+      '  a.MEASURE_NAME, '
+      '  a.TAX_CODE, '
+      '  a.TAX_VALUE'
+      'FROM '
+      '  OFFICE_MATERIAL_V a '
+      'WHERE'
+      '  LOWER(a.OM_NAME) LIKE LOWER(:OM_NAME)'
+      'ORDER BY'
+      '  a.OM_NAME'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'OM_NAME'
+        ParamType = ptUnknown
+      end>
+    IndexFieldNames = 'OM_NAME Asc'
+    Sequence = zseqProducts
+    SequenceField = 'OM_ID'
+    left = 540
+    top = 78
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'OM_NAME'
+        ParamType = ptUnknown
+      end>
+    object zqProductOM_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'OM_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zqProductOM_CODE: TStringField
+      DisplayLabel = 'Šifra'
+      DisplayWidth = 9
+      FieldKind = fkData
+      FieldName = 'OM_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zqProductOM_NAME: TStringField
+      DisplayLabel = 'Materijal'
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'OM_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqProductMEASURE_NAME: TStringField
+      DisplayLabel = 'Mera'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'MEASURE_NAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object zqProductOM_BARCODE: TStringField
+      DisplayLabel = 'BarCode'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'OM_BARCODE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zqProductOM_GROUP: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OM_GROUP'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqProductOM_MEASURE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OM_MEASURE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqProductOM_TAX: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OM_TAX'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqProductOM_PIECES: TFloatField
+      DisplayLabel = 'Kom/Pak'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'OM_PIECES'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object zqProductGROUP_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'GROUP_CODE'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+    object zqProductGROUP_NAME: TStringField
+      DisplayLabel = 'Grupa'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'GROUP_NAME'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqProductMEASURE_CODE: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'MEASURE_CODE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 60
+    end
+    object zqProductTAX_CODE: TStringField
+      DisplayLabel = 'Pdv'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'TAX_CODE'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object zqProductTAX_VALUE: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TAX_VALUE'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object zseqProducts: TZSequence[7]
+    Connection = dModule.zdbh
+    SequenceName = 'PRODUCTS_SEQ'
+    left = 496
+    top = 136
+  end
+  object dsProduct: TDataSource[8]
+    DataSet = zqProduct
+    left = 545
+    top = 153
+  end
+  object zupdProduct: TZUpdateSQL[9]
+    DeleteSQL.Strings = (
+      'DELETE FROM '
+      '  OFFICE_MATERIAL a '
+      'WHERE'
+      '  a.OM_ID = :OM_ID'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO '
+      '  OFFICE_MATERIAL (OM_ID, OM_CODE, OM_NAME, OM_BARCODE, OM_GROUP,'
+      '  OM_MEASURE, OM_TAX, OM_PIECES)'
+      'VALUES ('
+      '  :OM_ID, '
+      '  :OM_CODE, '
+      '  :OM_NAME, '
+      '  :OM_BARCODE, '
+      '  :OM_GROUP, '
+      '  :OM_MEASURE, '
+      '  :OM_TAX, '
+      '  :OM_PIECES'
+      ')'
+    )
+    ModifySQL.Strings = (
+      'UPDATE '
+      '  OFFICE_MATERIAL a'
+      'SET '
+      '  a.OM_CODE = :OM_CODE, '
+      '  a.OM_NAME = :OM_NAME, '
+      '  a.OM_BARCODE = :OM_BARCODE, '
+      '  a.OM_GROUP = :OM_GROUP, '
+      '  a.OM_MEASURE = :OM_MEASURE, '
+      '  a.OM_TAX = :OM_TAX, '
+      '  a.OM_PIECES = :OM_PIECES'
+      'WHERE'
+      '  a.OM_ID = :OM_ID'
+    )
+    RefreshSQL.Strings = (
+      'SELECT '
+      '  a.OM_ID, '
+      '  a.OM_CODE, '
+      '  a.OM_NAME, '
+      '  a.OM_BARCODE, '
+      '  a.OM_GROUP, '
+      '  a.OM_MEASURE,'
+      '  a.OM_TAX, '
+      '  a.OM_PIECES, '
+      '  a.GROUP_CODE, '
+      '  a.GROUP_NAME, '
+      '  a.MEASURE_CODE,'
+      '  a.MEASURE_NAME, '
+      '  a.TAX_CODE, '
+      '  a.TAX_VALUE'
+      'FROM '
+      '  OFFICE_MATERIAL_V a '
+      'WHERE'
+      '  a.OM_ID = :OM_ID'
+    )
+    UseSequenceFieldForRefreshSQL = True
+    left = 596
+    top = 109
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'OM_CODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OM_NAME'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OM_BARCODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OM_GROUP'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OM_MEASURE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OM_TAX'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OM_PIECES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OM_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object zroMeasure: TZReadOnlyQuery[10]
+    Connection = dModule.zdbh
+    SortedFields = 'M_NAME'
+    SQL.Strings = (
+      'SELECT'
+      '  A.M_ID,'
+      '  A.M_NAME'
+      'FROM'
+      '  MEASURE A'
+      'ORDER BY'
+      '  A.M_NAME'
+    )
+    Params = <>
+    IndexFieldNames = 'M_NAME Asc'
+    left = 412
+    top = 212
+    object zroMeasureM_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'M_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroMeasureM_NAME: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'M_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+  end
+  object dsMeasure: TDataSource[11]
+    DataSet = zroMeasure
+    left = 446
+    top = 236
+  end
+  object zroTaxes: TZReadOnlyQuery[12]
+    Connection = dModule.zdbh
+    SortedFields = 'TX_CODE'
+    SQL.Strings = (
+      'SELECT'
+      '  A.TX_ID,'
+      '  A.TX_CODE'
+      'FROM'
+      '  TAXES A'
+      'ORDER BY'
+      '  A.TX_CODE'
+    )
+    Params = <>
+    IndexFieldNames = 'TX_CODE Asc'
+    left = 396
+    top = 292
+    object zroTaxesTX_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TX_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroTaxesTX_CODE: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TX_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+  end
+  object dsTaxes: TDataSource[13]
+    DataSet = zroTaxes
+    left = 428
+    top = 316
+  end
+  object zroProperties: TZReadOnlyQuery[14]
+    Connection = dModule.zdbh
+    SortedFields = 'POO_NAME'
+    SQL.Strings = (
+      'SELECT '
+      '  a.POO_ID, '
+      '  a.POO_NAME'
+      'FROM '
+      '  PROPERTIES_OF_OFFICEM a '
+      'ORDER BY'
+      '  a.POO_NAME'
+    )
+    Params = <>
+    IndexFieldNames = 'POO_NAME Asc'
+    left = 61
+    top = 83
+    object zroPropertiesPOO_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'POO_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroPropertiesPOO_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'POO_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 280
+    end
+  end
+  object zroGroups: TZReadOnlyQuery[15]
+    Connection = dModule.zdbh
+    SortedFields = 'OG_NAME'
+    SQL.Strings = (
+      'SELECT '
+      '  a.OG_ID, '
+      '  a.OG_NAME'
+      'FROM '
+      '  OFFICEM_GROUPS a'
+      'ORDER BY'
+      '  a.OG_NAME'
+    )
+    Params = <>
+    IndexFieldNames = 'OG_NAME Asc'
+    left = 82
+    top = 198
+    object zroGroupsOG_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OG_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroGroupsOG_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'OG_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 280
+    end
+  end
+  object dsGroups: TDataSource[16]
+    DataSet = zroGroups
+    left = 87
+    top = 232
+  end
+  object dsProperties: TDataSource[17]
+    DataSet = zroProperties
+    left = 91
+    top = 104
+  end
+  object zqPropertiesVar: TZQuery[18]
+    Connection = dModule.zdbh
+    SortedFields = 'OFFICEM_NAME'
+    BeforeOpen = zqPropertiesVarBeforeOpen
+    AfterOpen = zqPropertiesVarAfterOpen
+    AfterScroll = zqPropertiesVarAfterScroll
+    UpdateObject = zupdPropertiesVar
+    BeforePost = zqPropertiesVarBeforePost
+    AfterPost = zqPropertiesVarAfterPost
+    AfterDelete = zqPropertiesVarAfterDelete
+    SQL.Strings = (
+      'SELECT '
+      '  a.OPV_ID, '
+      '  a.OPV_OFFICEM, '
+      '  a.OPV_PROPERTY, '
+      '  a.OPV_VALUE, '
+      '  a.OFFICEM_CODE,'
+      '  a.OFFICEM_NAME, '
+      '  a.OMPROPERTY_NAME'
+      'FROM '
+      '  OFFICEM_PROPERTIES_VAR_V a '
+      'WHERE'
+      '  a.OPV_OFFICEM = :OPV_OFFICEM'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'OPV_OFFICEM'
+        ParamType = ptUnknown
+      end>
+    IndexFieldNames = 'OFFICEM_NAME Asc'
+    Sequence = zseqPropertiesVar
+    SequenceField = 'OPV_ID'
+    left = 543
+    top = 292
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'OPV_OFFICEM'
+        ParamType = ptUnknown
+      end>
+    object zqPropertiesVarOPV_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OPV_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zqPropertiesVarOPV_OFFICEM: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OPV_OFFICEM'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqPropertiesVarOPV_PROPERTY: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OPV_PROPERTY'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqPropertiesVarOMPROPERTY_NAME: TStringField
+      DisplayLabel = 'Svojstvo'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'OMPROPERTY_NAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqPropertiesVarOPV_VALUE: TStringField
+      DisplayLabel = 'Vrednost'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'OPV_VALUE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object zqPropertiesVarOFFICEM_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'OFFICEM_CODE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+    object zqPropertiesVarOFFICEM_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'OFFICEM_NAME'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 280
+    end
+  end
+  object zupdPropertiesVar: TZUpdateSQL[19]
+    DeleteSQL.Strings = (
+      'DELETE FROM '
+      '  OFFICEM_PROPERTIES_VAR a '
+      'WHERE'
+      '  a.OPV_ID = :OPV_ID'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO '
+      '  OFFICEM_PROPERTIES_VAR (OPV_ID, OPV_OFFICEM, OPV_PROPERTY,'
+      '  OPV_VALUE)'
+      'VALUES ('
+      '  :OPV_ID, '
+      '  :OPV_OFFICEM, '
+      '  :OPV_PROPERTY, '
+      '  :OPV_VALUE'
+      ')'
+    )
+    ModifySQL.Strings = (
+      'UPDATE '
+      '  OFFICEM_PROPERTIES_VAR a'
+      'SET '
+      '  a.OPV_OFFICEM = :OPV_OFFICEM, '
+      '  a.OPV_PROPERTY = :OPV_PROPERTY, '
+      '  a.OPV_VALUE = :OPV_VALUE'
+      'WHERE'
+      '  a.OPV_ID = :OPV_ID'
+    )
+    RefreshSQL.Strings = (
+      'SELECT '
+      '  a.OPV_ID, '
+      '  a.OPV_OFFICEM, '
+      '  a.OPV_PROPERTY, '
+      '  a.OPV_VALUE, '
+      '  a.OFFICEM_CODE,'
+      '  a.OFFICEM_NAME, '
+      '  a.OMPROPERTY_NAME'
+      'FROM '
+      '  OFFICEM_PROPERTIES_VAR_V a '
+      'WHERE'
+      '  a.OPV_ID = :OPV_ID'
+    )
+    UseSequenceFieldForRefreshSQL = True
+    left = 596
+    top = 271
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'OPV_OFFICEM'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OPV_PROPERTY'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OPV_VALUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OPV_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object zseqPropertiesVar: TZSequence[20]
+    Connection = dModule.zdbh
+    SequenceName = 'PROPERTIES_VAR_SEQ'
+    left = 576
+    top = 344
+  end
+  object dsPropertiesVar: TDataSource[21]
+    DataSet = zqPropertiesVar
+    left = 638
+    top = 348
+  end
+  object actFindProduct: TActionList[22]
+    Images = frmGeneral.imgGeneral
+    left = 268
+    top = 348
+    object actCharFilter: TAction
+      Caption = ' Filter(slovo)'
+      Hint = 'Pronadji materijal'
+      ImageIndex = 1
+      OnExecute = actCharFilterExecute
+      ShortCut = 49219
+    end
+    object actClearFilter: TAction
+      Caption = 'Ukloni filter'
+      Hint = 'Prikaži sve slogove'
+      ImageIndex = 3
+      OnExecute = actClearFilterExecute
+      ShortCut = 49217
+    end
+  end
+end
