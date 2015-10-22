@@ -1248,6 +1248,11 @@ object frmGeneral: TfrmGeneral
       Hint = 'Grupe repromaterijala'
       OnExecute = actMaterialGroupsExecute
     end
+    object actMaterialAccessories: TAction
+      Caption = 'Repromaterijal'
+      Hint = 'Repromaterijal'
+      OnExecute = actMaterialAccessoriesExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2397,6 +2402,12 @@ object frmGeneral: TfrmGeneral
         Hint = 'Repromaterijal'
         object MenuItem90: TMenuItem
           Action = actPropertiesOfMaterials
+        end
+        object MenuItem91: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem92: TMenuItem
+          Action = actMaterialGroups
         end
       end
     end

@@ -50,6 +50,7 @@ type
     actHospitalEquipment: TAction;
     actFoodGroups: TAction;
     actFood: TAction;
+    actMaterialAccessories: TAction;
     actMaterialGroups: TAction;
     actPropertiesOfMaterials: TAction;
     actOfficeMaterial: TAction;
@@ -169,6 +170,8 @@ type
     MenuItem90: TMenuItem;
     MenuItem91: TMenuItem;
     MenuItem92: TMenuItem;
+    MenuItem93: TMenuItem;
+    MenuItem94: TMenuItem;
     panelForms: TBCPanel;
     imgGeneral: TImageList;
     MenuItem1: TMenuItem;
@@ -253,6 +256,7 @@ type
     procedure actHlpEditDataDocExecute(Sender: TObject);
     procedure actHospitalEquipmentExecute(Sender: TObject);
     procedure actLocationFrmExecute(Sender: TObject);
+    procedure actMaterialAccessoriesExecute(Sender: TObject);
     procedure actMaterialGroupsExecute(Sender: TObject);
     procedure actMeasureExecute(Sender: TObject);
     procedure actMedicineAppliancesExecute(Sender: TObject);
@@ -324,7 +328,7 @@ uses
   uPropertiesOfAppliances, uAppliancesGroup, uMedicineAppliances, uHEquipmentGroup,
   uPropertiesOfHEquipment, uHospitalEquipment, uPropertiesOfFood, uFoodGroups, uFood,
   upropertiesOfOfficeM, uOfficeMGroups, uOfficeMaterial, uPropertiesOfMaterials,
-  uMaterialsGroup;
+  uMaterialsGroup, uMaterialsAccessories;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -683,6 +687,34 @@ begin
     newForm.Left:= 0;
     newForm.Top:= 0;
     {open dataSets}
+    newForm.applyCharFilter; {with default char}
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actMaterialAccessoriesExecute(Sender: TObject);
+var
+  newForm : TfrmMaterialsAccessories;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmMaterialsAccessories.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openRODataSets;
+    Application.ProcessMessages;
     newForm.applyCharFilter; {with default char}
     {show form}
     newForm.Show;
