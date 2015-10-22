@@ -17,7 +17,7 @@ uses
   uPropertiesOfAppliances, uAppliancesGroup, uMedicineAppliances,
   uHEquipmentGroup, uPropertiesOfHEquipment, uHospitalEquipment,
   uPropertiesOfFood, uFoodGroups, uFood, upropertiesOfOfficeM, uOfficeMGroups,
-  uOfficeMaterial;
+  uOfficeMaterial, uPropertiesOfMaterials;
 
 {$R *.res}
 
@@ -27,7 +27,8 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmGeneral, frmGeneral);
   Application.CreateForm(TdModule, dModule);
-  Application.CreateForm(TfrmOfficeMaterial, frmOfficeMaterial);
+  //Application.CreateForm(TfrmPropertiesOfMaterials, frmPropertiesOfMaterials);
+  //Application.CreateForm(TfrmOfficeMaterial, frmOfficeMaterial);
   //Application.CreateForm(TfrmOfficeMGroups, frmOfficeMGroups);
   //Application.CreateForm(TfrmPropertiesOfOfficeM, frmPropertiesOfOfficeM);
   //Application.CreateForm(TfrmFood, frmFood);

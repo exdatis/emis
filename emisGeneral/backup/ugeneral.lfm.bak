@@ -1238,6 +1238,16 @@ object frmGeneral: TfrmGeneral
       Hint = 'Kancelarijski materijal'
       OnExecute = actOfficeMaterialExecute
     end
+    object actPropertiesOfMaterials: TAction
+      Caption = 'Dodatne osobine'
+      Hint = 'Svojstva repromaterijala'
+      OnExecute = actPropertiesOfMaterialsExecute
+    end
+    object actMaterialGroups: TAction
+      Caption = 'Grupe repromaterijala'
+      Hint = 'Grupe repromaterijala'
+      OnExecute = actMaterialGroupsExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2374,6 +2384,19 @@ object frmGeneral: TfrmGeneral
         end
         object MenuItem86: TMenuItem
           Action = actOfficeMGroups
+        end
+        object MenuItem87: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem88: TMenuItem
+          Action = actOfficeMaterial
+        end
+      end
+      object MenuItem89: TMenuItem
+        Caption = 'Repromaterijal'
+        Hint = 'Repromaterijal'
+        object MenuItem90: TMenuItem
+          Action = actPropertiesOfMaterials
         end
       end
     end
