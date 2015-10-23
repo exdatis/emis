@@ -4,14 +4,15 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="68">
+    <Units Count="69">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="6"/>
-        <CursorPos X="5" Y="31"/>
-        <UsageCount Value="141"/>
+        <CursorPos X="4" Y="31"/>
+        <UsageCount Value="143"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -22,7 +23,7 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="uDModule"/>
         <CursorPos X="46" Y="18"/>
-        <UsageCount Value="141"/>
+        <UsageCount Value="143"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -36,7 +37,7 @@
         <EditorIndex Value="3"/>
         <TopLine Value="357"/>
         <CursorPos X="3" Y="376"/>
-        <UsageCount Value="139"/>
+        <UsageCount Value="141"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -47,11 +48,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uGeneral"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="1968"/>
         <CursorPos X="32" Y="1977"/>
-        <UsageCount Value="138"/>
+        <UsageCount Value="140"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -63,7 +63,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="27" Y="12"/>
-        <UsageCount Value="136"/>
+        <UsageCount Value="138"/>
       </Unit4>
       <Unit5>
         <Filename Value="locations\ulocation.pp"/>
@@ -75,7 +75,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="377"/>
         <CursorPos X="17" Y="400"/>
-        <UsageCount Value="132"/>
+        <UsageCount Value="134"/>
       </Unit5>
       <Unit6>
         <Filename Value="docs\udocwarehousein.pp"/>
@@ -86,7 +86,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="52"/>
         <CursorPos X="22" Y="59"/>
-        <UsageCount Value="129"/>
+        <UsageCount Value="131"/>
       </Unit6>
       <Unit7>
         <Filename Value="docs\udocwarehouseout.pp"/>
@@ -97,7 +97,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="47"/>
         <CursorPos X="40" Y="49"/>
-        <UsageCount Value="128"/>
+        <UsageCount Value="130"/>
       </Unit7>
       <Unit8>
         <Filename Value="docs\udocsoinput.pp"/>
@@ -108,7 +108,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="51"/>
         <CursorPos X="38" Y="303"/>
-        <UsageCount Value="127"/>
+        <UsageCount Value="129"/>
       </Unit8>
       <Unit9>
         <Filename Value="docs\udocsooutput.pp"/>
@@ -119,7 +119,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="296"/>
         <CursorPos X="42" Y="301"/>
-        <UsageCount Value="126"/>
+        <UsageCount Value="128"/>
       </Unit9>
       <Unit10>
         <Filename Value="docs\udocbuying.pp"/>
@@ -130,7 +130,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="297"/>
         <CursorPos X="13" Y="316"/>
-        <UsageCount Value="125"/>
+        <UsageCount Value="127"/>
       </Unit10>
       <Unit11>
         <Filename Value="docs\udocsell.pp"/>
@@ -141,7 +141,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="285"/>
         <CursorPos X="10" Y="315"/>
-        <UsageCount Value="124"/>
+        <UsageCount Value="126"/>
       </Unit11>
       <Unit12>
         <Filename Value="docs\udoccontract.pp"/>
@@ -152,7 +152,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="51"/>
         <CursorPos Y="63"/>
-        <UsageCount Value="123"/>
+        <UsageCount Value="125"/>
       </Unit12>
       <Unit13>
         <Filename Value="measure\umeasure.pp"/>
@@ -164,7 +164,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="291"/>
         <CursorPos X="13" Y="315"/>
-        <UsageCount Value="122"/>
+        <UsageCount Value="124"/>
       </Unit13>
       <Unit14>
         <Filename Value="drug\udrugforms.pp"/>
@@ -175,7 +175,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="46"/>
         <CursorPos X="6" Y="58"/>
-        <UsageCount Value="121"/>
+        <UsageCount Value="123"/>
       </Unit14>
       <Unit15>
         <Filename Value="docs\udocmedicalinput.pp"/>
@@ -186,7 +186,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="286"/>
         <CursorPos X="19" Y="316"/>
-        <UsageCount Value="113"/>
+        <UsageCount Value="115"/>
       </Unit15>
       <Unit16>
         <Filename Value="docs\udocmedicaloutput.pp"/>
@@ -197,7 +197,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="297"/>
         <CursorPos X="45" Y="303"/>
-        <UsageCount Value="112"/>
+        <UsageCount Value="114"/>
       </Unit16>
       <Unit17>
         <Filename Value="docs\udocmedicalorders.pp"/>
@@ -208,7 +208,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="286"/>
         <CursorPos X="15" Y="316"/>
-        <UsageCount Value="111"/>
+        <UsageCount Value="113"/>
       </Unit17>
       <Unit18>
         <Filename Value="docs\udoclab.pp"/>
@@ -220,7 +220,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="48"/>
         <CursorPos X="36" Y="61"/>
-        <UsageCount Value="110"/>
+        <UsageCount Value="112"/>
       </Unit18>
       <Unit19>
         <Filename Value="docs\udocpayment.pp"/>
@@ -231,7 +231,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="45"/>
         <CursorPos X="28" Y="58"/>
-        <UsageCount Value="108"/>
+        <UsageCount Value="110"/>
       </Unit19>
       <Unit20>
         <Filename Value="docs\udocoutgoings.pp"/>
@@ -242,7 +242,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="258"/>
         <CursorPos X="39" Y="285"/>
-        <UsageCount Value="107"/>
+        <UsageCount Value="109"/>
       </Unit20>
       <Unit21>
         <Filename Value="docs\udocfinance.pp"/>
@@ -253,7 +253,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="45"/>
         <CursorPos Y="62"/>
-        <UsageCount Value="106"/>
+        <UsageCount Value="108"/>
       </Unit21>
       <Unit22>
         <Filename Value="docs\udocrequisition.pp"/>
@@ -264,7 +264,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="258"/>
         <CursorPos X="41" Y="285"/>
-        <UsageCount Value="105"/>
+        <UsageCount Value="107"/>
       </Unit22>
       <Unit23>
         <Filename Value="docs\udocreservation.pp"/>
@@ -276,7 +276,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="213"/>
         <CursorPos Y="292"/>
-        <UsageCount Value="105"/>
+        <UsageCount Value="107"/>
       </Unit23>
       <Unit24>
         <Filename Value="taxes\utaxes.pp"/>
@@ -288,7 +288,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="260"/>
         <CursorPos X="32" Y="284"/>
-        <UsageCount Value="88"/>
+        <UsageCount Value="90"/>
       </Unit24>
       <Unit25>
         <Filename Value="partners\usuppliers.pp"/>
@@ -300,7 +300,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="631"/>
         <CursorPos X="39" Y="642"/>
-        <UsageCount Value="86"/>
+        <UsageCount Value="88"/>
       </Unit25>
       <Unit26>
         <Filename Value="partners\udonors.pp"/>
@@ -312,7 +312,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="73"/>
         <CursorPos Y="89"/>
-        <UsageCount Value="81"/>
+        <UsageCount Value="83"/>
       </Unit26>
       <Unit27>
         <Filename Value="drug\udrugnomenclatures.pp"/>
@@ -324,7 +324,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="52"/>
         <CursorPos X="6" Y="64"/>
-        <UsageCount Value="79"/>
+        <UsageCount Value="81"/>
       </Unit27>
       <Unit28>
         <Filename Value="drug\ugenerics.pp"/>
@@ -336,7 +336,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="287"/>
         <CursorPos X="49" Y="307"/>
-        <UsageCount Value="77"/>
+        <UsageCount Value="79"/>
       </Unit28>
       <Unit29>
         <Filename Value="drug\upropertiesofdrug.pp"/>
@@ -348,7 +348,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="289"/>
         <CursorPos X="87" Y="320"/>
-        <UsageCount Value="70"/>
+        <UsageCount Value="72"/>
       </Unit29>
       <Unit30>
         <Filename Value="drug\udruggroups.pp"/>
@@ -360,7 +360,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="288"/>
         <CursorPos X="10" Y="320"/>
-        <UsageCount Value="69"/>
+        <UsageCount Value="71"/>
       </Unit30>
       <Unit31>
         <Filename Value="drug\udrugs.pp"/>
@@ -372,7 +372,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="310"/>
         <CursorPos X="54" Y="326"/>
-        <UsageCount Value="68"/>
+        <UsageCount Value="70"/>
       </Unit31>
       <Unit32>
         <Filename Value="pharmMaterial\upharmacymaterialgroup.pp"/>
@@ -384,7 +384,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="290"/>
         <CursorPos X="17" Y="324"/>
-        <UsageCount Value="58"/>
+        <UsageCount Value="60"/>
       </Unit32>
       <Unit33>
         <Filename Value="pharmMaterial\upropertiesofphmaterial.pp"/>
@@ -396,7 +396,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="291"/>
         <CursorPos X="9" Y="320"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="59"/>
       </Unit33>
       <Unit34>
         <Filename Value="pharmMaterial\upharmacymaterial.pp"/>
@@ -408,7 +408,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="359"/>
         <CursorPos X="65" Y="379"/>
-        <UsageCount Value="50"/>
+        <UsageCount Value="52"/>
       </Unit34>
       <Unit35>
         <Filename Value="appliances\upropertiesofappliances.pp"/>
@@ -420,7 +420,7 @@
         <EditorIndex Value="4"/>
         <TopLine Value="286"/>
         <CursorPos X="16" Y="320"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="47"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit35>
@@ -434,7 +434,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="290"/>
         <CursorPos X="52" Y="296"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="45"/>
       </Unit36>
       <Unit37>
         <Filename Value="appliances\umedicineappliances.pp"/>
@@ -446,7 +446,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="359"/>
         <CursorPos X="60" Y="379"/>
-        <UsageCount Value="42"/>
+        <UsageCount Value="44"/>
       </Unit37>
       <Unit38>
         <Filename Value="equipment\uhequipmentgroup.pp"/>
@@ -458,7 +458,7 @@
         <EditorIndex Value="5"/>
         <TopLine Value="286"/>
         <CursorPos X="13" Y="320"/>
-        <UsageCount Value="38"/>
+        <UsageCount Value="40"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit38>
@@ -472,7 +472,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="290"/>
         <CursorPos X="18" Y="320"/>
-        <UsageCount Value="37"/>
+        <UsageCount Value="39"/>
       </Unit39>
       <Unit40>
         <Filename Value="equipment\uhospitalequipment.pp"/>
@@ -481,10 +481,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uHospitalEquipment"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="769"/>
-        <CursorPos X="10" Y="803"/>
-        <UsageCount Value="36"/>
+        <CursorPos X="12" Y="803"/>
+        <UsageCount Value="38"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit40>
@@ -498,7 +498,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="282"/>
         <CursorPos X="8" Y="320"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="35"/>
       </Unit41>
       <Unit42>
         <Filename Value="food\ufoodgroups.pp"/>
@@ -510,7 +510,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="282"/>
         <CursorPos X="10" Y="320"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="34"/>
       </Unit42>
       <Unit43>
         <Filename Value="food\ufood.pp"/>
@@ -522,7 +522,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="159"/>
         <CursorPos X="3" Y="178"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="34"/>
       </Unit43>
       <Unit44>
         <Filename Value="office\upropertiesofofficem.pp"/>
@@ -534,7 +534,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="19"/>
         <CursorPos X="62" Y="37"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="31"/>
       </Unit44>
       <Unit45>
         <Filename Value="office\uofficemgroups.pp"/>
@@ -546,7 +546,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="282"/>
         <CursorPos X="10" Y="320"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="31"/>
       </Unit45>
       <Unit46>
         <Filename Value="office\uofficematerial.pp"/>
@@ -558,7 +558,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="119"/>
         <CursorPos X="49" Y="149"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="30"/>
       </Unit46>
       <Unit47>
         <Filename Value="materialsAccessories\upropertiesofmaterials.pp"/>
@@ -570,7 +570,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="282"/>
         <CursorPos X="72" Y="312"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="27"/>
       </Unit47>
       <Unit48>
         <Filename Value="materialsAccessories\umaterialsgroup.pp"/>
@@ -582,7 +582,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="282"/>
         <CursorPos X="18" Y="320"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="27"/>
       </Unit48>
       <Unit49>
         <Filename Value="materialsAccessories\umaterialsaccessories.pp"/>
@@ -594,133 +594,9 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="771"/>
         <CursorPos X="10" Y="805"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="25"/>
       </Unit49>
       <Unit50>
-        <Filename Value="locations\ulocations.pp"/>
-        <ComponentName Value="frmLocations"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="283"/>
-        <CursorPos X="35" Y="300"/>
-        <UsageCount Value="18"/>
-      </Unit50>
-      <Unit51>
-        <Filename Value="..\common\ubasemoduleform.pp"/>
-        <ComponentName Value="baseModuleForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="41"/>
-        <CursorPos X="25" Y="56"/>
-        <UsageCount Value="16"/>
-      </Unit51>
-      <Unit52>
-        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZDataset.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="110"/>
-        <CursorPos X="47" Y="119"/>
-        <UsageCount Value="4"/>
-      </Unit52>
-      <Unit53>
-        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZDatasetUtils.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="19"/>
-        <CursorPos X="43" Y="28"/>
-        <UsageCount Value="4"/>
-      </Unit53>
-      <Unit54>
-        <Filename Value="C:\lazarus\components\ZeosLib\src\dbc\ZDbcInterbase6Utils.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="823"/>
-        <CursorPos Y="832"/>
-        <UsageCount Value="4"/>
-      </Unit54>
-      <Unit55>
-        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZAbstractConnection.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="940"/>
-        <CursorPos X="52" Y="952"/>
-        <UsageCount Value="4"/>
-      </Unit55>
-      <Unit56>
-        <Filename Value="C:\lazarus\components\ZeosLib\src\dbc\ZDbcGenericResolver.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="888"/>
-        <CursorPos X="46" Y="898"/>
-        <UsageCount Value="4"/>
-      </Unit56>
-      <Unit57>
-        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZAbstractDataset.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="430"/>
-        <CursorPos Y="446"/>
-        <UsageCount Value="5"/>
-      </Unit57>
-      <Unit58>
-        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.2\components\zeosDBA\src\dbc\ZDbcInterbase6Utils.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="819"/>
-        <CursorPos Y="832"/>
-        <UsageCount Value="6"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit58>
-      <Unit59>
-        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.2\components\zeosDBA\src\component\ZAbstractDataset.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="433"/>
-        <CursorPos Y="446"/>
-        <UsageCount Value="6"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit59>
-      <Unit60>
-        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.2\lcl\include\pagecontrol.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="6"/>
-        <CursorPos Y="37"/>
-        <UsageCount Value="8"/>
-      </Unit60>
-      <Unit61>
-        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.2\components\zeosLib\src\component\ZAbstractRODataset.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2300"/>
-        <CursorPos Y="2318"/>
-        <UsageCount Value="8"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit61>
-      <Unit62>
-        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.4\components\zeosDBA\src\component\ZDatasetUtils.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="689"/>
-        <CursorPos Y="705"/>
-        <UsageCount Value="10"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit62>
-      <Unit63>
-        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.4\lcl\include\dblookup.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="305"/>
-        <CursorPos Y="323"/>
-        <UsageCount Value="10"/>
-      </Unit63>
-      <Unit64>
-        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.4\lcl\dbctrls.pp"/>
-        <UnitName Value="DbCtrls"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1497"/>
-        <CursorPos Y="1516"/>
-        <UsageCount Value="10"/>
-      </Unit64>
-      <Unit65>
-        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.4\components\zeosDBA\src\component\ZSqlUpdate.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="656"/>
-        <CursorPos Y="675"/>
-        <UsageCount Value="10"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit65>
-      <Unit66>
         <Filename Value="hygiene\uhygieneproperties.pp"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmHygieneProperties"/>
@@ -730,142 +606,279 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="54"/>
         <CursorPos X="35" Y="65"/>
-        <UsageCount Value="21"/>
-      </Unit66>
-      <Unit67>
+        <UsageCount Value="23"/>
+      </Unit50>
+      <Unit51>
         <Filename Value="hygiene\uhygienegroups.pp"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmHygieneGroups"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uHygieneGroups"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="286"/>
         <CursorPos X="13" Y="320"/>
-        <UsageCount Value="21"/>
+        <UsageCount Value="23"/>
+      </Unit51>
+      <Unit52>
+        <Filename Value="locations\ulocations.pp"/>
+        <ComponentName Value="frmLocations"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="283"/>
+        <CursorPos X="35" Y="300"/>
+        <UsageCount Value="18"/>
+      </Unit52>
+      <Unit53>
+        <Filename Value="..\common\ubasemoduleform.pp"/>
+        <ComponentName Value="baseModuleForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="41"/>
+        <CursorPos X="25" Y="56"/>
+        <UsageCount Value="16"/>
+      </Unit53>
+      <Unit54>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZDataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="110"/>
+        <CursorPos X="47" Y="119"/>
+        <UsageCount Value="4"/>
+      </Unit54>
+      <Unit55>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZDatasetUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="19"/>
+        <CursorPos X="43" Y="28"/>
+        <UsageCount Value="4"/>
+      </Unit55>
+      <Unit56>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\dbc\ZDbcInterbase6Utils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="823"/>
+        <CursorPos Y="832"/>
+        <UsageCount Value="4"/>
+      </Unit56>
+      <Unit57>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZAbstractConnection.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="940"/>
+        <CursorPos X="52" Y="952"/>
+        <UsageCount Value="4"/>
+      </Unit57>
+      <Unit58>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\dbc\ZDbcGenericResolver.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="888"/>
+        <CursorPos X="46" Y="898"/>
+        <UsageCount Value="4"/>
+      </Unit58>
+      <Unit59>
+        <Filename Value="C:\lazarus\components\ZeosLib\src\component\ZAbstractDataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="430"/>
+        <CursorPos Y="446"/>
+        <UsageCount Value="5"/>
+      </Unit59>
+      <Unit60>
+        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.2\components\zeosDBA\src\dbc\ZDbcInterbase6Utils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="819"/>
+        <CursorPos Y="832"/>
+        <UsageCount Value="6"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit60>
+      <Unit61>
+        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.2\components\zeosDBA\src\component\ZAbstractDataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="433"/>
+        <CursorPos Y="446"/>
+        <UsageCount Value="6"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit61>
+      <Unit62>
+        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.2\lcl\include\pagecontrol.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="6"/>
+        <CursorPos Y="37"/>
+        <UsageCount Value="8"/>
+      </Unit62>
+      <Unit63>
+        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.2\components\zeosLib\src\component\ZAbstractRODataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2300"/>
+        <CursorPos Y="2318"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit63>
+      <Unit64>
+        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.4\components\zeosDBA\src\component\ZDatasetUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="689"/>
+        <CursorPos Y="705"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit64>
+      <Unit65>
+        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.4\lcl\include\dblookup.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="305"/>
+        <CursorPos Y="323"/>
+        <UsageCount Value="10"/>
+      </Unit65>
+      <Unit66>
+        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.4\lcl\dbctrls.pp"/>
+        <UnitName Value="DbCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1497"/>
+        <CursorPos Y="1516"/>
+        <UsageCount Value="10"/>
+      </Unit66>
+      <Unit67>
+        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.4\components\zeosDBA\src\component\ZSqlUpdate.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="656"/>
+        <CursorPos Y="675"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit67>
+      <Unit68>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmHygieneMaterial"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uHygieneMaterial"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="758"/>
+        <CursorPos X="12" Y="796"/>
+        <UsageCount Value="22"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit67>
+      </Unit68>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="707" Column="39" TopLine="698"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="113" Column="32" TopLine="76"/>
       </Position1>
       <Position2>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="708" Column="39" TopLine="699"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="127" Column="3" TopLine="124"/>
       </Position2>
       <Position3>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="709" Column="39" TopLine="700"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="153" Column="22" TopLine="130"/>
       </Position3>
       <Position4>
-        <Filename Value="appliances\upropertiesofappliances.pp"/>
-        <Caret Line="320" Column="11" TopLine="286"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="170" Column="21" TopLine="159"/>
       </Position4>
       <Position5>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="751" Column="21" TopLine="718"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="186" Column="34" TopLine="174"/>
       </Position5>
       <Position6>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="331" Column="61" TopLine="301"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="208" Column="23" TopLine="191"/>
       </Position6>
       <Position7>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="333" Column="61" TopLine="303"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="216" Column="37" TopLine="212"/>
       </Position7>
       <Position8>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="1971" Column="36" TopLine="1953"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="241" Column="28" TopLine="221"/>
       </Position8>
       <Position9>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="1972" Column="36" TopLine="1954"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="249" Column="41" TopLine="245"/>
       </Position9>
       <Position10>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="256" Column="61" TopLine="253"/>
       </Position10>
       <Position11>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="17" Column="50"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="270" Column="36" TopLine="260"/>
       </Position11>
       <Position12>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="19" Column="50"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="279" Column="34" TopLine="275"/>
       </Position12>
       <Position13>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="28" Column="50"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="291" Column="11" TopLine="283"/>
       </Position13>
       <Position14>
-        <Filename Value="equipment\uhequipmentgroup.pp"/>
-        <Caret Line="320" Column="18" TopLine="286"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="299" Column="43" TopLine="295"/>
       </Position14>
       <Position15>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="47" Column="36" TopLine="9"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="308" Column="43" TopLine="304"/>
       </Position15>
       <Position16>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="61" Column="23" TopLine="36"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="320" Column="13" TopLine="312"/>
       </Position16>
       <Position17>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="71" Column="35" TopLine="67"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="328" Column="20" TopLine="324"/>
       </Position17>
       <Position18>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="89" Column="27" TopLine="75"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="337" Column="53" TopLine="333"/>
       </Position18>
       <Position19>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="97" Column="35" TopLine="93"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="384" Column="32" TopLine="347"/>
       </Position19>
       <Position20>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="106" Column="33" TopLine="102"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="406" Column="27" TopLine="387"/>
       </Position20>
       <Position21>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="118" Column="10" TopLine="110"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="428" Column="27" TopLine="410"/>
       </Position21>
       <Position22>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="126" Column="20" TopLine="122"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="471" Column="35" TopLine="434"/>
       </Position22>
       <Position23>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="149" Column="27" TopLine="131"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="494" Column="27" TopLine="474"/>
       </Position23>
       <Position24>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="171" Column="28" TopLine="153"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="505" Column="14" TopLine="498"/>
       </Position24>
       <Position25>
-        <Filename Value="hygiene\uhygienegroups.pp"/>
-        <Caret Line="201" Column="28" TopLine="175"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="512" Column="66" TopLine="509"/>
       </Position25>
       <Position26>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="1987" Column="22" TopLine="1955"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="534" Column="27" TopLine="516"/>
       </Position26>
       <Position27>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="335" Column="77" TopLine="305"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="556" Column="27" TopLine="538"/>
       </Position27>
       <Position28>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="337" Column="77" TopLine="307"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="581" Column="28" TopLine="560"/>
       </Position28>
       <Position29>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="1975" Column="32" TopLine="1966"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="604" Column="27" TopLine="585"/>
       </Position29>
       <Position30>
-        <Filename Value="ugeneral.pp"/>
-        <Caret Line="1976" Column="32" TopLine="1967"/>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <Caret Line="614" Column="92" TopLine="608"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

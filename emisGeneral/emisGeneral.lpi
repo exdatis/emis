@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="52">
+    <Units Count="53">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -448,6 +448,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uHygieneGroups"/>
       </Unit51>
+      <Unit52>
+        <Filename Value="hygiene\uhygienematerial.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmHygieneMaterial"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uHygieneMaterial"/>
+      </Unit52>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
