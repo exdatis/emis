@@ -1253,6 +1253,16 @@ object frmGeneral: TfrmGeneral
       Hint = 'Repromaterijal'
       OnExecute = actMaterialAccessoriesExecute
     end
+    object actHygieneProperties: TAction
+      Caption = 'Dodatne osobine'
+      Hint = 'Svojstva higijenskog materijala'
+      OnExecute = actHygienePropertiesExecute
+    end
+    object actHygieneGroups: TAction
+      Caption = 'Grupe materijala'
+      Hint = 'Grupe higijenskog materijala'
+      OnExecute = actHygieneGroupsExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2408,6 +2418,19 @@ object frmGeneral: TfrmGeneral
         end
         object MenuItem92: TMenuItem
           Action = actMaterialGroups
+        end
+        object MenuItem93: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem94: TMenuItem
+          Action = actMaterialAccessories
+        end
+      end
+      object MenuItem95: TMenuItem
+        Caption = 'Higijena'
+        Hint = 'Higijenski materijal'
+        object MenuItem96: TMenuItem
+          Action = actHygieneProperties
         end
       end
     end

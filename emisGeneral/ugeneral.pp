@@ -50,6 +50,8 @@ type
     actHospitalEquipment: TAction;
     actFoodGroups: TAction;
     actFood: TAction;
+    actHygieneProperties: TAction;
+    actHygieneGroups: TAction;
     actMaterialAccessories: TAction;
     actMaterialGroups: TAction;
     actPropertiesOfMaterials: TAction;
@@ -172,6 +174,10 @@ type
     MenuItem92: TMenuItem;
     MenuItem93: TMenuItem;
     MenuItem94: TMenuItem;
+    MenuItem95: TMenuItem;
+    MenuItem96: TMenuItem;
+    MenuItem97: TMenuItem;
+    MenuItem98: TMenuItem;
     panelForms: TBCPanel;
     imgGeneral: TImageList;
     MenuItem1: TMenuItem;
@@ -255,6 +261,8 @@ type
     procedure actHlpAboutModulePdfExecute(Sender: TObject);
     procedure actHlpEditDataDocExecute(Sender: TObject);
     procedure actHospitalEquipmentExecute(Sender: TObject);
+    procedure actHygieneGroupsExecute(Sender: TObject);
+    procedure actHygienePropertiesExecute(Sender: TObject);
     procedure actLocationFrmExecute(Sender: TObject);
     procedure actMaterialAccessoriesExecute(Sender: TObject);
     procedure actMaterialGroupsExecute(Sender: TObject);
@@ -328,7 +336,7 @@ uses
   uPropertiesOfAppliances, uAppliancesGroup, uMedicineAppliances, uHEquipmentGroup,
   uPropertiesOfHEquipment, uHospitalEquipment, uPropertiesOfFood, uFoodGroups, uFood,
   upropertiesOfOfficeM, uOfficeMGroups, uOfficeMaterial, uPropertiesOfMaterials,
-  uMaterialsGroup, uMaterialsAccessories;
+  uMaterialsGroup, uMaterialsAccessories, uHygieneProperties, uHygieneGroups;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -1948,6 +1956,58 @@ begin
     newForm.openRODataSets;
     Application.ProcessMessages;
     newForm.applyCharFilter; {with default char}
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actHygieneGroupsExecute(Sender: TObject);
+var
+  newForm : TfrmHygieneGroups;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmHygieneGroups.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actHygienePropertiesExecute(Sender: TObject);
+var
+  newForm : TfrmHygieneProperties;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmHygieneProperties.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
     {show form}
     newForm.Show;
     {set focus to enable shortcuts}
