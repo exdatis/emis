@@ -199,8 +199,8 @@ inherited frmMaterialsAccessories: TfrmMaterialsAccessories
           Left = 175
           Height = 14
           Top = 12
-          Width = 49
-          Caption = 'Oprema *'
+          Width = 50
+          Caption = 'Proizvod *'
           ParentColor = False
         end
         object dbName: TDBEdit

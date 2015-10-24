@@ -1,6 +1,6 @@
 inherited frmHygieneMaterial: TfrmHygieneMaterial
   Left = 374
-  Top = 305
+  Top = 257
   OnClose = FormClose
   OnCreate = FormCreate
   inherited lblBaseDbTitle: TLabel
@@ -199,8 +199,8 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
           Left = 175
           Height = 14
           Top = 12
-          Width = 49
-          Caption = 'Oprema *'
+          Width = 54
+          Caption = 'Materijal *'
           ParentColor = False
         end
         object dbName: TDBEdit
@@ -660,6 +660,7 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Visible = False
       MaxValue = 0
       MinValue = 0
       Precision = 2
@@ -1012,6 +1013,88 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
         Name = 'HPV_HMATERIAL'
         ParamType = ptUnknown
       end>
+    object zqPropertiesVarHPV_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'HPV_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zqPropertiesVarHPV_HMATERIAL: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'HPV_HMATERIAL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqPropertiesVarHPV_PROPERTY: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'HPV_PROPERTY'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqPropertiesVarHPROPERTY_NAME: TStringField
+      DisplayLabel = 'Svojstvo'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'HPROPERTY_NAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqPropertiesVarHPV_VALUE: TStringField
+      DisplayLabel = 'Vrednost'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'HPV_VALUE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zqPropertiesVarHMATERIAL_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'HMATERIAL_CODE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+    object zqPropertiesVarHMATERIAL_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'HMATERIAL_NAME'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 280
+    end
   end
   object zseqPropertiesVar: TZSequence[20]
     Connection = dModule.zdbh

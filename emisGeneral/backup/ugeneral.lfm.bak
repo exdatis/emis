@@ -1263,6 +1263,11 @@ object frmGeneral: TfrmGeneral
       Hint = 'Grupe higijenskog materijala'
       OnExecute = actHygieneGroupsExecute
     end
+    object actHygieneMaterial: TAction
+      Caption = 'Higijenski materijal'
+      Hint = 'Higijenski materijal'
+      OnExecute = actHygieneMaterialExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2431,6 +2436,12 @@ object frmGeneral: TfrmGeneral
         Hint = 'Higijenski materijal'
         object MenuItem96: TMenuItem
           Action = actHygieneProperties
+        end
+        object MenuItem97: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem98: TMenuItem
+          Action = actHygieneGroups
         end
       end
     end

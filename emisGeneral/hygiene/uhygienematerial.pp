@@ -76,6 +76,13 @@ type
     zqProductTAX_CODE: TStringField;
     zqProductTAX_VALUE: TFloatField;
     zqPropertiesVar: TZQuery;
+    zqPropertiesVarHMATERIAL_CODE: TStringField;
+    zqPropertiesVarHMATERIAL_NAME: TStringField;
+    zqPropertiesVarHPROPERTY_NAME: TStringField;
+    zqPropertiesVarHPV_HMATERIAL: TLongintField;
+    zqPropertiesVarHPV_ID: TLongintField;
+    zqPropertiesVarHPV_PROPERTY: TLongintField;
+    zqPropertiesVarHPV_VALUE: TStringField;
     zroGroups: TZReadOnlyQuery;
     zroGroupsHG_ID: TLongintField;
     zroGroupsHG_NAME: TStringField;
@@ -173,7 +180,7 @@ const
   //****************************************************************************
   {fields of table hygiene_properties_var} //fpv- field_properties_var
   FPV_ID : String = 'HPV_ID';
-  FPV_PRODUCT : String = 'HPV_EQUIPMENT';
+  FPV_PRODUCT : String = 'HPV_HMATERIAL';
   FPV_PROPERTY : String = 'HPV_PROPERTY';
   FPV_VALUE : String = 'HPV_VALUE';
   {fields of view hequipment_properties_var_v}

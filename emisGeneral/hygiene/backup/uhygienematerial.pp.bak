@@ -76,6 +76,13 @@ type
     zqProductTAX_CODE: TStringField;
     zqProductTAX_VALUE: TFloatField;
     zqPropertiesVar: TZQuery;
+    zqPropertiesVarHMATERIAL_CODE: TStringField;
+    zqPropertiesVarHMATERIAL_NAME: TStringField;
+    zqPropertiesVarHPROPERTY_NAME: TStringField;
+    zqPropertiesVarHPV_HMATERIAL: TLongintField;
+    zqPropertiesVarHPV_ID: TLongintField;
+    zqPropertiesVarHPV_PROPERTY: TLongintField;
+    zqPropertiesVarHPV_VALUE: TStringField;
     zroGroups: TZReadOnlyQuery;
     zroGroupsHG_ID: TLongintField;
     zroGroupsHG_NAME: TStringField;
@@ -173,7 +180,7 @@ const
   //****************************************************************************
   {fields of table hygiene_properties_var} //fpv- field_properties_var
   FPV_ID : String = 'HPV_ID';
-  FPV_PRODUCT : String = 'HPV_EQUIPMENT';
+  FPV_PRODUCT : String = 'HPV_HMATERIAL';
   FPV_PROPERTY : String = 'HPV_PROPERTY';
   FPV_VALUE : String = 'HPV_VALUE';
   {fields of view hequipment_properties_var_v}
@@ -749,17 +756,51 @@ end;
 
 procedure TfrmHygieneMaterial.onActCancel;
 begin
-
+  {cancel rec}
+  case pcProduct.ActivePageIndex of
+    0: doCancelRec(TZAbstractDataset(zqProduct));
+    1: doCancelRec(TZAbstractDataset(zqPropertiesVar));
+  end;
 end;
 
 procedure TfrmHygieneMaterial.openRODataSets;
 begin
-
+  //product groups
+  zroGroups.DisableControls;
+  zroGroups.Open;
+  zroGroups.EnableControls;
+  //measure
+  zroMeasure.DisableControls;
+  zroMeasure.Open;
+  zroMeasure.EnableControls;
+  //taxes
+  zroTaxes.DisableControls;
+  zroTaxes.Open;
+  zroTaxes.EnableControls;
+  //property(of hospital equipment)
+  zroProperties.DisableControls;
+  zroProperties.Open;
+  zroProperties.EnableControls;
 end;
 
 procedure TfrmHygieneMaterial.applyCharFilter;
 begin
-
+  TZAbstractDataset(zqProduct).DisableControls;
+  TZAbstractDataset(zqProduct).Close;
+  try
+    TZAbstractDataset(zqProduct).ParamByName(PARAM_NAME).AsString:= charArg;
+    TZAbstractDataset(zqProduct).Open;
+    TZAbstractDataset(zqProduct).EnableControls;
+    {show arg in cmbChar}
+    //cmbCharFilter.ItemIndex:= cmbCharFilter.Items.IndexOf(LeftStr(charArg, 1)); {without '%'}
+  except
+    on e : Exception do
+    begin
+      dModule.zdbh.Rollback;
+      TZAbstractDataset(zqProduct).EnableControls;
+      ShowMessage(e.Message);
+    end;
+  end;
 end;
 
 end.

@@ -732,7 +732,7 @@ inherited frmMaterialsAccessories: TfrmMaterialsAccessories
       'FROM '
       '  MATERIALS_ACCESSORIES_V a '
       'WHERE'
-      '  a.MA_ID = :M_ID'
+      '  a.MA_ID = :MA_ID'
     )
     UseSequenceFieldForRefreshSQL = True
     left = 593
@@ -776,11 +776,6 @@ inherited frmMaterialsAccessories: TfrmMaterialsAccessories
       item
         DataType = ftUnknown
         Name = 'MA_ID'
-        ParamType = ptUnknown
-      end    
-      item
-        DataType = ftUnknown
-        Name = 'M_ID'
         ParamType = ptUnknown
       end>
   end

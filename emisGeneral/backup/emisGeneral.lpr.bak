@@ -28,7 +28,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmGeneral, frmGeneral);
   Application.CreateForm(TdModule, dModule);
-  Application.CreateForm(TfrmHygieneMaterial, frmHygieneMaterial);
+ // Application.CreateForm(TfrmHygieneMaterial, frmHygieneMaterial);
   //Application.CreateForm(TfrmHygieneGroups, frmHygieneGroups);
   //Application.CreateForm(TfrmHygieneProperties, frmHygieneProperties);
   //Application.CreateForm(TfrmMaterialsAccessories, frmMaterialsAccessories);
