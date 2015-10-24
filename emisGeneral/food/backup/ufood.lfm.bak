@@ -475,7 +475,7 @@ inherited frmFood: TfrmFood
       'FROM '
       '  FOOD_V a '
       'WHERE'
-      '  LOWER(a.F_NAME) LIKE(:F_NAME)'
+      '  LOWER(a.F_NAME) LIKE LOWER(:F_NAME)'
       'ORDER BY'
       '  a.F_NAME'
     )

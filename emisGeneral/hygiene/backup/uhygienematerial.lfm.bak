@@ -199,8 +199,8 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
           Left = 175
           Height = 14
           Top = 12
-          Width = 54
-          Caption = 'Materijal *'
+          Width = 50
+          Caption = 'Proizvod *'
           ParentColor = False
         end
         object dbName: TDBEdit

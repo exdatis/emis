@@ -181,7 +181,7 @@ const
   {fields of table hequipment_properties_var} //fpv- field_properties_var
   FPV_ID : String = 'HPV_ID';
   FPV_PRODUCT : String = 'HPV_EQUIPMENT';
-  FPV_PROPERTY : String = 'MPV_PROPERTY';
+  FPV_PROPERTY : String = 'HPV_PROPERTY';
   FPV_VALUE : String = 'HPV_VALUE';
   {fields of view hequipment_properties_var_v}
   {existent --||-- + property_name}

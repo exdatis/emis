@@ -1268,6 +1268,16 @@ object frmGeneral: TfrmGeneral
       Hint = 'Higijenski materijal'
       OnExecute = actHygieneMaterialExecute
     end
+    object actSServicesGroups: TAction
+      Caption = 'Grupe usluga'
+      Hint = 'Grupe usluga'
+      OnExecute = actSServicesGroupsExecute
+    end
+    object actSupplyServices: TAction
+      Caption = 'Usluge'
+      Hint = 'Usluge (nabavka)'
+      OnExecute = actSupplyServicesExecute
+    end
   end
   object imgGeneral: TImageList
     left = 686
@@ -2449,6 +2459,15 @@ object frmGeneral: TfrmGeneral
         object MenuItem100: TMenuItem
           Action = actHygieneMaterial
         end
+      end
+    end
+    object MenuItem101: TMenuItem
+      Caption = 'Usluge (nabavka)'
+      object MenuItem102: TMenuItem
+        Action = actSServicesGroups
+      end
+      object MenuItem103: TMenuItem
+        Action = actSupplyServices
       end
     end
   end

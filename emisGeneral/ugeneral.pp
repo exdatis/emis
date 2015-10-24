@@ -53,6 +53,8 @@ type
     actHygieneProperties: TAction;
     actHygieneGroups: TAction;
     actHygieneMaterial: TAction;
+    actSupplyServices: TAction;
+    actSServicesGroups: TAction;
     actMaterialAccessories: TAction;
     actMaterialGroups: TAction;
     actPropertiesOfMaterials: TAction;
@@ -86,6 +88,9 @@ type
     lblModuleTitle: TLabel;
     MenuItem10: TMenuItem;
     MenuItem100: TMenuItem;
+    MenuItem101: TMenuItem;
+    MenuItem102: TMenuItem;
+    MenuItem103: TMenuItem;
     MenuItem11: TMenuItem;
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
@@ -284,6 +289,8 @@ type
     procedure actPropertiesOfOfficeMExecute(Sender: TObject);
     procedure actPropertiesOfPHMaterialExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
+    procedure actSServicesGroupsExecute(Sender: TObject);
+    procedure actSupplyServicesExecute(Sender: TObject);
     procedure actTaxesExecute(Sender: TObject);
     procedure divExDatisClick(Sender: TObject);
     procedure divExDatisMouseEnter(Sender: TObject);
@@ -341,7 +348,7 @@ uses
   uPropertiesOfHEquipment, uHospitalEquipment, uPropertiesOfFood, uFoodGroups, uFood,
   upropertiesOfOfficeM, uOfficeMGroups, uOfficeMaterial, uPropertiesOfMaterials,
   uMaterialsGroup, uMaterialsAccessories, uHygieneProperties, uHygieneGroups,
-  uHygieneMaterial;
+  uHygieneMaterial, uSServicesGroups, uSupplyServices;
 {$R *.lfm}
 
 { TfrmGeneral }
@@ -656,6 +663,60 @@ begin
   {close main form and terminate app}
   Close;
   Application.Terminate;
+end;
+
+procedure TfrmGeneral.actSServicesGroupsExecute(Sender: TObject);
+var
+  newForm : TfrmSServicesGroups;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmSServicesGroups.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmGeneral.actSupplyServicesExecute(Sender: TObject);
+var
+  newForm : TfrmSupplyServices;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmSupplyServices.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openRODataSets;
+    Application.ProcessMessages;
+    newForm.applyCharFilter; {with default char}
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmGeneral.actTaxesExecute(Sender: TObject);

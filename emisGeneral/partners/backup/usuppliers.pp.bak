@@ -635,6 +635,11 @@ end;
 
 procedure TfrmSuppliers.onActCancel;
 begin
+  {hide panel}
+  if(edtGridSearch.Visible) then
+    edtGridSearch.Visible:= False;
+  if(panelFindLocation.Visible) then
+    panelFindLocation.Visible:= False;
   {cancel rec}
   doCancelRec(TZAbstractDataset(zqSuppliers));
 end;

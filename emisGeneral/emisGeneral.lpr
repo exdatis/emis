@@ -18,7 +18,8 @@ uses
   uHEquipmentGroup, uPropertiesOfHEquipment, uHospitalEquipment,
   uPropertiesOfFood, uFoodGroups, uFood, upropertiesOfOfficeM, uOfficeMGroups,
   uOfficeMaterial, uPropertiesOfMaterials, uMaterialsGroup,
-uMaterialsAccessories, uHygieneProperties, uHygieneGroups, uHygieneMaterial;
+  uMaterialsAccessories, uHygieneProperties, uHygieneGroups, uHygieneMaterial,
+  uSServicesGroups, uSupplyServices;
 
 {$R *.res}
 
@@ -28,6 +29,8 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmGeneral, frmGeneral);
   Application.CreateForm(TdModule, dModule);
+  //Application.CreateForm(TfrmSupplyServices, frmSupplyServices);
+  //Application.CreateForm(TfrmSServicesGroups, frmSServicesGroups);
   //Application.CreateForm(TfrmHygieneMaterial, frmHygieneMaterial);
   //Application.CreateForm(TfrmHygieneGroups, frmHygieneGroups);
   //Application.CreateForm(TfrmHygieneProperties, frmHygieneProperties);
