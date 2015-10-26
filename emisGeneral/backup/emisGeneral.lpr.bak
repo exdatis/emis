@@ -29,7 +29,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmGeneral, frmGeneral);
   Application.CreateForm(TdModule, dModule);
-  Application.CreateForm(TfrmSupplyServices, frmSupplyServices);
+  //Application.CreateForm(TfrmSupplyServices, frmSupplyServices);
   //Application.CreateForm(TfrmSServicesGroups, frmSServicesGroups);
   //Application.CreateForm(TfrmHygieneMaterial, frmHygieneMaterial);
   //Application.CreateForm(TfrmHygieneGroups, frmHygieneGroups);

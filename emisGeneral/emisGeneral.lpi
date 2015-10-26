@@ -20,7 +20,7 @@
       <MajorVersionNr Value="5"/>
       <MinorVersionNr Value="3"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="100"/>
+      <BuildNr Value="103"/>
       <StringTable Comments="App by Morar" CompanyName="Morar Zivica personal" FileDescription="Medical software" InternalName="Emis" LegalCopyright="Morar Zivica personal(Exdatis)" LegalTrademarks="exdatis@users.sourceforge.net" OriginalFilename="emisGeneral" ProductName="Emis" ProductVersion="5.3"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="55">
+    <Units Count="56">
       <Unit0>
         <Filename Value="emisGeneral.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -472,6 +472,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uSupplyServices"/>
       </Unit54>
+      <Unit55>
+        <Filename Value="..\common\uexdatisshare.pp"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uExDatisShare"/>
+      </Unit55>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

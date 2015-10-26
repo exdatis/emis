@@ -6,9 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, BCPanel, DTAnalogClock, BGRASpriteAnimation,
-  Forms, Controls, Graphics, DividerBevel,
-  Dialogs, ActnList, Menus, ComCtrls, ExtCtrls, LCLIntf, StdCtrls, Buttons,
-  process;
+  BGRALED, Forms, Controls, Graphics, DividerBevel, Dialogs, ActnList, Menus,
+  ComCtrls, ExtCtrls, LCLIntf, StdCtrls, Buttons, process;
 
 type
 
@@ -74,6 +73,11 @@ type
     actMeasure: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
+    Bevel1: TBevel;
+    Bevel2: TBevel;
+    Bevel3: TBevel;
+    Bevel4: TBevel;
+    BGRALEDConnection: TBGRALED;
     bgrSpriteLogo: TBGRASpriteAnimation;
     divExDatis: TDividerBevel;
     DTAnalogClock1: TDTAnalogClock;
@@ -81,6 +85,7 @@ type
     Image2: TImage;
     Label1: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
     lblDate: TLabel;
     lblEditDataDoc: TLabel;
     lblEditDataPdf: TLabel;
@@ -200,6 +205,7 @@ type
     panelMnu: TPanel;
     saveFbk: TSaveDialog;
     shapeLogo: TShape;
+    stConnectionStatus: TStaticText;
     statusBarGeneral: TStatusBar;
     toolBarGeneral: TToolBar;
     ToolButton1: TToolButton;

@@ -11,6 +11,8 @@ object dModule: TdModule
       'AutoEncodeStrings='
     )
     Connected = True
+    AfterConnect = zdbhAfterConnect
+    AfterDisconnect = zdbhAfterDisconnect
     HostName = 'localhost'
     Port = 3050
     Database = '/home/morar/exdatis/emis25.fdb'

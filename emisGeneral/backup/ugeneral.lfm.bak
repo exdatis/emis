@@ -1,7 +1,7 @@
 object frmGeneral: TfrmGeneral
-  Left = 178
+  Left = 243
   Height = 582
-  Top = 160
+  Top = 173
   Width = 1035
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Emis software - opšte tabele'
@@ -384,28 +384,15 @@ object frmGeneral: TfrmGeneral
     ClientWidth = 224
     ParentColor = False
     TabOrder = 2
-    object Label1: TLabel
-      Left = 0
-      Height = 15
-      Top = 1
-      Width = 226
-      AutoSize = False
-      Caption = ' Uputstva'
-      Color = clBlack
-      Font.Color = clCream
-      ParentColor = False
-      ParentFont = False
-      Transparent = False
-    end
     object lblAboutModule: TLabel
       Cursor = crHandPoint
       Left = 0
       Height = 15
       Hint = 'Napomene o modulu'
-      Top = 18
+      Top = 27
       Width = 226
       AutoSize = False
-      Caption = ' Napomene o modulu (pdf)'
+      Caption = '  -Napomene o modulu (pdf)'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -422,10 +409,10 @@ object frmGeneral: TfrmGeneral
       Left = 0
       Height = 15
       Hint = 'Napomene o modulu'
-      Top = 35
+      Top = 44
       Width = 226
       AutoSize = False
-      Caption = ' Napomene o modulu (doc)'
+      Caption = '  -Napomene o modulu (doc)'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -442,10 +429,10 @@ object frmGeneral: TfrmGeneral
       Left = 1
       Height = 15
       Hint = 'O formularima'
-      Top = 52
+      Top = 61
       Width = 225
       AutoSize = False
-      Caption = ' O formularima (pdf)'
+      Caption = '  -O formularima (pdf)'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -462,10 +449,10 @@ object frmGeneral: TfrmGeneral
       Left = 0
       Height = 15
       Hint = 'O formularima'
-      Top = 69
+      Top = 78
       Width = 225
       AutoSize = False
-      Caption = ' O formularima (doc)'
+      Caption = '  -O formularima (doc)'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -478,14 +465,15 @@ object frmGeneral: TfrmGeneral
       OnMouseLeave = lblAboutFormsDocMouseLeave
     end
     object Label2: TLabel
-      Left = 0
-      Height = 15
-      Top = 121
-      Width = 226
+      Left = 3
+      Height = 22
+      Top = 130
+      Width = 218
       AutoSize = False
       Caption = ' Arhiviranje podataka(backup)'
-      Color = clBlack
-      Font.Color = clCream
+      Color = clWhite
+      Font.Color = clGray
+      Layout = tlCenter
       ParentColor = False
       ParentFont = False
       Transparent = False
@@ -495,10 +483,10 @@ object frmGeneral: TfrmGeneral
       Left = 0
       Height = 15
       Hint = 'Arhiviranje baze podataka'
-      Top = 138
+      Top = 156
       Width = 225
       AutoSize = False
-      Caption = 'Arhiviranje baze podataka'
+      Caption = '  -Arhiviranje baze podataka'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -515,10 +503,10 @@ object frmGeneral: TfrmGeneral
       Left = 0
       Height = 15
       Hint = 'Obrada podataka'
-      Top = 86
+      Top = 95
       Width = 225
       AutoSize = False
-      Caption = 'Obrada podataka (doc)'
+      Caption = '  -Obrada podataka (doc)'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -535,10 +523,10 @@ object frmGeneral: TfrmGeneral
       Left = 0
       Height = 15
       Hint = 'Obrada podataka'
-      Top = 103
+      Top = 112
       Width = 225
       AutoSize = False
-      Caption = 'Obrada podataka (pdf)'
+      Caption = '  -Obrada podataka (pdf)'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -551,13 +539,14 @@ object frmGeneral: TfrmGeneral
       OnMouseLeave = lblEditDataPdfMouseLeave
     end
     object lblDate: TLabel
-      Left = 0
-      Height = 15
-      Top = 155
-      Width = 226
+      Left = 3
+      Height = 22
+      Top = 175
+      Width = 218
       AutoSize = False
-      Color = clBlack
-      Font.Color = clCream
+      Color = clWhite
+      Font.Color = clGray
+      Layout = tlCenter
       ParentColor = False
       ParentFont = False
       Transparent = False
@@ -567,7 +556,7 @@ object frmGeneral: TfrmGeneral
       Left = 68
       Height = 104
       Hint = 'Verba volant, scripta manent ...'
-      Top = 264
+      Top = 377
       Width = 98
       ParentShowHint = False
       Picture.Data = {
@@ -1963,6 +1952,83 @@ object frmGeneral: TfrmGeneral
         OnClick = bgrSpriteLogoClick
       end
     end
+    object Label3: TLabel
+      Left = 3
+      Height = 22
+      Top = 2
+      Width = 218
+      AutoSize = False
+      Caption = ' Uputstva'
+      Color = clWhite
+      Font.Color = clGray
+      Layout = tlCenter
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object Bevel1: TBevel
+      Left = 3
+      Height = 22
+      Top = 2
+      Width = 218
+      Style = bsRaised
+    end
+    object Bevel2: TBevel
+      Left = 3
+      Height = 22
+      Top = 130
+      Width = 218
+      Style = bsRaised
+    end
+    object Bevel3: TBevel
+      Left = 3
+      Height = 22
+      Top = 175
+      Width = 218
+      Style = bsRaised
+    end
+    object Label1: TLabel
+      Left = 0
+      Height = 15
+      Top = 200
+      Width = 224
+      AutoSize = False
+      Caption = '  -Connection status:'
+      Color = clGray
+      Font.Color = clCream
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object Bevel4: TBevel
+      Left = 0
+      Height = 17
+      Top = 200
+      Width = 224
+      Style = bsRaised
+    end
+    object BGRALEDConnection: TBGRALED
+      Left = 0
+      Height = 24
+      Top = 220
+      Width = 24
+      Active = True
+      LedType = ledRound
+      On = True
+      Reflection = True
+      Blinking = False
+      BlinkInterval = 300
+      Color = clGray
+    end
+    object stConnectionStatus: TStaticText
+      Left = 36
+      Height = 20
+      Top = 222
+      Width = 184
+      BorderStyle = sbsSingle
+      Caption = ' Disconnected'
+      TabOrder = 1
+    end
   end
   object panelForms: TBCPanel
     Left = 232
@@ -2038,7 +2104,7 @@ object frmGeneral: TfrmGeneral
     object Image1: TImage
       Left = 676
       Height = 133
-      Top = 12
+      Top = 10
       Width = 120
       Picture.Data = {
         1754506F727461626C654E6574776F726B47726170686963DC26000089504E47
@@ -2362,7 +2428,7 @@ object frmGeneral: TfrmGeneral
       Hint = 'Project home'
       Top = 464
       Width = 757
-      Caption = '                             GENERAL HOSPITAL PANCHEVO    '
+      Caption = 'General hospital Panchevo'
       BevelStyle = bsRaised
       Font.Color = clSilver
       Font.Style = [fsBold]
@@ -2389,9 +2455,9 @@ object frmGeneral: TfrmGeneral
       OnMouseLeave = lblModuleTitleMouseLeave
     end
     object DTAnalogClock1: TDTAnalogClock
-      Left = 101
+      Left = 24
       Height = 64
-      Top = 439
+      Top = 380
       Width = 72
       Enabled = False
     end

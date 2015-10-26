@@ -1,0 +1,13 @@
+unit uExDatisShare;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, uGeneral;
+
+implementation
+
+end.
+

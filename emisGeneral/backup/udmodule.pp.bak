@@ -24,7 +24,8 @@ var
   dModule: TdModule;
 
 implementation
-
+uses
+  uExDatisShare;
 {$R *.lfm}
 
 end.
