@@ -5,9 +5,10 @@ unit uGeneral;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, BCPanel, DTAnalogClock, DividerBevel, Forms,
-  Controls, Graphics, Dialogs, ActnList, Menus, ComCtrls, ExtCtrls, LCLIntf,
-  StdCtrls, process;
+  Classes, SysUtils, FileUtil, BCPanel, DTAnalogClock, BGRASpriteAnimation,
+  Forms, Controls, Graphics, DividerBevel,
+  Dialogs, ActnList, Menus, ComCtrls, ExtCtrls, LCLIntf, StdCtrls, Buttons,
+  process;
 
 type
 
@@ -73,11 +74,14 @@ type
     actMeasure: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
+    bgrSpriteLogo: TBGRASpriteAnimation;
     divExDatis: TDividerBevel;
     DTAnalogClock1: TDTAnalogClock;
     Image1: TImage;
+    Image2: TImage;
     Label1: TLabel;
     Label2: TLabel;
+    lblDate: TLabel;
     lblEditDataDoc: TLabel;
     lblEditDataPdf: TLabel;
     lblBackup: TLabel;
@@ -90,6 +94,7 @@ type
     MenuItem100: TMenuItem;
     MenuItem101: TMenuItem;
     MenuItem102: TMenuItem;
+    MenuItem103: TMenuItem;
     MenuItem11: TMenuItem;
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
@@ -191,6 +196,7 @@ type
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     mnuGeneral: TMainMenu;
+    panelLogo: TPanel;
     panelMnu: TPanel;
     saveFbk: TSaveDialog;
     shapeLogo: TShape;
@@ -291,6 +297,7 @@ type
     procedure actSServicesGroupsExecute(Sender: TObject);
     procedure actSupplyServicesExecute(Sender: TObject);
     procedure actTaxesExecute(Sender: TObject);
+    procedure bgrSpriteLogoClick(Sender: TObject);
     procedure divExDatisClick(Sender: TObject);
     procedure divExDatisMouseEnter(Sender: TObject);
     procedure divExDatisMouseLeave(Sender: TObject);
@@ -324,6 +331,7 @@ type
     { private declarations }
     procedure closePriorForm;
     procedure backupDb(const fbkPath : String);
+    procedure showHomePage;
   public
     { public declarations }
     HELP_PATH : String;
@@ -333,7 +341,7 @@ var
   frmGeneral: TfrmGeneral;
 const
   PRJ_HOME : String = 'http://sourceforge.net/projects/emissoftware/';
-  MAX_CTRLS : ShortInt = 4;
+  MAX_CTRLS : ShortInt = 5;
 
 implementation
 uses
@@ -363,18 +371,41 @@ end;
 procedure TfrmGeneral.FormShow(Sender: TObject);
 var
   userHome : String;
+  gifAnimate : String;
+  currDate : TDate;
+  dayName : String;
 begin
   HELP_PATH:= '-';
   {$IfDef WINDOWS}
     HELP_PATH:= 'c:\exdatis\hlp\';
+    gifAnimate:= 'c:\exdatis\icons\exdatis.gif'
   {$EndIf}
   {$IfDef Linux}
     userHome:= GetUserDir;
     HELP_PATH:=  userHome + 'exdatis/hlp/';
+    gifAnimate:= userHome + 'exdatis/icons/exdatis.gif';
   {$EndIf}
   //ShowMessage(HELP_PATH);
   {enable the clock}
   DTAnalogClock1.Enabled:= True;
+  {set date}
+  currDate:= Now;
+  case DayOfWeek(currDate) of
+    1: dayName:= 'Nedelja';
+    2: dayName:= 'Ponedeljak';
+    3: dayName:= 'Utorak';
+    4: dayName:= 'Sreda';
+    5: dayName:= 'Četvrtak';
+    6: dayName:= 'Petak';
+    7: dayName:= 'Subota';
+  end;
+  lblDate.Caption:= ' ' + dayName + ': ' + FormatDateTime('dd.MM.yyyy', currDate) + ' god.';
+  {animated gif}
+  bgrSpriteLogo.AnimatedGifToSprite(gifAnimate);
+  bgrSpriteLogo.AnimRepeat:= 0;
+  bgrSpriteLogo.AnimSpeed:= 100;
+  bgrSpriteLogo.ShowHint:= True;
+  Application.ProcessMessages;
 end;
 
 procedure TfrmGeneral.lblAboutFormsDocClick(Sender: TObject);
@@ -657,6 +688,17 @@ begin
   ShowMessage(successMsg);
 end;
 
+procedure TfrmGeneral.showHomePage;
+begin
+  {open project home-page}
+  Screen.Cursor:= crHourGlass;
+  try
+    OpenURL(PRJ_HOME);
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
 procedure TfrmGeneral.actQuitAppExecute(Sender: TObject);
 begin
   {close main form and terminate app}
@@ -742,6 +784,11 @@ begin
   finally
     Screen.Cursor:= crDefault;
   end;
+end;
+
+procedure TfrmGeneral.bgrSpriteLogoClick(Sender: TObject);
+begin
+  showHomePage;
 end;
 
 procedure TfrmGeneral.actLocationFrmExecute(Sender: TObject);
@@ -2112,25 +2159,19 @@ end;
 
 procedure TfrmGeneral.divExDatisClick(Sender: TObject);
 begin
-  {open project home-page}
-  Screen.Cursor:= crHourGlass;
-  try
-    OpenURL(PRJ_HOME);
-  finally
-    Screen.Cursor:= crDefault;
-  end;
+  showHomePage;
 end;
 
 procedure TfrmGeneral.divExDatisMouseEnter(Sender: TObject);
 begin
   {underline}
-  divExDatis.Font.Underline:= True;
+  divExDatis.Font.Underline:= False;
 end;
 
 procedure TfrmGeneral.divExDatisMouseLeave(Sender: TObject);
 begin
   {underline}
-  divExDatis.Font.Underline:= False;
+  divExDatis.Font.Underline:= True;
 end;
 
 end.
