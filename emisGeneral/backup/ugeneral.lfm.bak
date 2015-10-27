@@ -582,7 +582,7 @@ object frmGeneral: TfrmGeneral
       Cursor = crHandPoint
       Left = 37
       Height = 20
-      Hint = 'Status'
+      Hint = 'Status (db connection)'
       Top = 486
       Width = 184
       BorderStyle = sbsSingle

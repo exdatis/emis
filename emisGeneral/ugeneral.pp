@@ -379,7 +379,7 @@ begin
   HELP_PATH:= '-';
   {$IfDef WINDOWS}
     HELP_PATH:= 'c:\exdatis\hlp\';
-    gifAnimate:= 'c:\exdatis\icons\exdatis.gif'
+    gifAnimate:= 'c:\exdatis\icons\exdatis.gif';
   {$EndIf}
   {$IfDef Linux}
     userHome:= GetUserDir;

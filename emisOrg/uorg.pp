@@ -5,9 +5,9 @@ unit uorg;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, BCPanel, DTAnalogClock, DividerBevel, Forms,
-  Controls, Graphics, Dialogs, ExtCtrls, StdCtrls, Menus, ActnList, LCLIntf,
-  ComCtrls, process;
+  Classes, SysUtils, FileUtil, BCPanel, DTAnalogClock, BGRALED,
+  BGRASpriteAnimation, DividerBevel, Forms, Controls, Graphics, Dialogs,
+  ExtCtrls, StdCtrls, Menus, ActnList, LCLIntf, ComCtrls, process;
 
 type
 
@@ -40,17 +40,21 @@ type
     actMaterialsWarehouse: TAction;
     actOfficeWarehouse: TAction;
     actQuitApp: TAction;
+    BGRALEDConnection: TBGRALED;
+    bgrSpriteLogo: TBGRASpriteAnimation;
     divExDatis: TDividerBevel;
     DTAnalogClock1: TDTAnalogClock;
     Image1: TImage;
+    Image2: TImage;
     imgGeneral: TImageList;
-    Label1: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
     lblAboutFormsDoc: TLabel;
     lblAboutFormsPdf: TLabel;
     lblAboutModule: TLabel;
     lblAboutModuleDoc: TLabel;
     lblBackup: TLabel;
+    lblDate: TLabel;
     lblEditDataDoc: TLabel;
     lblEditDataPdf: TLabel;
     lblModuleTitle: TLabel;
@@ -86,10 +90,12 @@ type
     MenuItem9: TMenuItem;
     mnuGeneral: TMainMenu;
     panelForms: TBCPanel;
+    panelLogo: TPanel;
     panelMnu: TPanel;
     saveFbk: TSaveDialog;
     shapeLogo: TShape;
     statusBarGeneral: TStatusBar;
+    stConnectionStatus: TStaticText;
     toolBarGeneral: TToolBar;
     ToolButton1: TToolButton;
     ToolButton10: TToolButton;
@@ -183,17 +189,41 @@ end;
 procedure TfrmOrg.FormShow(Sender: TObject);
 var
   userHome : String;
+  gifAnimate : String;
+  currDate : TDate;
+  dayName : String;
 begin
   HELP_PATH:= '-';
   {$IfDef WINDOWS}
     HELP_PATH:= 'c:\exdatis\hlp\';
+    gifAnimate:= 'c:\exdatis\icons\exdatis.gif';
   {$EndIf}
   {$IfDef Linux}
     userHome:= GetUserDir;
     HELP_PATH:=  userHome + 'exdatis/hlp/';
+    gifAnimate:= userHome + 'exdatis/icons/exdatis.gif';
   {$EndIf}
   //ShowMessage(HELP_PATH);
+  {enable the clock}
   DTAnalogClock1.Enabled:= True;
+  {set date}
+  currDate:= Now;
+  case DayOfWeek(currDate) of
+    1: dayName:= 'Nedelja';
+    2: dayName:= 'Ponedeljak';
+    3: dayName:= 'Utorak';
+    4: dayName:= 'Sreda';
+    5: dayName:= 'Četvrtak';
+    6: dayName:= 'Petak';
+    7: dayName:= 'Subota';
+  end;
+  lblDate.Caption:= ' ' + dayName + ': ' + FormatDateTime('dd.MM.yyyy', currDate) + ' god.';
+  {animated gif}
+  bgrSpriteLogo.AnimatedGifToSprite(gifAnimate);
+  bgrSpriteLogo.AnimRepeat:= 0;
+  bgrSpriteLogo.AnimSpeed:= 100;
+  bgrSpriteLogo.ShowHint:= True;
+  Application.ProcessMessages;
 end;
 
 procedure TfrmOrg.lblAboutFormsDocClick(Sender: TObject);

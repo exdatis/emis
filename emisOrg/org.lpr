@@ -7,12 +7,12 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, uorg, lazcontrols, uDModule, uBaseDbForm, uConfirm, zcomponent,
-  uhospital, uDepartment, uDrugWarehouse, uAppliancesWarehouse, uFoodWarehouse,
-  uOfficeWarehouse, uMaterialsWarehouse, uHygieneWarehouse,
+  Forms, uorg, lazcontrols, uDModule, uBaseDbForm, uConfirm,
+  zcomponent, uhospital, uDepartment, uDrugWarehouse, uAppliancesWarehouse,
+  uFoodWarehouse, uOfficeWarehouse, uMaterialsWarehouse, uHygieneWarehouse,
   uHEquipmentWarehouse, uAppliancesHPWarehouse, uDrugHPWarehouse,
-uFoodHPWarehouse, uHEquipmentHPWarehouse, uHygieneHPWarehouse,
-uMaterialsHPWarehouse, uOfficeHPWarehouse
+  uFoodHPWarehouse, uHEquipmentHPWarehouse, uHygieneHPWarehouse,
+  uMaterialsHPWarehouse, uOfficeHPWarehouse, uExDatis
   { you can add units after this };
 
 {$R *.res}

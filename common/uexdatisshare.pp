@@ -13,6 +13,7 @@ implementation
 
 procedure showConnectionStatus(connected : Boolean);
 begin
+  //lp generalData
   if connected then
     begin
       frmGeneral.stConnectionStatus.Caption:= 'Connected';
@@ -24,6 +25,7 @@ begin
       frmGeneral.BGRALEDConnection.Color:= clRed;
     end;
 end;
+
 
 end.
 
