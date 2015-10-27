@@ -590,7 +590,7 @@ object frmGeneral: TfrmGeneral
     object DTAnalogClock1: TDTAnalogClock
       Left = 65
       Height = 86
-      Top = 245
+      Top = 246
       Width = 91
       Enabled = False
     end
@@ -995,7 +995,7 @@ object frmGeneral: TfrmGeneral
       Width = 757
       Caption = 'General hospital Panchevo'
       BevelStyle = bsRaised
-      Font.Color = clSilver
+      Font.Color = clCream
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = divExDatisClick

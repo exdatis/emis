@@ -995,9 +995,11 @@ object frmGeneral: TfrmGeneral
       Width = 757
       Caption = 'General hospital Panchevo'
       BevelStyle = bsRaised
-      Font.Color = clSilver
+      Font.Color = clCream
       Font.Style = [fsBold]
       ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
       OnClick = divExDatisClick
       OnMouseEnter = divExDatisMouseEnter
       OnMouseLeave = divExDatisMouseLeave
