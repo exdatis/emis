@@ -20,8 +20,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="195"/>
-        <CursorPos X="49" Y="199"/>
+        <TopLine Value="158"/>
+        <CursorPos X="27" Y="170"/>
         <UsageCount Value="88"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -329,7 +329,7 @@
         <UsageCount Value="20"/>
       </Unit28>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="hospital\uhygienehpwarehouse.pp"/>
         <Caret Line="207" Column="47" TopLine="201"/>
@@ -446,6 +446,10 @@
         <Filename Value="uorg.pp"/>
         <Caret Line="533" Column="64" TopLine="518"/>
       </Position29>
+      <Position30>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="362" TopLine="350"/>
+      </Position30>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

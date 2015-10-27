@@ -167,7 +167,7 @@ var
   frmOrg: TfrmOrg;
 const
   PRJ_HOME : String = 'http://sourceforge.net/projects/emissoftware/';
-  MAX_CTRLS : ShortInt = 4;
+  MAX_CTRLS : ShortInt = 5;
 implementation
 uses
   uhospital, uDModule, uDepartment, uDrugWarehouse, uAppliancesWarehouse,
