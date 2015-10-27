@@ -1,7 +1,9 @@
 unit uPublicSupply;
 
 {$mode objfpc}{$H+}
-
+{-------------------------------------------------------------------------------
+ Morar 2015-10-27 public-procurement
+ ------------------------------------------------------------------------------}
 interface
 
 uses
@@ -14,6 +16,7 @@ type
   { TfrmPublicSupply }
 
   TfrmPublicSupply = class(TForm)
+    actSupplyType: TAction;
     actQuitApp: TAction;
     actPS: TActionList;
     BGRALEDConnection: TBGRALED;
@@ -37,6 +40,8 @@ type
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
     mnuPS: TMainMenu;
     panelForms: TBCPanel;
     panelLogo: TPanel;
@@ -47,7 +52,10 @@ type
     stConnectionStatus: TStaticText;
     toolBarPS: TToolBar;
     ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
     procedure actQuitAppExecute(Sender: TObject);
+    procedure actSupplyTypeExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     { private declarations }
@@ -66,7 +74,7 @@ const
   MAX_CTRLS : ShortInt = 5;
 implementation
 uses
-  uDModule;
+  uDModule, uSupplyType;
 {$R *.lfm}
 
 { TfrmPublicSupply }
@@ -76,6 +84,32 @@ begin
   {close main form and terminate app}
   Close;
   Application.Terminate;
+end;
+
+procedure TfrmPublicSupply.actSupplyTypeExecute(Sender: TObject);
+var
+  newForm : TfrmSupplyType;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmSupplyType.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmPublicSupply.FormShow(Sender: TObject);
