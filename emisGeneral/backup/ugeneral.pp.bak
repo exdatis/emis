@@ -73,17 +73,12 @@ type
     actMeasure: TAction;
     actLocationFrm: TAction;
     actQuitApp: TAction;
-    Bevel1: TBevel;
-    Bevel2: TBevel;
-    Bevel3: TBevel;
-    Bevel4: TBevel;
     BGRALEDConnection: TBGRALED;
     bgrSpriteLogo: TBGRASpriteAnimation;
     divExDatis: TDividerBevel;
     DTAnalogClock1: TDTAnalogClock;
     Image1: TImage;
     Image2: TImage;
-    Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     lblDate: TLabel;

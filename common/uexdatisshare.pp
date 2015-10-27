@@ -16,12 +16,12 @@ begin
   if connected then
     begin
       frmGeneral.stConnectionStatus.Caption:= 'Connected';
-      frmGeneral.BGRALEDConnection.Color:= clMoneyGreen;
+      frmGeneral.BGRALEDConnection.Color:= clTeal;
     end
   else
     begin
       frmGeneral.stConnectionStatus.Caption:= 'Disconnected';
-      frmGeneral.BGRALEDConnection.Color:= clGray;
+      frmGeneral.BGRALEDConnection.Color:= clRed;
     end;
 end;
 
