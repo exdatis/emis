@@ -392,7 +392,7 @@ object frmGeneral: TfrmGeneral
       Top = 18
       Width = 226
       AutoSize = False
-      Caption = '  -Napomene o modulu (pdf)'
+      Caption = ' Napomene o modulu (pdf)'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -412,7 +412,7 @@ object frmGeneral: TfrmGeneral
       Top = 35
       Width = 226
       AutoSize = False
-      Caption = '  -Napomene o modulu (doc)'
+      Caption = ' Napomene o modulu (doc)'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -432,7 +432,7 @@ object frmGeneral: TfrmGeneral
       Top = 52
       Width = 225
       AutoSize = False
-      Caption = '  -O formularima (pdf)'
+      Caption = ' O formularima (pdf)'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -452,7 +452,7 @@ object frmGeneral: TfrmGeneral
       Top = 69
       Width = 225
       AutoSize = False
-      Caption = '  -O formularima (doc)'
+      Caption = ' O formularima (doc)'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -486,7 +486,7 @@ object frmGeneral: TfrmGeneral
       Top = 139
       Width = 225
       AutoSize = False
-      Caption = '  -Arhiviranje baze podataka'
+      Caption = ' Arhiviranje baze podataka'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -506,7 +506,7 @@ object frmGeneral: TfrmGeneral
       Top = 86
       Width = 225
       AutoSize = False
-      Caption = '  -Obrada podataka (doc)'
+      Caption = ' Obrada podataka (doc)'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -526,7 +526,7 @@ object frmGeneral: TfrmGeneral
       Top = 103
       Width = 225
       AutoSize = False
-      Caption = '  -Obrada podataka (pdf)'
+      Caption = ' Obrada podataka (pdf)'
       Color = clGray
       Font.Color = clCream
       ParentColor = False
@@ -566,7 +566,7 @@ object frmGeneral: TfrmGeneral
       Transparent = False
     end
     object BGRALEDConnection: TBGRALED
-      Left = 1
+      Left = 0
       Height = 24
       Top = 484
       Width = 24
@@ -588,10 +588,10 @@ object frmGeneral: TfrmGeneral
       TabOrder = 0
     end
     object DTAnalogClock1: TDTAnalogClock
-      Left = 69
-      Height = 84
-      Top = 250
-      Width = 90
+      Left = 65
+      Height = 86
+      Top = 246
+      Width = 91
       Enabled = False
     end
   end
