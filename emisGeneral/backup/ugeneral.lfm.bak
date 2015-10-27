@@ -579,12 +579,15 @@ object frmGeneral: TfrmGeneral
       Color = clGray
     end
     object stConnectionStatus: TStaticText
+      Cursor = crHandPoint
       Left = 37
       Height = 20
+      Hint = 'Status'
       Top = 486
       Width = 184
       BorderStyle = sbsSingle
       Caption = ' Disconnected'
+      ShowHint = True
       TabOrder = 0
     end
     object DTAnalogClock1: TDTAnalogClock
@@ -998,6 +1001,8 @@ object frmGeneral: TfrmGeneral
       Font.Color = clCream
       Font.Style = [fsBold]
       ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
       OnClick = divExDatisClick
       OnMouseEnter = divExDatisMouseEnter
       OnMouseLeave = divExDatisMouseLeave
