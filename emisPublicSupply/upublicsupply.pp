@@ -16,6 +16,7 @@ type
   { TfrmPublicSupply }
 
   TfrmPublicSupply = class(TForm)
+    actItemsOrderType: TAction;
     actSupplyType: TAction;
     actQuitApp: TAction;
     actPS: TActionList;
@@ -42,6 +43,8 @@ type
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    MenuItem7: TMenuItem;
     mnuPS: TMainMenu;
     panelForms: TBCPanel;
     panelLogo: TPanel;
@@ -54,6 +57,9 @@ type
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
+    procedure actItemsOrderTypeExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
     procedure actSupplyTypeExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -74,7 +80,7 @@ const
   MAX_CTRLS : ShortInt = 5;
 implementation
 uses
-  uDModule, uSupplyType;
+  uDModule, uSupplyType, uItemsOrderType;
 {$R *.lfm}
 
 { TfrmPublicSupply }
@@ -84,6 +90,32 @@ begin
   {close main form and terminate app}
   Close;
   Application.Terminate;
+end;
+
+procedure TfrmPublicSupply.actItemsOrderTypeExecute(Sender: TObject);
+var
+  newForm : TfrmItemsOrderType;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmItemsOrderType.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmPublicSupply.actSupplyTypeExecute(Sender: TObject);

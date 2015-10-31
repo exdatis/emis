@@ -8,7 +8,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, lazcontrols, zcomponent, uPublicSupply, uDModule, uExDatis,
-  uBaseDbForm, uConfirm, uSupplyType
+  uBaseDbForm, uConfirm, uSupplyType, uItemsOrderType
   { you can add units after this };
 
 {$R *.res}
@@ -19,6 +19,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmPublicSupply, frmPublicSupply);
   Application.CreateForm(TdModule, dModule);
+  //Application.CreateForm(TfrmItemsOrderType, frmItemsOrderType);
   //Application.CreateForm(TfrmSupplyType, frmSupplyType);
   Application.Run;
 end.

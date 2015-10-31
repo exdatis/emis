@@ -27,6 +27,23 @@ object frmPublicSupply: TfrmPublicSupply
       ParentShowHint = False
       ShowHint = True
     end
+    object ToolButton2: TToolButton
+      Left = 24
+      Height = 22
+      Top = 2
+      Width = 5
+      Caption = 'ToolButton2'
+      Style = tbsDivider
+    end
+    object ToolButton3: TToolButton
+      Cursor = crHandPoint
+      Left = 29
+      Top = 2
+      Action = actSupplyType
+      ImageIndex = 24
+      ParentShowHint = False
+      ShowHint = True
+    end
   end
   object statusBarGeneral: TStatusBar
     Left = 0
@@ -2036,7 +2053,7 @@ object frmPublicSupply: TfrmPublicSupply
   object panelLogo: TPanel
     Left = 902
     Height = 25
-    Top = 0
+    Top = 1
     Width = 131
     BevelInner = bvLowered
     ClientHeight = 25
@@ -2928,6 +2945,11 @@ object frmPublicSupply: TfrmPublicSupply
       Hint = 'Tip nabavke'
       OnExecute = actSupplyTypeExecute
     end
+    object actItemsOrderType: TAction
+      Caption = 'Tip naloga stavki'
+      Hint = 'Tip stavki'
+      OnExecute = actItemsOrderTypeExecute
+    end
   end
   object mnuPS: TMainMenu
     Images = imgGeneral
@@ -2976,6 +2998,12 @@ object frmPublicSupply: TfrmPublicSupply
           000000000000ACABAB069F9E9E5B9D9C9CA0A3A2A2B5B4B3B3FFB4B3B3FFA2A1
           A1B59D9C9CA09F9E9E58ACABAB04000000000000000000000000
         }
+      end
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Opšte tabele'
+      object MenuItem5: TMenuItem
+        Action = actSupplyType
       end
     end
   end

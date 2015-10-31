@@ -313,14 +313,14 @@ object dlgConfirm: TdlgConfirm
     0000
   }
   Position = poDesktopCenter
-  LCLVersion = '1.4.0.4'
+  LCLVersion = '1.4.4.0'
   object GroupBox1: TGroupBox
     Left = 0
     Height = 47
     Top = 63
     Width = 336
     Align = alBottom
-    ClientHeight = 27
+    ClientHeight = 43
     ClientWidth = 332
     TabOrder = 0
     object btnOk: TButton
@@ -468,6 +468,8 @@ object dlgConfirm: TdlgConfirm
     Height = 60
     Top = 5
     Width = 253
+    BorderSpacing.Left = 3
+    BorderSpacing.InnerBorder = 3
     Color = clBtnFace
     TabOrder = 1
   end
