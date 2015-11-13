@@ -3,25 +3,23 @@
   <ProjectSession>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="4">
+    <Units Count="7">
       <Unit0>
         <Filename Value="admin.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
+        <EditorIndex Value="4"/>
         <UsageCount Value="20"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="uadmin.pp"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmAdmin"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uAdmin"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="48"/>
-        <CursorPos X="29" Y="120"/>
+        <TopLine Value="82"/>
+        <CursorPos X="73" Y="90"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -30,6 +28,7 @@
         <Filename Value="udmodule.pp"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="dModule"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="uDModule"/>
         <EditorIndex Value="2"/>
@@ -48,124 +47,160 @@
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="../common/ubasedbform.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="baseDbForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uBaseDbForm"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="85"/>
+        <CursorPos X="3" Y="104"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="../dialogs/uconfirm.pp"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+        <UnitName Value="uConfirm"/>
+        <EditorIndex Value="6"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="module/umodule.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmModule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uModule"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit6>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="uadmin.pp"/>
+        <Caret Line="39" Column="25" TopLine="3"/>
       </Position1>
       <Position2>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="39" Column="25" TopLine="3"/>
+        <Caret Line="40" Column="25" TopLine="3"/>
       </Position2>
       <Position3>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="40" Column="25" TopLine="3"/>
+        <Caret Line="39" Column="25" TopLine="3"/>
       </Position3>
       <Position4>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="39" Column="25" TopLine="3"/>
+        <Caret Line="40" Column="25" TopLine="3"/>
       </Position4>
       <Position5>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="40" Column="25" TopLine="3"/>
+        <Caret Line="41" Column="25" TopLine="3"/>
       </Position5>
       <Position6>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="41" Column="25" TopLine="3"/>
+        <Caret Line="55" Column="25" TopLine="17"/>
       </Position6>
       <Position7>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="55" Column="25" TopLine="17"/>
+        <Caret Line="61" Column="25" TopLine="23"/>
       </Position7>
       <Position8>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="61" Column="25" TopLine="23"/>
+        <Caret Line="63" Column="25" TopLine="25"/>
       </Position8>
       <Position9>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="63" Column="25" TopLine="25"/>
+        <Caret Line="64" Column="25" TopLine="26"/>
       </Position9>
       <Position10>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="64" Column="25" TopLine="26"/>
+        <Caret Line="65" Column="25" TopLine="27"/>
       </Position10>
       <Position11>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="65" Column="25" TopLine="27"/>
+        <Caret Line="66" Column="25" TopLine="28"/>
       </Position11>
       <Position12>
-        <Filename Value="uadmin.pp"/>
-        <Caret Line="66" Column="25" TopLine="28"/>
+        <Filename Value="udmodule.pp"/>
       </Position12>
       <Position13>
-        <Filename Value="udmodule.pp"/>
-      </Position13>
-      <Position14>
         <Filename Value="uadmin.pp"/>
         <Caret Line="67" Column="25" TopLine="29"/>
+      </Position13>
+      <Position14>
+        <Filename Value="udmodule.pp"/>
       </Position14>
       <Position15>
         <Filename Value="udmodule.pp"/>
+        <Caret Line="36" Column="30"/>
       </Position15>
       <Position16>
         <Filename Value="udmodule.pp"/>
-        <Caret Line="36" Column="30"/>
+        <Caret Line="41" Column="29" TopLine="7"/>
       </Position16>
       <Position17>
-        <Filename Value="udmodule.pp"/>
-        <Caret Line="41" Column="29" TopLine="7"/>
+        <Filename Value="uadmin.pp"/>
+        <Caret Line="69" Column="25" TopLine="31"/>
       </Position17>
       <Position18>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="69" Column="25" TopLine="31"/>
+        <Caret Line="71" Column="25" TopLine="33"/>
       </Position18>
       <Position19>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="71" Column="25" TopLine="33"/>
+        <Caret Line="55" Column="48" TopLine="33"/>
       </Position19>
       <Position20>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="55" Column="48" TopLine="33"/>
+        <Caret Line="221" Column="29" TopLine="149"/>
       </Position20>
       <Position21>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="221" Column="29" TopLine="149"/>
+        <Caret Line="131" Column="13" TopLine="112"/>
       </Position21>
       <Position22>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="131" Column="13" TopLine="112"/>
+        <Caret Line="10" Column="57"/>
       </Position22>
       <Position23>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="10" Column="57"/>
+        <Caret Line="69" Column="12" TopLine="43"/>
       </Position23>
       <Position24>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="69" Column="12" TopLine="43"/>
+        <Caret Line="127" Column="32" TopLine="122"/>
       </Position24>
       <Position25>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="127" Column="32" TopLine="122"/>
+        <Caret Line="141" Column="32" TopLine="136"/>
       </Position25>
       <Position26>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="141" Column="32" TopLine="136"/>
+        <Caret Line="126" Column="3" TopLine="107"/>
       </Position26>
       <Position27>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="126" Column="3" TopLine="107"/>
+        <Caret Line="127" Column="3" TopLine="108"/>
       </Position27>
       <Position28>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="127" Column="3" TopLine="108"/>
+        <Caret Line="128" Column="3" TopLine="109"/>
       </Position28>
       <Position29>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="128" Column="3" TopLine="109"/>
+        <Caret Line="135" Column="3" TopLine="126"/>
       </Position29>
       <Position30>
-        <Filename Value="uadmin.pp"/>
-        <Caret Line="135" Column="3" TopLine="126"/>
+        <Filename Value="../common/ubasedbform.pp"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

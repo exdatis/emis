@@ -1,0 +1,6 @@
+inherited frmModule: TfrmModule
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Moduli aplikacije'
+    Font.Height = 12
+  end
+end
