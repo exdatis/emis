@@ -14,6 +14,9 @@ type
   { TfrmAdmin }
 
   TfrmAdmin = class(TForm)
+    actHelp: TActionList;
+    actDbBackup: TAction;
+    actModule: TAction;
     actQuitApp: TAction;
     alAdmin: TActionList;
     BGRALEDConnection: TBGRALED;
@@ -42,11 +45,14 @@ type
     panelForms: TBCPanel;
     panelLogo: TPanel;
     panelMnu: TPanel;
+    saveFbk: TSaveDialog;
     shapeLogo: TShape;
     statusBarAdmin: TStatusBar;
     stConnectionStatus: TStaticText;
     tbAdmin: TToolBar;
     ToolButton1: TToolButton;
+    procedure actDbBackupExecute(Sender: TObject);
+    procedure actModuleExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure lblBackupClick(Sender: TObject);
@@ -68,7 +74,7 @@ const
   MAX_CTRLS : ShortInt = 5;
 implementation
 uses
-  uDModule;
+  uDModule, uModule;
 {$R *.lfm}
 
 { TfrmAdmin }
@@ -78,6 +84,68 @@ begin
   {close main form and terminate app}
   self.Close;
   Application.Terminate;
+end;
+
+procedure TfrmAdmin.actDbBackupExecute(Sender: TObject);
+var
+  defaultPath : String;
+  fbkFile : String;
+  currDate : String;
+  fbkName : String;
+  currMonth : String;
+begin
+  {find initial folder}
+  {$IfDef windows}
+    defaultPath:= 'C:\exdatis\bcp\';
+  {$EndIf}
+  {$IfDef linux}
+    defaultPath:= GetUserDir + 'exdatis/bcp/';
+  {$EndIf}
+  saveFbk.InitialDir:= defaultPath;
+  {set default name of fbk}
+  currDate:= FormatDateTime('dd.MM.yyyy', Now);
+  fbkName:= ExtractFileNameOnly(dModule.zdbh.Database);
+
+  fbkName:= fbkName + LeftStr(currDate, 2);
+  currMonth:= Copy(currDate, 4, 2);
+  fbkName:= fbkName + currMonth;
+  fbkName:= fbkName + RightStr(currDate, 4);
+  {add extension}
+  fbkName:= fbkName + '.fbk';
+  saveFbk.FileName:= fbkName;
+  {run dialog}
+  if saveFbk.Execute then
+    if(Length(saveFbk.FileName) > 5) then
+      begin
+        fbkFile:= saveFbk.FileName;
+        backupDb(fbkFile);
+      end;
+end;
+
+procedure TfrmAdmin.actModuleExecute(Sender: TObject);
+var
+  newForm : TfrmModule;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmModule.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmAdmin.FormShow(Sender: TObject);

@@ -16,6 +16,7 @@ type
   TfrmAdmin = class(TForm)
     actHelp: TActionList;
     actDbBackup: TAction;
+    actModule: TAction;
     actQuitApp: TAction;
     alAdmin: TActionList;
     BGRALEDConnection: TBGRALED;
@@ -40,6 +41,7 @@ type
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
     mnuAdmin: TMainMenu;
     panelForms: TBCPanel;
     panelLogo: TPanel;
@@ -50,7 +52,10 @@ type
     stConnectionStatus: TStaticText;
     tbAdmin: TToolBar;
     ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
     procedure actDbBackupExecute(Sender: TObject);
+    procedure actModuleExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure lblBackupClick(Sender: TObject);
@@ -72,7 +77,7 @@ const
   MAX_CTRLS : ShortInt = 5;
 implementation
 uses
-  uDModule;
+  uDModule, uModule;
 {$R *.lfm}
 
 { TfrmAdmin }
@@ -118,6 +123,32 @@ begin
         fbkFile:= saveFbk.FileName;
         backupDb(fbkFile);
       end;
+end;
+
+procedure TfrmAdmin.actModuleExecute(Sender: TObject);
+var
+  newForm : TfrmModule;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmModule.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmAdmin.FormShow(Sender: TObject);
