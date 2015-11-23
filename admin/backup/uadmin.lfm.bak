@@ -48,6 +48,24 @@ object frmAdmin: TfrmAdmin
       ShowCaption = False
       ShowHint = True
     end
+    object ToolButton2: TToolButton
+      Left = 24
+      Height = 22
+      Top = 2
+      Width = 5
+      Caption = 'ToolButton2'
+      Style = tbsDivider
+    end
+    object ToolButton3: TToolButton
+      Cursor = crHandPoint
+      Left = 29
+      Top = 2
+      Action = actModule
+      ImageIndex = 2
+      ParentShowHint = False
+      ShowCaption = False
+      ShowHint = True
+    end
   end
   object panelMnu: TPanel
     Left = 0
@@ -2469,7 +2487,10 @@ object frmAdmin: TfrmAdmin
       end
     end
     object MenuItem2: TMenuItem
-      Caption = 'New Item2'
+      Caption = 'Moduli'
+      object MenuItem5: TMenuItem
+        Action = actModule
+      end
     end
   end
   object saveFbk: TSaveDialog

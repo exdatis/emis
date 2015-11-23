@@ -1,0 +1,515 @@
+inherited frmUserPrivileges: TfrmUserPrivileges
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Korisnici aplikacije'
+    Font.Height = 12
+  end
+  object panelParams: TPanel[2]
+    Left = 0
+    Height = 35
+    Top = 15
+    Width = 803
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 803
+    TabOrder = 1
+    object cmbCharFilter: TComboBox
+      Left = 6
+      Height = 25
+      Hint = 'Izaberite početno slovo'
+      Top = 5
+      Width = 159
+      AutoComplete = True
+      AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+      AutoSize = False
+      ItemHeight = 0
+      Items.Strings = (
+        'A'
+        'B'
+        'C'
+        'Č'
+        'Ć'
+        'D'
+        'Dž'
+        'Dj'
+        'E'
+        'F'
+        'G'
+        'H'
+        'I'
+        'J'
+        'K'
+        'L'
+        'Lj'
+        'M'
+        'N'
+        'Nj'
+        'O'
+        'P'
+        'R'
+        'Q'
+        'S'
+        'Š'
+        'T'
+        'U'
+        'V'
+        'Z'
+        'Ž'
+      )
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = 'korisnici na slovo ...'
+    end
+    object btnCharFilter: TSpeedButton
+      Cursor = crHandPoint
+      Left = 171
+      Height = 23
+      Top = 6
+      Width = 135
+      ShowHint = True
+      ParentShowHint = False
+    end
+    object cmbFieldArg: TComboBox
+      Cursor = crHandPoint
+      Left = 311
+      Height = 23
+      Hint = 'Polje za pretragu'
+      Top = 6
+      Width = 164
+      AutoComplete = True
+      AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+      AutoDropDown = True
+      ItemHeight = 0
+      ItemIndex = 0
+      Items.Strings = (
+        'Pretraga polja ...'
+        'Prezime korisnika'
+        'Korisničko ime'
+      )
+      ParentShowHint = False
+      ShowHint = True
+      Style = csDropDownList
+      TabOrder = 1
+      Text = 'Pretraga polja ...'
+    end
+    object edtLocate: TEdit
+      Left = 480
+      Height = 25
+      Hint = 'Početak teksta'
+      Top = 6
+      Width = 132
+      Font.Color = clGray
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+      Text = 'Pronadji ...'
+    end
+    object btnShowAll: TSpeedButton
+      Cursor = crHandPoint
+      Left = 617
+      Height = 23
+      Top = 6
+      Width = 179
+      ShowHint = True
+      ParentShowHint = False
+    end
+  end
+  object dbgUsers: TDBGrid[3]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 286
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 50
+    Width = 803
+    Align = alTop
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 2
+    TitleFont.Height = -11
+  end
+  inherited actDb: TActionList[4]
+  end
+  object actFindUser: TActionList[5]
+    Images = frmAdmin.imgGeneral
+    left = 152
+    top = 168
+    object actCharFilter: TAction
+      Caption = ' Filter(slovo)'
+      Hint = 'Pronadji korisnike'
+      ImageIndex = 10
+      ShortCut = 49219
+    end
+    object actClearFilter: TAction
+      Caption = 'Ukloni filter'
+      Hint = 'Prikaži sve slogove'
+      ImageIndex = 11
+      ShortCut = 49217
+    end
+  end
+  object zroDepartments: TZReadOnlyQuery[6]
+    Connection = dModule.zdbh
+    SortedFields = 'D_NAME'
+    SQL.Strings = (
+      'SELECT '
+      '  a.D_ID, '
+      '  a.D_NAME'
+      'FROM '
+      '  DEPARTMENT a '
+      'ORDER BY '
+      '  a.D_NAME'
+    )
+    Params = <>
+    IndexFieldNames = 'D_NAME Asc'
+    left = 232
+    top = 165
+    object zroDepartmentsD_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'D_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroDepartmentsD_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'D_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 280
+    end
+  end
+  object dsDepartments: TDataSource[7]
+    DataSet = zroDepartments
+    left = 293
+    top = 185
+  end
+  object zqUsers: TZQuery[8]
+    Connection = dModule.zdbh
+    SortedFields = 'AU_FULL_NAME'
+    UpdateObject = zupdUsers
+    SQL.Strings = (
+      'SELECT '
+      '  a.AU_ID, '
+      '  a.AU_CODE, '
+      '  a.AU_TITLE, '
+      '  a.AU_FULL_NAME, '
+      '  a.AU_USER_NAME,'
+      '  a.AU_USER_PWD, '
+      '  a.AU_DEPARTMENT, '
+      '  a.AU_VALID, '
+      '  a.DEPARTMENT_CODE,'
+      '  a.DEPARTMENT_NAME'
+      'FROM '
+      '  APP_USERS_V a'
+      'WHERE'
+      '  LOWER(a.AU_FULL_NAME) LIKE LOWER(:AU_FULL_NAME)'
+      'ORDER BY '
+      '  a.AU_FULL_NAME'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'AU_FULL_NAME'
+        ParamType = ptUnknown
+      end>
+    IndexFieldNames = 'AU_FULL_NAME Asc'
+    Sequence = zseqUsers
+    SequenceField = 'AU_ID'
+    left = 552
+    top = 131
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'AU_FULL_NAME'
+        ParamType = ptUnknown
+      end>
+    object zqUsersAU_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'AU_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zqUsersAU_CODE: TStringField
+      DisplayLabel = 'Šifra'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'AU_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zqUsersAU_TITLE: TStringField
+      DisplayLabel = 'Titula'
+      DisplayWidth = 9
+      FieldKind = fkData
+      FieldName = 'AU_TITLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zqUsersAU_FULL_NAME: TStringField
+      DisplayLabel = 'Puno ime'
+      DisplayWidth = 25
+      FieldKind = fkData
+      FieldName = 'AU_FULL_NAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqUsersAU_USER_NAME: TStringField
+      DisplayLabel = 'Korisničko ime'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'AU_USER_NAME'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object zqUsersAU_USER_PWD: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'AU_USER_PWD'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 60
+    end
+    object zqUsersAU_DEPARTMENT: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AU_DEPARTMENT'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqUsersAU_VALID: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AU_VALID'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqUsersVALID: TBooleanField
+      DisplayLabel = 'Važeći'
+      DisplayWidth = 5
+      FieldKind = fkCalculated
+      FieldName = 'VALID'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayValues = 'True;False'
+    end
+    object zqUsersDEPARTMENT_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'DEPARTMENT_CODE'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+    object zqUsersDEPARTMENT_NAME: TStringField
+      DisplayLabel = 'Odeljenje'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'DEPARTMENT_NAME'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+  end
+  object zseqUsers: TZSequence[9]
+    Connection = dModule.zdbh
+    SequenceName = 'USERS_SEQ'
+    left = 480
+    top = 178
+  end
+  object zupdUsers: TZUpdateSQL[10]
+    DeleteSQL.Strings = (
+      'DELETE FROM '
+      '  APP_USERS a '
+      'WHERE'
+      '  a.AU_ID = :AU_ID'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO '
+      '  APP_USERS (AU_ID, '
+      '  AU_TITLE, '
+      '  AU_FULL_NAME, '
+      '  AU_USER_NAME, '
+      '  AU_USER_PWD,'
+      '  AU_DEPARTMENT, '
+      '  AU_VALID, '
+      '  AU_CODE)'
+      'VALUES ('
+      '  :AU_ID, '
+      '  :AU_TITLE, '
+      '  :AU_FULL_NAME, '
+      '  :AU_USER_NAME, '
+      '  :AU_USER_PWD, '
+      '  :AU_DEPARTMENT, '
+      '  :AU_VALID, '
+      '  :AU_CODE'
+      ')'
+    )
+    ModifySQL.Strings = (
+      'UPDATE '
+      '  APP_USERS a'
+      'SET '
+      '  a.AU_TITLE = :AU_TITLE, '
+      '  a.AU_FULL_NAME = :AU_FULL_NAME, '
+      '  a.AU_USER_NAME = :AU_USER_NAME, '
+      '  a.AU_USER_PWD = :AU_USER_PWD, '
+      '  a.AU_DEPARTMENT = :AU_DEPARTMENT, '
+      '  a.AU_VALID = :AU_VALID, '
+      '  a.AU_CODE = :AU_CODE'
+      'WHERE'
+      '  a.AU_ID = :AU_ID'
+    )
+    RefreshSQL.Strings = (
+      'SELECT '
+      '  a.AU_ID, '
+      '  a.AU_CODE, '
+      '  a.AU_TITLE, '
+      '  a.AU_FULL_NAME, '
+      '  a.AU_USER_NAME,'
+      '  a.AU_USER_PWD, '
+      '  a.AU_DEPARTMENT, '
+      '  a.AU_VALID, '
+      '  a.DEPARTMENT_CODE,'
+      '  a.DEPARTMENT_NAME'
+      'FROM '
+      '  APP_USERS_V a '
+      'WHERE'
+      '  a.AU_ID = :AU_ID'
+    )
+    UseSequenceFieldForRefreshSQL = True
+    left = 535
+    top = 189
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'AU_TITLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'AU_FULL_NAME'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'AU_USER_NAME'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'AU_USER_PWD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'AU_DEPARTMENT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'AU_VALID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'AU_CODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'AU_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object zroModule: TZReadOnlyQuery[11]
+    Connection = dModule.zdbh
+    SortedFields = 'M_NAME'
+    SQL.Strings = (
+      'SELECT '
+      '  a.M_ID, a.M_NAME'
+      'FROM '
+      '  MODULE a '
+      'ORDER BY'
+      '  a.M_NAME'
+    )
+    Params = <>
+    IndexFieldNames = 'M_NAME Asc'
+    left = 66
+    top = 241
+    object zroModuleM_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'M_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroModuleM_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'M_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 280
+    end
+  end
+end

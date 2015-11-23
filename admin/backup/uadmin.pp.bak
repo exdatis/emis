@@ -41,6 +41,7 @@ type
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
     mnuAdmin: TMainMenu;
     panelForms: TBCPanel;
     panelLogo: TPanel;
@@ -51,6 +52,8 @@ type
     stConnectionStatus: TStaticText;
     tbAdmin: TToolBar;
     ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
     procedure actDbBackupExecute(Sender: TObject);
     procedure actModuleExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
