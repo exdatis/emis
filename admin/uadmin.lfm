@@ -66,6 +66,23 @@ object frmAdmin: TfrmAdmin
       ShowCaption = False
       ShowHint = True
     end
+    object ToolButton4: TToolButton
+      Left = 52
+      Height = 22
+      Top = 2
+      Width = 5
+      Caption = 'ToolButton4'
+      Style = tbsDivider
+    end
+    object ToolButton5: TToolButton
+      Cursor = crHandPoint
+      Left = 57
+      Top = 2
+      Action = actUserPrivileges
+      ImageIndex = 12
+      ParentShowHint = False
+      ShowHint = True
+    end
   end
   object panelMnu: TPanel
     Left = 0
@@ -2109,6 +2126,11 @@ object frmAdmin: TfrmAdmin
       Hint = 'Moduli applikacije'
       OnExecute = actModuleExecute
     end
+    object actUserPrivileges: TAction
+      Caption = 'Korisnici'
+      Hint = 'Korisničke privilegije'
+      OnExecute = actUserPrivilegesExecute
+    end
   end
   object imgGeneral: TImageList
     left = 742
@@ -2586,6 +2608,12 @@ object frmAdmin: TfrmAdmin
       Caption = 'Moduli'
       object MenuItem5: TMenuItem
         Action = actModule
+      end
+    end
+    object MenuItem6: TMenuItem
+      Caption = 'Korisnici aplikacije'
+      object MenuItem7: TMenuItem
+        Action = actUserPrivileges
       end
     end
   end

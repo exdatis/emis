@@ -19,7 +19,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmAdmin, frmAdmin);
   Application.CreateForm(TdModule, dModule);
-  Application.CreateForm(TfrmUserPrivileges, frmUserPrivileges);
+  //Application.CreateForm(TfrmUserPrivileges, frmUserPrivileges);
   //Application.CreateForm(TfrmModule, frmModule);
   Application.Run;
 end.

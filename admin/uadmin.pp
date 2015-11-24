@@ -16,6 +16,7 @@ type
   TfrmAdmin = class(TForm)
     actHelp: TActionList;
     actDbBackup: TAction;
+    actUserPrivileges: TAction;
     actModule: TAction;
     actQuitApp: TAction;
     alAdmin: TActionList;
@@ -42,6 +43,8 @@ type
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    MenuItem7: TMenuItem;
     mnuAdmin: TMainMenu;
     panelForms: TBCPanel;
     panelLogo: TPanel;
@@ -54,9 +57,12 @@ type
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
     procedure actDbBackupExecute(Sender: TObject);
     procedure actModuleExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
+    procedure actUserPrivilegesExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure lblBackupClick(Sender: TObject);
     procedure lblBackupMouseEnter(Sender: TObject);
@@ -77,7 +83,7 @@ const
   MAX_CTRLS : ShortInt = 5;
 implementation
 uses
-  uDModule, uModule;
+  uDModule, uModule, uUserPrivileges;
 {$R *.lfm}
 
 { TfrmAdmin }
@@ -87,6 +93,49 @@ begin
   {close main form and terminate app}
   self.Close;
   Application.Terminate;
+end;
+
+procedure TfrmAdmin.actUserPrivilegesExecute(Sender: TObject);
+const
+  sql : String = 'SELECT CURRENT_DATE + 180 FROM RDB$DATABASE';
+var
+  newForm : TfrmUserPrivileges;
+  controlDate : TDate;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    //find control-date
+    dModule.zqGeneral.Close;
+    dModule.zqGeneral.SQL.Clear;
+    dModule.zqGeneral.SQL.Text:= sql;
+    dModule.zqGeneral.Open;
+    if(not dModule.zqGeneral.IsEmpty) then
+      controlDate:= dModule.zqGeneral.Fields[0].AsDateTime
+    else
+      controlDate:= Now;
+    //create form
+    newForm:= TfrmUserPrivileges.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    //set control-date
+    newForm.setControlDate(controlDate);
+    {open dataSets}
+    newForm.openRODataSets;
+    Application.ProcessMessages;
+    newForm.applyCharFilter; {with default char}
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmAdmin.actDbBackupExecute(Sender: TObject);
