@@ -118,7 +118,7 @@ inherited frmUserPrivileges: TfrmUserPrivileges
   object dbgUsers: TDBGrid[3]
     Cursor = crHandPoint
     Left = 0
-    Height = 286
+    Height = 238
     Hint = 'Klikni naslov polja za sortiranje'
     Top = 50
     Width = 803
@@ -126,15 +126,319 @@ inherited frmUserPrivileges: TfrmUserPrivileges
     AlternateColor = clScrollBar
     Color = clSilver
     Columns = <>
+    DataSource = dsUsers
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
     ReadOnly = True
     ShowHint = True
     TabOrder = 2
     TitleFont.Height = -11
   end
-  inherited actDb: TActionList[4]
+  object pcUsers: TPageControl[4]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 185
+    Top = 288
+    Width = 803
+    ActivePage = tsUsers
+    Align = alClient
+    Images = frmAdmin.imgGeneral
+    TabIndex = 0
+    TabOrder = 3
+    object tsUsers: TTabSheet
+      Caption = ' Korisnici aplikacije'
+      ClientHeight = 159
+      ClientWidth = 801
+      ImageIndex = 12
+      object gbEditUser: TGroupBox
+        Left = 0
+        Height = 159
+        Hint = 'Polja sa (*) su obavezna'
+        Top = 0
+        Width = 801
+        Align = alClient
+        Caption = ' Obrada podataka '
+        ClientHeight = 143
+        ClientWidth = 797
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 7
+          Height = 14
+          Top = 10
+          Width = 77
+          Caption = 'Prezime i ime *'
+          ParentColor = False
+        end
+        object dbName: TDBEdit
+          Left = 113
+          Height = 24
+          Top = 3
+          Width = 296
+          DataField = 'AU_FULL_NAME'
+          DataSource = dsUsers
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object Label2: TLabel
+          Left = 417
+          Height = 14
+          Top = 10
+          Width = 31
+          Caption = 'Titula '
+          ParentColor = False
+        end
+        object dbTitle: TDBEdit
+          Left = 468
+          Height = 24
+          Top = 3
+          Width = 320
+          DataField = 'AU_TITLE'
+          DataSource = dsUsers
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object Label3: TLabel
+          Left = 7
+          Height = 14
+          Top = 36
+          Width = 80
+          Caption = 'Korisničko ime *'
+          ParentColor = False
+        end
+        object dbUserName: TDBEdit
+          Left = 113
+          Height = 24
+          Top = 29
+          Width = 296
+          DataField = 'AU_USER_NAME'
+          DataSource = dsUsers
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 2
+        end
+        object Label4: TLabel
+          Left = 417
+          Height = 14
+          Top = 36
+          Width = 45
+          Caption = 'Lozinka *'
+          ParentColor = False
+        end
+        object dbUserPwd: TDBEdit
+          Left = 468
+          Height = 24
+          Top = 29
+          Width = 320
+          DataField = 'AU_USER_PWD'
+          DataSource = dsUsers
+          CharCase = ecNormal
+          MaxLength = 0
+          PasswordChar = '*'
+          TabOrder = 3
+        end
+        object Label5: TLabel
+          Left = 7
+          Height = 14
+          Top = 63
+          Width = 56
+          Caption = 'Odeljenje *'
+          ParentColor = False
+        end
+        object dblDepartment: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 113
+          Height = 25
+          Top = 55
+          Width = 296
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'AU_DEPARTMENT'
+          DataSource = dsUsers
+          KeyField = 'D_ID'
+          ListField = 'D_NAME'
+          ListFieldIndex = 0
+          ListSource = dsDepartments
+          LookupCache = False
+          TabOrder = 4
+        end
+        object dbCode: TDBEdit
+          Left = 7
+          Height = 24
+          Top = 83
+          Width = 781
+          DataField = 'AU_CODE'
+          DataSource = dsUsers
+          ReadOnly = True
+          CharCase = ecNormal
+          Color = clGray
+          Font.Color = clCream
+          Font.Height = -11
+          MaxLength = 0
+          ParentFont = False
+          TabOrder = 7
+          TabStop = False
+        end
+        object dbcValid: TDBCheckBox
+          Cursor = crHandPoint
+          Left = 7
+          Height = 23
+          Top = 111
+          Width = 402
+          Caption = ' Validan (trenutno važeći) korisnik aplikacije'
+          DataField = 'AU_VALID'
+          DataSource = dsUsers
+          TabOrder = 5
+          ValueChecked = '1'
+          ValueUnchecked = '0'
+        end
+        object btnShowCharacters: TButton
+          Cursor = crHandPoint
+          Left = 468
+          Height = 25
+          Hint = 'Unhide the characters'
+          Top = 55
+          Width = 320
+          Caption = 'Show password'
+          TabOrder = 6
+        end
+      end
+    end
+    object tsPrivileges: TTabSheet
+      Caption = 'Privilegije korisnika'
+      ClientHeight = 159
+      ClientWidth = 801
+      ImageIndex = 2
+      object gbPrivileges: TGroupBox
+        Left = 0
+        Height = 159
+        Hint = 'Polja sa (*) su obavezna'
+        Top = 0
+        Width = 801
+        Align = alClient
+        Caption = ' Obrada podataka '
+        ClientHeight = 143
+        ClientWidth = 797
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        object Label6: TLabel
+          Left = 6
+          Height = 14
+          Top = 9
+          Width = 40
+          Caption = 'Modul *'
+          ParentColor = False
+        end
+        object dblModule: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 95
+          Height = 25
+          Top = 1
+          Width = 257
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'UP_MODULE'
+          DataSource = dsUserPrivileges
+          KeyField = 'M_ID'
+          ListField = 'M_NAME'
+          ListFieldIndex = 0
+          ListSource = dsModule
+          LookupCache = False
+          TabOrder = 0
+        end
+        object Label7: TLabel
+          Left = 6
+          Height = 14
+          Top = 34
+          Width = 44
+          Caption = 'Važi do *'
+          ParentColor = False
+        end
+        object dbControlDate: TDBDateTimePicker
+          Cursor = crHandPoint
+          Left = 95
+          Height = 20
+          Top = 29
+          Width = 79
+          DataField = 'UP_CONTROL_DATE'
+          DataSource = dsUserPrivileges
+          ReadOnly = False
+          CenturyFrom = 1941
+          DateDisplayOrder = ddoDMY
+          MaxDate = 2958465
+          MinDate = -53780
+          TabOrder = 1
+          TrailingSeparator = False
+          TextForNullDate = 'NULL'
+          LeadingZeros = True
+          Kind = dtkDate
+          TimeFormat = tf24
+          TimeDisplay = tdHMS
+          DateMode = dmComboBox
+          UseDefaultSeparators = True
+          HideDateTimeParts = []
+          MonthNames = 'Long'
+        end
+        object dbcValidPriveleges: TDBCheckBox
+          Cursor = crHandPoint
+          Left = 183
+          Height = 23
+          Top = 29
+          Width = 169
+          Caption = ' Važeća privilegija'
+          DataField = 'UP_VALID'
+          DataSource = dsUserPrivileges
+          TabOrder = 2
+          ValueChecked = '1'
+          ValueUnchecked = '0'
+        end
+        object dbgPrivilegesType: TDBRadioGroup
+          Cursor = crHandPoint
+          Left = 6
+          Height = 83
+          Top = 56
+          Width = 346
+          Caption = ' Tip privilegije '
+          DataField = 'UP_PRIVILEGES'
+          DataSource = dsUserPrivileges
+          Items.Strings = (
+            ' Read only'
+            ' Operator'
+            ' Admin'
+            ' Super-admin'
+          )
+          TabOrder = 3
+          Values.Strings = (
+            '0'
+            '1'
+            '2'
+            '3'
+          )
+        end
+        object dbgPrivileges: TDBGrid
+          Cursor = crHandPoint
+          Left = 359
+          Height = 137
+          Top = 2
+          Width = 432
+          AlternateColor = clScrollBar
+          Color = clSilver
+          Columns = <>
+          DataSource = dsUserPrivileges
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+          ReadOnly = True
+          TabOrder = 4
+          TitleFont.Height = -11
+        end
+      end
+    end
   end
-  object actFindUser: TActionList[5]
+  inherited actDb: TActionList[5]
+  end
+  object actFindUser: TActionList[6]
     Images = frmAdmin.imgGeneral
     left = 152
     top = 168
@@ -151,7 +455,7 @@ inherited frmUserPrivileges: TfrmUserPrivileges
       ShortCut = 49217
     end
   end
-  object zroDepartments: TZReadOnlyQuery[6]
+  object zroDepartments: TZReadOnlyQuery[7]
     Connection = dModule.zdbh
     SortedFields = 'D_NAME'
     SQL.Strings = (
@@ -189,12 +493,12 @@ inherited frmUserPrivileges: TfrmUserPrivileges
       Size = 280
     end
   end
-  object dsDepartments: TDataSource[7]
+  object dsDepartments: TDataSource[8]
     DataSet = zroDepartments
     left = 293
     top = 185
   end
-  object zqUsers: TZQuery[8]
+  object zqUsers: TZQuery[9]
     Connection = dModule.zdbh
     SortedFields = 'AU_FULL_NAME'
     UpdateObject = zupdUsers
@@ -247,6 +551,7 @@ inherited frmUserPrivileges: TfrmUserPrivileges
       Required = False
     end
     object zqUsersAU_CODE: TStringField
+      Alignment = taCenter
       DisplayLabel = 'Šifra'
       DisplayWidth = 7
       FieldKind = fkData
@@ -256,6 +561,7 @@ inherited frmUserPrivileges: TfrmUserPrivileges
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Visible = False
       Size = 120
     end
     object zqUsersAU_TITLE: TStringField
@@ -365,13 +671,13 @@ inherited frmUserPrivileges: TfrmUserPrivileges
       Size = 280
     end
   end
-  object zseqUsers: TZSequence[9]
+  object zseqUsers: TZSequence[10]
     Connection = dModule.zdbh
     SequenceName = 'USERS_SEQ'
     left = 480
     top = 178
   end
-  object zupdUsers: TZUpdateSQL[10]
+  object zupdUsers: TZUpdateSQL[11]
     DeleteSQL.Strings = (
       'DELETE FROM '
       '  APP_USERS a '
@@ -475,7 +781,7 @@ inherited frmUserPrivileges: TfrmUserPrivileges
         ParamType = ptUnknown
       end>
   end
-  object zroModule: TZReadOnlyQuery[11]
+  object zroModule: TZReadOnlyQuery[12]
     Connection = dModule.zdbh
     SortedFields = 'M_NAME'
     SQL.Strings = (
@@ -512,14 +818,265 @@ inherited frmUserPrivileges: TfrmUserPrivileges
       Size = 280
     end
   end
-  object dsModule: TDataSource[12]
+  object dsModule: TDataSource[13]
     DataSet = zroModule
     left = 120
     top = 272
   end
-  object dsUsers: TDataSource[13]
+  object dsUsers: TDataSource[14]
     DataSet = zqUsers
     left = 587
     top = 193
+  end
+  object zqUserPrivileges: TZQuery[15]
+    Connection = dModule.zdbh
+    SortedFields = 'NAME_OF_MODULE'
+    UpdateObject = zupdUserPrivileges
+    SQL.Strings = (
+      'SELECT '
+      '  a.UP_ID, '
+      '  a.UP_USER, '
+      '  a.UP_MODULE, '
+      '  a.UP_PRIVILEGES, '
+      '  a.UP_VALID,'
+      '  a.UP_CONTROL_DATE, '
+      '  a.USER_TITLE, '
+      '  a.USER_NAME, '
+      '  a.MODULE_CODE, '
+      '  a.NAME_OF_MODULE'
+      'FROM '
+      '  USER_PRIVILEGES_V a '
+      'WHERE'
+      '  a.UP_USER = :UP_USER'
+      'ORDER BY'
+      '  a.NAME_OF_MODULE'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'UP_USER'
+        ParamType = ptUnknown
+      end>
+    IndexFieldNames = 'NAME_OF_MODULE Asc'
+    Sequence = zseqUserPrivileges
+    SequenceField = 'UP_ID'
+    left = 344
+    top = 64
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'UP_USER'
+        ParamType = ptUnknown
+      end>
+    object zqUserPrivilegesUP_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'UP_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqUserPrivilegesUP_USER: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'UP_USER'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqUserPrivilegesUP_MODULE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'UP_MODULE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqUserPrivilegesUP_PRIVILEGES: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'UP_PRIVILEGES'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqUserPrivilegesUP_VALID: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'UP_VALID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqUserPrivilegesUP_CONTROL_DATE: TDateField
+      DisplayLabel = 'Važi do'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'UP_CONTROL_DATE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd.MM.yyyy'
+    end
+    object zqUserPrivilegesUSER_TITLE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'USER_TITLE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+    object zqUserPrivilegesUSER_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'USER_NAME'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 280
+    end
+    object zqUserPrivilegesMODULE_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'MODULE_CODE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+    object zqUserPrivilegesNAME_OF_MODULE: TStringField
+      DisplayLabel = 'Modul'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'NAME_OF_MODULE'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+  end
+  object zupdUserPrivileges: TZUpdateSQL[16]
+    DeleteSQL.Strings = (
+      'DELETE FROM '
+      '  USER_PRIVILEGES a '
+      'WHERE'
+      '  a.UP_ID = :UP_ID'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO '
+      '  USER_PRIVILEGES (UP_ID, UP_USER, UP_MODULE, UP_PRIVILEGES, UP_VALID,'
+      '  UP_CONTROL_DATE)'
+      'VALUES ('
+      '  :UP_ID, '
+      '  :UP_USER, '
+      '  :UP_MODULE, '
+      '  :UP_PRIVILEGES, '
+      '  :UP_VALID, '
+      '  :UP_CONTROL_DATE'
+      ')'
+    )
+    ModifySQL.Strings = (
+      'UPDATE '
+      '  USER_PRIVILEGES a'
+      'SET '
+      '  a.UP_USER = :UP_USER, '
+      '  a.UP_MODULE = :UP_MODULE, '
+      '  a.UP_PRIVILEGES = :UP_PRIVILEGES, '
+      '  a.UP_VALID = :UP_VALID, '
+      '  a.UP_CONTROL_DATE = :UP_CONTROL_DATE'
+      'WHERE'
+      '  a.UP_ID = :UP_ID'
+    )
+    RefreshSQL.Strings = (
+      'SELECT '
+      '  a.UP_ID, '
+      '  a.UP_USER, '
+      '  a.UP_MODULE, '
+      '  a.UP_PRIVILEGES, '
+      '  a.UP_VALID,'
+      '  a.UP_CONTROL_DATE, '
+      '  a.USER_TITLE, '
+      '  a.USER_NAME, '
+      '  a.MODULE_CODE, '
+      '  a.NAME_OF_MODULE'
+      'FROM '
+      '  USER_PRIVILEGES_V a '
+      'WHERE'
+      '  a.UP_ID = :UP_ID'
+    )
+    UseSequenceFieldForRefreshSQL = True
+    left = 376
+    top = 112
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'UP_USER'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'UP_MODULE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'UP_PRIVILEGES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'UP_VALID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'UP_CONTROL_DATE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'UP_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object zseqUserPrivileges: TZSequence[17]
+    Connection = dModule.zdbh
+    SequenceName = 'USER_PRIVILEGES_SEQ'
+    left = 304
+    top = 72
+  end
+  object dsUserPrivileges: TDataSource[18]
+    DataSet = zqUserPrivileges
+    left = 408
+    top = 64
   end
 end
