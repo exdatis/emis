@@ -1,0 +1,174 @@
+inherited frmDbIni: TfrmDbIni
+  Caption = 'Lista registrovanih baza podataka'
+  inherited lblReportTitle: TLabel
+    Caption = 'Lista registrovanih baza podataka'
+  end
+  object gbDbEditList: TGroupBox[1]
+    Left = 0
+    Height = 105
+    Top = 15
+    Width = 803
+    Align = alTop
+    Caption = ' Db register '
+    ClientHeight = 88
+    ClientWidth = 799
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 8
+      Height = 15
+      Top = 10
+      Width = 34
+      Caption = 'Alias *'
+      ParentColor = False
+    end
+    object edtAlias: TEdit
+      Left = 87
+      Height = 25
+      Top = 3
+      Width = 227
+      TabOrder = 0
+    end
+    object Label2: TLabel
+      Left = 322
+      Height = 15
+      Top = 10
+      Width = 52
+      Caption = 'Db path *'
+      ParentColor = False
+    end
+    object edtDbPath: TEdit
+      Left = 400
+      Height = 25
+      Top = 3
+      Width = 368
+      TabOrder = 1
+    end
+    object sbtnFinDb: TSpeedButton
+      Cursor = crHandPoint
+      Left = 768
+      Height = 22
+      Hint = 'Pronadji postojeću bazu podataka'
+      Top = 4
+      Width = 23
+      Flat = True
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF0014A4FF6014A4FFCF14A4FFFF14A4FFFF14A4FFFF14A4FFFF14A4FFFF14A4
+        FFFF008306FF008100FF008305FC14A4FF600000000000000000FFFFFF00FFFF
+        FF0014A4FFEF11A0FFFB1FABFFFF49C7FFFF5CD1FFFF53D1FFFF46D3FFFF4CD8
+        FFFF008100FF139E16FF008100FF14A4FFEF0000000000000000FFFFFF00FFFF
+        FF0014A4FFFF35B8FFFF49C7FFFF87E1FFFFA5EBFFFF8FE9FFFF73E6FFFF77E9
+        FFFF008100FF2CAF2DFF008100FF14A4FFFF0000000000000000FFFFFF00FFFF
+        FF0014A4FFFF58CAFFFF46C6FFFF82DEFFFFA1EAFFFF038706FF008100FF0081
+        00FF008100FF46C047FF008100FF008100FF008100FF008100EFFFFFFF00FFFF
+        FF0014A4FFFF73D4FFFF43C6FFFF7EDDFFFF9CE7FFFF008100FF95E696FF98E9
+        98FF89E788FF66DD65FF46C245FF21A321FF0B900BFF008100FFFFFFFF00FFFF
+        FF0014A4FFFF8FDDFFFF3FC5FFFF78DCFFFF96E3FFFF038706FF008100FF0081
+        00FF008100FF87E588FF008100FF008100FF008100FF008100EFFFFFFF00FFFF
+        FF0014A4FFFFACE6FFFF43C7FFFF73DAFFFF90E3FFFF6BD8FFFF3FCBFFFF3ECA
+        FFFF008100FF90E590FF008100FF14A4FFFF0000000000000000FFFFFF00FFFF
+        FF0014A4FFF57DD4FFFCB1E7FFFFC5F0FFFFC9F2FFFFC7F2FFFFC5F0FFFFC5F0
+        FFFF008100FF84E087FF008100FF14A4FFF40000000000000000FFFFFF00FFFF
+        FF0014A4FFF4109FFFFD1BABFFFF31BCFFFF3EC6FFFF3CC9FFFF37CCFFFF3DD1
+        FFFF018606FF008100FF018306FF14A4FFF50000000000000000FFFFFF00FFFF
+        FF0014A4FFFF2EB4FFFF47C6FFFF86E1FFFFA6EBFFFF90E9FFFF75E6FFFF79EA
+        FFFF76E7FFFF56D9FFFF1EB2FFFF15A9FFFFFFFFFF00FFFFFF00FFFFFF00FFFF
+        FF0014A4FFFF55C9FFFF45C6FFFF82DEFFFFA3EAFFFF89E6FFFF69E0FFFF6BE2
+        FFFF68E1FFFF4DD4FFFF1DB0FFFF15A9FFFFFFFFFF00FFFFFF00FFFFFF00FFFF
+        FF0014A4FFFF6ED1FFFF42C5FFFF7EDDFFFF9DE7FFFF81E2FFFF5CD9FFFF5BDA
+        FFFF59D9FFFF43CEFFFF1AACFFFF15A9FFFFFFFFFF00FFFFFF00FFFFFF00FFFF
+        FF0014A4FFFF8ADCFFFF3FC5FFFF78DAFFFF97E5FFFF77DDFFFF4ED3FFFF4DD3
+        FFFF4CD3FFFF39C6FFFF16A7FFFF15A9FFFFFFFFFF00FFFFFF00FFFFFF00FFFF
+        FF0014A4FFFFA7E5FFFF3AC5FFFF73DAFFFF91E2FFFF6ED9FFFF41CBFFFF40CB
+        FFFF3ECBFFFF2FC0FFFF23AFFFFF15A9FFFFFFFFFF00FFFFFF00FFFFFF00FFFF
+        FF0014A4FFEF95DDFFFBB6EBFFFFB0EBFFFFBCEFFFFFB0EBFFFF9FE6FFFF9EE6
+        FFFF9DE6FFFFABE9FFFF88DCFFFC18A7FFF0FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF0014A4FF6014A4FFCF14A4FFFF14A4FFFF14A4FFFF14A4FFFF14A4FFFF14A4
+        FFFF14A4FFFF14A4FFFF14A4FFDF14A4FF60FFFFFF00FFFFFF00
+      }
+      ShowCaption = False
+      ShowHint = True
+      ParentShowHint = False
+    end
+    object Label3: TLabel
+      Left = 8
+      Height = 15
+      Top = 36
+      Width = 67
+      Caption = 'User name *'
+      ParentColor = False
+    end
+    object edtUserName: TEdit
+      Left = 87
+      Height = 25
+      Top = 29
+      Width = 227
+      TabOrder = 2
+    end
+    object Label4: TLabel
+      Left = 8
+      Height = 15
+      Top = 63
+      Width = 70
+      Caption = 'Passwword *'
+      ParentColor = False
+    end
+    object edtPwd: TEdit
+      Left = 86
+      Height = 25
+      Top = 56
+      Width = 228
+      EchoMode = emPassword
+      PasswordChar = '*'
+      TabOrder = 4
+    end
+    object Label5: TLabel
+      Left = 322
+      Height = 15
+      Top = 36
+      Width = 34
+      Caption = 'Host *'
+      ParentColor = False
+    end
+    object edtHost: TEdit
+      Left = 400
+      Height = 25
+      Top = 29
+      Width = 144
+      TabOrder = 3
+    end
+    object Label6: TLabel
+      Left = 549
+      Height = 15
+      Top = 36
+      Width = 55
+      Caption = 'TCP/IP v4'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object btnTestConnection: TButton
+      Cursor = crHandPoint
+      Left = 322
+      Height = 25
+      Hint = 'Try to connect'
+      Top = 56
+      Width = 469
+      Caption = 'Testiranje konekcije na osnovuy unetih parametara'
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 5
+    end
+  end
+  object sgRegisteredDb: TStringGrid[2]
+    Left = 0
+    Height = 396
+    Top = 120
+    Width = 803
+    Align = alClient
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goSmoothScroll]
+    ScrollBars = ssBoth
+    TabOrder = 1
+  end
+end

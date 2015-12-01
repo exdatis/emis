@@ -3,14 +3,14 @@
   <ProjectSession>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="8">
+    <Units Count="10">
       <Unit0>
         <Filename Value="admin.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="7"/>
         <TopLine Value="3"/>
-        <CursorPos X="5" Y="22"/>
-        <UsageCount Value="40"/>
+        <CursorPos X="5" Y="24"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -22,7 +22,7 @@
         <UnitName Value="uAdmin"/>
         <TopLine Value="112"/>
         <CursorPos X="39" Y="127"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -36,7 +36,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="10"/>
         <CursorPos X="12" Y="30"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -47,7 +47,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="5"/>
         <CursorPos X="15" Y="25"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -57,10 +57,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uBaseDbForm"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="8"/>
         <TopLine Value="85"/>
         <CursorPos X="3" Y="104"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -69,8 +69,8 @@
         <IsPartOfProject Value="True"/>
         <HasResources Value="True"/>
         <UnitName Value="uConfirm"/>
-        <EditorIndex Value="7"/>
-        <UsageCount Value="40"/>
+        <EditorIndex Value="9"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
@@ -83,7 +83,7 @@
         <EditorIndex Value="3"/>
         <TopLine Value="299"/>
         <CursorPos X="33" Y="319"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -94,135 +94,156 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uUserPrivileges"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <TopLine Value="480"/>
         <CursorPos X="65" Y="491"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="../common/ureportbase.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmReportBase"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uReportBase"/>
+        <EditorIndex Value="6"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="udbini.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDbIni"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDbIni"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="5"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit9>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="374" Column="27" TopLine="355"/>
+        <Caret Line="448" Column="42" TopLine="428"/>
       </Position1>
       <Position2>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="396" Column="27" TopLine="378"/>
+        <Caret Line="462" Column="27" TopLine="443"/>
       </Position2>
       <Position3>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="448" Column="42" TopLine="428"/>
+        <Caret Line="476" Column="52" TopLine="471"/>
       </Position3>
       <Position4>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="462" Column="27" TopLine="443"/>
+        <Caret Line="472" Column="14" TopLine="467"/>
       </Position4>
       <Position5>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="476" Column="52" TopLine="471"/>
+        <Caret Line="494" Column="49" TopLine="491"/>
       </Position5>
       <Position6>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="472" Column="14" TopLine="467"/>
+        <Caret Line="381" Column="28" TopLine="363"/>
       </Position6>
       <Position7>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="494" Column="49" TopLine="491"/>
+        <Caret Line="403" Column="27" TopLine="385"/>
       </Position7>
       <Position8>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="381" Column="28" TopLine="363"/>
+        <Caret Line="428" Column="27" TopLine="409"/>
       </Position8>
       <Position9>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="403" Column="27" TopLine="385"/>
+        <Caret Line="451" Column="29" TopLine="431"/>
       </Position9>
       <Position10>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="428" Column="27" TopLine="409"/>
+        <Caret Line="461" Column="84" TopLine="455"/>
       </Position10>
       <Position11>
-        <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="451" Column="29" TopLine="431"/>
+        <Filename Value="uadmin.pp"/>
+        <Caret Line="135" Column="51" TopLine="125"/>
       </Position11>
       <Position12>
-        <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="461" Column="84" TopLine="455"/>
+        <Filename Value="uadmin.pp"/>
+        <Caret Line="80" Column="37" TopLine="68"/>
       </Position12>
       <Position13>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="135" Column="51" TopLine="125"/>
+        <Caret Line="82" Column="37" TopLine="70"/>
       </Position13>
       <Position14>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="80" Column="37" TopLine="68"/>
+        <Caret Line="121" Column="33" TopLine="101"/>
       </Position14>
       <Position15>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="82" Column="37" TopLine="70"/>
+        <Caret Line="122" Column="33" TopLine="102"/>
       </Position15>
       <Position16>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="121" Column="33" TopLine="101"/>
+        <Caret Line="123" Column="33" TopLine="103"/>
       </Position16>
       <Position17>
         <Filename Value="uadmin.pp"/>
-        <Caret Line="122" Column="33" TopLine="102"/>
+        <Caret Line="124" Column="33" TopLine="104"/>
       </Position17>
       <Position18>
-        <Filename Value="uadmin.pp"/>
-        <Caret Line="123" Column="33" TopLine="103"/>
+        <Filename Value="privileges/uuserprivileges.pp"/>
+        <Caret Line="740" Column="36" TopLine="740"/>
       </Position18>
       <Position19>
-        <Filename Value="uadmin.pp"/>
-        <Caret Line="124" Column="33" TopLine="104"/>
+        <Filename Value="privileges/uuserprivileges.pp"/>
+        <Caret Line="126" Column="28" TopLine="115"/>
       </Position19>
       <Position20>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="740" Column="36" TopLine="740"/>
+        <Caret Line="650" Column="72" TopLine="643"/>
       </Position20>
       <Position21>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="126" Column="28" TopLine="115"/>
+        <Caret Line="219" Column="28" TopLine="215"/>
       </Position21>
       <Position22>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="650" Column="72" TopLine="643"/>
+        <Caret Line="129" Column="39" TopLine="118"/>
       </Position22>
       <Position23>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="219" Column="28" TopLine="215"/>
+        <Caret Line="661" Column="23" TopLine="658"/>
       </Position23>
       <Position24>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="129" Column="39" TopLine="118"/>
+        <Caret Line="803" Column="25" TopLine="787"/>
       </Position24>
       <Position25>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="661" Column="23" TopLine="658"/>
+        <Caret Line="488" Column="44" TopLine="485"/>
       </Position25>
       <Position26>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="803" Column="25" TopLine="787"/>
+        <Caret Line="184" TopLine="174"/>
       </Position26>
       <Position27>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="488" Column="44" TopLine="485"/>
+        <Caret Line="490" Column="45" TopLine="478"/>
       </Position27>
       <Position28>
         <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="184" TopLine="174"/>
+        <Caret Line="178" Column="34" TopLine="169"/>
       </Position28>
       <Position29>
-        <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="490" Column="45" TopLine="478"/>
+        <Filename Value="../common/ureportbase.pp"/>
       </Position29>
       <Position30>
-        <Filename Value="privileges/uuserprivileges.pp"/>
-        <Caret Line="178" Column="34" TopLine="169"/>
+        <Filename Value="udbini.pp"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

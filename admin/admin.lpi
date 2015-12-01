@@ -18,7 +18,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="3"/>
-      <BuildNr Value="6"/>
+      <BuildNr Value="7"/>
       <StringTable Comments="App by Morar" CompanyName="Morar(exdatis) self" FileDescription="Simple app admin" InternalName="admin" LegalCopyright="exdatis personal" LegalTrademarks="Morar" OriginalFilename="admin" ProductName="admin" ProductVersion="1.3"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -52,7 +52,7 @@
         <PackageName Value="LCL"/>
       </Item6>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="10">
       <Unit0>
         <Filename Value="admin.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -108,6 +108,21 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uUserPrivileges"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="../common/ureportbase.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmReportBase"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uReportBase"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="udbini.pp"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDbIni"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDbIni"/>
+      </Unit9>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -1,0 +1,9 @@
+object frmReportBase: TfrmReportBase
+  Left = 340
+  Height = 516
+  Top = 185
+  Width = 803
+  BorderStyle = bsNone
+  Caption = 'frmReportBase'
+  LCLVersion = '1.4.4.0'
+end
