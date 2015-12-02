@@ -7,9 +7,9 @@
       <Unit0>
         <Filename Value="admin.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="3"/>
-        <CursorPos X="5" Y="24"/>
+        <CursorPos X="5" Y="22"/>
         <UsageCount Value="41"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -57,7 +57,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uBaseDbForm"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="7"/>
         <TopLine Value="85"/>
         <CursorPos X="3" Y="104"/>
         <UsageCount Value="41"/>
@@ -69,7 +69,7 @@
         <IsPartOfProject Value="True"/>
         <HasResources Value="True"/>
         <UnitName Value="uConfirm"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="8"/>
         <UsageCount Value="41"/>
         <Loaded Value="True"/>
       </Unit5>
@@ -105,28 +105,27 @@
         <Filename Value="../common/ureportbase.pp"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmReportBase"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uReportBase"/>
-        <EditorIndex Value="6"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="5"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit8>
       <Unit9>
         <Filename Value="udbini.pp"/>
-        <IsPartOfProject Value="True"/>
         <ComponentName Value="frmDbIni"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uDbIni"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="38" Y="4"/>
         <UsageCount Value="21"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit9>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="privileges/uuserprivileges.pp"/>
         <Caret Line="448" Column="42" TopLine="428"/>
@@ -242,9 +241,6 @@
       <Position29>
         <Filename Value="../common/ureportbase.pp"/>
       </Position29>
-      <Position30>
-        <Filename Value="udbini.pp"/>
-      </Position30>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

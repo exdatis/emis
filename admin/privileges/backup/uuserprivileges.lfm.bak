@@ -1004,7 +1004,7 @@ inherited frmUserPrivileges: TfrmUserPrivileges
     end
     object zqUserPrivilegesNAME_OF_MODULE: TStringField
       DisplayLabel = 'Modul'
-      DisplayWidth = 15
+      DisplayWidth = 35
       FieldKind = fkData
       FieldName = 'NAME_OF_MODULE'
       Index = 9

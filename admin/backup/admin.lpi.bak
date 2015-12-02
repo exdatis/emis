@@ -52,7 +52,7 @@
         <PackageName Value="LCL"/>
       </Item6>
     </RequiredPackages>
-    <Units Count="10">
+    <Units Count="9">
       <Unit0>
         <Filename Value="admin.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -112,17 +112,10 @@
         <Filename Value="../common/ureportbase.pp"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmReportBase"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uReportBase"/>
       </Unit8>
-      <Unit9>
-        <Filename Value="udbini.pp"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmDbIni"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uDbIni"/>
-      </Unit9>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

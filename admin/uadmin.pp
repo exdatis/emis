@@ -16,6 +16,7 @@ type
   TfrmAdmin = class(TForm)
     actHelp: TActionList;
     actDbBackup: TAction;
+    actXorIni: TAction;
     actUserPrivileges: TAction;
     actModule: TAction;
     actQuitApp: TAction;
@@ -45,6 +46,8 @@ type
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
     mnuAdmin: TMainMenu;
     panelForms: TBCPanel;
     panelLogo: TPanel;
@@ -59,10 +62,13 @@ type
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
+    ToolButton6: TToolButton;
+    ToolButton7: TToolButton;
     procedure actDbBackupExecute(Sender: TObject);
     procedure actModuleExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
     procedure actUserPrivilegesExecute(Sender: TObject);
+    procedure actXorIniExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure lblBackupClick(Sender: TObject);
     procedure lblBackupMouseEnter(Sender: TObject);
@@ -137,6 +143,28 @@ begin
     Screen.Cursor:= crDefault;
   end;
 end;
+
+procedure TfrmAdmin.actXorIniExecute(Sender: TObject);
+var
+  startApp : TProcess;
+  appName : String;
+begin
+  // create p[rocess
+  startApp:= TProcess.Create(nil);
+  {$IfDef Windows}
+    appName:= 'xorIni.exe';
+  {$EndIf}
+  {$IfDef linux}
+    appName:= 'xorIni';
+  {$EndIf}
+
+  startApp.Executable:= appName;
+  startApp.Options:= startApp.Options + [poWaitOnExit];
+  startApp.Execute;
+  // free process
+  startApp.Free;
+end;
+
 
 procedure TfrmAdmin.actDbBackupExecute(Sender: TObject);
 var
