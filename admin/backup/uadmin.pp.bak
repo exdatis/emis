@@ -152,10 +152,10 @@ begin
   // create p[rocess
   startApp:= TProcess.Create(nil);
   {$IfDef Windows}
-    appName:= 'xorIni';
+    appName:= 'xorIni.exe';
   {$EndIf}
   {$IfDef linux}
-    appName:= 'xorIni.exe';
+    appName:= 'xorIni';
   {$EndIf}
 
   startApp.Executable:= appName;

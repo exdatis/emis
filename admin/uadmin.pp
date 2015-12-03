@@ -148,14 +148,17 @@ procedure TfrmAdmin.actXorIniExecute(Sender: TObject);
 var
   startApp : TProcess;
   appName : String;
+  xorIniPath : String;
 begin
   // create p[rocess
   startApp:= TProcess.Create(nil);
   {$IfDef Windows}
-    appName:= 'xorIni.exe';
+    xorIniPath:= 'C:\exdatis\';
+    appName:= xorIniPath + 'xorIni.exe';
   {$EndIf}
   {$IfDef linux}
-    appName:= 'xorIni';
+    xorIniPath:= GetUserDir + 'exdatis/';
+    appName:= xorIniPath + 'xorIni';
   {$EndIf}
 
   startApp.Executable:= appName;
