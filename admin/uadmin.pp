@@ -150,6 +150,7 @@ var
   appName : String;
   xorIniPath : String;
 begin
+  //test
   // create p[rocess
   startApp:= TProcess.Create(nil);
   {$IfDef Windows}
