@@ -19,8 +19,9 @@
         <ComponentName Value="frmOrg"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="218"/>
-        <CursorPos X="40" Y="242"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="1026"/>
+        <CursorPos X="18" Y="1212"/>
         <UsageCount Value="98"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -273,7 +274,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uLogin"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <CursorPos X="43" Y="18"/>
         <UsageCount Value="30"/>
@@ -358,7 +358,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit31>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="uorg.pp"/>
         <Caret Line="10" Column="76"/>
@@ -475,6 +475,10 @@
         <Filename Value="uorg.pp"/>
         <Caret Line="1164" Column="14" TopLine="1143"/>
       </Position29>
+      <Position30>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="242" Column="40" TopLine="218"/>
+      </Position30>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>
