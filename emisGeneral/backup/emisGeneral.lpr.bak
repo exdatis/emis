@@ -19,7 +19,7 @@ uses
   uPropertiesOfFood, uFoodGroups, uFood, upropertiesOfOfficeM, uOfficeMGroups,
   uOfficeMaterial, uPropertiesOfMaterials, uMaterialsGroup,
   uMaterialsAccessories, uHygieneProperties, uHygieneGroups, uHygieneMaterial,
-  uSServicesGroups, uSupplyServices;
+  uSServicesGroups, uSupplyServices, uExDatisShare;
 
 {$R *.res}
 

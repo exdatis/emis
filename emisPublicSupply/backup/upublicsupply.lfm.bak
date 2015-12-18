@@ -44,6 +44,23 @@ object frmPublicSupply: TfrmPublicSupply
       ParentShowHint = False
       ShowHint = True
     end
+    object ToolButton4: TToolButton
+      Left = 52
+      Height = 22
+      Top = 2
+      Width = 5
+      Caption = 'ToolButton4'
+      Style = tbsDivider
+    end
+    object ToolButton5: TToolButton
+      Cursor = crHandPoint
+      Left = 57
+      Top = 2
+      Action = actItemsOrderType
+      ImageIndex = 5
+      ParentShowHint = False
+      ShowHint = True
+    end
   end
   object statusBarGeneral: TStatusBar
     Left = 0
@@ -3004,6 +3021,12 @@ object frmPublicSupply: TfrmPublicSupply
       Caption = 'Opšte tabele'
       object MenuItem5: TMenuItem
         Action = actSupplyType
+      end
+      object MenuItem6: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem7: TMenuItem
+        Action = actItemsOrderType
       end
     end
   end

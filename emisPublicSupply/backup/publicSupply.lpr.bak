@@ -19,7 +19,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmPublicSupply, frmPublicSupply);
   Application.CreateForm(TdModule, dModule);
-  Application.CreateForm(TfrmItemsOrderType, frmItemsOrderType);
+  //Application.CreateForm(TfrmItemsOrderType, frmItemsOrderType);
   //Application.CreateForm(TfrmSupplyType, frmSupplyType);
   Application.Run;
 end.

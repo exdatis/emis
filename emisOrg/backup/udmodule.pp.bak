@@ -43,6 +43,7 @@ type
     { private declarations }
   public
     { public declarations }
+    validDate : TDate;
   end;
 
 var

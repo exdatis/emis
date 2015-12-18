@@ -19,9 +19,8 @@
         <ComponentName Value="frmOrg"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="1026"/>
-        <CursorPos X="18" Y="1212"/>
+        <TopLine Value="211"/>
+        <CursorPos X="45" Y="219"/>
         <UsageCount Value="98"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -33,9 +32,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="uDModule"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="26"/>
-        <CursorPos X="23" Y="46"/>
+        <TopLine Value="39"/>
+        <CursorPos X="27" Y="71"/>
         <UsageCount Value="98"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -361,123 +361,123 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="uorg.pp"/>
-        <Caret Line="10" Column="76"/>
+        <Caret Line="1051" Column="63" TopLine="1042"/>
       </Position1>
       <Position2>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1063" Column="6" TopLine="1029"/>
+        <Caret Line="8" Column="74"/>
       </Position2>
       <Position3>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1051" Column="63" TopLine="1042"/>
+        <Caret Line="1076" Column="32" TopLine="1042"/>
       </Position3>
       <Position4>
         <Filename Value="uorg.pp"/>
-        <Caret Line="8" Column="74"/>
+        <Caret Line="1059" Column="12" TopLine="1042"/>
       </Position4>
       <Position5>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1076" Column="32" TopLine="1042"/>
+        <Caret Line="1073" Column="85" TopLine="1042"/>
       </Position5>
       <Position6>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1059" Column="12" TopLine="1042"/>
+        <Caret Line="1076" Column="69" TopLine="1042"/>
       </Position6>
       <Position7>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1073" Column="85" TopLine="1042"/>
+        <Caret Line="1070" Column="11" TopLine="1045"/>
       </Position7>
       <Position8>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1076" Column="69" TopLine="1042"/>
+        <Caret Line="1076" TopLine="1045"/>
       </Position8>
       <Position9>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1070" Column="11" TopLine="1045"/>
+        <Caret Line="1074" TopLine="1043"/>
       </Position9>
       <Position10>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1076" TopLine="1045"/>
+        <Caret Line="1075" TopLine="1044"/>
       </Position10>
       <Position11>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1074" TopLine="1043"/>
+        <Caret Line="1080" TopLine="1055"/>
       </Position11>
       <Position12>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1075" TopLine="1044"/>
+        <Caret Line="1081" TopLine="1055"/>
       </Position12>
       <Position13>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1080" TopLine="1055"/>
+        <Caret Line="1076" TopLine="1055"/>
       </Position13>
       <Position14>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1081" TopLine="1055"/>
+        <Caret Line="1078" TopLine="1055"/>
       </Position14>
       <Position15>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1076" TopLine="1055"/>
+        <Caret Line="1079" TopLine="1055"/>
       </Position15>
       <Position16>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1078" TopLine="1055"/>
+        <Caret Line="1080" TopLine="1055"/>
       </Position16>
       <Position17>
-        <Filename Value="uorg.pp"/>
-        <Caret Line="1079" TopLine="1055"/>
-      </Position17>
-      <Position18>
-        <Filename Value="uorg.pp"/>
-        <Caret Line="1080" TopLine="1055"/>
-      </Position18>
-      <Position19>
         <Filename Value="..\dialogs\ulogin.pp"/>
         <Caret Line="16" Column="43"/>
-      </Position19>
-      <Position20>
+      </Position17>
+      <Position18>
         <Filename Value="..\dialogs\ulogin.pp"/>
         <Caret Line="17" Column="43"/>
+      </Position18>
+      <Position19>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="1098" Column="13" TopLine="1062"/>
+      </Position19>
+      <Position20>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="1090" Column="80" TopLine="1067"/>
       </Position20>
       <Position21>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1098" Column="13" TopLine="1062"/>
+        <Caret Line="1093" Column="37" TopLine="1064"/>
       </Position21>
       <Position22>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1090" Column="80" TopLine="1067"/>
+        <Caret Line="1091" TopLine="1064"/>
       </Position22>
       <Position23>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1093" Column="37" TopLine="1064"/>
+        <Caret Line="1092" TopLine="1064"/>
       </Position23>
       <Position24>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1091" TopLine="1064"/>
+        <Caret Line="1114" Column="15" TopLine="1082"/>
       </Position24>
       <Position25>
-        <Filename Value="uorg.pp"/>
-        <Caret Line="1092" TopLine="1064"/>
+        <Filename Value="udmodule.pp"/>
+        <Caret Line="14" Column="68" TopLine="13"/>
       </Position25>
       <Position26>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1114" Column="15" TopLine="1082"/>
+        <Caret Line="1168" Column="48" TopLine="1139"/>
       </Position26>
       <Position27>
-        <Filename Value="udmodule.pp"/>
-        <Caret Line="14" Column="68" TopLine="13"/>
+        <Filename Value="uorg.pp"/>
+        <Caret Line="1164" Column="14" TopLine="1143"/>
       </Position27>
       <Position28>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1168" Column="48" TopLine="1139"/>
+        <Caret Line="242" Column="40" TopLine="218"/>
       </Position28>
       <Position29>
         <Filename Value="uorg.pp"/>
-        <Caret Line="1164" Column="14" TopLine="1143"/>
+        <Caret Line="1212" Column="18" TopLine="1021"/>
       </Position29>
       <Position30>
         <Filename Value="uorg.pp"/>
-        <Caret Line="242" Column="40" TopLine="218"/>
+        <Caret Line="1031" Column="37" TopLine="1026"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

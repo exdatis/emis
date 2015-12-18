@@ -18,7 +18,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="4"/>
+      <BuildNr Value="5"/>
       <StringTable Comments="App by Morar" CompanyName="Morar Zivica personal(ExDatis)" FileDescription="Medical software" InternalName="publicProcurement" LegalCopyright="exdatis@users.sourceforge.net" LegalTrademarks="exdatis@users.sourceforge.net" OriginalFilename="publicSupply" ProductName="publicProcurement" ProductVersion="1.1"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -49,7 +49,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="publicSupply.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -107,6 +107,12 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uItemsOrderType"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="../dialogs/ulogin.pp"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+        <UnitName Value="uLogin"/>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

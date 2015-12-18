@@ -68,7 +68,7 @@ end;
 
 procedure TdModule.zqPrivilegesBeforeOpen(DataSet: TDataSet);
 const
-  MODULE_ORG : Integer = 3;
+  MODULE_ORG : Integer = 1;
 begin
   zqPrivileges.ParamByName('MODULE_ID').AsInteger:= MODULE_ORG;
 end;

@@ -28,4 +28,174 @@ object dModule: TdModule
     left = 29
     top = 92
   end
+  object zqUser: TZReadOnlyQuery
+    Connection = zdbh
+    SQL.Strings = (
+      'SELECT'
+      '  A.AU_ID,'
+      '  A.AU_TITLE,'
+      '  A.AU_FULL_NAME,'
+      '  A.AU_USER_NAME,'
+      '  A.AU_USER_PWD,'
+      '  A.AU_DEPARTMENT,'
+      '  A.AU_VALID,'
+      '  A.AU_CODE'
+      'FROM'
+      '  APP_USERS A'
+      'WHERE'
+      '  A.AU_USER_NAME = :USER_NAME'
+      '  AND'
+      '  A.AU_USER_PWD = :PASSWORD'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'USER_NAME'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'PASSWORD'
+        ParamType = ptUnknown
+      end>
+    left = 87
+    top = 218
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'USER_NAME'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftString
+        Name = 'PASSWORD'
+        ParamType = ptUnknown
+      end>
+    object zqUserAU_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AU_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zqUserAU_TITLE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'AU_TITLE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 120
+    end
+    object zqUserAU_FULL_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'AU_FULL_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 280
+    end
+    object zqUserAU_USER_NAME: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'AU_USER_NAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 60
+    end
+    object zqUserAU_USER_PWD: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'AU_USER_PWD'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 60
+    end
+    object zqUserAU_DEPARTMENT: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AU_DEPARTMENT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zqUserAU_VALID: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'AU_VALID'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zqUserAU_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'AU_CODE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 120
+    end
+  end
+  object zqPrivileges: TZReadOnlyQuery
+    Connection = zdbh
+    BeforeOpen = zqPrivilegesBeforeOpen
+    SQL.Strings = (
+      'SELECT '
+      '  A.UP_ID,'
+      '  A.UP_CONTROL_DATE,'
+      '  A.UP_VALID,'
+      '  A.UP_PRIVILEGES'
+      'FROM'
+      '  USER_PRIVILEGES A'
+      'WHERE'
+      '  A.UP_USER = :USER_ID'
+      '  AND'
+      '  A.UP_MODULE = :MODULE_ID'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'USER_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftInteger
+        Name = 'MODULE_ID'
+        ParamType = ptUnknown
+      end>
+    left = 93
+    top = 273
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'USER_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftInteger
+        Name = 'MODULE_ID'
+        ParamType = ptUnknown
+      end>
+  end
 end
