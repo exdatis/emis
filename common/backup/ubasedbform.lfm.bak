@@ -9,7 +9,7 @@ object baseDbForm: TbaseDbForm
   ClientWidth = 803
   Font.Height = -11
   OnClose = FormClose
-  LCLVersion = '1.4.2.0'
+  LCLVersion = '1.4.4.0'
   object lblBaseDbTitle: TLabel
     Left = 0
     Height = 15
@@ -33,14 +33,14 @@ object baseDbForm: TbaseDbForm
     Top = 473
     Width = 803
     Align = alBottom
-    ClientHeight = 39
+    ClientHeight = 25
     ClientWidth = 799
     TabOrder = 0
     object btnInsert: TButton
       Cursor = crHandPoint
       Left = 329
       Height = 25
-      Top = 12
+      Top = -2
       Width = 75
       Action = actInsert
       ParentShowHint = False
@@ -51,7 +51,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 406
       Height = 25
-      Top = 12
+      Top = -2
       Width = 75
       Action = actDelete
       ParentShowHint = False
@@ -62,7 +62,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 483
       Height = 25
-      Top = 12
+      Top = -2
       Width = 75
       Action = actEdit
       ParentShowHint = False
@@ -73,7 +73,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 560
       Height = 25
-      Top = 12
+      Top = -2
       Width = 75
       Action = actSave
       ParentShowHint = False
@@ -84,7 +84,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 637
       Height = 25
-      Top = 12
+      Top = -2
       Width = 75
       Action = actCancel
       ParentShowHint = False
@@ -95,7 +95,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 719
       Height = 25
-      Top = 12
+      Top = -2
       Width = 75
       Action = actCloseForm
       ParentShowHint = False
@@ -106,7 +106,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 3
       Height = 25
-      Top = 12
+      Top = -2
       Width = 43
       Action = actFirst
       ParentFont = False
@@ -118,7 +118,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 48
       Height = 25
-      Top = 12
+      Top = -2
       Width = 43
       Action = actPrior
       ParentFont = False
@@ -130,7 +130,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 234
       Height = 25
-      Top = 12
+      Top = -2
       Width = 43
       Action = actNext
       ParentFont = False
@@ -142,7 +142,7 @@ object baseDbForm: TbaseDbForm
       Cursor = crHandPoint
       Left = 279
       Height = 25
-      Top = 12
+      Top = -2
       Width = 43
       Action = actLast
       ParentFont = False
@@ -153,8 +153,8 @@ object baseDbForm: TbaseDbForm
     object edtRecNo: TEdit
       Cursor = crHandPoint
       Left = 93
-      Height = 26
-      Top = 11
+      Height = 21
+      Top = -1
       Width = 139
       Alignment = taCenter
       Color = clWhite

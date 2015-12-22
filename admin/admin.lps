@@ -20,7 +20,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uAdmin"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="144"/>
         <CursorPos X="9" Y="153"/>
         <UsageCount Value="42"/>
@@ -34,6 +33,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="uDModule"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="10"/>
         <CursorPos X="12" Y="30"/>

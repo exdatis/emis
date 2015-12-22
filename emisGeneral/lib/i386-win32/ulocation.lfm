@@ -16,13 +16,14 @@ inherited frmLocation: TfrmLocation
     TabOrder = 1
     object cmbCharFilter: TComboBox
       Left = 6
-      Height = 23
+      Height = 25
       Hint = 'Izaberite početno slovo'
-      Top = 6
+      Top = 5
       Width = 159
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
-      ItemHeight = 15
+      AutoSize = False
+      ItemHeight = 0
       Items.Strings = (
         'A'
         'B'
@@ -74,14 +75,14 @@ inherited frmLocation: TfrmLocation
     object cmbFieldArg: TComboBox
       Cursor = crHandPoint
       Left = 311
-      Height = 23
+      Height = 25
       Hint = 'Polje za pretragu'
       Top = 6
       Width = 164
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoDropDown = True
-      ItemHeight = 15
+      ItemHeight = 0
       ItemIndex = 0
       Items.Strings = (
         'Pretraga polja ...'
@@ -97,7 +98,7 @@ inherited frmLocation: TfrmLocation
     end
     object edtLocate: TEdit
       Left = 480
-      Height = 23
+      Height = 25
       Hint = 'Početak teksta'
       Top = 6
       Width = 132
@@ -130,22 +131,22 @@ inherited frmLocation: TfrmLocation
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
-    ClientHeight = 57
+    ClientHeight = 61
     ClientWidth = 799
     ParentShowHint = False
     ShowHint = True
     TabOrder = 2
     object Label1: TLabel
       Left = 10
-      Height = 15
+      Height = 14
       Top = 5
-      Width = 74
+      Width = 68
       Caption = 'Poštanski broj'
       ParentColor = False
     end
     object dbCode: TDBEdit
       Left = 169
-      Height = 23
+      Height = 24
       Top = 2
       Width = 135
       DataField = 'L_CODE'
@@ -156,15 +157,15 @@ inherited frmLocation: TfrmLocation
     end
     object Label2: TLabel
       Left = 10
-      Height = 15
+      Height = 14
       Top = 31
-      Width = 72
+      Width = 70
       Caption = 'Naziv mesta *'
       ParentColor = False
     end
     object dbName: TDBEdit
       Left = 169
-      Height = 23
+      Height = 24
       Top = 28
       Width = 304
       DataField = 'L_NAME'
@@ -177,7 +178,7 @@ inherited frmLocation: TfrmLocation
   object dbgLocation: TDBGrid[4]
     Cursor = crHandPoint
     Left = 0
-    Height = 345
+    Height = 346
     Hint = 'Klikni naslov polja za sortiranje'
     Top = 127
     Width = 803
@@ -190,6 +191,7 @@ inherited frmLocation: TfrmLocation
     ReadOnly = True
     ShowHint = True
     TabOrder = 3
+    TitleFont.Height = -11
     OnMouseMove = dbgLocationMouseMove
     OnTitleClick = dbgLocationTitleClick
   end

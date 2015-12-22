@@ -327,7 +327,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit27>
       <Unit28>
-        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.2\components\zeosLib\src\component\ZDatasetUtils.pas"/>
+        <Filename Value="C:\usr\share\lazarus\1.4.2\components\zeosLib\src\component\ZDatasetUtils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="689"/>
         <CursorPos Y="705"/>
@@ -342,7 +342,7 @@
         <UsageCount Value="19"/>
       </Unit29>
       <Unit30>
-        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.4\components\zeosDBA\src\dbc\ZDbcInterbase6Utils.pas"/>
+        <Filename Value="C:\usr\share\lazarus\1.4.4\components\zeosDBA\src\dbc\ZDbcInterbase6Utils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="814"/>
         <CursorPos Y="832"/>
@@ -350,7 +350,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit30>
       <Unit31>
-        <Filename Value="..\..\..\..\usr\share\lazarus\1.4.4\components\zeosDBA\src\component\ZAbstractRODataset.pas"/>
+        <Filename Value="C:\usr\share\lazarus\1.4.4\components\zeosDBA\src\component\ZAbstractRODataset.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2300"/>
         <CursorPos Y="2318"/>

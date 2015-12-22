@@ -58,7 +58,7 @@ procedure TdModule.zqPrivilegesBeforeOpen(DataSet: TDataSet);
 const
   MODULE_GENERAL : Integer = 2;
 begin
-  zqPrivileges.ParamByName('MODULE_GENERAL').AsInteger:= MODULE_GENERAL;
+  zqPrivileges.ParamByName('MODULE_ID').AsInteger:= MODULE_GENERAL;
 end;
 
 end.

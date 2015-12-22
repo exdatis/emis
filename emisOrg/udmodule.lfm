@@ -1,8 +1,8 @@
 object dModule: TdModule
   OldCreateOrder = False
   Height = 339
-  HorizontalOffset = 334
-  VerticalOffset = 160
+  HorizontalOffset = 364
+  VerticalOffset = 157
   Width = 506
   object zqGeneral: TZReadOnlyQuery
     Connection = zdbh
@@ -21,7 +21,7 @@ object dModule: TdModule
     AfterDisconnect = zdbhAfterDisconnect
     HostName = 'localhost'
     Port = 3050
-    Database = '/home/morar/exdatis/emis25.fdb'
+    Database = 'C:\exdatis\emis25.fdb'
     User = 'sysdba'
     Password = 'masterkey'
     Protocol = 'firebird-2.5'

@@ -1,0 +1,151 @@
+inherited frmTaxes: TfrmTaxes
+  OnClose = FormClose
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Poreske stope'
+    Font.Height = 12
+  end
+  object groupBoxEdit: TGroupBox[2]
+    Left = 0
+    Height = 49
+    Hint = 'Polja označena zvezdicom su obavezna'
+    Top = 15
+    Width = 803
+    Align = alTop
+    Caption = ' Obrada podataka '
+    ClientHeight = 33
+    ClientWidth = 799
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 7
+      Height = 14
+      Top = 8
+      Width = 116
+      Caption = 'Oznaka poreske stope *'
+      ParentColor = False
+    end
+    object dbCode: TDBEdit
+      Left = 155
+      Height = 24
+      Top = 3
+      Width = 357
+      DataField = 'TX_CODE'
+      DataSource = dsTaxes
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object Label2: TLabel
+      Left = 524
+      Height = 14
+      Top = 8
+      Width = 64
+      Caption = 'Procenata(%)'
+      ParentColor = False
+    end
+    object dbValue: TDBEdit
+      Left = 600
+      Height = 24
+      Top = 3
+      Width = 168
+      DataField = 'TX_VALUE'
+      DataSource = dsTaxes
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+    object Label3: TLabel
+      Left = 770
+      Height = 14
+      Top = 8
+      Width = 9
+      Caption = '%'
+      ParentColor = False
+    end
+  end
+  object dbgTaxes: TDBGrid[3]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 409
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 64
+    Width = 803
+    Align = alClient
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsTaxes
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 2
+    TitleFont.Height = -11
+    OnMouseMove = dbgTaxesMouseMove
+    OnTitleClick = dbgTaxesTitleClick
+  end
+  inherited actDb: TActionList[4]
+  end
+  object ztTaxes: TZTable[5]
+    Connection = dModule.zdbh
+    SortedFields = 'TX_ID'
+    AfterOpen = ztTaxesAfterOpen
+    AfterScroll = ztTaxesAfterScroll
+    AfterPost = ztTaxesAfterPost
+    AfterDelete = ztTaxesAfterDelete
+    TableName = 'TAXES'
+    IndexFieldNames = 'TX_ID Asc'
+    Sequence = zseqTaxes
+    SequenceField = 'TX_ID'
+    left = 584
+    top = 327
+    object ztTaxesTX_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'TX_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ztTaxesTX_CODE: TStringField
+      DisplayLabel = 'Poreska stopa'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TX_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+    object ztTaxesTX_VALUE: TFloatField
+      DisplayLabel = 'Procenata(%)'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TX_VALUE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayFormat = '#0.00'
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object zseqTaxes: TZSequence[6]
+    Connection = dModule.zdbh
+    SequenceName = 'TAXES_SEQ'
+    left = 537
+    top = 382
+  end
+  object dsTaxes: TDataSource[7]
+    DataSet = ztTaxes
+    left = 529
+    top = 343
+  end
+end

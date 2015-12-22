@@ -1,0 +1,174 @@
+inherited frmSServicesGroups: TfrmSServicesGroups
+  OnClose = FormClose
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Grupe usluga (nabavka)'
+    Font.Height = 12
+  end
+  object panelSearch: TPanel[2]
+    Left = 0
+    Height = 37
+    Top = 15
+    Width = 803
+    Align = alTop
+    ClientHeight = 37
+    ClientWidth = 803
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 8
+      Height = 14
+      Top = 13
+      Width = 363
+      Caption = 'Pronadji grupu usluga po nazivu ( unos karaktera od početka reči-naziva ) : '
+      ParentColor = False
+    end
+    object edtLocate: TEdit
+      Left = 429
+      Height = 24
+      Top = 8
+      Width = 365
+      Font.Color = clGray
+      Font.Height = -11
+      OnEnter = edtLocateEnter
+      OnExit = edtLocateExit
+      OnKeyUp = edtLocateKeyUp
+      ParentFont = False
+      TabOrder = 0
+      Text = 'Pronadji ...'
+    end
+  end
+  object groupBoxEdit: TGroupBox[3]
+    Left = 0
+    Height = 78
+    Hint = 'Polja označena zvezdicom su obavezna'
+    Top = 52
+    Width = 803
+    Align = alTop
+    Caption = ' Obrada podataka '
+    ClientHeight = 62
+    ClientWidth = 799
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+    object Label2: TLabel
+      Left = 11
+      Height = 14
+      Top = 6
+      Width = 26
+      Caption = 'Šifra '
+      ParentColor = False
+    end
+    object Label3: TLabel
+      Left = 11
+      Height = 14
+      Top = 34
+      Width = 67
+      Caption = 'Naziv grupe *'
+      ParentColor = False
+    end
+    object dbCode: TDBEdit
+      Left = 142
+      Height = 24
+      Top = 2
+      Width = 194
+      DataField = 'SSG_CODE'
+      DataSource = dsGroups
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object dbName: TDBEdit
+      Left = 142
+      Height = 24
+      Top = 28
+      Width = 386
+      DataField = 'SSG_NAME'
+      DataSource = dsGroups
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+    end
+  end
+  object dbgGroups: TDBGrid[4]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 343
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 130
+    Width = 803
+    Align = alClient
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsGroups
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 3
+    TitleFont.Height = -11
+    OnMouseMove = dbgGroupsMouseMove
+    OnTitleClick = dbgGroupsTitleClick
+  end
+  inherited actDb: TActionList[5]
+  end
+  object ztGroups: TZTable[6]
+    Connection = dModule.zdbh
+    SortedFields = 'SSG_NAME'
+    AfterOpen = ztGroupsAfterOpen
+    AfterScroll = ztGroupsAfterScroll
+    AfterPost = ztGroupsAfterPost
+    AfterDelete = ztGroupsAfterDelete
+    TableName = 'SUPPLY_SERVICES_GROUPS'
+    IndexFieldNames = 'SSG_NAME Asc'
+    Sequence = zseqSServicesGroups
+    SequenceField = 'SSG_ID'
+    left = 557
+    top = 168
+    object ztGroupsSSG_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'SSG_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ztGroupsSSG_CODE: TStringField
+      DisplayLabel = 'Šifra'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'SSG_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 120
+    end
+    object ztGroupsSSG_NAME: TStringField
+      DisplayLabel = 'Grupa'
+      DisplayWidth = 35
+      FieldKind = fkData
+      FieldName = 'SSG_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 120
+    end
+  end
+  object zseqSServicesGroups: TZSequence[7]
+    Connection = dModule.zdbh
+    SequenceName = 'SUPPLY_SERVICES_GROUPS_SEQ'
+    left = 502
+    top = 216
+  end
+  object dsGroups: TDataSource[8]
+    DataSet = ztGroups
+    left = 584
+    top = 248
+  end
+end

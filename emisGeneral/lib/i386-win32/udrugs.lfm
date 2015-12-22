@@ -1,0 +1,2047 @@
+inherited frmDrugs: TfrmDrugs
+  Left = 383
+  Top = 157
+  OnClose = FormClose
+  OnCreate = FormCreate
+  inherited lblBaseDbTitle: TLabel
+    Caption = 'Lekovi'
+    Font.Height = 12
+  end
+  object panelParams: TPanel[2]
+    Left = 0
+    Height = 35
+    Top = 15
+    Width = 803
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 803
+    TabOrder = 1
+    object cmbCharFilter: TComboBox
+      Left = 6
+      Height = 25
+      Hint = 'Izaberite početno slovo'
+      Top = 5
+      Width = 159
+      AutoComplete = True
+      AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+      AutoSize = False
+      ItemHeight = 0
+      Items.Strings = (
+        'A'
+        'B'
+        'C'
+        'Č'
+        'Ć'
+        'D'
+        'Dž'
+        'Dj'
+        'E'
+        'F'
+        'G'
+        'H'
+        'I'
+        'J'
+        'K'
+        'L'
+        'Lj'
+        'M'
+        'N'
+        'Nj'
+        'O'
+        'P'
+        'R'
+        'Q'
+        'S'
+        'Š'
+        'T'
+        'U'
+        'V'
+        'Z'
+        'Ž'
+      )
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = 'Lekovi na slovo ...'
+    end
+    object btnCharFilter: TSpeedButton
+      Cursor = crHandPoint
+      Left = 171
+      Height = 23
+      Top = 6
+      Width = 135
+      Action = actCharFilter
+      ShowHint = True
+      ParentShowHint = False
+    end
+    object cmbFieldArg: TComboBox
+      Cursor = crHandPoint
+      Left = 311
+      Height = 23
+      Hint = 'Polje za pretragu'
+      Top = 6
+      Width = 164
+      AutoComplete = True
+      AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+      AutoDropDown = True
+      ItemHeight = 0
+      ItemIndex = 0
+      Items.Strings = (
+        'Pretraga polja ...'
+        'Naziv leka'
+        'Šifra leka'
+        'BarCode'
+      )
+      OnChange = cmbFieldArgChange
+      ParentShowHint = False
+      ShowHint = True
+      Style = csDropDownList
+      TabOrder = 1
+      Text = 'Pretraga polja ...'
+    end
+    object edtLocate: TEdit
+      Left = 480
+      Height = 25
+      Hint = 'Početak teksta'
+      Top = 6
+      Width = 132
+      Font.Color = clGray
+      OnEnter = edtLocateEnter
+      OnExit = edtLocateExit
+      OnKeyUp = edtLocateKeyUp
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+      Text = 'Pronadji ...'
+    end
+    object btnShowAll: TSpeedButton
+      Cursor = crHandPoint
+      Left = 617
+      Height = 23
+      Top = 6
+      Width = 179
+      Action = actClearFilter
+      ShowHint = True
+      ParentShowHint = False
+    end
+  end
+  object dbgDrugs: TDBGrid[3]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 286
+    Hint = 'Klikni naslov polja za sortiranje'
+    Top = 50
+    Width = 803
+    Align = alTop
+    AlternateColor = clScrollBar
+    Color = clSilver
+    Columns = <>
+    DataSource = dsDrugs
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    ShowHint = True
+    TabOrder = 2
+    TitleFont.Height = -11
+    OnMouseMove = dbgDrugsMouseMove
+    OnTitleClick = dbgDrugsTitleClick
+  end
+  object pcDrugs: TPageControl[4]
+    Cursor = crHandPoint
+    Left = 0
+    Height = 137
+    Top = 336
+    Width = 803
+    ActivePage = tsDrug
+    Align = alClient
+    Images = frmGeneral.imgGeneral
+    TabIndex = 0
+    TabOrder = 3
+    OnChange = pcDrugsChange
+    object tsDrug: TTabSheet
+      Caption = 'Lekovi'
+      ClientHeight = 111
+      ClientWidth = 801
+      ImageIndex = 20
+      object gbEditDrugs: TGroupBox
+        Left = 0
+        Height = 111
+        Hint = 'Polja sa (*) su obavezna'
+        Top = 0
+        Width = 801
+        Align = alClient
+        Caption = ' Obrada podataka '
+        ClientHeight = 95
+        ClientWidth = 797
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 6
+          Height = 14
+          Top = 12
+          Width = 23
+          Caption = 'Šifra'
+          ParentColor = False
+        end
+        object dbCode: TDBEdit
+          Left = 69
+          Height = 24
+          Top = 5
+          Width = 101
+          DataField = 'D_CODE'
+          DataSource = dsDrugs
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object Label2: TLabel
+          Left = 175
+          Height = 14
+          Top = 12
+          Width = 59
+          Caption = 'Naziv leka *'
+          ParentColor = False
+        end
+        object dbName: TDBEdit
+          Left = 240
+          Height = 24
+          Top = 7
+          Width = 320
+          DataField = 'D_NAME'
+          DataSource = dsDrugs
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object Label3: TLabel
+          Left = 566
+          Height = 14
+          Top = 12
+          Width = 42
+          Caption = 'BarCode'
+          ParentColor = False
+        end
+        object dbBarCode: TDBEdit
+          Left = 617
+          Height = 24
+          Top = 7
+          Width = 170
+          DataField = 'D_BARCODE'
+          DataSource = dsDrugs
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 2
+        end
+        object Label4: TLabel
+          Left = 6
+          Height = 14
+          Top = 37
+          Width = 52
+          Caption = 'Kom/pak *'
+          ParentColor = False
+        end
+        object dbPieces: TDBEdit
+          Left = 69
+          Height = 24
+          Top = 30
+          Width = 101
+          DataField = 'D_PIECES'
+          DataSource = dsDrugs
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 3
+        end
+        object Label5: TLabel
+          Left = 175
+          Height = 14
+          Top = 37
+          Width = 53
+          Caption = 'Generika *'
+          ParentColor = False
+        end
+        object dblGenerics: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 240
+          Height = 25
+          Top = 32
+          Width = 320
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'D_GENERICS'
+          DataSource = dsDrugs
+          KeyField = 'G_ID'
+          ListField = 'G_NAME'
+          ListFieldIndex = 0
+          ListSource = dsGenerics
+          LookupCache = False
+          TabOrder = 4
+        end
+        object Label6: TLabel
+          Left = 566
+          Height = 14
+          Top = 37
+          Width = 35
+          Caption = 'Mera *'
+          ParentColor = False
+        end
+        object dblMeasure: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 617
+          Height = 25
+          Top = 32
+          Width = 170
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'D_MEASURE'
+          DataSource = dsDrugs
+          KeyField = 'M_ID'
+          ListField = 'M_NAME'
+          ListFieldIndex = 0
+          ListSource = dsMeasure
+          LookupCache = False
+          TabOrder = 5
+        end
+        object Label7: TLabel
+          Left = 6
+          Height = 14
+          Top = 64
+          Width = 29
+          Caption = 'PDV *'
+          ParentColor = False
+        end
+        object dblTaxes: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 69
+          Height = 25
+          Top = 58
+          Width = 101
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'D_TAX'
+          DataSource = dsDrugs
+          KeyField = 'TX_ID'
+          ListField = 'TX_CODE'
+          ListFieldIndex = 0
+          ListSource = dsTaxes
+          LookupCache = False
+          TabOrder = 6
+        end
+        object Label8: TLabel
+          Left = 175
+          Height = 14
+          Top = 64
+          Width = 39
+          Caption = 'Grupa *'
+          ParentColor = False
+        end
+        object dblGroup: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 240
+          Height = 25
+          Top = 58
+          Width = 320
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'D_GROUP'
+          DataSource = dsDrugs
+          KeyField = 'DG_ID'
+          ListField = 'DG_NAME'
+          ListFieldIndex = 0
+          ListSource = dsDrugGroups
+          LookupCache = False
+          TabOrder = 7
+        end
+        object Label9: TLabel
+          Left = 566
+          Height = 14
+          Top = 64
+          Width = 34
+          Caption = 'Oblik *'
+          ParentColor = False
+        end
+        object dblDrugForm: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 617
+          Height = 25
+          Top = 58
+          Width = 170
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'D_FORM'
+          DataSource = dsDrugs
+          KeyField = 'DF_ID'
+          ListField = 'DF_NAME'
+          ListFieldIndex = 0
+          ListSource = dsDrugForms
+          LookupCache = False
+          TabOrder = 8
+        end
+      end
+    end
+    object tsNomenclatures: TTabSheet
+      Caption = 'Nomenklature'
+      ClientHeight = 111
+      ClientWidth = 801
+      ImageIndex = 2
+      object gbEditNomenclature: TGroupBox
+        Left = 0
+        Height = 111
+        Hint = 'Polja sa (*) su obavezna'
+        Top = 0
+        Width = 801
+        Align = alClient
+        Caption = ' Obrada podataka '
+        ClientHeight = 95
+        ClientWidth = 797
+        TabOrder = 0
+        object Label10: TLabel
+          Left = 7
+          Height = 14
+          Top = 24
+          Width = 79
+          Caption = 'Nomenklatura *'
+          ParentColor = False
+        end
+        object dblNomenclature: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 117
+          Height = 25
+          Top = 16
+          Width = 251
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'DNV_NOMENCLATURE'
+          DataSource = dsNomenclatureVar
+          KeyField = 'DN_ID'
+          ListField = 'DN_NAME'
+          ListFieldIndex = 0
+          ListSource = dsNomenclature
+          LookupCache = False
+          TabOrder = 0
+        end
+        object Label11: TLabel
+          Left = 7
+          Height = 14
+          Top = 49
+          Width = 52
+          Caption = 'Vrednost *'
+          ParentColor = False
+        end
+        object dbValue: TDBEdit
+          Left = 117
+          Height = 24
+          Top = 42
+          Width = 251
+          DataField = 'DNV_VALUE'
+          DataSource = dsNomenclatureVar
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object dbgNomenclatureVar: TDBGrid
+          Cursor = crHandPoint
+          Left = 378
+          Height = 95
+          Hint = 'Klikni naslov polja za sortiranje'
+          Top = 0
+          Width = 419
+          Align = alRight
+          AlternateColor = clScrollBar
+          Color = clSilver
+          Columns = <>
+          DataSource = dsNomenclatureVar
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+          ReadOnly = True
+          ShowHint = True
+          TabOrder = 2
+          TitleFont.Height = -11
+          OnMouseMove = dbgNomenclatureVarMouseMove
+          OnTitleClick = dbgNomenclatureVarTitleClick
+        end
+      end
+    end
+    object tsStrong: TTabSheet
+      Caption = 'Jačina jedinice'
+      ClientHeight = 111
+      ClientWidth = 801
+      ImageIndex = 12
+      object gbEditNomenclature1: TGroupBox
+        Left = 0
+        Height = 111
+        Hint = 'Polja sa (*) su obavezna'
+        Top = 0
+        Width = 801
+        Align = alClient
+        Caption = ' Obrada podataka '
+        ClientHeight = 95
+        ClientWidth = 797
+        TabOrder = 0
+        object Label12: TLabel
+          Left = 7
+          Height = 14
+          Top = 24
+          Width = 76
+          Caption = 'Jedinica mere *'
+          ParentColor = False
+        end
+        object dblDSMeasure: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 117
+          Height = 25
+          Top = 16
+          Width = 251
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'DS_MEASURE'
+          DataSource = dsDrugStrong
+          KeyField = 'M_ID'
+          ListField = 'M_NAME'
+          ListFieldIndex = 0
+          ListSource = dsMeasure
+          LookupCache = False
+          TabOrder = 0
+        end
+        object Label13: TLabel
+          Left = 7
+          Height = 14
+          Top = 49
+          Width = 52
+          Caption = 'Vrednost *'
+          ParentColor = False
+        end
+        object dbDSValue: TDBEdit
+          Left = 117
+          Height = 24
+          Top = 42
+          Width = 251
+          DataField = 'DS_VALUE'
+          DataSource = dsDrugStrong
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object dbgDrugStrong: TDBGrid
+          Cursor = crHandPoint
+          Left = 378
+          Height = 95
+          Hint = 'Klikni naslov polja za sortiranje'
+          Top = 0
+          Width = 419
+          Align = alRight
+          AlternateColor = clScrollBar
+          Color = clSilver
+          Columns = <>
+          DataSource = dsDrugStrong
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+          ReadOnly = True
+          ShowHint = True
+          TabOrder = 2
+          TitleFont.Height = -11
+          OnMouseMove = dbgDrugStrongMouseMove
+          OnTitleClick = dbgDrugStrongTitleClick
+        end
+      end
+    end
+    object tsProperties: TTabSheet
+      Caption = 'Dodatne osobine'
+      ClientHeight = 111
+      ClientWidth = 801
+      ImageIndex = 21
+      object gbEditPropertiesVar: TGroupBox
+        Left = 0
+        Height = 111
+        Hint = 'Polja sa (*) su obavezna'
+        Top = 0
+        Width = 801
+        Align = alClient
+        Caption = ' Obrada podataka '
+        ClientHeight = 95
+        ClientWidth = 797
+        TabOrder = 0
+        object Label15: TLabel
+          Left = 7
+          Height = 14
+          Top = 8
+          Width = 49
+          Caption = 'Svojstvo *'
+          ParentColor = False
+        end
+        object dblProperty: TDBLookupComboBox
+          Cursor = crHandPoint
+          Left = 117
+          Height = 25
+          Top = 0
+          Width = 251
+          AutoComplete = True
+          AutoSize = False
+          DataField = 'DPV_PROPERTY'
+          DataSource = dsPropertiesVar
+          KeyField = 'POD_ID'
+          ListField = 'POD_NAME'
+          ListFieldIndex = 0
+          ListSource = dsPropertiesOfDrug
+          LookupCache = False
+          TabOrder = 0
+        end
+        object Label16: TLabel
+          Left = 7
+          Height = 14
+          Top = 33
+          Width = 52
+          Caption = 'Vrednost *'
+          ParentColor = False
+        end
+        object dbValue1: TDBEdit
+          Left = 117
+          Height = 24
+          Top = 26
+          Width = 251
+          DataField = 'DPV_VALUE'
+          DataSource = dsPropertiesVar
+          CharCase = ecNormal
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object dbgPropertiesVar: TDBGrid
+          Cursor = crHandPoint
+          Left = 378
+          Height = 95
+          Hint = 'Klikni naslov polja za sortiranje'
+          Top = 0
+          Width = 419
+          Align = alRight
+          AlternateColor = clScrollBar
+          Color = clSilver
+          Columns = <>
+          DataSource = dsPropertiesVar
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+          ReadOnly = True
+          ShowHint = True
+          TabOrder = 2
+          TitleFont.Height = -11
+          OnMouseMove = dbgPropertiesVarMouseMove
+          OnTitleClick = dbgPropertiesVarTitleClick
+        end
+        object edtLocateProperty: TEdit
+          Left = 117
+          Height = 25
+          Hint = 'Početak naziva svojstva'
+          Top = 66
+          Width = 251
+          Font.Color = clGray
+          OnEnter = edtLocatePropertyEnter
+          OnExit = edtLocatePropertyExit
+          OnKeyUp = edtLocatePropertyKeyUp
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          Text = 'Pronadji ...'
+        end
+        object Label17: TLabel
+          Left = 7
+          Height = 14
+          Top = 74
+          Width = 42
+          Caption = 'Pretraga'
+          ParentColor = False
+        end
+        object DividerBevel1: TDividerBevel
+          Left = 7
+          Height = 15
+          Top = 51
+          Width = 361
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+      end
+    end
+    object tsDiagnostic: TTabSheet
+      Caption = 'Diagnostic'
+      ClientHeight = 111
+      ClientWidth = 801
+      ImageIndex = 3
+      object Label14: TLabel
+        Left = 336
+        Height = 14
+        Top = 48
+        Width = 87
+        Caption = 'Not implemented'
+        ParentColor = False
+      end
+    end
+  end
+  inherited actDb: TActionList[5]
+  end
+  object zqDrugs: TZQuery[6]
+    Connection = dModule.zdbh
+    SortedFields = 'D_NAME'
+    AfterOpen = zqDrugsAfterOpen
+    BeforeScroll = zqDrugsBeforeScroll
+    AfterScroll = zqDrugsAfterScroll
+    UpdateObject = zupdDrugs
+    AfterPost = zqDrugsAfterPost
+    AfterDelete = zqDrugsAfterDelete
+    OnNewRecord = zqDrugsNewRecord
+    SQL.Strings = (
+      'SELECT '
+      '  r.D_ID, '
+      '  r.D_CODE, '
+      '  r.D_NAME, '
+      '  r.D_GENERICS, '
+      '  r.D_FORM, '
+      '  r.D_BARCODE,'
+      '  r.D_GROUP, '
+      '  r.D_MEASURE, '
+      '  r.D_TAX, '
+      '  r.D_PIECES, '
+      '  r.GENERICS_CODE, '
+      '  r.GENERICS_NAME,'
+      '  r.DRUG_FORM_CODE, '
+      '  r.DRUG_FORM_NAME, '
+      '  r.DRUG_GROUP_CODE, '
+      '  r.DRUG_GROUP_NAME,'
+      '  r.MEASURE_CODE, '
+      '  r.MEASURE_NAME, '
+      '  r.TAX_CODE, '
+      '  r.TAX_VALUE'
+      'FROM '
+      '  DRUGS_V r'
+      'WHERE'
+      '  LOWER( r.D_NAME) LIKE LOWER(:D_NAME)'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'D_NAME'
+        ParamType = ptUnknown
+      end>
+    IndexFieldNames = 'D_NAME Asc'
+    Sequence = zseqProducts
+    SequenceField = 'D_ID'
+    left = 600
+    top = 56
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'D_NAME'
+        ParamType = ptUnknown
+      end>
+    object zqDrugsD_ID: TLongintField
+      Alignment = taLeftJustify
+      DisplayLabel = 'ID'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'D_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zqDrugsD_CODE: TStringField
+      DisplayLabel = 'Šifra'
+      DisplayWidth = 9
+      FieldKind = fkData
+      FieldName = 'D_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zqDrugsD_NAME: TStringField
+      DisplayLabel = 'Naziv leka'
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'D_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqDrugsD_GENERICS: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'D_GENERICS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqDrugsD_FORM: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'D_FORM'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqDrugsMEASURE_NAME: TStringField
+      DisplayLabel = 'Mera'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'MEASURE_NAME'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object zqDrugsD_BARCODE: TStringField
+      DisplayLabel = 'BarCode'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'D_BARCODE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zqDrugsD_GROUP: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'D_GROUP'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqDrugsD_MEASURE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'D_MEASURE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqDrugsD_TAX: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'D_TAX'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqDrugsD_PIECES: TFloatField
+      DisplayLabel = 'Kom/Pak'
+      DisplayWidth = 7
+      FieldKind = fkData
+      FieldName = 'D_PIECES'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '#0.00'
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object zqDrugsGENERICS_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'GENERICS_CODE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+    object zqDrugsGENERICS_NAME: TStringField
+      DisplayLabel = 'Generika'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'GENERICS_NAME'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqDrugsDRUG_FORM_CODE: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'DRUG_FORM_CODE'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 60
+    end
+    object zqDrugsDRUG_FORM_NAME: TStringField
+      DisplayLabel = 'Oblik'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'DRUG_FORM_NAME'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object zqDrugsDRUG_GROUP_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'DRUG_GROUP_CODE'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+    object zqDrugsDRUG_GROUP_NAME: TStringField
+      DisplayLabel = 'Grupa'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'DRUG_GROUP_NAME'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqDrugsMEASURE_CODE: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'MEASURE_CODE'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 60
+    end
+    object zqDrugsTAX_CODE: TStringField
+      DisplayLabel = 'PDV'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'TAX_CODE'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object zqDrugsTAX_VALUE: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TAX_VALUE'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object dsDrugs: TDataSource[7]
+    DataSet = zqDrugs
+    left = 640
+    top = 72
+  end
+  object zseqProducts: TZSequence[8]
+    Connection = dModule.zdbh
+    SequenceName = 'PRODUCTS_SEQ'
+    left = 536
+    top = 56
+  end
+  object zupdDrugs: TZUpdateSQL[9]
+    DeleteSQL.Strings = (
+      'DELETE FROM '
+      '  DRUGS a '
+      'WHERE'
+      '  a.D_ID = :D_ID'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO '
+      '  DRUGS (D_ID, D_CODE, D_NAME, D_GENERICS, D_FORM, D_BARCODE, D_GROUP,'
+      '  D_MEASURE, D_TAX, D_PIECES)'
+      'VALUES ('
+      '  :D_ID, '
+      '  :D_CODE, '
+      '  :D_NAME, '
+      '  :D_GENERICS, '
+      '  :D_FORM, '
+      '  :D_BARCODE, '
+      '  :D_GROUP, '
+      '  :D_MEASURE, '
+      '  :D_TAX, '
+      '  :D_PIECES'
+      ')'
+    )
+    ModifySQL.Strings = (
+      'UPDATE DRUGS a'
+      'SET '
+      '  a.D_CODE = :D_CODE, '
+      '  a.D_NAME = :D_NAME, '
+      '  a.D_GENERICS = :D_GENERICS, '
+      '  a.D_FORM = :D_FORM, '
+      '  a.D_BARCODE = :D_BARCODE, '
+      '  a.D_GROUP = :D_GROUP, '
+      '  a.D_MEASURE = :D_MEASURE, '
+      '  a.D_TAX = :D_TAX, '
+      '  a.D_PIECES = :D_PIECES'
+      'WHERE'
+      '  a.D_ID = :D_ID'
+    )
+    RefreshSQL.Strings = (
+      'SELECT '
+      '  r.D_ID, '
+      '  r.D_CODE, '
+      '  r.D_NAME, '
+      '  r.D_GENERICS, '
+      '  r.D_FORM, '
+      '  r.D_BARCODE,'
+      '  r.D_GROUP, '
+      '  r.D_MEASURE, '
+      '  r.D_TAX, '
+      '  r.D_PIECES, '
+      '  r.GENERICS_CODE, '
+      '  r.GENERICS_NAME,'
+      '  r.DRUG_FORM_CODE, '
+      '  r.DRUG_FORM_NAME, '
+      '  r.DRUG_GROUP_CODE, '
+      '  r.DRUG_GROUP_NAME,'
+      '  r.MEASURE_CODE, '
+      '  r.MEASURE_NAME, '
+      '  r.TAX_CODE, '
+      '  r.TAX_VALUE'
+      'FROM '
+      '  DRUGS_V r'
+      'WHERE '
+      '  r.D_ID = :D_ID'
+    )
+    UseSequenceFieldForRefreshSQL = True
+    left = 680
+    top = 56
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'D_CODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'D_NAME'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'D_GENERICS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'D_FORM'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'D_BARCODE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'D_GROUP'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'D_MEASURE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'D_TAX'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'D_PIECES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'D_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object zroGenerics: TZReadOnlyQuery[10]
+    Connection = dModule.zdbh
+    SortedFields = 'G_NAME'
+    SQL.Strings = (
+      'SELECT'
+      '  A.G_ID,'
+      '  A.G_NAME'
+      'FROM'
+      '  GENERICS A'
+      'ORDER BY'
+      '  A.G_NAME'
+    )
+    Params = <>
+    IndexFieldNames = 'G_NAME Asc'
+    left = 120
+    top = 184
+    object zroGenericsG_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'G_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroGenericsG_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'G_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 280
+    end
+  end
+  object dsGenerics: TDataSource[11]
+    DataSet = zroGenerics
+    left = 152
+    top = 208
+  end
+  object zroDrugForms: TZReadOnlyQuery[12]
+    Connection = dModule.zdbh
+    SortedFields = 'DF_NAME'
+    SQL.Strings = (
+      'SELECT'
+      '  A.DF_ID,'
+      '  A.DF_NAME'
+      'FROM'
+      '  DRUG_FORMS A'
+      'ORDER BY'
+      '  A.DF_NAME'
+    )
+    Params = <>
+    IndexFieldNames = 'DF_NAME Asc'
+    left = 248
+    top = 96
+    object zroDrugFormsDF_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DF_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroDrugFormsDF_NAME: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'DF_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+  end
+  object dsDrugForms: TDataSource[13]
+    DataSet = zroDrugForms
+    left = 288
+    top = 128
+  end
+  object zroDrugGroups: TZReadOnlyQuery[14]
+    Connection = dModule.zdbh
+    SortedFields = 'DG_NAME'
+    SQL.Strings = (
+      'SELECT'
+      '  A.DG_ID,'
+      '  A.DG_NAME'
+      'FROM'
+      '  DRUG_GROUPS A'
+      'ORDER BY'
+      '  A.DG_NAME'
+    )
+    Params = <>
+    IndexFieldNames = 'DG_NAME Asc'
+    left = 168
+    top = 88
+    object zroDrugGroupsDG_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DG_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroDrugGroupsDG_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'DG_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 280
+    end
+  end
+  object dsDrugGroups: TDataSource[15]
+    DataSet = zroDrugGroups
+    left = 160
+    top = 120
+  end
+  object zroMeasure: TZReadOnlyQuery[16]
+    Connection = dModule.zdbh
+    SortedFields = 'M_NAME'
+    SQL.Strings = (
+      'SELECT'
+      '  A.M_ID,'
+      '  A.M_NAME'
+      'FROM'
+      '  MEASURE A'
+      'ORDER BY'
+      '  A.M_NAME'
+    )
+    Params = <>
+    IndexFieldNames = 'M_NAME Asc'
+    left = 40
+    top = 88
+    object zroMeasureM_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'M_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroMeasureM_NAME: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'M_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+  end
+  object dsMeasure: TDataSource[17]
+    DataSet = zroMeasure
+    left = 74
+    top = 112
+  end
+  object zroTaxes: TZReadOnlyQuery[18]
+    Connection = dModule.zdbh
+    SortedFields = 'TX_CODE'
+    SQL.Strings = (
+      'SELECT'
+      '  A.TX_ID,'
+      '  A.TX_CODE'
+      'FROM'
+      '  TAXES A'
+      'ORDER BY'
+      '  A.TX_CODE'
+    )
+    Params = <>
+    IndexFieldNames = 'TX_CODE Asc'
+    left = 24
+    top = 168
+    object zroTaxesTX_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TX_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroTaxesTX_CODE: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'TX_CODE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 200
+    end
+  end
+  object dsTaxes: TDataSource[19]
+    DataSet = zroTaxes
+    left = 56
+    top = 192
+  end
+  object actFindDrugs: TActionList[20]
+    Images = frmGeneral.imgGeneral
+    left = 160
+    top = 280
+    object actCharFilter: TAction
+      Caption = ' Filter(slovo)'
+      Hint = 'Pronadji lekove'
+      ImageIndex = 1
+      OnExecute = actCharFilterExecute
+      ShortCut = 49219
+    end
+    object actClearFilter: TAction
+      Caption = 'Ukloni filter'
+      Hint = 'Prikaži sve slogove'
+      ImageIndex = 3
+      OnExecute = actClearFilterExecute
+      ShortCut = 49217
+    end
+  end
+  object zqNomenclatureVar: TZQuery[21]
+    Connection = dModule.zdbh
+    SortedFields = 'DNV_ID'
+    BeforeOpen = zqNomenclatureVarBeforeOpen
+    AfterOpen = zqNomenclatureVarAfterOpen
+    AfterScroll = zqNomenclatureVarAfterScroll
+    UpdateObject = zupdNomenclatureVar
+    BeforePost = zqNomenclatureVarBeforePost
+    AfterPost = zqNomenclatureVarAfterPost
+    AfterDelete = zqNomenclatureVarAfterDelete
+    SQL.Strings = (
+      'SELECT '
+      '  a.DNV_ID, '
+      '  a.DNV_DRUG, '
+      '  a.DNV_NOMENCLATURE, '
+      '  a.DNV_VALUE, '
+      '  a.DRUG_CODE,'
+      '  a.DRUG_NAME, '
+      '  a.NOMENCLATURE_NAME'
+      'FROM '
+      '  DRUG_NOMENCLATURE_VAR_V a '
+      'WHERE'
+      '  a.DNV_DRUG = :DNV_DRUG'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'DNV_DRUG'
+        ParamType = ptUnknown
+      end>
+    IndexFieldNames = 'DNV_ID Asc'
+    Sequence = zseqNomenlatureVar
+    SequenceField = 'DNV_ID'
+    left = 525
+    top = 144
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'DNV_DRUG'
+        ParamType = ptUnknown
+      end>
+    object zqNomenclatureVarDNV_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DNV_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqNomenclatureVarDNV_DRUG: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DNV_DRUG'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqNomenclatureVarDNV_NOMENCLATURE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DNV_NOMENCLATURE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqNomenclatureVarNOMENCLATURE_NAME: TStringField
+      DisplayLabel = 'Nomenklatura'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'NOMENCLATURE_NAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqNomenclatureVarDNV_VALUE: TStringField
+      DisplayLabel = 'Vrednost'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'DNV_VALUE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object zqNomenclatureVarDRUG_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'DRUG_CODE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+    object zqNomenclatureVarDRUG_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'DRUG_NAME'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 280
+    end
+  end
+  object zseqNomenlatureVar: TZSequence[22]
+    Connection = dModule.zdbh
+    SequenceName = 'NOMENCLATURES_VAR_SEQ'
+    left = 484
+    top = 165
+  end
+  object dsNomenclatureVar: TDataSource[23]
+    DataSet = zqNomenclatureVar
+    left = 441
+    top = 156
+  end
+  object zupdNomenclatureVar: TZUpdateSQL[24]
+    DeleteSQL.Strings = (
+      'DELETE FROM '
+      '  DRUG_NOMENCLATURE_VAR a '
+      'WHERE'
+      '   a.DNV_ID = :DNV_ID'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO '
+      '  DRUG_NOMENCLATURE_VAR (DNV_ID, DNV_DRUG, DNV_NOMENCLATURE,'
+      '  DNV_VALUE)'
+      'VALUES ('
+      '  :DNV_ID, '
+      '  :DNV_DRUG, '
+      '  :DNV_NOMENCLATURE, '
+      '  :DNV_VALUE'
+      ')'
+    )
+    ModifySQL.Strings = (
+      'UPDATE '
+      '  DRUG_NOMENCLATURE_VAR a'
+      'SET '
+      '  a.DNV_DRUG = :DNV_DRUG, '
+      '  a.DNV_NOMENCLATURE = :DNV_NOMENCLATURE, '
+      '  a.DNV_VALUE = :DNV_VALUE'
+      'WHERE'
+      '  a.DNV_ID = :DNV_ID'
+    )
+    RefreshSQL.Strings = (
+      'SELECT '
+      '  a.DNV_ID, '
+      '  a.DNV_DRUG, '
+      '  a.DNV_NOMENCLATURE, '
+      '  a.DNV_VALUE, '
+      '  a.DRUG_CODE,'
+      '  a.DRUG_NAME, '
+      '  a.NOMENCLATURE_NAME'
+      'FROM '
+      '  DRUG_NOMENCLATURE_VAR_V a '
+      'WHERE'
+      '  a.DNV_ID = :DNV_ID'
+    )
+    UseSequenceFieldForRefreshSQL = True
+    left = 540
+    top = 185
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'DNV_DRUG'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DNV_NOMENCLATURE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DNV_VALUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DNV_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object zroNomenclature: TZReadOnlyQuery[25]
+    Connection = dModule.zdbh
+    SortedFields = 'DN_NAME'
+    SQL.Strings = (
+      'SELECT '
+      '  a.DN_ID, '
+      '  a.DN_NAME'
+      'FROM '
+      '  DRUG_NOMENCLATURES a'
+      'ORDER BY'
+      '  a.DN_NAME'
+    )
+    Params = <>
+    IndexFieldNames = 'DN_NAME Asc'
+    left = 344
+    top = 71
+    object zroNomenclatureDN_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DN_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroNomenclatureDN_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'DN_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 280
+    end
+  end
+  object dsNomenclature: TDataSource[26]
+    DataSet = zroNomenclature
+    left = 380
+    top = 80
+  end
+  object zqDrugStrong: TZQuery[27]
+    Connection = dModule.zdbh
+    SortedFields = 'DS_ID'
+    BeforeOpen = zqDrugStrongBeforeOpen
+    AfterOpen = zqDrugStrongAfterOpen
+    AfterScroll = zqDrugStrongAfterScroll
+    UpdateObject = zupdDrugStrong
+    BeforePost = zqDrugStrongBeforePost
+    AfterPost = zqDrugStrongAfterPost
+    AfterDelete = zqDrugStrongAfterDelete
+    SQL.Strings = (
+      'SELECT '
+      '  a.DS_ID, '
+      '  a.DS_DRUG, '
+      '  a.DS_MEASURE, '
+      '  a.DS_VALUE, '
+      '  a.DRUG_CODE, '
+      '  a.DRUG_NAME,'
+      '  a.MEASURE_CODE, '
+      '  a.MEASURE_NAME'
+      'FROM '
+      '  DRUG_STRONG_V a '
+      'WHERE'
+      '  a.DS_DRUG = :DS_DRUG'
+      'ORDER BY'
+      '  a.DS_ID'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'DS_DRUG'
+        ParamType = ptUnknown
+      end>
+    IndexFieldNames = 'DS_ID Asc'
+    Sequence = zseqStrong
+    SequenceField = 'DS_ID'
+    left = 335
+    top = 237
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'DS_DRUG'
+        ParamType = ptUnknown
+      end>
+    object zqDrugStrongDS_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DS_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqDrugStrongDS_DRUG: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DS_DRUG'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqDrugStrongDS_MEASURE: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DS_MEASURE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqDrugStrongMEASURE_NAME: TStringField
+      DisplayLabel = 'Jedinica mere'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'MEASURE_NAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object zqDrugStrongDS_VALUE: TFloatField
+      DisplayLabel = 'Vrednost'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'DS_VALUE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '#0.00'
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object zqDrugStrongDRUG_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'DRUG_CODE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+    object zqDrugStrongDRUG_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'DRUG_NAME'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 280
+    end
+    object zqDrugStrongMEASURE_CODE: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'MEASURE_CODE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 60
+    end
+  end
+  object zseqStrong: TZSequence[28]
+    Connection = dModule.zdbh
+    SequenceName = 'STRONG_SEQ'
+    left = 309
+    top = 261
+  end
+  object dsDrugStrong: TDataSource[29]
+    DataSet = zqDrugStrong
+    left = 347
+    top = 276
+  end
+  object zupdDrugStrong: TZUpdateSQL[30]
+    DeleteSQL.Strings = (
+      'DELETE FROM '
+      '  DRUG_STRONG a '
+      'WHERE'
+      '  a.DS_ID = :DS_ID'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO '
+      '  DRUG_STRONG (DS_ID, DS_DRUG, DS_MEASURE, DS_VALUE)'
+      'VALUES ('
+      '  :DS_ID, '
+      '  :DS_DRUG, '
+      '  :DS_MEASURE, '
+      '  :DS_VALUE'
+      ')'
+    )
+    ModifySQL.Strings = (
+      'UPDATE '
+      '  DRUG_STRONG a'
+      'SET '
+      '  a.DS_DRUG = :DS_DRUG, '
+      '  a.DS_MEASURE = :DS_MEASURE, '
+      '  a.DS_VALUE = :DS_VALUE'
+      'WHERE'
+      '  a.DS_ID = :DS_ID'
+    )
+    RefreshSQL.Strings = (
+      'SELECT '
+      '  a.DS_ID, '
+      '  a.DS_DRUG, '
+      '  a.DS_MEASURE, '
+      '  a.DS_VALUE, '
+      '  a.DRUG_CODE, '
+      '  a.DRUG_NAME,'
+      '  a.MEASURE_CODE, '
+      '  a.MEASURE_NAME'
+      'FROM '
+      '  DRUG_STRONG_V a '
+      'WHERE'
+      '  a.DS_ID = :DS_ID'
+      ''
+    )
+    UseSequenceFieldForRefreshSQL = True
+    left = 278
+    top = 251
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'DS_DRUG'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DS_MEASURE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DS_VALUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DS_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object zroPropertiesOfDrug: TZReadOnlyQuery[31]
+    Connection = dModule.zdbh
+    SortedFields = 'POD_NAME'
+    SQL.Strings = (
+      'SELECT '
+      '  a.POD_ID, '
+      '  a.POD_NAME'
+      'FROM '
+      '  PROPERTIES_OF_DRUG a'
+      'ORDER BY'
+      '  a.POD_NAME'
+    )
+    Params = <>
+    IndexFieldNames = 'POD_NAME Asc'
+    left = 20
+    top = 265
+    object zroPropertiesOfDrugPOD_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'POD_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zroPropertiesOfDrugPOD_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'POD_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 280
+    end
+  end
+  object dsPropertiesOfDrug: TDataSource[32]
+    DataSet = zroPropertiesOfDrug
+    left = 51
+    top = 275
+  end
+  object zqPropertiesVar: TZQuery[33]
+    Connection = dModule.zdbh
+    SortedFields = 'PROPERTY_NAME'
+    BeforeOpen = zqPropertiesVarBeforeOpen
+    AfterOpen = zqPropertiesVarAfterOpen
+    AfterScroll = zqPropertiesVarAfterScroll
+    UpdateObject = zupdPropertiesVar
+    BeforePost = zqPropertiesVarBeforePost
+    AfterPost = zqPropertiesVarAfterPost
+    AfterDelete = zqPropertiesVarAfterDelete
+    SQL.Strings = (
+      'SELECT '
+      '  a.DPV_ID, '
+      '  a.DPV_DRUG, '
+      '  a.DPV_PROPERTY, '
+      '  a.DPV_VALUE, '
+      '  a.DRUG_CODE,'
+      '  a.DRUG_NAME, '
+      '  a.PROPERTY_NAME'
+      'FROM '
+      '  DRUG_PROPERTIES_VAR_V a '
+      'WHERE'
+      '  a.DPV_DRUG = :DPV_DRUG'
+      'ORDER BY'
+      '  a.PROPERTY_NAME'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'DPV_DRUG'
+        ParamType = ptUnknown
+      end>
+    IndexFieldNames = 'PROPERTY_NAME Asc'
+    Sequence = zseqPropertiesVar
+    SequenceField = 'DPV_ID'
+    left = 476
+    top = 253
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'DPV_DRUG'
+        ParamType = ptUnknown
+      end>
+    object zqPropertiesVarDPV_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DPV_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqPropertiesVarDPV_DRUG: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DPV_DRUG'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqPropertiesVarDPV_PROPERTY: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DPV_PROPERTY'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object zqPropertiesVarPROPERTY_NAME: TStringField
+      DisplayLabel = 'Svojstvo'
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'PROPERTY_NAME'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+    object zqPropertiesVarDPV_VALUE: TStringField
+      DisplayLabel = 'Vrednost'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'DPV_VALUE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object zqPropertiesVarDRUG_CODE: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'DRUG_CODE'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 120
+    end
+    object zqPropertiesVarDRUG_NAME: TStringField
+      DisplayWidth = 280
+      FieldKind = fkData
+      FieldName = 'DRUG_NAME'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 280
+    end
+  end
+  object zseqPropertiesVar: TZSequence[34]
+    Connection = dModule.zdbh
+    SequenceName = 'PROPERTIES_VAR_SEQ'
+    left = 435
+    top = 294
+  end
+  object zupdPropertiesVar: TZUpdateSQL[35]
+    DeleteSQL.Strings = (
+      'DELETE FROM '
+      '  DRUG_PROPERTIES_VAR a '
+      'WHERE'
+      '  a.DPV_ID = :DPV_ID'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO '
+      '  DRUG_PROPERTIES_VAR (DPV_ID, DPV_DRUG, DPV_PROPERTY, DPV_VALUE)'
+      'VALUES ('
+      '  :DPV_ID, '
+      '  :DPV_DRUG, '
+      '  :DPV_PROPERTY, '
+      '  :DPV_VALUE'
+      ')'
+    )
+    ModifySQL.Strings = (
+      'UPDATE '
+      '  DRUG_PROPERTIES_VAR a'
+      'SET '
+      '  a.DPV_DRUG = :DPV_DRUG, '
+      '  a.DPV_PROPERTY = :DPV_PROPERTY, '
+      '  a.DPV_VALUE = :DPV_VALUE'
+      'WHERE'
+      '  a.DPV_ID = :DPV_ID'
+    )
+    RefreshSQL.Strings = (
+      'SELECT '
+      '  a.DPV_ID, '
+      '  a.DPV_DRUG, '
+      '  a.DPV_PROPERTY, '
+      '  a.DPV_VALUE, '
+      '  a.DRUG_CODE,'
+      '  a.DRUG_NAME, '
+      '  a.PROPERTY_NAME'
+      'FROM '
+      '  DRUG_PROPERTIES_VAR_V a '
+      'WHERE'
+      '  a.DPV_ID = :DPV_ID'
+    )
+    UseSequenceFieldForRefreshSQL = True
+    left = 519
+    top = 263
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'DPV_DRUG'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DPV_PROPERTY'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DPV_VALUE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DPV_ID'
+        ParamType = ptUnknown
+      end>
+  end
+  object dsPropertiesVar: TDataSource[36]
+    DataSet = zqPropertiesVar
+    left = 449
+    top = 263
+  end
+end
