@@ -18,7 +18,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="8"/>
+      <BuildNr Value="9"/>
       <StringTable Comments="App by Morar" CompanyName="Morar Zivica personal(ExDatis)" FileDescription="Medical software" InternalName="publicProcurement" LegalCopyright="exdatis@users.sourceforge.net" LegalTrademarks="exdatis@users.sourceforge.net" OriginalFilename="publicSupply" ProductName="publicProcurement" ProductVersion="1.1"/>
     </VersionInfo>
     <BuildModes Count="1">

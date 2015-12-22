@@ -375,6 +375,8 @@ begin
   case pcPharmacyMaterial.ActivePageIndex of
     0:
        begin
+         {enable-disable scrollBtns}
+         doAfterOpenDataSet(TZAbstractDataset(zqPharmacyMaterial));
          {show recNo and countRec}
          if(TZAbstractDataset(zqPharmacyMaterial).IsEmpty) then
            begin

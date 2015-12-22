@@ -18,14 +18,14 @@ inherited frmDrugs: TfrmDrugs
     TabOrder = 1
     object cmbCharFilter: TComboBox
       Left = 6
-      Height = 25
+      Height = 21
       Hint = 'Izaberite početno slovo'
-      Top = 5
+      Top = 7
       Width = 159
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoSize = False
-      ItemHeight = 0
+      ItemHeight = 13
       Items.Strings = (
         'A'
         'B'
@@ -77,14 +77,14 @@ inherited frmDrugs: TfrmDrugs
     object cmbFieldArg: TComboBox
       Cursor = crHandPoint
       Left = 311
-      Height = 23
+      Height = 21
       Hint = 'Polje za pretragu'
       Top = 6
       Width = 164
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoDropDown = True
-      ItemHeight = 0
+      ItemHeight = 13
       ItemIndex = 0
       Items.Strings = (
         'Pretraga polja ...'
@@ -101,7 +101,7 @@ inherited frmDrugs: TfrmDrugs
     end
     object edtLocate: TEdit
       Left = 480
-      Height = 25
+      Height = 23
       Hint = 'Početak teksta'
       Top = 6
       Width = 132
@@ -160,25 +160,25 @@ inherited frmDrugs: TfrmDrugs
     OnChange = pcDrugsChange
     object tsDrug: TTabSheet
       Caption = 'Lekovi'
-      ClientHeight = 111
-      ClientWidth = 801
+      ClientHeight = 110
+      ClientWidth = 795
       ImageIndex = 20
       object gbEditDrugs: TGroupBox
         Left = 0
-        Height = 111
+        Height = 110
         Hint = 'Polja sa (*) su obavezna'
         Top = 0
-        Width = 801
+        Width = 795
         Align = alClient
         Caption = ' Obrada podataka '
-        ClientHeight = 95
-        ClientWidth = 797
+        ClientHeight = 92
+        ClientWidth = 791
         ParentShowHint = False
         ShowHint = True
         TabOrder = 0
         object Label1: TLabel
           Left = 6
-          Height = 14
+          Height = 13
           Top = 12
           Width = 23
           Caption = 'Šifra'
@@ -186,7 +186,7 @@ inherited frmDrugs: TfrmDrugs
         end
         object dbCode: TDBEdit
           Left = 69
-          Height = 24
+          Height = 21
           Top = 5
           Width = 101
           DataField = 'D_CODE'
@@ -197,7 +197,7 @@ inherited frmDrugs: TfrmDrugs
         end
         object Label2: TLabel
           Left = 175
-          Height = 14
+          Height = 13
           Top = 12
           Width = 59
           Caption = 'Naziv leka *'
@@ -205,7 +205,7 @@ inherited frmDrugs: TfrmDrugs
         end
         object dbName: TDBEdit
           Left = 240
-          Height = 24
+          Height = 21
           Top = 7
           Width = 320
           DataField = 'D_NAME'
@@ -216,15 +216,15 @@ inherited frmDrugs: TfrmDrugs
         end
         object Label3: TLabel
           Left = 566
-          Height = 14
+          Height = 13
           Top = 12
-          Width = 42
+          Width = 44
           Caption = 'BarCode'
           ParentColor = False
         end
         object dbBarCode: TDBEdit
           Left = 617
-          Height = 24
+          Height = 21
           Top = 7
           Width = 170
           DataField = 'D_BARCODE'
@@ -235,15 +235,15 @@ inherited frmDrugs: TfrmDrugs
         end
         object Label4: TLabel
           Left = 6
-          Height = 14
+          Height = 13
           Top = 37
-          Width = 52
+          Width = 53
           Caption = 'Kom/pak *'
           ParentColor = False
         end
         object dbPieces: TDBEdit
           Left = 69
-          Height = 24
+          Height = 21
           Top = 30
           Width = 101
           DataField = 'D_PIECES'
@@ -254,16 +254,16 @@ inherited frmDrugs: TfrmDrugs
         end
         object Label5: TLabel
           Left = 175
-          Height = 14
+          Height = 13
           Top = 37
-          Width = 53
+          Width = 54
           Caption = 'Generika *'
           ParentColor = False
         end
         object dblGenerics: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 240
-          Height = 25
+          Height = 21
           Top = 32
           Width = 320
           AutoComplete = True
@@ -279,16 +279,16 @@ inherited frmDrugs: TfrmDrugs
         end
         object Label6: TLabel
           Left = 566
-          Height = 14
+          Height = 13
           Top = 37
-          Width = 35
+          Width = 34
           Caption = 'Mera *'
           ParentColor = False
         end
         object dblMeasure: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 617
-          Height = 25
+          Height = 21
           Top = 32
           Width = 170
           AutoComplete = True
@@ -304,7 +304,7 @@ inherited frmDrugs: TfrmDrugs
         end
         object Label7: TLabel
           Left = 6
-          Height = 14
+          Height = 13
           Top = 64
           Width = 29
           Caption = 'PDV *'
@@ -313,7 +313,7 @@ inherited frmDrugs: TfrmDrugs
         object dblTaxes: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 69
-          Height = 25
+          Height = 21
           Top = 58
           Width = 101
           AutoComplete = True
@@ -329,16 +329,16 @@ inherited frmDrugs: TfrmDrugs
         end
         object Label8: TLabel
           Left = 175
-          Height = 14
+          Height = 13
           Top = 64
-          Width = 39
+          Width = 40
           Caption = 'Grupa *'
           ParentColor = False
         end
         object dblGroup: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 240
-          Height = 25
+          Height = 21
           Top = 58
           Width = 320
           AutoComplete = True
@@ -354,16 +354,16 @@ inherited frmDrugs: TfrmDrugs
         end
         object Label9: TLabel
           Left = 566
-          Height = 14
+          Height = 13
           Top = 64
-          Width = 34
+          Width = 36
           Caption = 'Oblik *'
           ParentColor = False
         end
         object dblDrugForm: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 617
-          Height = 25
+          Height = 21
           Top = 58
           Width = 170
           AutoComplete = True
@@ -381,8 +381,8 @@ inherited frmDrugs: TfrmDrugs
     end
     object tsNomenclatures: TTabSheet
       Caption = 'Nomenklature'
-      ClientHeight = 111
-      ClientWidth = 801
+      ClientHeight = 110
+      ClientWidth = 795
       ImageIndex = 2
       object gbEditNomenclature: TGroupBox
         Left = 0
@@ -392,7 +392,7 @@ inherited frmDrugs: TfrmDrugs
         Width = 801
         Align = alClient
         Caption = ' Obrada podataka '
-        ClientHeight = 95
+        ClientHeight = 93
         ClientWidth = 797
         TabOrder = 0
         object Label10: TLabel
@@ -406,7 +406,7 @@ inherited frmDrugs: TfrmDrugs
         object dblNomenclature: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 117
-          Height = 25
+          Height = 21
           Top = 16
           Width = 251
           AutoComplete = True
@@ -463,8 +463,8 @@ inherited frmDrugs: TfrmDrugs
     end
     object tsStrong: TTabSheet
       Caption = 'Jačina jedinice'
-      ClientHeight = 111
-      ClientWidth = 801
+      ClientHeight = 110
+      ClientWidth = 795
       ImageIndex = 12
       object gbEditNomenclature1: TGroupBox
         Left = 0
@@ -474,7 +474,7 @@ inherited frmDrugs: TfrmDrugs
         Width = 801
         Align = alClient
         Caption = ' Obrada podataka '
-        ClientHeight = 95
+        ClientHeight = 93
         ClientWidth = 797
         TabOrder = 0
         object Label12: TLabel
@@ -488,7 +488,7 @@ inherited frmDrugs: TfrmDrugs
         object dblDSMeasure: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 117
-          Height = 25
+          Height = 21
           Top = 16
           Width = 251
           AutoComplete = True
@@ -545,8 +545,8 @@ inherited frmDrugs: TfrmDrugs
     end
     object tsProperties: TTabSheet
       Caption = 'Dodatne osobine'
-      ClientHeight = 111
-      ClientWidth = 801
+      ClientHeight = 110
+      ClientWidth = 795
       ImageIndex = 21
       object gbEditPropertiesVar: TGroupBox
         Left = 0
@@ -556,7 +556,7 @@ inherited frmDrugs: TfrmDrugs
         Width = 801
         Align = alClient
         Caption = ' Obrada podataka '
-        ClientHeight = 95
+        ClientHeight = 93
         ClientWidth = 797
         TabOrder = 0
         object Label15: TLabel
@@ -570,7 +570,7 @@ inherited frmDrugs: TfrmDrugs
         object dblProperty: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 117
-          Height = 25
+          Height = 21
           Top = 0
           Width = 251
           AutoComplete = True
@@ -659,8 +659,8 @@ inherited frmDrugs: TfrmDrugs
     end
     object tsDiagnostic: TTabSheet
       Caption = 'Diagnostic'
-      ClientHeight = 111
-      ClientWidth = 801
+      ClientHeight = 110
+      ClientWidth = 795
       ImageIndex = 3
       object Label14: TLabel
         Left = 336

@@ -16,14 +16,14 @@ inherited frmLocation: TfrmLocation
     TabOrder = 1
     object cmbCharFilter: TComboBox
       Left = 6
-      Height = 25
+      Height = 21
       Hint = 'Izaberite početno slovo'
-      Top = 5
+      Top = 7
       Width = 159
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoSize = False
-      ItemHeight = 0
+      ItemHeight = 13
       Items.Strings = (
         'A'
         'B'
@@ -75,14 +75,14 @@ inherited frmLocation: TfrmLocation
     object cmbFieldArg: TComboBox
       Cursor = crHandPoint
       Left = 311
-      Height = 25
+      Height = 21
       Hint = 'Polje za pretragu'
       Top = 6
       Width = 164
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoDropDown = True
-      ItemHeight = 0
+      ItemHeight = 13
       ItemIndex = 0
       Items.Strings = (
         'Pretraga polja ...'
@@ -98,7 +98,7 @@ inherited frmLocation: TfrmLocation
     end
     object edtLocate: TEdit
       Left = 480
-      Height = 25
+      Height = 23
       Hint = 'Početak teksta'
       Top = 6
       Width = 132
@@ -131,22 +131,22 @@ inherited frmLocation: TfrmLocation
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
-    ClientHeight = 61
+    ClientHeight = 59
     ClientWidth = 799
     ParentShowHint = False
     ShowHint = True
     TabOrder = 2
     object Label1: TLabel
       Left = 10
-      Height = 14
+      Height = 13
       Top = 5
-      Width = 68
+      Width = 73
       Caption = 'Poštanski broj'
       ParentColor = False
     end
     object dbCode: TDBEdit
       Left = 169
-      Height = 24
+      Height = 21
       Top = 2
       Width = 135
       DataField = 'L_CODE'
@@ -157,15 +157,15 @@ inherited frmLocation: TfrmLocation
     end
     object Label2: TLabel
       Left = 10
-      Height = 14
+      Height = 13
       Top = 31
-      Width = 70
+      Width = 68
       Caption = 'Naziv mesta *'
       ParentColor = False
     end
     object dbName: TDBEdit
       Left = 169
-      Height = 24
+      Height = 21
       Top = 28
       Width = 304
       DataField = 'L_NAME'

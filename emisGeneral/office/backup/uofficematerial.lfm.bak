@@ -88,8 +88,8 @@ inherited frmOfficeMaterial: TfrmOfficeMaterial
       ItemIndex = 0
       Items.Strings = (
         'Pretraga polja ...'
-        'Naziv aparata'
-        'Šifra aparata'
+        'Naziv proizvoda'
+        'Šifra proizvoda'
         'BarCode'
       )
       OnChange = cmbFieldArgChange

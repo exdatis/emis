@@ -16,14 +16,14 @@ inherited frmSupplyServices: TfrmSupplyServices
     TabOrder = 1
     object cmbCharFilter: TComboBox
       Left = 6
-      Height = 25
+      Height = 21
       Hint = 'Izaberite početno slovo'
-      Top = 5
+      Top = 7
       Width = 159
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoSize = False
-      ItemHeight = 0
+      ItemHeight = 13
       Items.Strings = (
         'A'
         'B'
@@ -75,14 +75,14 @@ inherited frmSupplyServices: TfrmSupplyServices
     object cmbFieldArg: TComboBox
       Cursor = crHandPoint
       Left = 311
-      Height = 23
+      Height = 21
       Hint = 'Polje za pretragu'
       Top = 6
       Width = 164
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoDropDown = True
-      ItemHeight = 0
+      ItemHeight = 13
       ItemIndex = 0
       Items.Strings = (
         'Pretraga polja ...'
@@ -98,7 +98,7 @@ inherited frmSupplyServices: TfrmSupplyServices
     end
     object edtLocate: TEdit
       Left = 480
-      Height = 25
+      Height = 23
       Hint = 'Početak teksta'
       Top = 6
       Width = 132
@@ -131,14 +131,14 @@ inherited frmSupplyServices: TfrmSupplyServices
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
-    ClientHeight = 60
+    ClientHeight = 58
     ClientWidth = 799
     ParentShowHint = False
     ShowHint = True
     TabOrder = 2
     object Label1: TLabel
       Left = 6
-      Height = 14
+      Height = 13
       Top = 12
       Width = 23
       Caption = 'Šifra'
@@ -146,7 +146,7 @@ inherited frmSupplyServices: TfrmSupplyServices
     end
     object dbCode: TDBEdit
       Left = 48
-      Height = 24
+      Height = 21
       Top = 5
       Width = 122
       DataField = 'SS_CODE'
@@ -157,15 +157,15 @@ inherited frmSupplyServices: TfrmSupplyServices
     end
     object Label2: TLabel
       Left = 175
-      Height = 14
+      Height = 13
       Top = 12
-      Width = 71
+      Width = 73
       Caption = 'Naziv usluge *'
       ParentColor = False
     end
     object dbName: TDBEdit
       Left = 262
-      Height = 24
+      Height = 21
       Top = 5
       Width = 280
       DataField = 'SS_NAME'
@@ -176,16 +176,16 @@ inherited frmSupplyServices: TfrmSupplyServices
     end
     object Label3: TLabel
       Left = 548
-      Height = 14
+      Height = 13
       Top = 12
-      Width = 39
+      Width = 40
       Caption = 'Grupa *'
       ParentColor = False
     end
     object dblGroup: TDBLookupComboBox
       Cursor = crHandPoint
       Left = 599
-      Height = 25
+      Height = 21
       Top = 4
       Width = 194
       AutoComplete = True
@@ -201,7 +201,7 @@ inherited frmSupplyServices: TfrmSupplyServices
     end
     object Label4: TLabel
       Left = 6
-      Height = 14
+      Height = 13
       Top = 38
       Width = 26
       Caption = 'Pdv *'
@@ -210,7 +210,7 @@ inherited frmSupplyServices: TfrmSupplyServices
     object dblTax: TDBLookupComboBox
       Cursor = crHandPoint
       Left = 48
-      Height = 25
+      Height = 21
       Top = 30
       Width = 122
       AutoComplete = True
@@ -226,16 +226,16 @@ inherited frmSupplyServices: TfrmSupplyServices
     end
     object Label5: TLabel
       Left = 175
-      Height = 14
+      Height = 13
       Top = 38
-      Width = 35
+      Width = 34
       Caption = 'Mera *'
       ParentColor = False
     end
     object dblMeasure: TDBLookupComboBox
       Cursor = crHandPoint
       Left = 262
-      Height = 25
+      Height = 21
       Top = 30
       Width = 280
       AutoComplete = True

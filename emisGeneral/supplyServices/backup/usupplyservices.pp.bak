@@ -354,7 +354,7 @@ end;
 procedure TfrmSupplyServices.onActFirst;
 begin
   {jump to first rec}
-  doFirstRec(TZAbstractDataset(zqSuppliers));
+  doFirstRec(TZAbstractDataset(zqServices));
 end;
 
 procedure TfrmSupplyServices.onActPrior;

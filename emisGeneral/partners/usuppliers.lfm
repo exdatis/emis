@@ -16,14 +16,14 @@ inherited frmSuppliers: TfrmSuppliers
     TabOrder = 1
     object cmbCharFilter: TComboBox
       Left = 6
-      Height = 25
+      Height = 21
       Hint = 'Izaberite početno slovo'
-      Top = 5
+      Top = 7
       Width = 159
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoSize = False
-      ItemHeight = 0
+      ItemHeight = 13
       Items.Strings = (
         'A'
         'B'
@@ -75,14 +75,14 @@ inherited frmSuppliers: TfrmSuppliers
     object cmbFieldArg: TComboBox
       Cursor = crHandPoint
       Left = 311
-      Height = 23
+      Height = 21
       Hint = 'Polje za pretragu'
       Top = 6
       Width = 164
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoDropDown = True
-      ItemHeight = 0
+      ItemHeight = 13
       ItemIndex = 0
       Items.Strings = (
         'Pretraga polja ...'
@@ -99,7 +99,7 @@ inherited frmSuppliers: TfrmSuppliers
     end
     object edtLocate: TEdit
       Left = 480
-      Height = 25
+      Height = 23
       Hint = 'Početak teksta'
       Top = 6
       Width = 132
@@ -132,14 +132,14 @@ inherited frmSuppliers: TfrmSuppliers
     Width = 803
     Align = alTop
     Caption = ' Obrada podataka '
-    ClientHeight = 85
+    ClientHeight = 83
     ClientWidth = 799
     ParentShowHint = False
     ShowHint = True
     TabOrder = 2
     object Label1: TLabel
       Left = 7
-      Height = 14
+      Height = 13
       Top = 12
       Width = 26
       Caption = 'Šifra '
@@ -147,7 +147,7 @@ inherited frmSuppliers: TfrmSuppliers
     end
     object dbCode: TDBEdit
       Left = 58
-      Height = 24
+      Height = 21
       Top = 5
       Width = 104
       DataField = 'S_CODE'
@@ -158,15 +158,15 @@ inherited frmSuppliers: TfrmSuppliers
     end
     object Label2: TLabel
       Left = 171
-      Height = 14
+      Height = 13
       Top = 12
-      Width = 20
+      Width = 19
       Caption = 'PIB '
       ParentColor = False
     end
     object dbReg: TDBEdit
       Left = 195
-      Height = 24
+      Height = 21
       Top = 5
       Width = 105
       DataField = 'S_REG'
@@ -177,15 +177,15 @@ inherited frmSuppliers: TfrmSuppliers
     end
     object Label3: TLabel
       Left = 310
-      Height = 14
+      Height = 13
       Top = 12
-      Width = 57
+      Width = 58
       Caption = 'Dobavljač *'
       ParentColor = False
     end
     object dbName: TDBEdit
       Left = 378
-      Height = 24
+      Height = 21
       Top = 5
       Width = 414
       DataField = 'S_NAME'
@@ -196,7 +196,7 @@ inherited frmSuppliers: TfrmSuppliers
     end
     object Label4: TLabel
       Left = 7
-      Height = 14
+      Height = 13
       Top = 37
       Width = 45
       Caption = 'Sedište *'
@@ -204,7 +204,7 @@ inherited frmSuppliers: TfrmSuppliers
     end
     object dbLocation: TDBEdit
       Left = 58
-      Height = 24
+      Height = 21
       Top = 30
       Width = 216
       DataField = 'L_NAME'
@@ -264,15 +264,15 @@ inherited frmSuppliers: TfrmSuppliers
     end
     object Label5: TLabel
       Left = 310
-      Height = 14
+      Height = 13
       Top = 37
-      Width = 34
+      Width = 35
       Caption = 'Adresa'
       ParentColor = False
     end
     object dbAddress: TDBEdit
       Left = 378
-      Height = 24
+      Height = 21
       Top = 30
       Width = 414
       DataField = 'S_ADDRESS'
@@ -283,15 +283,15 @@ inherited frmSuppliers: TfrmSuppliers
     end
     object Label6: TLabel
       Left = 7
-      Height = 14
+      Height = 13
       Top = 62
-      Width = 36
+      Width = 38
       Caption = 'Telefon'
       ParentColor = False
     end
     object dbPhone: TDBEdit
       Left = 58
-      Height = 24
+      Height = 21
       Top = 55
       Width = 104
       DataField = 'S_PHONE'
@@ -302,7 +302,7 @@ inherited frmSuppliers: TfrmSuppliers
     end
     object Label7: TLabel
       Left = 169
-      Height = 14
+      Height = 13
       Top = 62
       Width = 17
       Caption = 'Fax'
@@ -310,7 +310,7 @@ inherited frmSuppliers: TfrmSuppliers
     end
     object dbFax: TDBEdit
       Left = 195
-      Height = 24
+      Height = 21
       Top = 55
       Width = 105
       DataField = 'S_FAX'
@@ -321,15 +321,15 @@ inherited frmSuppliers: TfrmSuppliers
     end
     object Label8: TLabel
       Left = 310
-      Height = 14
+      Height = 13
       Top = 62
-      Width = 32
+      Width = 31
       Caption = 'E-mail'
       ParentColor = False
     end
     object dbMail: TDBEdit
       Left = 378
-      Height = 24
+      Height = 21
       Top = 55
       Width = 256
       DataField = 'S_MAIL'
@@ -340,15 +340,15 @@ inherited frmSuppliers: TfrmSuppliers
     end
     object Label9: TLabel
       Left = 642
-      Height = 14
+      Height = 13
       Top = 62
-      Width = 37
+      Width = 40
       Caption = 'Mobilni'
       ParentColor = False
     end
     object dbMobile: TDBEdit
       Left = 687
-      Height = 24
+      Height = 21
       Top = 55
       Width = 105
       DataField = 'S_MOBILE'
@@ -435,7 +435,7 @@ inherited frmSuppliers: TfrmSuppliers
     end
     object edtGridSearch: TEdit
       Left = 1
-      Height = 24
+      Height = 21
       Hint = 'Pretraga po nazivu'
       Top = 218
       Width = 231

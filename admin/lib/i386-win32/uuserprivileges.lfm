@@ -16,14 +16,14 @@ inherited frmUserPrivileges: TfrmUserPrivileges
     TabOrder = 1
     object cmbCharFilter: TComboBox
       Left = 6
-      Height = 25
+      Height = 21
       Hint = 'Izaberite početno slovo'
-      Top = 5
+      Top = 7
       Width = 159
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoSize = False
-      ItemHeight = 0
+      ItemHeight = 13
       Items.Strings = (
         'A'
         'B'
@@ -75,14 +75,14 @@ inherited frmUserPrivileges: TfrmUserPrivileges
     object cmbFieldArg: TComboBox
       Cursor = crHandPoint
       Left = 311
-      Height = 23
+      Height = 21
       Hint = 'Polje za pretragu'
       Top = 6
       Width = 164
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoDropDown = True
-      ItemHeight = 0
+      ItemHeight = 13
       ItemIndex = 0
       Items.Strings = (
         'Pretraga polja ...'
@@ -98,7 +98,7 @@ inherited frmUserPrivileges: TfrmUserPrivileges
     end
     object edtLocate: TEdit
       Left = 480
-      Height = 25
+      Height = 23
       Hint = 'Početak teksta'
       Top = 6
       Width = 132
@@ -157,33 +157,33 @@ inherited frmUserPrivileges: TfrmUserPrivileges
     OnChange = pcUsersChange
     object tsUsers: TTabSheet
       Caption = ' Korisnici aplikacije'
-      ClientHeight = 159
-      ClientWidth = 801
+      ClientHeight = 158
+      ClientWidth = 795
       ImageIndex = 12
       object gbEditUser: TGroupBox
         Left = 0
-        Height = 159
+        Height = 158
         Hint = 'Polja sa (*) su obavezna'
         Top = 0
-        Width = 801
+        Width = 795
         Align = alClient
         Caption = ' Obrada podataka '
-        ClientHeight = 143
-        ClientWidth = 797
+        ClientHeight = 140
+        ClientWidth = 791
         ParentShowHint = False
         ShowHint = True
         TabOrder = 0
         object Label1: TLabel
           Left = 7
-          Height = 14
+          Height = 13
           Top = 10
-          Width = 77
+          Width = 74
           Caption = 'Prezime i ime *'
           ParentColor = False
         end
         object dbName: TDBEdit
           Left = 113
-          Height = 24
+          Height = 21
           Top = 3
           Width = 296
           DataField = 'AU_FULL_NAME'
@@ -194,7 +194,7 @@ inherited frmUserPrivileges: TfrmUserPrivileges
         end
         object Label2: TLabel
           Left = 417
-          Height = 14
+          Height = 13
           Top = 10
           Width = 31
           Caption = 'Titula '
@@ -202,7 +202,7 @@ inherited frmUserPrivileges: TfrmUserPrivileges
         end
         object dbTitle: TDBEdit
           Left = 468
-          Height = 24
+          Height = 21
           Top = 3
           Width = 320
           DataField = 'AU_TITLE'
@@ -213,15 +213,15 @@ inherited frmUserPrivileges: TfrmUserPrivileges
         end
         object Label3: TLabel
           Left = 7
-          Height = 14
+          Height = 13
           Top = 36
-          Width = 80
+          Width = 82
           Caption = 'Korisničko ime *'
           ParentColor = False
         end
         object dbUserName: TDBEdit
           Left = 113
-          Height = 24
+          Height = 21
           Top = 29
           Width = 296
           DataField = 'AU_USER_NAME'
@@ -232,15 +232,15 @@ inherited frmUserPrivileges: TfrmUserPrivileges
         end
         object Label4: TLabel
           Left = 417
-          Height = 14
+          Height = 13
           Top = 36
-          Width = 45
+          Width = 47
           Caption = 'Lozinka *'
           ParentColor = False
         end
         object dbUserPwd: TDBEdit
           Left = 468
-          Height = 24
+          Height = 21
           Top = 29
           Width = 320
           DataField = 'AU_USER_PWD'
@@ -252,16 +252,16 @@ inherited frmUserPrivileges: TfrmUserPrivileges
         end
         object Label5: TLabel
           Left = 7
-          Height = 14
+          Height = 13
           Top = 63
-          Width = 56
+          Width = 58
           Caption = 'Odeljenje *'
           ParentColor = False
         end
         object dblDepartment: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 113
-          Height = 25
+          Height = 21
           Top = 55
           Width = 296
           AutoComplete = True
@@ -277,7 +277,7 @@ inherited frmUserPrivileges: TfrmUserPrivileges
         end
         object dbCode: TDBEdit
           Left = 7
-          Height = 24
+          Height = 21
           Top = 83
           Width = 781
           DataField = 'AU_CODE'
@@ -320,8 +320,8 @@ inherited frmUserPrivileges: TfrmUserPrivileges
     end
     object tsPrivileges: TTabSheet
       Caption = 'Privilegije korisnika'
-      ClientHeight = 159
-      ClientWidth = 801
+      ClientHeight = 158
+      ClientWidth = 795
       ImageIndex = 2
       object gbPrivileges: TGroupBox
         Left = 0
@@ -331,7 +331,7 @@ inherited frmUserPrivileges: TfrmUserPrivileges
         Width = 801
         Align = alClient
         Caption = ' Obrada podataka '
-        ClientHeight = 143
+        ClientHeight = 141
         ClientWidth = 797
         ParentShowHint = False
         ShowHint = True
@@ -347,7 +347,7 @@ inherited frmUserPrivileges: TfrmUserPrivileges
         object dblModule: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 95
-          Height = 25
+          Height = 21
           Top = 1
           Width = 257
           AutoComplete = True

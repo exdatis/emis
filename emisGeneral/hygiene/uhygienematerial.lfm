@@ -18,14 +18,14 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
     TabOrder = 1
     object cmbCharFilter: TComboBox
       Left = 6
-      Height = 25
+      Height = 21
       Hint = 'Izaberite početno slovo'
-      Top = 6
+      Top = 7
       Width = 159
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoSize = False
-      ItemHeight = 0
+      ItemHeight = 13
       Items.Strings = (
         'A'
         'B'
@@ -77,14 +77,14 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
     object cmbFieldArg: TComboBox
       Cursor = crHandPoint
       Left = 311
-      Height = 23
+      Height = 21
       Hint = 'Polje za pretragu'
       Top = 6
       Width = 164
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoDropDown = True
-      ItemHeight = 0
+      ItemHeight = 13
       ItemIndex = 0
       Items.Strings = (
         'Pretraga polja ...'
@@ -101,7 +101,7 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
     end
     object edtLocate: TEdit
       Left = 480
-      Height = 25
+      Height = 23
       Hint = 'Početak teksta'
       Top = 6
       Width = 132
@@ -160,25 +160,25 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
     OnChange = pcProductChange
     object tsProduct: TTabSheet
       Caption = 'Higijenski materijal'
-      ClientHeight = 111
-      ClientWidth = 801
+      ClientHeight = 110
+      ClientWidth = 795
       ImageIndex = 11
       object gbEditProduct: TGroupBox
         Left = 0
-        Height = 111
+        Height = 110
         Hint = 'Polja sa (*) su obavezna'
         Top = 0
-        Width = 801
+        Width = 795
         Align = alClient
         Caption = ' Obrada podataka '
-        ClientHeight = 95
-        ClientWidth = 797
+        ClientHeight = 92
+        ClientWidth = 791
         ParentShowHint = False
         ShowHint = True
         TabOrder = 0
         object Label1: TLabel
           Left = 6
-          Height = 14
+          Height = 13
           Top = 12
           Width = 23
           Caption = 'Šifra'
@@ -186,7 +186,7 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
         end
         object dbCode: TDBEdit
           Left = 69
-          Height = 24
+          Height = 21
           Top = 5
           Width = 101
           DataField = 'HM_CODE'
@@ -197,15 +197,15 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
         end
         object Label2: TLabel
           Left = 175
-          Height = 14
+          Height = 13
           Top = 12
-          Width = 50
+          Width = 52
           Caption = 'Proizvod *'
           ParentColor = False
         end
         object dbName: TDBEdit
           Left = 240
-          Height = 24
+          Height = 21
           Top = 7
           Width = 320
           DataField = 'HM_NAME'
@@ -216,15 +216,15 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
         end
         object Label3: TLabel
           Left = 566
-          Height = 14
+          Height = 13
           Top = 12
-          Width = 42
+          Width = 44
           Caption = 'BarCode'
           ParentColor = False
         end
         object dbBarCode: TDBEdit
           Left = 617
-          Height = 24
+          Height = 21
           Top = 7
           Width = 170
           DataField = 'HM_BARCODE'
@@ -235,15 +235,15 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
         end
         object Label4: TLabel
           Left = 6
-          Height = 14
+          Height = 13
           Top = 37
-          Width = 52
+          Width = 53
           Caption = 'Kom/pak *'
           ParentColor = False
         end
         object dbPieces: TDBEdit
           Left = 69
-          Height = 24
+          Height = 21
           Top = 30
           Width = 101
           DataField = 'HM_PIECES'
@@ -254,16 +254,16 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
         end
         object Label5: TLabel
           Left = 175
-          Height = 14
+          Height = 13
           Top = 37
-          Width = 39
+          Width = 40
           Caption = 'Grupa *'
           ParentColor = False
         end
         object dblGroup: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 240
-          Height = 25
+          Height = 21
           Top = 31
           Width = 320
           AutoComplete = True
@@ -279,16 +279,16 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
         end
         object Label6: TLabel
           Left = 566
-          Height = 14
+          Height = 13
           Top = 37
-          Width = 35
+          Width = 34
           Caption = 'Mera *'
           ParentColor = False
         end
         object dblMeasure: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 616
-          Height = 25
+          Height = 21
           Top = 31
           Width = 170
           AutoComplete = True
@@ -304,7 +304,7 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
         end
         object Label7: TLabel
           Left = 6
-          Height = 14
+          Height = 13
           Top = 61
           Width = 29
           Caption = 'PDV *'
@@ -313,7 +313,7 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
         object dblTaxes: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 69
-          Height = 25
+          Height = 21
           Top = 55
           Width = 101
           AutoComplete = True
@@ -331,8 +331,8 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
     end
     object tsProperties: TTabSheet
       Caption = 'Dodatne osobine'
-      ClientHeight = 111
-      ClientWidth = 801
+      ClientHeight = 110
+      ClientWidth = 795
       ImageIndex = 21
       object gbEditPropertiesVar: TGroupBox
         Left = 0
@@ -342,7 +342,7 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
         Width = 801
         Align = alClient
         Caption = ' Obrada podataka '
-        ClientHeight = 95
+        ClientHeight = 93
         ClientWidth = 797
         TabOrder = 0
         object Label15: TLabel
@@ -356,7 +356,7 @@ inherited frmHygieneMaterial: TfrmHygieneMaterial
         object dblProperty: TDBLookupComboBox
           Cursor = crHandPoint
           Left = 117
-          Height = 25
+          Height = 21
           Top = 0
           Width = 251
           AutoComplete = True

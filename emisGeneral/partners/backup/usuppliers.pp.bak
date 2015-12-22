@@ -419,7 +419,7 @@ begin
   {sort}
   doSortDbGrid(TZAbstractDataset(zqSuppliers), Column);
   {refresh after sort}
-  dbgLocation.Refresh;
+  dbgSuppliers.Refresh;
   { find recNo}
   recCount:= IntToStr(TZAbstractDataset(zqSuppliers).RecordCount);
   recNo:= IntToStr(TZAbstractDataset(zqSuppliers).RecNo);

@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, BCPanel, DTAnalogClock, BGRASpriteAnimation,
   BGRALED, Forms, Controls, Graphics, DividerBevel, Dialogs, ActnList, Menus,
-  ComCtrls, ExtCtrls, LCLIntf, StdCtrls, Buttons, process, IniFiles;
+  ComCtrls, ExtCtrls, LCLIntf, StdCtrls, Buttons, process, IniFiles, strutils;
 
 type
 
