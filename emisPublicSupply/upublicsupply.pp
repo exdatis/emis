@@ -17,6 +17,9 @@ type
   { TfrmPublicSupply }
 
   TfrmPublicSupply = class(TForm)
+    actDonors: TAction;
+    actLocation: TAction;
+    actSuppliers: TAction;
     actItemsOrderType: TAction;
     actSupplyType: TAction;
     actQuitApp: TAction;
@@ -40,12 +43,17 @@ type
     lblEditDataPdf: TLabel;
     lblModuleTitle: TLabel;
     MenuItem1: TMenuItem;
+    MenuItem10: TMenuItem;
+    MenuItem11: TMenuItem;
+    MenuItem12: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
     mnuPS: TMainMenu;
     panelForms: TBCPanel;
     panelLogo: TPanel;
@@ -60,8 +68,14 @@ type
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
+    ToolButton6: TToolButton;
+    ToolButton7: TToolButton;
+    ToolButton8: TToolButton;
+    procedure actDonorsExecute(Sender: TObject);
     procedure actItemsOrderTypeExecute(Sender: TObject);
+    procedure actLocationExecute(Sender: TObject);
     procedure actQuitAppExecute(Sender: TObject);
+    procedure actSuppliersExecute(Sender: TObject);
     procedure actSupplyTypeExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
@@ -83,7 +97,7 @@ const
   MAX_CTRLS : ShortInt = 5;
 implementation
 uses
-  uDModule, uSupplyType, uItemsOrderType, uLogin;
+  uDModule, uSupplyType, uItemsOrderType, uLogin, uSuppliers, uDonors, uLocation;
 {$R *.lfm}
 
 { TfrmPublicSupply }
@@ -93,6 +107,34 @@ begin
   {close main form and terminate app}
   Close;
   Application.Terminate;
+end;
+
+procedure TfrmPublicSupply.actSuppliersExecute(Sender: TObject);
+var
+  newForm : TfrmSuppliers;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmSuppliers.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.applyCharFilter; {with default char}
+    {set help-path}
+    newForm.HELP_PATH:= HELP_PATH;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
 end;
 
 procedure TfrmPublicSupply.actItemsOrderTypeExecute(Sender: TObject);
@@ -105,6 +147,59 @@ begin
   closePriorForm;
   try
     newForm:= TfrmItemsOrderType.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.openDataSet;
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+end;
+
+procedure TfrmPublicSupply.actLocationExecute(Sender: TObject);
+var
+  newForm : TfrmLocation;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmLocation.Create(nil);
+    {set parent ctrl}
+    newForm.Parent:= panelForms;
+    {set position}
+    newForm.Left:= 0;
+    newForm.Top:= 0;
+    {open dataSets}
+    newForm.applyCharFilter; {with default char}
+    {show form}
+    newForm.Show;
+    {set focus to enable shortcuts}
+    newForm.SetFocus;
+  finally
+    Screen.Cursor:= crDefault;
+  end;
+
+end;
+
+procedure TfrmPublicSupply.actDonorsExecute(Sender: TObject);
+var
+  newForm : TfrmDonors;
+begin
+  {set cursor(wait)}
+  Screen.Cursor:= crHourGlass;
+  {clear old forms}
+  closePriorForm;
+  try
+    newForm:= TfrmDonors.Create(nil);
     {set parent ctrl}
     newForm.Parent:= panelForms;
     {set position}

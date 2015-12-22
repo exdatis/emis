@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, ZDataset, ZSequence, Forms, Controls, Graphics,
   Dialogs, StdCtrls, ActnList, ExtCtrls, DbCtrls, DBGrids, uBaseDbForm, db,
-  ZAbstractDataset, ZAbstractRODataset;
+  ZAbstractDataset;
 
 type
 

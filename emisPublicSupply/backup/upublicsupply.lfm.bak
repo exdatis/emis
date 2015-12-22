@@ -5,7 +5,7 @@ object frmPublicSupply: TfrmPublicSupply
   Width = 1035
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Emis software - javne nabavke'
-  ClientHeight = 559
+  ClientHeight = 562
   ClientWidth = 1035
   Menu = mnuPS
   OnShow = FormShow
@@ -61,11 +61,39 @@ object frmPublicSupply: TfrmPublicSupply
       ParentShowHint = False
       ShowHint = True
     end
+    object ToolButton6: TToolButton
+      Left = 80
+      Height = 22
+      Top = 2
+      Width = 5
+      Caption = 'ToolButton6'
+      Style = tbsDivider
+    end
+    object ToolButton7: TToolButton
+      Cursor = crHandPoint
+      Left = 85
+      Top = 2
+      Action = actSuppliers
+      ImageIndex = 4
+      ParentShowHint = False
+      ShowCaption = False
+      ShowHint = True
+    end
+    object ToolButton8: TToolButton
+      Cursor = crHandPoint
+      Left = 108
+      Top = 2
+      Action = actDonors
+      ImageIndex = 18
+      ParentShowHint = False
+      ShowCaption = False
+      ShowHint = True
+    end
   end
   object statusBarGeneral: TStatusBar
     Left = 0
-    Height = 19
-    Top = 540
+    Height = 23
+    Top = 539
     Width = 1035
     AutoHint = True
     Panels = <    
@@ -85,11 +113,11 @@ object frmPublicSupply: TfrmPublicSupply
   end
   object panelMnu: TPanel
     Left = 0
-    Height = 514
+    Height = 513
     Top = 26
     Width = 224
     Align = alLeft
-    ClientHeight = 514
+    ClientHeight = 513
     ClientWidth = 224
     ParentColor = False
     TabOrder = 2
@@ -288,7 +316,7 @@ object frmPublicSupply: TfrmPublicSupply
   end
   object panelForms: TBCPanel
     Left = 232
-    Height = 514
+    Height = 513
     Top = 26
     Width = 803
     Align = alRight
@@ -698,7 +726,7 @@ object frmPublicSupply: TfrmPublicSupply
       Height = 15
       Hint = 'Project home page'
       Top = 22
-      Width = 235
+      Width = 233
       Caption = 'Emis software - module public procurement'
       Font.Color = clCream
       ParentColor = False
@@ -2069,11 +2097,11 @@ object frmPublicSupply: TfrmPublicSupply
   end
   object panelLogo: TPanel
     Left = 902
-    Height = 25
+    Height = 24
     Top = 1
     Width = 131
     BevelInner = bvLowered
-    ClientHeight = 25
+    ClientHeight = 24
     ClientWidth = 131
     Color = clWhite
     ParentColor = False
@@ -2081,7 +2109,7 @@ object frmPublicSupply: TfrmPublicSupply
     object bgrSpriteLogo: TBGRASpriteAnimation
       Cursor = crHandPoint
       Left = 2
-      Height = 21
+      Height = 20
       Hint = 'ExDatis software'
       Top = 2
       Width = 127
@@ -2967,6 +2995,21 @@ object frmPublicSupply: TfrmPublicSupply
       Hint = 'Tip stavki'
       OnExecute = actItemsOrderTypeExecute
     end
+    object actDonors: TAction
+      Caption = 'Donatori'
+      Hint = 'Donatori'
+      OnExecute = actDonorsExecute
+    end
+    object actSuppliers: TAction
+      Caption = 'Dobavljači'
+      Hint = 'Dobavljači'
+      OnExecute = actSuppliersExecute
+    end
+    object actLocation: TAction
+      Caption = 'Gradovi i mesta'
+      Hint = 'Lokacije'
+      OnExecute = actLocationExecute
+    end
   end
   object mnuPS: TMainMenu
     Images = imgGeneral
@@ -3027,6 +3070,15 @@ object frmPublicSupply: TfrmPublicSupply
       end
       object MenuItem7: TMenuItem
         Action = actItemsOrderType
+      end
+      object MenuItem8: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem9: TMenuItem
+        Action = actSuppliers
+      end
+      object MenuItem10: TMenuItem
+        Action = actDonors
       end
     end
   end

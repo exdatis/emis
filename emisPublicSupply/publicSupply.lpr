@@ -8,7 +8,8 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, lazcontrols, zcomponent, uPublicSupply, uDModule, uExDatis,
-  uBaseDbForm, uConfirm, uLogin, uSupplyType, uItemsOrderType
+  uBaseDbForm, uConfirm, uLogin, uSuppliers, uDonors, uLocation, uSupplyType,
+  uItemsOrderType
   { you can add units after this };
 
 {$R *.res}
